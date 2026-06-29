@@ -1,0 +1,36 @@
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            NonSimpleMemoryAccess
+DebugLoc:        { File: linear_transformer.cpp, Line: 32, Column: 10 }
+Function:        _Z11transformerPVfS0_
+Args:            
+  - String:          Volatile or Atomic access cannot be transformed
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        entry.store.12
+  - String:          ' '
+  - ArrayName:       val
+  - String:          ' '
+  - BundleName:      gmem1
+  - String:          ' '
+  - Function:        'transformer(float volatile*, float volatile*)'
+    DebugLoc:        { File: linear_transformer.cpp, Line: 23, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            NonSimpleMemoryAccess
+DebugLoc:        { File: linear_transformer.cpp, Line: 60, Column: 16 }
+Function:        _Z22transformer_for_samplePVfPf
+Args:            
+  - String:          Volatile or Atomic access cannot be transformed
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        for.inc.load.6
+  - String:          ' '
+  - ArrayName:       input_array
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - Function:        'transformer_for_sample(float volatile*, float*)'
+    DebugLoc:        { File: linear_transformer.cpp, Line: 35, Column: 0 }
+  - String:          ' '
+...

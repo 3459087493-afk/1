@@ -1,0 +1,17 @@
+remark: ./transformer.h:76:0: Inlining function 'void add_bias_to_row<float, 8>(float const*, float const*, float*)' into 'void kernel_bias_add<float, 8, 8>(float const (*) [8], float const*, float (*) [8])'
+remark: ./transformer.h:76:0: Inlining function 'void add_bias_to_row<float, 16>(float const*, float const*, float*)' into 'void kernel_bias_add<float, 8, 16>(float const (*) [16], float const*, float (*) [16])'
+remark: ./transformer.h:76:0: Inlining function 'void add_bias_to_row<float, 1>(float const*, float const*, float*)' into 'void kernel_bias_add<float, 8, 1>(float const (*) [1], float const*, float (*) [1])'
+remark: transformer.cpp:67:0: Inlining function 'void kernel_mmult<float, 8, 2, 8>(float const (*) [2], float const (*) [8], float (*) [8])' into 'transformer_for_sample(float (*) [2], float*)'
+remark: transformer.cpp:67:0: Inlining function 'void kernel_bias_add<float, 8, 8>(float const (*) [8], float const*, float (*) [8])' into 'transformer_for_sample(float (*) [2], float*)'
+remark: transformer.cpp:67:0: Inlining function 'void kernel_mmult<float, 8, 8, 8>(float const (*) [8], float const (*) [8], float (*) [8])' into 'transformer_for_sample(float (*) [2], float*)'
+remark: transformer.cpp:67:0: Inlining function 'std::exp(float)' into 'transformer_for_sample(float (*) [2], float*)'
+remark: transformer.cpp:67:0: Inlining function 'void kernel_mmult<float, 8, 8, 16>(float const (*) [8], float const (*) [16], float (*) [16])' into 'transformer_for_sample(float (*) [2], float*)'
+remark: transformer.cpp:67:0: Inlining function 'void kernel_bias_add<float, 8, 16>(float const (*) [16], float const*, float (*) [16])' into 'transformer_for_sample(float (*) [2], float*)'
+remark: transformer.cpp:67:0: Inlining function 'void relu_inplace<float, 8, 16>(float (*) [16])' into 'transformer_for_sample(float (*) [2], float*)'
+remark: transformer.cpp:67:0: Inlining function 'void kernel_mmult<float, 8, 16, 8>(float const (*) [16], float const (*) [8], float (*) [8])' into 'transformer_for_sample(float (*) [2], float*)'
+remark: transformer.cpp:67:0: Inlining function 'void kernel_mmult<float, 8, 8, 1>(float const (*) [8], float const (*) [1], float (*) [1])' into 'transformer_for_sample(float (*) [2], float*)'
+remark: transformer.cpp:67:0: Inlining function 'void kernel_bias_add<float, 8, 1>(float const (*) [1], float const*, float (*) [1])' into 'transformer_for_sample(float (*) [2], float*)'
+warning: <unknown>:0:0: The program may have out of bound array access
+warning: <unknown>:0:0: The program may have out of bound array access
+warning: <unknown>:0:0: The program may have out of bound array access
+warning: <unknown>:0:0: The program may have out of bound array access

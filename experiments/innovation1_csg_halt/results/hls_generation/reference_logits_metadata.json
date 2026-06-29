@@ -1,0 +1,94 @@
+{
+  "samples": 256,
+  "original_metrics": {
+    "accuracy": 0.609375,
+    "precision": 0.11504424778761062,
+    "recall": 1.0,
+    "f1": 0.20634920634920637,
+    "confusion_matrix": [
+      [
+        143,
+        100
+      ],
+      [
+        0,
+        13
+      ]
+    ]
+  },
+  "variants": {
+    "v00_float_reference": {
+      "reference_mode": "exact_float",
+      "reference_file": "/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/results/hls_generation/reference_logits/original_float_reference_logits.npy",
+      "confusion_matrix": [
+        [
+          143,
+          100
+        ],
+        [
+          0,
+          13
+        ]
+      ],
+      "denominator_min": 118.58722686767578,
+      "denominator_mean": 125.9341812133789,
+      "denominator_near_zero_count": 0,
+      "csim_tolerance": 0.001
+    },
+    "v01_static_sparse_87p5_float": {
+      "reference_mode": "exact_static_sparse_float",
+      "reference_file": "/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/results/hls_generation/reference_logits/static_sparse_87p5_float_reference_logits.npy",
+      "confusion_matrix": [
+        [
+          143,
+          100
+        ],
+        [
+          0,
+          13
+        ]
+      ],
+      "denominator_min": 97.03277587890625,
+      "denominator_mean": 103.06040954589844,
+      "denominator_near_zero_count": 0,
+      "csim_tolerance": 0.001
+    },
+    "v02_sparse_87p5_mixed_fixed": {
+      "reference_mode": "static_sparse_proxy_for_mixed_fixed",
+      "reference_file": "/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/results/hls_generation/reference_logits/sparse_87p5_mixed_fixed_reference_logits.npy",
+      "confusion_matrix": [
+        [
+          143,
+          100
+        ],
+        [
+          0,
+          13
+        ]
+      ],
+      "denominator_min": 97.03277587890625,
+      "denominator_mean": 103.06040954589844,
+      "denominator_near_zero_count": 0,
+      "csim_tolerance": 0.01
+    },
+    "v03_full_csg_halt": {
+      "reference_mode": "exact_three_segment_pwl_float_proxy_before_ap_fixed",
+      "reference_file": "/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/results/hls_generation/reference_logits/full_csg_halt_reference_logits.npy",
+      "confusion_matrix": [
+        [
+          144,
+          99
+        ],
+        [
+          0,
+          13
+        ]
+      ],
+      "denominator_min": 98.99073791503906,
+      "denominator_mean": 105.44874572753906,
+      "denominator_near_zero_count": 0,
+      "csim_tolerance": 0.01
+    }
+  },
+  "mixed_fixed_note": "v02 uses the static sparse float reference as an allowed pre-CSIM proxy; the ap_fixed implementation must pass the 1e-2 CSIM tolerance."
+}

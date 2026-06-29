@@ -1,0 +1,163 @@
+
+
+================================================================
+== Synthesis Summary Report of 'transformer'
+================================================================
++ General Information: 
+    * Date:           Mon May 18 20:12:13 2026
+    * Version:        2022.2 (Build 3670227 on Oct 13 2022)
+    * Project:        transformer_hls
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |    Modules    | Issue|      | Latency | Latency| Iteration|         | Trip |          |      |    |           |           |     |
+    |    & Loops    | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF    |    LUT    | URAM|
+    +---------------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |+ transformer  |     -|  6.30|        0|   0.000|         -|        1|     -|        no|     -|   -|  682 (~0%)|  1128 (2%)|    -|
+    +---------------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 8             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register   | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL       | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER       | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER     | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR     | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control | x0         | 0x10   | 32    | W      | Data signal of x0                |                                                                      |
+| s_axi_control | x1         | 0x18   | 32    | W      | Data signal of x1                |                                                                      |
+| s_axi_control | x2         | 0x20   | 32    | W      | Data signal of x2                |                                                                      |
+| s_axi_control | x3         | 0x28   | 32    | W      | Data signal of x3                |                                                                      |
+| s_axi_control | x4         | 0x30   | 32    | W      | Data signal of x4                |                                                                      |
+| s_axi_control | x5         | 0x38   | 32    | W      | Data signal of x5                |                                                                      |
+| s_axi_control | x6         | 0x40   | 32    | W      | Data signal of x6                |                                                                      |
+| s_axi_control | x7         | 0x48   | 32    | W      | Data signal of x7                |                                                                      |
+| s_axi_control | x8         | 0x50   | 32    | W      | Data signal of x8                |                                                                      |
+| s_axi_control | x9         | 0x58   | 32    | W      | Data signal of x9                |                                                                      |
+| s_axi_control | x10        | 0x60   | 32    | W      | Data signal of x10               |                                                                      |
+| s_axi_control | x11        | 0x68   | 32    | W      | Data signal of x11               |                                                                      |
+| s_axi_control | x12        | 0x70   | 32    | W      | Data signal of x12               |                                                                      |
+| s_axi_control | x13        | 0x78   | 32    | W      | Data signal of x13               |                                                                      |
+| s_axi_control | x14        | 0x80   | 32    | W      | Data signal of x14               |                                                                      |
+| s_axi_control | x15        | 0x88   | 32    | W      | Data signal of x15               |                                                                      |
+| s_axi_control | val_r      | 0x90   | 32    | R      | Data signal of val_r             |                                                                      |
+| s_axi_control | val_r_ctrl | 0x94   | 32    | R      | Control signal of val_r          | 0=val_r_ap_vld                                                       |
++---------------+------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+----------+
+| Argument | Direction | Datatype |
++----------+-----------+----------+
+| x0       | in        | float    |
+| x1       | in        | float    |
+| x2       | in        | float    |
+| x3       | in        | float    |
+| x4       | in        | float    |
+| x5       | in        | float    |
+| x6       | in        | float    |
+| x7       | in        | float    |
+| x8       | in        | float    |
+| x9       | in        | float    |
+| x10      | in        | float    |
+| x11      | in        | float    |
+| x12      | in        | float    |
+| x13      | in        | float    |
+| x14      | in        | float    |
+| x15      | in        | float    |
+| val      | out       | float*   |
++----------+-----------+----------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+-------------------------------+
+| Argument | HW Interface  | HW Type   | HW Info                       |
++----------+---------------+-----------+-------------------------------+
+| x0       | s_axi_control | register  | name=x0 offset=0x10 range=32  |
+| x1       | s_axi_control | register  | name=x1 offset=0x18 range=32  |
+| x2       | s_axi_control | register  | name=x2 offset=0x20 range=32  |
+| x3       | s_axi_control | register  | name=x3 offset=0x28 range=32  |
+| x4       | s_axi_control | register  | name=x4 offset=0x30 range=32  |
+| x5       | s_axi_control | register  | name=x5 offset=0x38 range=32  |
+| x6       | s_axi_control | register  | name=x6 offset=0x40 range=32  |
+| x7       | s_axi_control | register  | name=x7 offset=0x48 range=32  |
+| x8       | s_axi_control | register  | name=x8 offset=0x50 range=32  |
+| x9       | s_axi_control | register  | name=x9 offset=0x58 range=32  |
+| x10      | s_axi_control | register  | name=x10 offset=0x60 range=32 |
+| x11      | s_axi_control | register  | name=x11 offset=0x68 range=32 |
+| x12      | s_axi_control | register  | name=x12 offset=0x70 range=32 |
+| x13      | s_axi_control | register  | name=x13 offset=0x78 range=32 |
+| x14      | s_axi_control | register  | name=x14 offset=0x80 range=32 |
+| x15      | s_axi_control | register  | name=x15 offset=0x88 range=32 |
+| val      | s_axi_control | interface |                               |
++----------+---------------+-----------+-------------------------------+
+
+
+================================================================
+== Bind Op Report
+================================================================
+  No bind op info in design
+
+================================================================
+== Bind Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------+------------------------------------------+----------------------------------------------+
+| Type      | Options                                  | Location                                     |
++-----------+------------------------------------------+----------------------------------------------+
+| interface | s_axilite port = x0 bundle = control     | transformer.cpp:25 in transformer            |
+| interface | s_axilite port = x1 bundle = control     | transformer.cpp:26 in transformer            |
+| interface | s_axilite port = x2 bundle = control     | transformer.cpp:27 in transformer            |
+| interface | s_axilite port = x3 bundle = control     | transformer.cpp:28 in transformer            |
+| interface | s_axilite port = x4 bundle = control     | transformer.cpp:29 in transformer            |
+| interface | s_axilite port = x5 bundle = control     | transformer.cpp:30 in transformer            |
+| interface | s_axilite port = x6 bundle = control     | transformer.cpp:31 in transformer            |
+| interface | s_axilite port = x7 bundle = control     | transformer.cpp:32 in transformer            |
+| interface | s_axilite port = x8 bundle = control     | transformer.cpp:33 in transformer            |
+| interface | s_axilite port = x9 bundle = control     | transformer.cpp:34 in transformer            |
+| interface | s_axilite port = x10 bundle = control    | transformer.cpp:35 in transformer            |
+| interface | s_axilite port = x11 bundle = control    | transformer.cpp:36 in transformer            |
+| interface | s_axilite port = x12 bundle = control    | transformer.cpp:37 in transformer            |
+| interface | s_axilite port = x13 bundle = control    | transformer.cpp:38 in transformer            |
+| interface | s_axilite port = x14 bundle = control    | transformer.cpp:39 in transformer            |
+| interface | s_axilite port = x15 bundle = control    | transformer.cpp:40 in transformer            |
+| interface | s_axilite port = val bundle = control    | transformer.cpp:41 in transformer            |
+| interface | s_axilite port = return bundle = control | transformer.cpp:42 in transformer            |
+| inline    | off                                      | transformer.cpp:68 in transformer_for_sample |
++-----------+------------------------------------------+----------------------------------------------+
+
+

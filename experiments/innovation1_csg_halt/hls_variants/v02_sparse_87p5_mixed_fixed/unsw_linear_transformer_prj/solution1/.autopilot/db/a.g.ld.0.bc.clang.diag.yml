@@ -1,0 +1,96 @@
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 10, Column: 0 }
+Function:        _ZL12elu_plus_onef
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'std::exp(float)'
+    DebugLoc:        { File: '/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath', 
+                       Line: 223, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'elu_plus_one(float)'
+    DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 10, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 19, Column: 0 }
+Function:        _ZL13layer_norm_2dPA16_KfPA16_fPS_S4_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'std::sqrt(float)'
+    DebugLoc:        { File: '/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath', 
+                       Line: 464, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'layer_norm_2d(float const (*) [16], float (*) [16], float const*, float const*)'
+    DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 19, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 48, Column: 0 }
+Function:        _ZL13layer_norm_1dPKfPfS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'std::sqrt(float)'
+    DebugLoc:        { File: '/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath', 
+                       Line: 464, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'layer_norm_1d(float const*, float*, float const*, float const*)'
+    DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 48, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 73, Column: 0 }
+Function:        _Z23unsw_linear_transformerPA24_fPf
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'elu_plus_one(float)'
+    DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 10, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'unsw_linear_transformer(float (*) [24], float*)'
+    DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 73, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 73, Column: 0 }
+Function:        _Z23unsw_linear_transformerPA24_fPf
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'layer_norm_2d(float const (*) [16], float (*) [16], float const*, float const*)'
+    DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 19, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'unsw_linear_transformer(float (*) [24], float*)'
+    DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 73, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 73, Column: 0 }
+Function:        _Z23unsw_linear_transformerPA24_fPf
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'layer_norm_1d(float const*, float*, float const*, float const*)'
+    DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 48, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'unsw_linear_transformer(float (*) [24], float*)'
+    DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 73, 
+                       Column: 0 }
+  - String:          ''''
+...

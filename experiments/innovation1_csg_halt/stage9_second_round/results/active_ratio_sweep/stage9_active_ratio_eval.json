@@ -1,0 +1,322 @@
+{
+  "dataset": {
+    "path": "/home/cym/prj2/finn/notebooks/icl_thesis-master/data/unsw_nb15_raw/UNSW_NB15_testing-set.csv",
+    "scope": "full official test set",
+    "num_samples": 82332,
+    "label_distribution": {
+      "0": 37000,
+      "1": 45332
+    },
+    "not_board_accuracy": true
+  },
+  "model_config": {
+    "input_dim": 24,
+    "seq_len": 8,
+    "d_model": 16,
+    "dim_feedforward": 32,
+    "num_layers": 1,
+    "dropout": 0.1,
+    "num_classes": 2
+  },
+  "checkpoint_format": "model_state_dict",
+  "preprocess_fit_scope": "training split only",
+  "quality_gate": {
+    "prediction_match_rate_min": 0.99,
+    "f1_drop_max": 0.01,
+    "denominator_near_zero_count": 0
+  },
+  "original_metrics": {
+    "accuracy": 0.8480663654472137,
+    "precision": 0.7861888569186503,
+    "recall": 0.9945292508603194,
+    "f1": 0.8781713528833137,
+    "confusion_matrix": [
+      [
+        24739,
+        12261
+      ],
+      [
+        248,
+        45084
+      ]
+    ]
+  },
+  "evaluations": [
+    {
+      "candidate": "active_87p5",
+      "dataset": "official UNSW-NB15 testing-set.csv",
+      "num_samples": 82332,
+      "accuracy": 0.8491837924500801,
+      "precision": 0.7879450616743942,
+      "recall": 0.9934483367157858,
+      "f1": 0.878843170353313,
+      "f1_delta_vs_original": 0.0006718174699993362,
+      "f1_drop_vs_original": -0.0006718174699993362,
+      "prediction_match_rate_vs_original": 0.9971821406014673,
+      "max_abs_logits_error_vs_original": 0.7721919566392899,
+      "mean_abs_logits_error_vs_original": 0.029669480744981155,
+      "q_active_channels": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15
+      ],
+      "k_active_channels": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "q_active_ratio": 0.875,
+      "k_active_ratio": 0.875,
+      "estimated_attention_mac_reduction": 0.125,
+      "denominator_min": 88.7328872680664,
+      "denominator_mean": 104.64044226812666,
+      "denominator_near_zero_count": 0,
+      "confusion_matrix": [
+        [
+          24880,
+          12120
+        ],
+        [
+          297,
+          45035
+        ]
+      ],
+      "passes_quality_gate": true
+    },
+    {
+      "candidate": "active_75",
+      "dataset": "official UNSW-NB15 testing-set.csv",
+      "num_samples": 82332,
+      "accuracy": 0.8556332896079288,
+      "precision": 0.7966333191428977,
+      "recall": 0.9907129621459455,
+      "f1": 0.8831360364966375,
+      "f1_delta_vs_original": 0.004964683613323806,
+      "f1_drop_vs_original": -0.004964683613323806,
+      "prediction_match_rate_vs_original": 0.9875504056745859,
+      "max_abs_logits_error_vs_original": 1.8679476380348206,
+      "mean_abs_logits_error_vs_original": 0.09640769859112487,
+      "q_active_channels": [
+        0,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        15
+      ],
+      "k_active_channels": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        15
+      ],
+      "q_active_ratio": 0.75,
+      "k_active_ratio": 0.75,
+      "estimated_attention_mac_reduction": 0.25,
+      "denominator_min": 62.12245559692383,
+      "denominator_mean": 80.78921956511076,
+      "denominator_near_zero_count": 0,
+      "confusion_matrix": [
+        [
+          25535,
+          11465
+        ],
+        [
+          421,
+          44911
+        ]
+      ],
+      "passes_quality_gate": false
+    },
+    {
+      "candidate": "active_62p5",
+      "dataset": "official UNSW-NB15 testing-set.csv",
+      "num_samples": 82332,
+      "accuracy": 0.8593378030413448,
+      "precision": 0.8028570915812709,
+      "recall": 0.9868525544868967,
+      "f1": 0.8853967719909355,
+      "f1_delta_vs_original": 0.0072254191076217555,
+      "f1_drop_vs_original": -0.0072254191076217555,
+      "prediction_match_rate_vs_original": 0.9797648544915707,
+      "max_abs_logits_error_vs_original": 2.8267502784729004,
+      "mean_abs_logits_error_vs_original": 0.1453192549386316,
+      "q_active_channels": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        13,
+        15
+      ],
+      "k_active_channels": [
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        15
+      ],
+      "q_active_ratio": 0.625,
+      "k_active_ratio": 0.625,
+      "estimated_attention_mac_reduction": 0.375,
+      "denominator_min": 35.98514175415039,
+      "denominator_mean": 73.17232593197706,
+      "denominator_near_zero_count": 0,
+      "confusion_matrix": [
+        [
+          26015,
+          10985
+        ],
+        [
+          596,
+          44736
+        ]
+      ],
+      "passes_quality_gate": false
+    },
+    {
+      "candidate": "active_50",
+      "dataset": "official UNSW-NB15 testing-set.csv",
+      "num_samples": 82332,
+      "accuracy": 0.8646455813049604,
+      "precision": 0.8128133806683014,
+      "recall": 0.9798155828112591,
+      "f1": 0.8885354778051171,
+      "f1_delta_vs_original": 0.010364124921803386,
+      "f1_drop_vs_original": -0.010364124921803386,
+      "prediction_match_rate_vs_original": 0.96641646018559,
+      "max_abs_logits_error_vs_original": 3.3082337379455566,
+      "mean_abs_logits_error_vs_original": 0.1930406901387058,
+      "q_active_channels": [
+        3,
+        4,
+        5,
+        7,
+        10,
+        11,
+        13,
+        15
+      ],
+      "k_active_channels": [
+        3,
+        4,
+        7,
+        10,
+        11,
+        12,
+        13,
+        15
+      ],
+      "q_active_ratio": 0.5,
+      "k_active_ratio": 0.5,
+      "estimated_attention_mac_reduction": 0.5,
+      "denominator_min": 33.67442321777344,
+      "denominator_mean": 56.89696208462796,
+      "denominator_near_zero_count": 0,
+      "confusion_matrix": [
+        [
+          26771,
+          10229
+        ],
+        [
+          915,
+          44417
+        ]
+      ],
+      "passes_quality_gate": false
+    },
+    {
+      "candidate": "active_37p5",
+      "dataset": "official UNSW-NB15 testing-set.csv",
+      "num_samples": 82332,
+      "accuracy": 0.8499246951367634,
+      "precision": 0.7924545035297457,
+      "recall": 0.9855510456189888,
+      "f1": 0.8785173532592666,
+      "f1_delta_vs_original": 0.0003460003759528929,
+      "f1_drop_vs_original": -0.0003460003759528929,
+      "prediction_match_rate_vs_original": 0.980505757178254,
+      "max_abs_logits_error_vs_original": 4.635050296783447,
+      "mean_abs_logits_error_vs_original": 0.28273504191441895,
+      "q_active_channels": [
+        3,
+        4,
+        7,
+        11,
+        13,
+        15
+      ],
+      "k_active_channels": [
+        7,
+        10,
+        11,
+        12,
+        13,
+        15
+      ],
+      "q_active_ratio": 0.375,
+      "k_active_ratio": 0.375,
+      "estimated_attention_mac_reduction": 0.625,
+      "denominator_min": 20.980770111083984,
+      "denominator_mean": 32.55623709926138,
+      "denominator_near_zero_count": 0,
+      "confusion_matrix": [
+        [
+          25299,
+          11701
+        ],
+        [
+          655,
+          44677
+        ]
+      ],
+      "passes_quality_gate": false
+    }
+  ],
+  "recommended_for_second_round_hls": null
+}

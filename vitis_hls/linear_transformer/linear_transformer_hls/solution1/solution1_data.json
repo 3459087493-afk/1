@@ -1,0 +1,2672 @@
+{
+  "Top": "transformer",
+  "RtlTop": "transformer",
+  "RtlPrefix": "",
+  "RtlSubPrefix": "transformer_",
+  "SourceLanguage": "cpp",
+  "HostMachineBits": "64",
+  "FunctionProtocol": "ap_ctrl_hs",
+  "ResetStyle": "control",
+  "Target": {
+    "Family": "zynq",
+    "Device": "xc7z020",
+    "Package": "-clg400",
+    "Speed": "-1",
+    "Triple": "fpga64-xilinx-none"
+  },
+  "Args": {
+    "input_array": {
+      "index": "0",
+      "direction": "in",
+      "srcType": "*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "m_axi_gmem0",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "input_array_1",
+          "usage": "address",
+          "direction": "in"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "input_array_2",
+          "usage": "address",
+          "direction": "in"
+        }
+      ]
+    },
+    "val": {
+      "index": "1",
+      "direction": "out",
+      "srcType": "*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "m_axi_gmem1",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_control",
+          "name": "",
+          "usage": "address",
+          "direction": "out"
+        }
+      ]
+    }
+  },
+  "HlsSolution": {
+    "FlowTarget": "vivado",
+    "ConfigTcl": [
+      "config_interface -m_axi_latency=0",
+      "config_export -description {Linear Transformer HLS IP for PYNQ-Z2}",
+      "config_export -display_name=linear_transformer",
+      "config_export -format=ip_catalog",
+      "config_export -rtl=verilog"
+    ],
+    "ProfileOption": "0",
+    "ProfileType": "none",
+    "KernelName": "transformer"
+  },
+  "ClockInfo": {
+    "ClockName": "ap_clk",
+    "ClockPeriod": "10",
+    "Uncertainty": "2.7",
+    "IsCombinational": "0",
+    "II": "1569",
+    "Latency": "1568"
+  },
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
+  "Ipx": {
+    "Vendor": "xilinx.com",
+    "Library": "hls",
+    "Name": "transformer",
+    "Version": "1.0",
+    "DisplayName": "linear_transformer",
+    "Revision": "2114616928",
+    "Description": "Linear Transformer HLS IP for PYNQ-Z2",
+    "Taxonomy": "\/VITIS_HLS_IP",
+    "AutoFamilySupport": "",
+    "ZipFile": "xilinx_com_hls_transformer_1_0.zip"
+  },
+  "Files": {
+    "CSource": [
+      "..\/..\/scaled_dp_params.h",
+      "..\/..\/linear_transformer.h",
+      "..\/..\/linear_transformer.cpp"
+    ],
+    "Vhdl": [
+      "impl\/vhdl\/transformer_control_s_axi.vhd",
+      "impl\/vhdl\/transformer_fadd_32ns_32ns_32_5_full_dsp_1.vhd",
+      "impl\/vhdl\/transformer_fcmp_32ns_32ns_1_2_no_dsp_1.vhd",
+      "impl\/vhdl\/transformer_fdiv_32ns_32ns_32_16_no_dsp_1.vhd",
+      "impl\/vhdl\/transformer_fexp_32ns_32ns_32_10_full_dsp_1.vhd",
+      "impl\/vhdl\/transformer_flow_control_loop_pipe_sequential_init.vhd",
+      "impl\/vhdl\/transformer_fmul_32ns_32ns_32_4_max_dsp_1.vhd",
+      "impl\/vhdl\/transformer_gmem0_m_axi.vhd",
+      "impl\/vhdl\/transformer_gmem1_m_axi.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_ff1_RAM_1WNR_AUTO_1R1W.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_front_RAM_1WNR_AUTO_1R1W.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_kv_RAM_AUTO_1R1W.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_normalizer_RAM_AUTO_1R1W.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_1.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_2.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_3.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_4.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_5.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_6.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_7.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_8.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_9.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_10.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_11.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_12.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_13.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINELf8.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEMgi.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINENgs.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEOgC.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEPgM.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEQgW.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINERg6.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEShg.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEThq.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE0iy.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE1iI.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE2iS.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE3i2.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE4jc.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE5jm.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE6jw.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE7jG.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE8jQ.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE9j0.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEbak.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEUhA.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEVhK.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEWhU.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEXh4.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEYie.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEZio.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_final_i.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_front_linear_i_front_linear_j.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_front_linear_i_front_linear_j_FRONT_LINEAR_BIdEe.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_front_linear_i_front_linear_j_FRONT_LINEAR_WEbkb.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_front_linear_i_front_linear_j_FRONT_LINEAR_WEcud.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_kv_i_kv_j.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_normalizer_i.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_numerator_i.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_CeG.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_DeQ.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_Ee0.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_Ffa.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_Gfk.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_Hfu.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_IfE.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_JfO.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_KfY.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFAem.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFBew.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFeOg.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFfYi.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFg8j.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFhbi.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFibs.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFjbC.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFkbM.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFlbW.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFmb6.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFncg.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFocq.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFpcA.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFqcK.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFrcU.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFsc4.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFtde.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFudo.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFvdy.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFwdI.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFxdS.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFyd2.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFzec.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_sum_k_j.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_Pipeline_transpose_value_i_transpose_value_j.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_sum_k_RAM_AUTO_1R1W.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_value_RAM_AUTO_1R1W.vhd",
+      "impl\/vhdl\/transformer_transformer_for_sample_values_new_RAM_AUTO_1R1W.vhd",
+      "impl\/vhdl\/transformer.vhd"
+    ],
+    "Verilog": [
+      "impl\/verilog\/transformer_control_s_axi.v",
+      "impl\/verilog\/transformer_fadd_32ns_32ns_32_5_full_dsp_1.v",
+      "impl\/verilog\/transformer_fcmp_32ns_32ns_1_2_no_dsp_1.v",
+      "impl\/verilog\/transformer_fdiv_32ns_32ns_32_16_no_dsp_1.v",
+      "impl\/verilog\/transformer_fexp_32ns_32ns_32_10_full_dsp_1.v",
+      "impl\/verilog\/transformer_flow_control_loop_pipe_sequential_init.v",
+      "impl\/verilog\/transformer_fmul_32ns_32ns_32_4_max_dsp_1.v",
+      "impl\/verilog\/transformer_gmem0_m_axi.v",
+      "impl\/verilog\/transformer_gmem1_m_axi.v",
+      "impl\/verilog\/transformer_transformer_for_sample.v",
+      "impl\/verilog\/transformer_transformer_for_sample_ff1_RAM_1WNR_AUTO_1R1W.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_ff1_RAM_1WNR_AUTO_1R1W.v",
+      "impl\/verilog\/transformer_transformer_for_sample_front_RAM_1WNR_AUTO_1R1W.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_front_RAM_1WNR_AUTO_1R1W.v",
+      "impl\/verilog\/transformer_transformer_for_sample_kv_RAM_AUTO_1R1W.v",
+      "impl\/verilog\/transformer_transformer_for_sample_normalizer_RAM_AUTO_1R1W.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_1.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_2.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_3.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_4.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_5.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_6.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_7.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_8.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_9.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_10.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_11.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_12.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_13.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINELf8.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINELf8.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEMgi.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEMgi.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINENgs.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINENgs.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEOgC.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEOgC.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEPgM.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEPgM.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEQgW.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEQgW.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINERg6.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINERg6.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEShg.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEShg.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEThq.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff1_i_ff1_j_TRANSFORMER_ENCODER_LAYERS_0_LINEThq.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE0iy.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE0iy.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE1iI.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE1iI.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE2iS.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE2iS.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE3i2.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE3i2.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE4jc.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE4jc.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE5jm.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE5jm.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE6jw.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE6jw.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE7jG.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE7jG.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE8jQ.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE8jQ.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE9j0.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINE9j0.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEbak.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEbak.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEUhA.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEUhA.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEVhK.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEVhK.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEWhU.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEWhU.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEXh4.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEXh4.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEYie.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEYie.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEZio.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_ff2_i_ff2_j_TRANSFORMER_ENCODER_LAYERS_0_LINEZio.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_final_i.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_front_linear_i_front_linear_j.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_front_linear_i_front_linear_j_FRONT_LINEAR_BIdEe.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_front_linear_i_front_linear_j_FRONT_LINEAR_BIdEe.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_front_linear_i_front_linear_j_FRONT_LINEAR_WEbkb.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_front_linear_i_front_linear_j_FRONT_LINEAR_WEbkb.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_front_linear_i_front_linear_j_FRONT_LINEAR_WEcud.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_front_linear_i_front_linear_j_FRONT_LINEAR_WEcud.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_kv_i_kv_j.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_normalizer_i.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_numerator_i.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_CeG.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_CeG.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_DeQ.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_DeQ.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_Ee0.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_Ee0.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_Ffa.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_Ffa.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_Gfk.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_Gfk.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_Hfu.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_Hfu.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_IfE.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_IfE.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_JfO.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_JfO.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_KfY.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_TRANSFORMER_ENCODER_LAYERS_KfY.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFAem.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFAem.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFBew.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFBew.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFeOg.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFeOg.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFfYi.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFfYi.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFg8j.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFg8j.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFhbi.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFhbi.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFibs.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFibs.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFjbC.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFjbC.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFkbM.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFkbM.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFlbW.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFlbW.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFmb6.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFmb6.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFncg.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFncg.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFocq.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFocq.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFpcA.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFpcA.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFqcK.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFqcK.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFrcU.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFrcU.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFsc4.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFsc4.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFtde.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFtde.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFudo.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFudo.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFvdy.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFvdy.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFwdI.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFwdI.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFxdS.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFxdS.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFyd2.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFyd2.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFzec.dat",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_qkv_i_qkv_j_TRANSFORMER_ENCODER_LAYERS_0_SELFzec.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_sum_k_j.v",
+      "impl\/verilog\/transformer_transformer_for_sample_Pipeline_transpose_value_i_transpose_value_j.v",
+      "impl\/verilog\/transformer_transformer_for_sample_sum_k_RAM_AUTO_1R1W.v",
+      "impl\/verilog\/transformer_transformer_for_sample_value_RAM_AUTO_1R1W.v",
+      "impl\/verilog\/transformer_transformer_for_sample_values_new_RAM_AUTO_1R1W.v",
+      "impl\/verilog\/transformer.v"
+    ],
+    "SwDriver": [
+      "impl\/misc\/drivers\/transformer_v1_0\/data\/transformer.mdd",
+      "impl\/misc\/drivers\/transformer_v1_0\/data\/transformer.tcl",
+      "impl\/misc\/drivers\/transformer_v1_0\/src\/Makefile",
+      "impl\/misc\/drivers\/transformer_v1_0\/src\/xtransformer.c",
+      "impl\/misc\/drivers\/transformer_v1_0\/src\/xtransformer.h",
+      "impl\/misc\/drivers\/transformer_v1_0\/src\/xtransformer_hw.h",
+      "impl\/misc\/drivers\/transformer_v1_0\/src\/xtransformer_linux.c",
+      "impl\/misc\/drivers\/transformer_v1_0\/src\/xtransformer_sinit.c"
+    ],
+    "IpMisc": ["impl\/misc\/logo.png"],
+    "Subcore": [
+      "impl\/misc\/transformer_fadd_32ns_32ns_32_5_full_dsp_1_ip.tcl",
+      "impl\/misc\/transformer_fcmp_32ns_32ns_1_2_no_dsp_1_ip.tcl",
+      "impl\/misc\/transformer_fdiv_32ns_32ns_32_16_no_dsp_1_ip.tcl",
+      "impl\/misc\/transformer_fexp_32ns_32ns_32_10_full_dsp_1_ip.tcl",
+      "impl\/misc\/transformer_fmul_32ns_32ns_32_4_max_dsp_1_ip.tcl"
+    ],
+    "CsynthXml": "syn\/report\/csynth.xml",
+    "DebugDir": ".debug",
+    "KernelXml": ".autopilot\/db\/kernel.internal.xml",
+    "Xo": "",
+    "XoHlsDir": "",
+    "ProtoInst": [".debug\/transformer.protoinst"]
+  },
+  "SubcoreInfo": {
+    "HasXpmMemory": false,
+    "HasClockedDsp": false,
+    "Ip": [
+      {
+        "Name": "transformer_fadd_32ns_32ns_32_5_full_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Add CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 3 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name transformer_fadd_32ns_32ns_32_5_full_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "transformer_fcmp_32ns_32ns_1_2_no_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 1 CONFIG.c_result_fraction_width 0 CONFIG.component_name transformer_fcmp_32ns_32ns_1_2_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Compare CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "transformer_fdiv_32ns_32ns_32_16_no_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 14 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name transformer_fdiv_32ns_32ns_32_16_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Divide CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "transformer_fexp_32ns_32ns_32_10_full_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 8 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name transformer_fexp_32ns_32ns_32_10_full_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Exponential CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "transformer_fmul_32ns_32ns_32_4_max_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 2 CONFIG.c_mult_usage Max_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name transformer_fmul_32ns_32ns_32_4_max_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Multiply CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      }
+    ]
+  },
+  "Interfaces": {
+    "s_axi_control": {
+      "type": "axi4lite",
+      "busTypeName": "aximm",
+      "mode": "slave",
+      "dataWidth": "32",
+      "addrWidth": "6",
+      "portPrefix": "s_axi_control_",
+      "paramPrefix": "C_S_AXI_CONTROL_",
+      "offsetMasterName": "m_axi_gmem1",
+      "ports": [
+        "s_axi_control_ARADDR",
+        "s_axi_control_ARREADY",
+        "s_axi_control_ARVALID",
+        "s_axi_control_AWADDR",
+        "s_axi_control_AWREADY",
+        "s_axi_control_AWVALID",
+        "s_axi_control_BREADY",
+        "s_axi_control_BRESP",
+        "s_axi_control_BVALID",
+        "s_axi_control_RDATA",
+        "s_axi_control_RREADY",
+        "s_axi_control_RRESP",
+        "s_axi_control_RVALID",
+        "s_axi_control_WDATA",
+        "s_axi_control_WREADY",
+        "s_axi_control_WSTRB",
+        "s_axi_control_WVALID"
+      ],
+      "registers": [
+        {
+          "offset": "0x00",
+          "name": "CTRL",
+          "access": "RW",
+          "description": "Control signals",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "AP_START",
+              "access": "RW",
+              "description": "Control signal Register for 'ap_start'."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "AP_DONE",
+              "access": "R",
+              "description": "Control signal Register for 'ap_done'."
+            },
+            {
+              "offset": "2",
+              "width": "1",
+              "name": "AP_IDLE",
+              "access": "R",
+              "description": "Control signal Register for 'ap_idle'."
+            },
+            {
+              "offset": "3",
+              "width": "1",
+              "name": "AP_READY",
+              "access": "R",
+              "description": "Control signal Register for 'ap_ready'."
+            },
+            {
+              "offset": "4",
+              "width": "3",
+              "name": "RESERVED_1",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            },
+            {
+              "offset": "7",
+              "width": "1",
+              "name": "AUTO_RESTART",
+              "access": "RW",
+              "description": "Control signal Register for 'auto_restart'."
+            },
+            {
+              "offset": "8",
+              "width": "1",
+              "name": "RESERVED_2",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            },
+            {
+              "offset": "9",
+              "width": "1",
+              "name": "INTERRUPT",
+              "access": "R",
+              "description": "Control signal Register for 'interrupt'."
+            },
+            {
+              "offset": "10",
+              "width": "22",
+              "name": "RESERVED_3",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x04",
+          "name": "GIER",
+          "access": "RW",
+          "description": "Global Interrupt Enable Register",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "Enable",
+              "access": "RW",
+              "description": "Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled"
+            },
+            {
+              "offset": "1",
+              "width": "31",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x08",
+          "name": "IP_IER",
+          "access": "RW",
+          "description": "IP Interrupt Enable Register",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "CHAN0_INT_EN",
+              "access": "RW",
+              "description": "Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "CHAN1_INT_EN",
+              "access": "RW",
+              "description": "Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled."
+            },
+            {
+              "offset": "2",
+              "width": "30",
+              "name": "RESERVED_0",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x0c",
+          "name": "IP_ISR",
+          "access": "RW",
+          "description": "IP Interrupt Status Register",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "CHAN0_INT_ST",
+              "access": "RTOW",
+              "description": "Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 interrupt, 1 = Channel 0 interrupt."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "CHAN1_INT_ST",
+              "access": "RTOW",
+              "description": "Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 interrupt, 1 = Channel 1 interrupt."
+            },
+            {
+              "offset": "2",
+              "width": "30",
+              "name": "RESERVED_0",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x10",
+          "name": "input_array_1",
+          "access": "W",
+          "description": "Data signal of input_array",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "input_array",
+              "access": "W",
+              "description": "Bit 31 to 0 of input_array"
+            }]
+        },
+        {
+          "offset": "0x14",
+          "name": "input_array_2",
+          "access": "W",
+          "description": "Data signal of input_array",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "input_array",
+              "access": "W",
+              "description": "Bit 63 to 32 of input_array"
+            }]
+        },
+        {
+          "offset": "0x1c",
+          "name": "val_r_1",
+          "access": "W",
+          "description": "Data signal of val_r",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "val_r",
+              "access": "W",
+              "description": "Bit 31 to 0 of val_r"
+            }]
+        },
+        {
+          "offset": "0x20",
+          "name": "val_r_2",
+          "access": "W",
+          "description": "Data signal of val_r",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "val_r",
+              "access": "W",
+              "description": "Bit 63 to 32 of val_r"
+            }]
+        }
+      ],
+      "constraints": [
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "16",
+          "argName": "input_array"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "28",
+          "argName": "val"
+        }
+      ]
+    },
+    "ap_clk": {
+      "type": "clock",
+      "busTypeName": "clock",
+      "mode": "slave",
+      "busParams": {
+        "ASSOCIATED_BUSIF": "s_axi_control:m_axi_gmem0:m_axi_gmem1",
+        "ASSOCIATED_RESET": "ap_rst_n"
+      },
+      "portMap": {"ap_clk": "CLK"},
+      "ports": ["ap_clk"]
+    },
+    "ap_rst_n": {
+      "type": "reset",
+      "busTypeName": "reset",
+      "mode": "slave",
+      "busParams": {"POLARITY": "ACTIVE_LOW"},
+      "portMap": {"ap_rst_n": "RST"},
+      "ports": ["ap_rst_n"]
+    },
+    "interrupt": {
+      "type": "interrupt",
+      "busTypeName": "interrupt",
+      "mode": "master",
+      "dataWidth": "1",
+      "busParams": {"SENSITIVITY": "LEVEL_HIGH"},
+      "portMap": {"interrupt": "INTERRUPT"},
+      "ports": ["interrupt"]
+    },
+    "m_axi_gmem0": {
+      "type": "axi4full",
+      "busTypeName": "aximm",
+      "mode": "master",
+      "dataWidth": "32",
+      "addrWidth": "64",
+      "portPrefix": "m_axi_gmem0_",
+      "paramPrefix": "C_M_AXI_GMEM0_",
+      "offsetSlaveName": "s_axi_control",
+      "preferredUsageValue": "MEMORY",
+      "busParams": {
+        "NUM_READ_OUTSTANDING": "16",
+        "NUM_WRITE_OUTSTANDING": "16",
+        "MAX_READ_BURST_LENGTH": "16",
+        "MAX_WRITE_BURST_LENGTH": "16",
+        "MAX_BURST_LENGTH": "256",
+        "PROTOCOL": "AXI4",
+        "READ_WRITE_MODE": "READ_ONLY",
+        "HAS_BURST": "0",
+        "SUPPORTS_NARROW_BURST": "0"
+      },
+      "ports": [
+        "m_axi_gmem0_ARADDR",
+        "m_axi_gmem0_ARBURST",
+        "m_axi_gmem0_ARCACHE",
+        "m_axi_gmem0_ARID",
+        "m_axi_gmem0_ARLEN",
+        "m_axi_gmem0_ARLOCK",
+        "m_axi_gmem0_ARPROT",
+        "m_axi_gmem0_ARQOS",
+        "m_axi_gmem0_ARREADY",
+        "m_axi_gmem0_ARREGION",
+        "m_axi_gmem0_ARSIZE",
+        "m_axi_gmem0_ARUSER",
+        "m_axi_gmem0_ARVALID",
+        "m_axi_gmem0_AWADDR",
+        "m_axi_gmem0_AWBURST",
+        "m_axi_gmem0_AWCACHE",
+        "m_axi_gmem0_AWID",
+        "m_axi_gmem0_AWLEN",
+        "m_axi_gmem0_AWLOCK",
+        "m_axi_gmem0_AWPROT",
+        "m_axi_gmem0_AWQOS",
+        "m_axi_gmem0_AWREADY",
+        "m_axi_gmem0_AWREGION",
+        "m_axi_gmem0_AWSIZE",
+        "m_axi_gmem0_AWUSER",
+        "m_axi_gmem0_AWVALID",
+        "m_axi_gmem0_BID",
+        "m_axi_gmem0_BREADY",
+        "m_axi_gmem0_BRESP",
+        "m_axi_gmem0_BUSER",
+        "m_axi_gmem0_BVALID",
+        "m_axi_gmem0_RDATA",
+        "m_axi_gmem0_RID",
+        "m_axi_gmem0_RLAST",
+        "m_axi_gmem0_RREADY",
+        "m_axi_gmem0_RRESP",
+        "m_axi_gmem0_RUSER",
+        "m_axi_gmem0_RVALID",
+        "m_axi_gmem0_WDATA",
+        "m_axi_gmem0_WID",
+        "m_axi_gmem0_WLAST",
+        "m_axi_gmem0_WREADY",
+        "m_axi_gmem0_WSTRB",
+        "m_axi_gmem0_WUSER",
+        "m_axi_gmem0_WVALID"
+      ],
+      "constraints": [
+        {
+          "constraint_type": "pragma interface",
+          "mode": "m_axi",
+          "register_option": "0",
+          "offset": "slave",
+          "latency": "0",
+          "num_read_outstanding": "16",
+          "num_write_outstanding": "16",
+          "max_read_burst_length": "16",
+          "max_write_burst_length": "16",
+          "max_widen_bitwidth": "0",
+          "argName": "input_array"
+        },
+        {
+          "constraint_type": "bitwidth",
+          "orig_bitwidth": "32",
+          "final_bitwidth": "32",
+          "argName": "input_array"
+        }
+      ]
+    },
+    "m_axi_gmem1": {
+      "type": "axi4full",
+      "busTypeName": "aximm",
+      "mode": "master",
+      "dataWidth": "32",
+      "addrWidth": "64",
+      "portPrefix": "m_axi_gmem1_",
+      "paramPrefix": "C_M_AXI_GMEM1_",
+      "offsetSlaveName": "s_axi_control",
+      "preferredUsageValue": "MEMORY",
+      "busParams": {
+        "NUM_READ_OUTSTANDING": "16",
+        "NUM_WRITE_OUTSTANDING": "16",
+        "MAX_READ_BURST_LENGTH": "16",
+        "MAX_WRITE_BURST_LENGTH": "16",
+        "MAX_BURST_LENGTH": "256",
+        "PROTOCOL": "AXI4",
+        "READ_WRITE_MODE": "WRITE_ONLY",
+        "HAS_BURST": "0",
+        "SUPPORTS_NARROW_BURST": "0"
+      },
+      "ports": [
+        "m_axi_gmem1_ARADDR",
+        "m_axi_gmem1_ARBURST",
+        "m_axi_gmem1_ARCACHE",
+        "m_axi_gmem1_ARID",
+        "m_axi_gmem1_ARLEN",
+        "m_axi_gmem1_ARLOCK",
+        "m_axi_gmem1_ARPROT",
+        "m_axi_gmem1_ARQOS",
+        "m_axi_gmem1_ARREADY",
+        "m_axi_gmem1_ARREGION",
+        "m_axi_gmem1_ARSIZE",
+        "m_axi_gmem1_ARUSER",
+        "m_axi_gmem1_ARVALID",
+        "m_axi_gmem1_AWADDR",
+        "m_axi_gmem1_AWBURST",
+        "m_axi_gmem1_AWCACHE",
+        "m_axi_gmem1_AWID",
+        "m_axi_gmem1_AWLEN",
+        "m_axi_gmem1_AWLOCK",
+        "m_axi_gmem1_AWPROT",
+        "m_axi_gmem1_AWQOS",
+        "m_axi_gmem1_AWREADY",
+        "m_axi_gmem1_AWREGION",
+        "m_axi_gmem1_AWSIZE",
+        "m_axi_gmem1_AWUSER",
+        "m_axi_gmem1_AWVALID",
+        "m_axi_gmem1_BID",
+        "m_axi_gmem1_BREADY",
+        "m_axi_gmem1_BRESP",
+        "m_axi_gmem1_BUSER",
+        "m_axi_gmem1_BVALID",
+        "m_axi_gmem1_RDATA",
+        "m_axi_gmem1_RID",
+        "m_axi_gmem1_RLAST",
+        "m_axi_gmem1_RREADY",
+        "m_axi_gmem1_RRESP",
+        "m_axi_gmem1_RUSER",
+        "m_axi_gmem1_RVALID",
+        "m_axi_gmem1_WDATA",
+        "m_axi_gmem1_WID",
+        "m_axi_gmem1_WLAST",
+        "m_axi_gmem1_WREADY",
+        "m_axi_gmem1_WSTRB",
+        "m_axi_gmem1_WUSER",
+        "m_axi_gmem1_WVALID"
+      ],
+      "constraints": [
+        {
+          "constraint_type": "pragma interface",
+          "mode": "m_axi",
+          "register_option": "0",
+          "offset": "slave",
+          "latency": "0",
+          "num_read_outstanding": "16",
+          "num_write_outstanding": "16",
+          "max_read_burst_length": "16",
+          "max_write_burst_length": "16",
+          "max_widen_bitwidth": "0",
+          "argName": "val"
+        },
+        {
+          "constraint_type": "bitwidth",
+          "orig_bitwidth": "32",
+          "final_bitwidth": "32",
+          "argName": "val"
+        }
+      ]
+    }
+  },
+  "RtlPorts": {
+    "s_axi_control_AWVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_AWREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_AWADDR": {
+      "dir": "in",
+      "width": "6"
+    },
+    "s_axi_control_WVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_WREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_WDATA": {
+      "dir": "in",
+      "width": "32"
+    },
+    "s_axi_control_WSTRB": {
+      "dir": "in",
+      "width": "4"
+    },
+    "s_axi_control_ARVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_ARREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_ARADDR": {
+      "dir": "in",
+      "width": "6"
+    },
+    "s_axi_control_RVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_RREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_RDATA": {
+      "dir": "out",
+      "width": "32"
+    },
+    "s_axi_control_RRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "s_axi_control_BVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_BREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_BRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "ap_clk": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_rst_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "interrupt": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem0_AWVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem0_AWREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem0_AWADDR": {
+      "dir": "out",
+      "width": "64"
+    },
+    "m_axi_gmem0_AWID": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem0_AWLEN": {
+      "dir": "out",
+      "width": "8"
+    },
+    "m_axi_gmem0_AWSIZE": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem0_AWBURST": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem0_AWLOCK": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem0_AWCACHE": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem0_AWPROT": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem0_AWQOS": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem0_AWREGION": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem0_AWUSER": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem0_WVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem0_WREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem0_WDATA": {
+      "dir": "out",
+      "width": "32"
+    },
+    "m_axi_gmem0_WSTRB": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem0_WLAST": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem0_WID": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem0_WUSER": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem0_ARVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem0_ARREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem0_ARADDR": {
+      "dir": "out",
+      "width": "64"
+    },
+    "m_axi_gmem0_ARID": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem0_ARLEN": {
+      "dir": "out",
+      "width": "8"
+    },
+    "m_axi_gmem0_ARSIZE": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem0_ARBURST": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem0_ARLOCK": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem0_ARCACHE": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem0_ARPROT": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem0_ARQOS": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem0_ARREGION": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem0_ARUSER": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem0_RVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem0_RREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem0_RDATA": {
+      "dir": "in",
+      "width": "32"
+    },
+    "m_axi_gmem0_RLAST": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem0_RID": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem0_RUSER": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem0_RRESP": {
+      "dir": "in",
+      "width": "2"
+    },
+    "m_axi_gmem0_BVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem0_BREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem0_BRESP": {
+      "dir": "in",
+      "width": "2"
+    },
+    "m_axi_gmem0_BID": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem0_BUSER": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem1_AWVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem1_AWREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem1_AWADDR": {
+      "dir": "out",
+      "width": "64"
+    },
+    "m_axi_gmem1_AWID": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem1_AWLEN": {
+      "dir": "out",
+      "width": "8"
+    },
+    "m_axi_gmem1_AWSIZE": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem1_AWBURST": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem1_AWLOCK": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem1_AWCACHE": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem1_AWPROT": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem1_AWQOS": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem1_AWREGION": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem1_AWUSER": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem1_WVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem1_WREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem1_WDATA": {
+      "dir": "out",
+      "width": "32"
+    },
+    "m_axi_gmem1_WSTRB": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem1_WLAST": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem1_WID": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem1_WUSER": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem1_ARVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem1_ARREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem1_ARADDR": {
+      "dir": "out",
+      "width": "64"
+    },
+    "m_axi_gmem1_ARID": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem1_ARLEN": {
+      "dir": "out",
+      "width": "8"
+    },
+    "m_axi_gmem1_ARSIZE": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem1_ARBURST": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem1_ARLOCK": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem1_ARCACHE": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem1_ARPROT": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem1_ARQOS": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem1_ARREGION": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem1_ARUSER": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem1_RVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem1_RREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem1_RDATA": {
+      "dir": "in",
+      "width": "32"
+    },
+    "m_axi_gmem1_RLAST": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem1_RID": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem1_RUSER": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem1_RRESP": {
+      "dir": "in",
+      "width": "2"
+    },
+    "m_axi_gmem1_BVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem1_BREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem1_BRESP": {
+      "dir": "in",
+      "width": "2"
+    },
+    "m_axi_gmem1_BID": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem1_BUSER": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    }
+  },
+  "ModuleInfo": {
+    "Hierarchy": {
+      "ModuleName": "transformer",
+      "Instances": [{
+          "ModuleName": "transformer_for_sample",
+          "InstanceName": "grp_transformer_for_sample_fu_216",
+          "Instances": [
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_1",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_1_fu_987"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_2",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_2_fu_993"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_3",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_3_fu_999"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_4",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_4_fu_1005"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_5",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_5_fu_1011"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_6",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_6_fu_1017"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_7",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_7_fu_1023"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_8",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_8_fu_1029"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_9",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_9_fu_1035"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_10",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_10_fu_1041"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_11",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_11_fu_1047"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_12",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_12_fu_1053"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_13",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_13_fu_1059"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_front_linear_i_front_linear_j",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_front_linear_i_front_linear_j_fu_1065"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_qkv_i_qkv_j",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_qkv_i_qkv_j_fu_1080"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_transpose_value_i_transpose_value_j",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_transpose_value_i_transpose_value_j_fu_1136"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_kv_i_kv_j",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_kv_i_kv_j_fu_1142"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_sum_k_j",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_sum_k_j_fu_1149"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_normalizer_i",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_normalizer_i_fu_1155"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_numerator_i",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_numerator_i_fu_1171"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_o_proj_i_o_proj_j",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_o_proj_i_o_proj_j_fu_1244"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_ff1_i_ff1_j",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_ff1_i_ff1_j_fu_1269"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_ff2_i_ff2_j",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_ff2_i_ff2_j_fu_1293"
+            },
+            {
+              "ModuleName": "transformer_for_sample_Pipeline_final_i",
+              "InstanceName": "grp_transformer_for_sample_Pipeline_final_i_fu_1334"
+            }
+          ]
+        }]
+    },
+    "Info": {
+      "transformer_for_sample_Pipeline_1": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_2": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_3": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_4": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_5": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_6": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_7": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_8": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_9": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_10": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_11": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_12": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_13": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_front_linear_i_front_linear_j": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_qkv_i_qkv_j": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_transpose_value_i_transpose_value_j": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_kv_i_kv_j": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_sum_k_j": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_normalizer_i": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_numerator_i": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_o_proj_i_o_proj_j": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_ff1_i_ff1_j": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_ff2_i_ff2_j": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample_Pipeline_final_i": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer_for_sample": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "transformer": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      }
+    },
+    "Metrics": {
+      "transformer_for_sample_Pipeline_1": {
+        "Latency": {
+          "LatencyBest": "66",
+          "LatencyAvg": "66",
+          "LatencyWorst": "66",
+          "PipelineII": "66",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "4.743"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "64",
+            "Latency": "64",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          }],
+        "Area": {
+          "FF": "9",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "~0",
+          "LUT": "52",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_2": {
+        "Latency": {
+          "LatencyBest": "66",
+          "LatencyAvg": "66",
+          "LatencyWorst": "66",
+          "PipelineII": "66",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "4.743"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "64",
+            "Latency": "64",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          }],
+        "Area": {
+          "FF": "9",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "~0",
+          "LUT": "52",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_3": {
+        "Latency": {
+          "LatencyBest": "66",
+          "LatencyAvg": "66",
+          "LatencyWorst": "66",
+          "PipelineII": "66",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "4.743"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "64",
+            "Latency": "64",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          }],
+        "Area": {
+          "FF": "9",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "~0",
+          "LUT": "52",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_4": {
+        "Latency": {
+          "LatencyBest": "66",
+          "LatencyAvg": "66",
+          "LatencyWorst": "66",
+          "PipelineII": "66",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "4.743"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "64",
+            "Latency": "64",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          }],
+        "Area": {
+          "FF": "9",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "~0",
+          "LUT": "52",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_5": {
+        "Latency": {
+          "LatencyBest": "66",
+          "LatencyAvg": "66",
+          "LatencyWorst": "66",
+          "PipelineII": "66",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "4.743"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "64",
+            "Latency": "64",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          }],
+        "Area": {
+          "FF": "9",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "~0",
+          "LUT": "52",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_6": {
+        "Latency": {
+          "LatencyBest": "66",
+          "LatencyAvg": "66",
+          "LatencyWorst": "66",
+          "PipelineII": "66",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "4.743"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "64",
+            "Latency": "64",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          }],
+        "Area": {
+          "FF": "9",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "~0",
+          "LUT": "52",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_7": {
+        "Latency": {
+          "LatencyBest": "10",
+          "LatencyAvg": "10",
+          "LatencyWorst": "10",
+          "PipelineII": "10",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "3.624"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "8",
+            "Latency": "8",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          }],
+        "Area": {
+          "FF": "6",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "~0",
+          "LUT": "49",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_8": {
+        "Latency": {
+          "LatencyBest": "10",
+          "LatencyAvg": "10",
+          "LatencyWorst": "10",
+          "PipelineII": "10",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "3.624"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "8",
+            "Latency": "8",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          }],
+        "Area": {
+          "FF": "6",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "~0",
+          "LUT": "49",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_9": {
+        "Latency": {
+          "LatencyBest": "66",
+          "LatencyAvg": "66",
+          "LatencyWorst": "66",
+          "PipelineII": "66",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "4.743"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "64",
+            "Latency": "64",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          }],
+        "Area": {
+          "FF": "9",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "~0",
+          "LUT": "52",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_10": {
+        "Latency": {
+          "LatencyBest": "66",
+          "LatencyAvg": "66",
+          "LatencyWorst": "66",
+          "PipelineII": "66",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "4.743"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "64",
+            "Latency": "64",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          }],
+        "Area": {
+          "FF": "9",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "~0",
+          "LUT": "52",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_11": {
+        "Latency": {
+          "LatencyBest": "130",
+          "LatencyAvg": "130",
+          "LatencyWorst": "130",
+          "PipelineII": "130",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "4.805"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "128",
+            "Latency": "128",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          }],
+        "Area": {
+          "FF": "10",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "~0",
+          "LUT": "53",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_12": {
+        "Latency": {
+          "LatencyBest": "66",
+          "LatencyAvg": "66",
+          "LatencyWorst": "66",
+          "PipelineII": "66",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "4.743"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "64",
+            "Latency": "64",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          }],
+        "Area": {
+          "FF": "9",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "~0",
+          "LUT": "52",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_13": {
+        "Latency": {
+          "LatencyBest": "10",
+          "LatencyAvg": "10",
+          "LatencyWorst": "10",
+          "PipelineII": "10",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "3.624"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "8",
+            "Latency": "8",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          }],
+        "Area": {
+          "FF": "6",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "~0",
+          "LUT": "49",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_front_linear_i_front_linear_j": {
+        "Latency": {
+          "LatencyBest": "156",
+          "LatencyAvg": "156",
+          "LatencyWorst": "156",
+          "PipelineII": "156",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.300"
+        },
+        "Loops": [{
+            "Name": "front_linear_i_front_linear_j",
+            "TripCount": "64",
+            "Latency": "154",
+            "PipelineII": "2",
+            "PipelineDepth": "29"
+          }],
+        "Area": {
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "FF": "1001",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "~0",
+          "LUT": "751",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "1",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_qkv_i_qkv_j": {
+        "Latency": {
+          "LatencyBest": "121",
+          "LatencyAvg": "121",
+          "LatencyWorst": "121",
+          "PipelineII": "121",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.256"
+        },
+        "Loops": [{
+            "Name": "qkv_i_qkv_j",
+            "TripCount": "64",
+            "Latency": "119",
+            "PipelineII": "1",
+            "PipelineDepth": "57"
+          }],
+        "Area": {
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "48",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "21",
+          "FF": "7890",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "7",
+          "LUT": "7882",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "14",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_transpose_value_i_transpose_value_j": {
+        "Latency": {
+          "LatencyBest": "67",
+          "LatencyAvg": "67",
+          "LatencyWorst": "67",
+          "PipelineII": "67",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "6.508"
+        },
+        "Loops": [{
+            "Name": "transpose_value_i_transpose_value_j",
+            "TripCount": "64",
+            "Latency": "65",
+            "PipelineII": "1",
+            "PipelineDepth": "3"
+          }],
+        "Area": {
+          "FF": "40",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "~0",
+          "LUT": "170",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_kv_i_kv_j": {
+        "Latency": {
+          "LatencyBest": "111",
+          "LatencyAvg": "111",
+          "LatencyWorst": "111",
+          "PipelineII": "111",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.256"
+        },
+        "Loops": [{
+            "Name": "kv_i_kv_j",
+            "TripCount": "64",
+            "Latency": "109",
+            "PipelineII": "1",
+            "PipelineDepth": "47"
+          }],
+        "Area": {
+          "FF": "1721",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "1",
+          "LUT": "511",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_sum_k_j": {
+        "Latency": {
+          "LatencyBest": "51",
+          "LatencyAvg": "51",
+          "LatencyWorst": "51",
+          "PipelineII": "51",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.256"
+        },
+        "Loops": [{
+            "Name": "sum_k_j",
+            "TripCount": "8",
+            "Latency": "49",
+            "PipelineII": "1",
+            "PipelineDepth": "43"
+          }],
+        "Area": {
+          "FF": "1117",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "1",
+          "LUT": "335",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_normalizer_i": {
+        "Latency": {
+          "LatencyBest": "76",
+          "LatencyAvg": "76",
+          "LatencyWorst": "76",
+          "PipelineII": "76",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.256"
+        },
+        "Loops": [{
+            "Name": "normalizer_i",
+            "TripCount": "8",
+            "Latency": "74",
+            "PipelineII": "1",
+            "PipelineDepth": "68"
+          }],
+        "Area": {
+          "FF": "1487",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "1",
+          "LUT": "335",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_numerator_i": {
+        "Latency": {
+          "LatencyBest": "83",
+          "LatencyAvg": "83",
+          "LatencyWorst": "83",
+          "PipelineII": "83",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.256"
+        },
+        "Loops": [{
+            "Name": "numerator_i",
+            "TripCount": "8",
+            "Latency": "81",
+            "PipelineII": "4",
+            "PipelineDepth": "54"
+          }],
+        "Area": {
+          "FF": "8739",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "8",
+          "LUT": "4115",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "7",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_o_proj_i_o_proj_j": {
+        "Latency": {
+          "LatencyBest": "310",
+          "LatencyAvg": "310",
+          "LatencyWorst": "310",
+          "PipelineII": "310",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.256"
+        },
+        "Loops": [{
+            "Name": "o_proj_i_o_proj_j",
+            "TripCount": "64",
+            "Latency": "308",
+            "PipelineII": "4",
+            "PipelineDepth": "57"
+          }],
+        "Area": {
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "FF": "2219",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "2",
+          "LUT": "1030",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "1",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_ff1_i_ff1_j": {
+        "Latency": {
+          "LatencyBest": "182",
+          "LatencyAvg": "182",
+          "LatencyWorst": "182",
+          "PipelineII": "182",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.256"
+        },
+        "Loops": [{
+            "Name": "ff1_i_ff1_j",
+            "TripCount": "128",
+            "Latency": "180",
+            "PipelineII": "1",
+            "PipelineDepth": "54"
+          }],
+        "Area": {
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "FF": "2147",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "2",
+          "LUT": "629",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "1",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_ff2_i_ff2_j": {
+        "Latency": {
+          "LatencyBest": "161",
+          "LatencyAvg": "161",
+          "LatencyWorst": "161",
+          "PipelineII": "161",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.256"
+        },
+        "Loops": [{
+            "Name": "ff2_i_ff2_j",
+            "TripCount": "64",
+            "Latency": "159",
+            "PipelineII": "1",
+            "PipelineDepth": "97"
+          }],
+        "Area": {
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "FF": "4092",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "3",
+          "LUT": "912",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "1",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample_Pipeline_final_i": {
+        "Latency": {
+          "LatencyBest": "60",
+          "LatencyAvg": "60",
+          "LatencyWorst": "60",
+          "PipelineII": "60",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.256"
+        },
+        "Loops": [{
+            "Name": "final_i",
+            "TripCount": "8",
+            "Latency": "58",
+            "PipelineII": "1",
+            "PipelineDepth": "52"
+          }],
+        "Area": {
+          "FF": "1423",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "1",
+          "LUT": "358",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer_for_sample": {
+        "Latency": {
+          "LatencyBest": "1561",
+          "LatencyAvg": "1561",
+          "LatencyWorst": "1561",
+          "PipelineII": "1561",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.300"
+        },
+        "Area": {
+          "BRAM_18K": "119",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "42",
+          "DSP": "138",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "62",
+          "FF": "40791",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "38",
+          "LUT": "36249",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "68",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "transformer": {
+        "Latency": {
+          "LatencyBest": "1568",
+          "LatencyAvg": "1568",
+          "LatencyWorst": "1568",
+          "PipelineII": "1569",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.300"
+        },
+        "Area": {
+          "BRAM_18K": "119",
+          "AVAIL_BRAM": "280",
+          "UTIL_BRAM": "42",
+          "DSP": "138",
+          "AVAIL_DSP": "220",
+          "UTIL_DSP": "62",
+          "FF": "42572",
+          "AVAIL_FF": "106400",
+          "UTIL_FF": "40",
+          "LUT": "39274",
+          "AVAIL_LUT": "53200",
+          "UTIL_LUT": "73",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      }
+    }
+  },
+  "GenerateBdFiles": "0",
+  "GenData": {
+    "DataVersion": "0.2",
+    "Time": "2026-05-20 09:28:12 CST",
+    "ToolName": "vitis_hls",
+    "ToolVersion": "2022.2"
+  }
+}

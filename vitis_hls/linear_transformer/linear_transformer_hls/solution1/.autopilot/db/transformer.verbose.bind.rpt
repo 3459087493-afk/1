@@ -1,0 +1,1749 @@
+
+
+================================================================
+== Vitis HLS Report for 'transformer'
+================================================================
+* Date:           Tue May 19 20:30:27 2026
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        linear_transformer_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.300 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+------+------+---------+
+    |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline|
+    |   min   |   max   |    min    |    max    |  min |  max |   Type  |
+    +---------+---------+-----------+-----------+------+------+---------+
+    |     1568|     1568|  15.680 us|  15.680 us|  1569|  1569|       no|
+    +---------+---------+-----------+-----------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        +-----------------------------------+------------------------+---------+---------+-----------+-----------+------+------+---------+
+        |                                   |                        |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline|
+        |              Instance             |         Module         |   min   |   max   |    min    |    max    |  min |  max |   Type  |
+        +-----------------------------------+------------------------+---------+---------+-----------+-----------+------+------+---------+
+        |grp_transformer_for_sample_fu_216  |transformer_for_sample  |     1561|     1561|  15.610 us|  15.610 us|  1561|  1561|       no|
+        +-----------------------------------+------------------------+---------+---------+-----------+-----------+------+------+---------+
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 8
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 4.52>
+ST_1 : Operation 9 [1/1] (1.00ns)   --->   "%val_r_read = read i64 @_ssdm_op_Read.s_axilite.i64, i64 %val_r" [linear_transformer.cpp:23]   --->   Operation 9 'read' 'val_r_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 114 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 10 [1/1] (1.00ns)   --->   "%input_array_read = read i64 @_ssdm_op_Read.s_axilite.i64, i64 %input_array" [linear_transformer.cpp:23]   --->   Operation 10 'read' 'input_array_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 114 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 11 [2/2] (3.52ns)   --->   "%result = call i32 @transformer_for_sample, i32 %gmem0, i64 %input_array_read, i32 %FRONT_LINEAR_WEIGHT_0, i32 %FRONT_LINEAR_WEIGHT_1, i32 %FRONT_LINEAR_BIAS, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_0, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_0, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_0, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_1, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_1, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_1, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_2, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_2, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_2, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_3, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_3, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_3, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_4, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_4, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_4, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_5, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_5, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_5, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_6, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_6, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_6, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_7, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_7, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_7, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_0, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_1, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_2, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_3, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_4, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_5, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_6, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_7, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_BIAS, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_0, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_1, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_2, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_3, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_4, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_5, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_6, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_7, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_BIAS, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_0, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_1, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_2, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_3, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_4, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_5, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_6, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_7, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_8, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_9, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_10, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_11, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_12, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_13, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_14, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_15, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_BIAS" [linear_transformer.cpp:31]   --->   Operation 11 'call' 'result' <Predicate = true> <Delay = 3.52> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%trunc_ln = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %val_r_read, i32 2, i32 63" [linear_transformer.cpp:32]   --->   Operation 12 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%sext_ln32 = sext i62 %trunc_ln" [linear_transformer.cpp:32]   --->   Operation 13 'sext' 'sext_ln32' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%gmem1_addr = getelementptr i32 %gmem1, i64 %sext_ln32" [linear_transformer.cpp:32]   --->   Operation 14 'getelementptr' 'gmem1_addr' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 7.30>
+ST_2 : Operation 15 [1/2] (2.32ns)   --->   "%result = call i32 @transformer_for_sample, i32 %gmem0, i64 %input_array_read, i32 %FRONT_LINEAR_WEIGHT_0, i32 %FRONT_LINEAR_WEIGHT_1, i32 %FRONT_LINEAR_BIAS, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_0, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_0, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_0, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_1, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_1, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_1, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_2, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_2, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_2, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_3, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_3, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_3, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_4, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_4, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_4, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_5, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_5, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_5, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_6, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_6, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_6, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_7, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_7, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_7, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_0, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_1, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_2, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_3, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_4, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_5, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_6, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_7, i32 %TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_BIAS, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_0, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_1, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_2, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_3, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_4, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_5, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_6, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_7, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_BIAS, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_0, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_1, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_2, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_3, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_4, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_5, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_6, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_7, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_8, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_9, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_10, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_11, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_12, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_13, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_14, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_15, i32 %TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_BIAS" [linear_transformer.cpp:31]   --->   Operation 15 'call' 'result' <Predicate = true> <Delay = 2.32> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 16 [1/1] (7.30ns)   --->   "%gmem1_addr_req = writereq i1 @_ssdm_op_WriteReq.m_axi.i32P1A, i32 %gmem1_addr, i32 1" [linear_transformer.cpp:32]   --->   Operation 16 'writereq' 'gmem1_addr_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 3 <SV = 2> <Delay = 7.30>
+ST_3 : Operation 17 [1/1] (0.00ns)   --->   "%bitcast_ln32 = bitcast i32 %result" [linear_transformer.cpp:32]   --->   Operation 17 'bitcast' 'bitcast_ln32' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 18 [1/1] (7.30ns)   --->   "%write_ln32 = write void @_ssdm_op_Write.m_axi.volatile.i32P1A, i32 %gmem1_addr, i32 %bitcast_ln32, i4 15" [linear_transformer.cpp:32]   --->   Operation 18 'write' 'write_ln32' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 4 <SV = 3> <Delay = 7.30>
+ST_4 : Operation 19 [5/5] (7.30ns)   --->   "%gmem1_addr_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %gmem1_addr" [linear_transformer.cpp:32]   --->   Operation 19 'writeresp' 'gmem1_addr_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 5 <SV = 4> <Delay = 7.30>
+ST_5 : Operation 20 [4/5] (7.30ns)   --->   "%gmem1_addr_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %gmem1_addr" [linear_transformer.cpp:32]   --->   Operation 20 'writeresp' 'gmem1_addr_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 6 <SV = 5> <Delay = 7.30>
+ST_6 : Operation 21 [3/5] (7.30ns)   --->   "%gmem1_addr_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %gmem1_addr" [linear_transformer.cpp:32]   --->   Operation 21 'writeresp' 'gmem1_addr_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 7 <SV = 6> <Delay = 7.30>
+ST_7 : Operation 22 [2/5] (7.30ns)   --->   "%gmem1_addr_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %gmem1_addr" [linear_transformer.cpp:32]   --->   Operation 22 'writeresp' 'gmem1_addr_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 8 <SV = 7> <Delay = 7.30>
+ST_8 : Operation 23 [1/1] (0.00ns)   --->   "%spectopmodule_ln23 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_9" [linear_transformer.cpp:23]   --->   Operation 23 'spectopmodule' 'spectopmodule_ln23' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 24 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem0, void @empty_2, i32 0, i32 0, void @empty_3, i32 0, i32 16, void @empty_4, void @empty_5, void @empty_3, i32 16, i32 16, i32 16, i32 16, void @empty_3, void @empty_3, i32 4294967295, i32 0"   --->   Operation 24 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 25 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %gmem0"   --->   Operation 25 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 26 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem1, void @empty_2, i32 0, i32 0, void @empty_3, i32 0, i32 1, void @empty_12, void @empty_5, void @empty_3, i32 16, i32 16, i32 16, i32 16, void @empty_3, void @empty_3, i32 4294967295, i32 0"   --->   Operation 26 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 27 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %gmem1"   --->   Operation 27 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 28 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %input_array, void @empty_1, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_6, void @empty_21, void @empty_3, i32 0, i32 0, i32 0, i32 0, void @empty_3, void @empty_10, i32 4294967295, i32 0"   --->   Operation 28 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 29 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %input_array, void @empty_7, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_3, void @empty_3, void @empty_3, i32 0, i32 0, i32 0, i32 0, void @empty_3, void @empty_10, i32 4294967295, i32 0"   --->   Operation 29 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 30 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %val_r, void @empty_1, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_6, void @empty_8, void @empty_3, i32 0, i32 0, i32 0, i32 0, void @empty_3, void @empty_10, i32 4294967295, i32 0"   --->   Operation 30 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 31 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %val_r, void @empty_7, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_3, void @empty_3, void @empty_3, i32 0, i32 0, i32 0, i32 0, void @empty_3, void @empty_10, i32 4294967295, i32 0"   --->   Operation 31 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 32 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_1, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_6, void @empty_3, void @empty_3, i32 0, i32 0, i32 0, i32 0, void @empty_3, void @empty_3, i32 4294967295, i32 0"   --->   Operation 32 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 33 [1/5] (7.30ns)   --->   "%gmem1_addr_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %gmem1_addr" [linear_transformer.cpp:32]   --->   Operation 33 'writeresp' 'gmem1_addr_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 34 [1/1] (0.00ns)   --->   "%ret_ln33 = ret" [linear_transformer.cpp:33]   --->   Operation 34 'ret' 'ret_ln33' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 1
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ gmem0]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=4; pingpong=0; private_global=0; IO mode=m_axi:ce=0
+Port [ gmem1]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=4; pingpong=0; private_global=0; IO mode=m_axi:ce=0
+Port [ input_array]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ val_r]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ FRONT_LINEAR_WEIGHT_0]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ FRONT_LINEAR_WEIGHT_1]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ FRONT_LINEAR_BIAS]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_0]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_0]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_0]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_1]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_1]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_1]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_2]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_2]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_2]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_3]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_3]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_3]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_4]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_4]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_4]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_5]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_5]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_5]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_6]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_6]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_6]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_7]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_7]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_7]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_0]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_1]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_2]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_3]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_4]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_5]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_6]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_7]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_BIAS]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_0]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_1]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_2]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_3]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_4]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_5]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_6]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_7]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_BIAS]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_0]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_1]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_2]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_3]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_4]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_5]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_6]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_7]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_8]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_9]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_10]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_11]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_12]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_13]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_14]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_15]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_BIAS]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+val_r_read         (read         ) [ 000000000]
+input_array_read   (read         ) [ 001000000]
+trunc_ln           (partselect   ) [ 000000000]
+sext_ln32          (sext         ) [ 000000000]
+gmem1_addr         (getelementptr) [ 001111111]
+result             (call         ) [ 000100000]
+gmem1_addr_req     (writereq     ) [ 000000000]
+bitcast_ln32       (bitcast      ) [ 000000000]
+write_ln32         (write        ) [ 000000000]
+spectopmodule_ln23 (spectopmodule) [ 000000000]
+specinterface_ln0  (specinterface) [ 000000000]
+specbitsmap_ln0    (specbitsmap  ) [ 000000000]
+specinterface_ln0  (specinterface) [ 000000000]
+specbitsmap_ln0    (specbitsmap  ) [ 000000000]
+specinterface_ln0  (specinterface) [ 000000000]
+specinterface_ln0  (specinterface) [ 000000000]
+specinterface_ln0  (specinterface) [ 000000000]
+specinterface_ln0  (specinterface) [ 000000000]
+specinterface_ln0  (specinterface) [ 000000000]
+gmem1_addr_resp    (writeresp    ) [ 000000000]
+ret_ln33           (ret          ) [ 000000000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="gmem0">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="gmem0"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="gmem1">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="gmem1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="input_array">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="input_array"/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="val_r">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="val_r"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="FRONT_LINEAR_WEIGHT_0">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="FRONT_LINEAR_WEIGHT_0"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="FRONT_LINEAR_WEIGHT_1">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="FRONT_LINEAR_WEIGHT_1"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="FRONT_LINEAR_BIAS">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="FRONT_LINEAR_BIAS"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_0">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_0"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_0">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_0"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_0">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_0"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_1">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_1"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_1">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_1"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_1">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_1"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_2">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_2"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_2">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_2"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_2">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_2"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_3">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_3"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_3">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_3"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_3">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_3"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_4">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_4"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_4">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_4"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_4">
+<pin_list>
+<pin id="43" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_4"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="44" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_5">
+<pin_list>
+<pin id="45" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_5"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_5">
+<pin_list>
+<pin id="47" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_5"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="48" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_5">
+<pin_list>
+<pin id="49" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_5"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="50" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_6">
+<pin_list>
+<pin id="51" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_6"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="52" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_6">
+<pin_list>
+<pin id="53" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_6"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="54" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_6">
+<pin_list>
+<pin id="55" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_6"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="56" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_7">
+<pin_list>
+<pin id="57" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_7"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="58" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_7">
+<pin_list>
+<pin id="59" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_7"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="60" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_7">
+<pin_list>
+<pin id="61" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_7"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="62" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_0">
+<pin_list>
+<pin id="63" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_0"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="64" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_1">
+<pin_list>
+<pin id="65" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_1"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="66" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_2">
+<pin_list>
+<pin id="67" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_2"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="68" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_3">
+<pin_list>
+<pin id="69" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_3"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="70" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_4">
+<pin_list>
+<pin id="71" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_4"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="72" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_5">
+<pin_list>
+<pin id="73" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_5"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="74" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_6">
+<pin_list>
+<pin id="75" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_6"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="76" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_7">
+<pin_list>
+<pin id="77" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_7"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="78" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_BIAS">
+<pin_list>
+<pin id="79" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_BIAS"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="80" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_0">
+<pin_list>
+<pin id="81" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_0"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="82" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_1">
+<pin_list>
+<pin id="83" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_1"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="84" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_2">
+<pin_list>
+<pin id="85" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_2"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="86" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_3">
+<pin_list>
+<pin id="87" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_3"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="88" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_4">
+<pin_list>
+<pin id="89" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_4"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="90" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_5">
+<pin_list>
+<pin id="91" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_5"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="92" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_6">
+<pin_list>
+<pin id="93" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_6"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="94" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_7">
+<pin_list>
+<pin id="95" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_7"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="96" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_BIAS">
+<pin_list>
+<pin id="97" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_BIAS"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="98" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_0">
+<pin_list>
+<pin id="99" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_0"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="100" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_1">
+<pin_list>
+<pin id="101" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_1"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="102" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_2">
+<pin_list>
+<pin id="103" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_2"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="104" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_3">
+<pin_list>
+<pin id="105" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_3"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="106" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_4">
+<pin_list>
+<pin id="107" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_4"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="108" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_5">
+<pin_list>
+<pin id="109" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_5"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="110" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_6">
+<pin_list>
+<pin id="111" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_6"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="112" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_7">
+<pin_list>
+<pin id="113" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_7"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="114" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_8">
+<pin_list>
+<pin id="115" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_8"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="116" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_9">
+<pin_list>
+<pin id="117" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_9"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="118" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_10">
+<pin_list>
+<pin id="119" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_10"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="120" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_11">
+<pin_list>
+<pin id="121" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_11"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="122" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_12">
+<pin_list>
+<pin id="123" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_12"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="124" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_13">
+<pin_list>
+<pin id="125" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_13"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="126" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_14">
+<pin_list>
+<pin id="127" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_14"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="128" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_15">
+<pin_list>
+<pin id="129" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_15"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="130" class="1000" name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_BIAS">
+<pin_list>
+<pin id="131" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_BIAS"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="132" class="1001" name="const_132">
+<pin_list>
+<pin id="133" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.s_axilite.i64"/></StgValue>
+</bind>
+</comp>
+
+<comp id="134" class="1001" name="const_134">
+<pin_list>
+<pin id="135" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="transformer_for_sample"/></StgValue>
+</bind>
+</comp>
+
+<comp id="136" class="1001" name="const_136">
+<pin_list>
+<pin id="137" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_PartSelect.i62.i64.i32.i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="138" class="1001" name="const_138">
+<pin_list>
+<pin id="139" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="140" class="1001" name="const_140">
+<pin_list>
+<pin id="141" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="142" class="1001" name="const_142">
+<pin_list>
+<pin id="143" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_WriteReq.m_axi.i32P1A"/></StgValue>
+</bind>
+</comp>
+
+<comp id="144" class="1001" name="const_144">
+<pin_list>
+<pin id="145" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="146" class="1001" name="const_146">
+<pin_list>
+<pin id="147" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Write.m_axi.volatile.i32P1A"/></StgValue>
+</bind>
+</comp>
+
+<comp id="148" class="1001" name="const_148">
+<pin_list>
+<pin id="149" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="150" class="1001" name="const_150">
+<pin_list>
+<pin id="151" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_WriteResp.m_axi.i32P1A"/></StgValue>
+</bind>
+</comp>
+
+<comp id="152" class="1001" name="const_152">
+<pin_list>
+<pin id="153" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
+</bind>
+</comp>
+
+<comp id="154" class="1001" name="const_154">
+<pin_list>
+<pin id="155" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_9"/></StgValue>
+</bind>
+</comp>
+
+<comp id="156" class="1001" name="const_156">
+<pin_list>
+<pin id="157" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+</bind>
+</comp>
+
+<comp id="158" class="1001" name="const_158">
+<pin_list>
+<pin id="159" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="160" class="1001" name="const_160">
+<pin_list>
+<pin id="161" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="162" class="1001" name="const_162">
+<pin_list>
+<pin id="163" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="164" class="1001" name="const_164">
+<pin_list>
+<pin id="165" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="166" class="1001" name="const_166">
+<pin_list>
+<pin id="167" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_4"/></StgValue>
+</bind>
+</comp>
+
+<comp id="168" class="1001" name="const_168">
+<pin_list>
+<pin id="169" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_5"/></StgValue>
+</bind>
+</comp>
+
+<comp id="170" class="1001" name="const_170">
+<pin_list>
+<pin id="171" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="172" class="1001" name="const_172">
+<pin_list>
+<pin id="173" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
+</bind>
+</comp>
+
+<comp id="174" class="1001" name="const_174">
+<pin_list>
+<pin id="175" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_12"/></StgValue>
+</bind>
+</comp>
+
+<comp id="176" class="1001" name="const_176">
+<pin_list>
+<pin id="177" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="178" class="1001" name="const_178">
+<pin_list>
+<pin id="179" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_6"/></StgValue>
+</bind>
+</comp>
+
+<comp id="180" class="1001" name="const_180">
+<pin_list>
+<pin id="181" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_21"/></StgValue>
+</bind>
+</comp>
+
+<comp id="182" class="1001" name="const_182">
+<pin_list>
+<pin id="183" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_10"/></StgValue>
+</bind>
+</comp>
+
+<comp id="184" class="1001" name="const_184">
+<pin_list>
+<pin id="185" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_7"/></StgValue>
+</bind>
+</comp>
+
+<comp id="186" class="1001" name="const_186">
+<pin_list>
+<pin id="187" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_8"/></StgValue>
+</bind>
+</comp>
+
+<comp id="188" class="1004" name="val_r_read_read_fu_188">
+<pin_list>
+<pin id="189" dir="0" index="0" bw="64" slack="0"/>
+<pin id="190" dir="0" index="1" bw="64" slack="0"/>
+<pin id="191" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="val_r_read/1 "/>
+</bind>
+</comp>
+
+<comp id="194" class="1004" name="input_array_read_read_fu_194">
+<pin_list>
+<pin id="195" dir="0" index="0" bw="64" slack="0"/>
+<pin id="196" dir="0" index="1" bw="64" slack="0"/>
+<pin id="197" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="input_array_read/1 "/>
+</bind>
+</comp>
+
+<comp id="200" class="1004" name="grp_writeresp_fu_200">
+<pin_list>
+<pin id="201" dir="0" index="0" bw="1" slack="0"/>
+<pin id="202" dir="0" index="1" bw="32" slack="1"/>
+<pin id="203" dir="0" index="2" bw="1" slack="0"/>
+<pin id="204" dir="1" index="3" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="writereq(1155) writeresp(1158) " fcode="writeresp"/>
+<opset="gmem1_addr_req/2 gmem1_addr_resp/4 "/>
+</bind>
+</comp>
+
+<comp id="207" class="1004" name="write_ln32_write_fu_207">
+<pin_list>
+<pin id="208" dir="0" index="0" bw="0" slack="0"/>
+<pin id="209" dir="0" index="1" bw="32" slack="2"/>
+<pin id="210" dir="0" index="2" bw="32" slack="0"/>
+<pin id="211" dir="0" index="3" bw="1" slack="0"/>
+<pin id="212" dir="1" index="4" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="write(1151) " fcode="write"/>
+<opset="write_ln32/3 "/>
+</bind>
+</comp>
+
+<comp id="216" class="1004" name="grp_transformer_for_sample_fu_216">
+<pin_list>
+<pin id="217" dir="0" index="0" bw="32" slack="0"/>
+<pin id="218" dir="0" index="1" bw="32" slack="0"/>
+<pin id="219" dir="0" index="2" bw="64" slack="0"/>
+<pin id="220" dir="0" index="3" bw="32" slack="0"/>
+<pin id="221" dir="0" index="4" bw="32" slack="0"/>
+<pin id="222" dir="0" index="5" bw="32" slack="0"/>
+<pin id="223" dir="0" index="6" bw="32" slack="0"/>
+<pin id="224" dir="0" index="7" bw="32" slack="0"/>
+<pin id="225" dir="0" index="8" bw="32" slack="0"/>
+<pin id="226" dir="0" index="9" bw="32" slack="0"/>
+<pin id="227" dir="0" index="10" bw="32" slack="0"/>
+<pin id="228" dir="0" index="11" bw="32" slack="0"/>
+<pin id="229" dir="0" index="12" bw="32" slack="0"/>
+<pin id="230" dir="0" index="13" bw="32" slack="0"/>
+<pin id="231" dir="0" index="14" bw="32" slack="0"/>
+<pin id="232" dir="0" index="15" bw="32" slack="0"/>
+<pin id="233" dir="0" index="16" bw="32" slack="0"/>
+<pin id="234" dir="0" index="17" bw="32" slack="0"/>
+<pin id="235" dir="0" index="18" bw="32" slack="0"/>
+<pin id="236" dir="0" index="19" bw="32" slack="0"/>
+<pin id="237" dir="0" index="20" bw="32" slack="0"/>
+<pin id="238" dir="0" index="21" bw="32" slack="0"/>
+<pin id="239" dir="0" index="22" bw="32" slack="0"/>
+<pin id="240" dir="0" index="23" bw="32" slack="0"/>
+<pin id="241" dir="0" index="24" bw="32" slack="0"/>
+<pin id="242" dir="0" index="25" bw="32" slack="0"/>
+<pin id="243" dir="0" index="26" bw="32" slack="0"/>
+<pin id="244" dir="0" index="27" bw="32" slack="0"/>
+<pin id="245" dir="0" index="28" bw="32" slack="0"/>
+<pin id="246" dir="0" index="29" bw="32" slack="0"/>
+<pin id="247" dir="0" index="30" bw="32" slack="0"/>
+<pin id="248" dir="0" index="31" bw="32" slack="0"/>
+<pin id="249" dir="0" index="32" bw="32" slack="0"/>
+<pin id="250" dir="0" index="33" bw="32" slack="0"/>
+<pin id="251" dir="0" index="34" bw="32" slack="0"/>
+<pin id="252" dir="0" index="35" bw="32" slack="0"/>
+<pin id="253" dir="0" index="36" bw="32" slack="0"/>
+<pin id="254" dir="0" index="37" bw="32" slack="0"/>
+<pin id="255" dir="0" index="38" bw="32" slack="0"/>
+<pin id="256" dir="0" index="39" bw="32" slack="0"/>
+<pin id="257" dir="0" index="40" bw="32" slack="0"/>
+<pin id="258" dir="0" index="41" bw="32" slack="0"/>
+<pin id="259" dir="0" index="42" bw="32" slack="0"/>
+<pin id="260" dir="0" index="43" bw="32" slack="0"/>
+<pin id="261" dir="0" index="44" bw="32" slack="0"/>
+<pin id="262" dir="0" index="45" bw="32" slack="0"/>
+<pin id="263" dir="0" index="46" bw="32" slack="0"/>
+<pin id="264" dir="0" index="47" bw="32" slack="0"/>
+<pin id="265" dir="0" index="48" bw="32" slack="0"/>
+<pin id="266" dir="0" index="49" bw="32" slack="0"/>
+<pin id="267" dir="0" index="50" bw="32" slack="0"/>
+<pin id="268" dir="0" index="51" bw="32" slack="0"/>
+<pin id="269" dir="0" index="52" bw="32" slack="0"/>
+<pin id="270" dir="0" index="53" bw="32" slack="0"/>
+<pin id="271" dir="0" index="54" bw="32" slack="0"/>
+<pin id="272" dir="0" index="55" bw="32" slack="0"/>
+<pin id="273" dir="0" index="56" bw="32" slack="0"/>
+<pin id="274" dir="0" index="57" bw="32" slack="0"/>
+<pin id="275" dir="0" index="58" bw="32" slack="0"/>
+<pin id="276" dir="0" index="59" bw="32" slack="0"/>
+<pin id="277" dir="0" index="60" bw="32" slack="0"/>
+<pin id="278" dir="0" index="61" bw="32" slack="0"/>
+<pin id="279" dir="0" index="62" bw="32" slack="0"/>
+<pin id="280" dir="0" index="63" bw="32" slack="0"/>
+<pin id="281" dir="0" index="64" bw="32" slack="0"/>
+<pin id="282" dir="1" index="65" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="result/1 "/>
+</bind>
+</comp>
+
+<comp id="348" class="1004" name="trunc_ln_fu_348">
+<pin_list>
+<pin id="349" dir="0" index="0" bw="62" slack="0"/>
+<pin id="350" dir="0" index="1" bw="64" slack="0"/>
+<pin id="351" dir="0" index="2" bw="3" slack="0"/>
+<pin id="352" dir="0" index="3" bw="7" slack="0"/>
+<pin id="353" dir="1" index="4" bw="62" slack="0"/>
+</pin_list>
+<bind>
+<opcode="partselect(1002) " fcode="partselect"/>
+<opset="trunc_ln/1 "/>
+</bind>
+</comp>
+
+<comp id="358" class="1004" name="sext_ln32_fu_358">
+<pin_list>
+<pin id="359" dir="0" index="0" bw="62" slack="0"/>
+<pin id="360" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="sext(35) " fcode="sext"/>
+<opset="sext_ln32/1 "/>
+</bind>
+</comp>
+
+<comp id="362" class="1004" name="gmem1_addr_fu_362">
+<pin_list>
+<pin id="363" dir="0" index="0" bw="32" slack="0"/>
+<pin id="364" dir="0" index="1" bw="62" slack="0"/>
+<pin id="365" dir="1" index="2" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="gmem1_addr/1 "/>
+</bind>
+</comp>
+
+<comp id="368" class="1004" name="bitcast_ln32_fu_368">
+<pin_list>
+<pin id="369" dir="0" index="0" bw="32" slack="1"/>
+<pin id="370" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="bitcast(44) " fcode="bitcast"/>
+<opset="bitcast_ln32/3 "/>
+</bind>
+</comp>
+
+<comp id="372" class="1005" name="input_array_read_reg_372">
+<pin_list>
+<pin id="373" dir="0" index="0" bw="64" slack="1"/>
+<pin id="374" dir="1" index="1" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opset="input_array_read "/>
+</bind>
+</comp>
+
+<comp id="377" class="1005" name="gmem1_addr_reg_377">
+<pin_list>
+<pin id="378" dir="0" index="0" bw="32" slack="1"/>
+<pin id="379" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="gmem1_addr "/>
+</bind>
+</comp>
+
+<comp id="383" class="1005" name="result_reg_383">
+<pin_list>
+<pin id="384" dir="0" index="0" bw="32" slack="1"/>
+<pin id="385" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="result "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="192"><net_src comp="132" pin="0"/><net_sink comp="188" pin=0"/></net>
+
+<net id="193"><net_src comp="6" pin="0"/><net_sink comp="188" pin=1"/></net>
+
+<net id="198"><net_src comp="132" pin="0"/><net_sink comp="194" pin=0"/></net>
+
+<net id="199"><net_src comp="4" pin="0"/><net_sink comp="194" pin=1"/></net>
+
+<net id="205"><net_src comp="142" pin="0"/><net_sink comp="200" pin=0"/></net>
+
+<net id="206"><net_src comp="144" pin="0"/><net_sink comp="200" pin=2"/></net>
+
+<net id="213"><net_src comp="146" pin="0"/><net_sink comp="207" pin=0"/></net>
+
+<net id="214"><net_src comp="148" pin="0"/><net_sink comp="207" pin=3"/></net>
+
+<net id="215"><net_src comp="150" pin="0"/><net_sink comp="200" pin=0"/></net>
+
+<net id="283"><net_src comp="134" pin="0"/><net_sink comp="216" pin=0"/></net>
+
+<net id="284"><net_src comp="0" pin="0"/><net_sink comp="216" pin=1"/></net>
+
+<net id="285"><net_src comp="194" pin="2"/><net_sink comp="216" pin=2"/></net>
+
+<net id="286"><net_src comp="8" pin="0"/><net_sink comp="216" pin=3"/></net>
+
+<net id="287"><net_src comp="10" pin="0"/><net_sink comp="216" pin=4"/></net>
+
+<net id="288"><net_src comp="12" pin="0"/><net_sink comp="216" pin=5"/></net>
+
+<net id="289"><net_src comp="14" pin="0"/><net_sink comp="216" pin=6"/></net>
+
+<net id="290"><net_src comp="16" pin="0"/><net_sink comp="216" pin=7"/></net>
+
+<net id="291"><net_src comp="18" pin="0"/><net_sink comp="216" pin=8"/></net>
+
+<net id="292"><net_src comp="20" pin="0"/><net_sink comp="216" pin=9"/></net>
+
+<net id="293"><net_src comp="22" pin="0"/><net_sink comp="216" pin=10"/></net>
+
+<net id="294"><net_src comp="24" pin="0"/><net_sink comp="216" pin=11"/></net>
+
+<net id="295"><net_src comp="26" pin="0"/><net_sink comp="216" pin=12"/></net>
+
+<net id="296"><net_src comp="28" pin="0"/><net_sink comp="216" pin=13"/></net>
+
+<net id="297"><net_src comp="30" pin="0"/><net_sink comp="216" pin=14"/></net>
+
+<net id="298"><net_src comp="32" pin="0"/><net_sink comp="216" pin=15"/></net>
+
+<net id="299"><net_src comp="34" pin="0"/><net_sink comp="216" pin=16"/></net>
+
+<net id="300"><net_src comp="36" pin="0"/><net_sink comp="216" pin=17"/></net>
+
+<net id="301"><net_src comp="38" pin="0"/><net_sink comp="216" pin=18"/></net>
+
+<net id="302"><net_src comp="40" pin="0"/><net_sink comp="216" pin=19"/></net>
+
+<net id="303"><net_src comp="42" pin="0"/><net_sink comp="216" pin=20"/></net>
+
+<net id="304"><net_src comp="44" pin="0"/><net_sink comp="216" pin=21"/></net>
+
+<net id="305"><net_src comp="46" pin="0"/><net_sink comp="216" pin=22"/></net>
+
+<net id="306"><net_src comp="48" pin="0"/><net_sink comp="216" pin=23"/></net>
+
+<net id="307"><net_src comp="50" pin="0"/><net_sink comp="216" pin=24"/></net>
+
+<net id="308"><net_src comp="52" pin="0"/><net_sink comp="216" pin=25"/></net>
+
+<net id="309"><net_src comp="54" pin="0"/><net_sink comp="216" pin=26"/></net>
+
+<net id="310"><net_src comp="56" pin="0"/><net_sink comp="216" pin=27"/></net>
+
+<net id="311"><net_src comp="58" pin="0"/><net_sink comp="216" pin=28"/></net>
+
+<net id="312"><net_src comp="60" pin="0"/><net_sink comp="216" pin=29"/></net>
+
+<net id="313"><net_src comp="62" pin="0"/><net_sink comp="216" pin=30"/></net>
+
+<net id="314"><net_src comp="64" pin="0"/><net_sink comp="216" pin=31"/></net>
+
+<net id="315"><net_src comp="66" pin="0"/><net_sink comp="216" pin=32"/></net>
+
+<net id="316"><net_src comp="68" pin="0"/><net_sink comp="216" pin=33"/></net>
+
+<net id="317"><net_src comp="70" pin="0"/><net_sink comp="216" pin=34"/></net>
+
+<net id="318"><net_src comp="72" pin="0"/><net_sink comp="216" pin=35"/></net>
+
+<net id="319"><net_src comp="74" pin="0"/><net_sink comp="216" pin=36"/></net>
+
+<net id="320"><net_src comp="76" pin="0"/><net_sink comp="216" pin=37"/></net>
+
+<net id="321"><net_src comp="78" pin="0"/><net_sink comp="216" pin=38"/></net>
+
+<net id="322"><net_src comp="80" pin="0"/><net_sink comp="216" pin=39"/></net>
+
+<net id="323"><net_src comp="82" pin="0"/><net_sink comp="216" pin=40"/></net>
+
+<net id="324"><net_src comp="84" pin="0"/><net_sink comp="216" pin=41"/></net>
+
+<net id="325"><net_src comp="86" pin="0"/><net_sink comp="216" pin=42"/></net>
+
+<net id="326"><net_src comp="88" pin="0"/><net_sink comp="216" pin=43"/></net>
+
+<net id="327"><net_src comp="90" pin="0"/><net_sink comp="216" pin=44"/></net>
+
+<net id="328"><net_src comp="92" pin="0"/><net_sink comp="216" pin=45"/></net>
+
+<net id="329"><net_src comp="94" pin="0"/><net_sink comp="216" pin=46"/></net>
+
+<net id="330"><net_src comp="96" pin="0"/><net_sink comp="216" pin=47"/></net>
+
+<net id="331"><net_src comp="98" pin="0"/><net_sink comp="216" pin=48"/></net>
+
+<net id="332"><net_src comp="100" pin="0"/><net_sink comp="216" pin=49"/></net>
+
+<net id="333"><net_src comp="102" pin="0"/><net_sink comp="216" pin=50"/></net>
+
+<net id="334"><net_src comp="104" pin="0"/><net_sink comp="216" pin=51"/></net>
+
+<net id="335"><net_src comp="106" pin="0"/><net_sink comp="216" pin=52"/></net>
+
+<net id="336"><net_src comp="108" pin="0"/><net_sink comp="216" pin=53"/></net>
+
+<net id="337"><net_src comp="110" pin="0"/><net_sink comp="216" pin=54"/></net>
+
+<net id="338"><net_src comp="112" pin="0"/><net_sink comp="216" pin=55"/></net>
+
+<net id="339"><net_src comp="114" pin="0"/><net_sink comp="216" pin=56"/></net>
+
+<net id="340"><net_src comp="116" pin="0"/><net_sink comp="216" pin=57"/></net>
+
+<net id="341"><net_src comp="118" pin="0"/><net_sink comp="216" pin=58"/></net>
+
+<net id="342"><net_src comp="120" pin="0"/><net_sink comp="216" pin=59"/></net>
+
+<net id="343"><net_src comp="122" pin="0"/><net_sink comp="216" pin=60"/></net>
+
+<net id="344"><net_src comp="124" pin="0"/><net_sink comp="216" pin=61"/></net>
+
+<net id="345"><net_src comp="126" pin="0"/><net_sink comp="216" pin=62"/></net>
+
+<net id="346"><net_src comp="128" pin="0"/><net_sink comp="216" pin=63"/></net>
+
+<net id="347"><net_src comp="130" pin="0"/><net_sink comp="216" pin=64"/></net>
+
+<net id="354"><net_src comp="136" pin="0"/><net_sink comp="348" pin=0"/></net>
+
+<net id="355"><net_src comp="188" pin="2"/><net_sink comp="348" pin=1"/></net>
+
+<net id="356"><net_src comp="138" pin="0"/><net_sink comp="348" pin=2"/></net>
+
+<net id="357"><net_src comp="140" pin="0"/><net_sink comp="348" pin=3"/></net>
+
+<net id="361"><net_src comp="348" pin="4"/><net_sink comp="358" pin=0"/></net>
+
+<net id="366"><net_src comp="2" pin="0"/><net_sink comp="362" pin=0"/></net>
+
+<net id="367"><net_src comp="358" pin="1"/><net_sink comp="362" pin=1"/></net>
+
+<net id="371"><net_src comp="368" pin="1"/><net_sink comp="207" pin=2"/></net>
+
+<net id="375"><net_src comp="194" pin="2"/><net_sink comp="372" pin=0"/></net>
+
+<net id="376"><net_src comp="372" pin="1"/><net_sink comp="216" pin=2"/></net>
+
+<net id="380"><net_src comp="362" pin="2"/><net_sink comp="377" pin=0"/></net>
+
+<net id="381"><net_src comp="377" pin="1"/><net_sink comp="200" pin=1"/></net>
+
+<net id="382"><net_src comp="377" pin="1"/><net_sink comp="207" pin=1"/></net>
+
+<net id="386"><net_src comp="216" pin="65"/><net_sink comp="383" pin=0"/></net>
+
+<net id="387"><net_src comp="383" pin="1"/><net_sink comp="368" pin=0"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: gmem1 | {2 3 4 5 6 7 8 }
+ - Input state : 
+	Port: transformer : gmem0 | {1 2 }
+	Port: transformer : input_array | {1 }
+	Port: transformer : val_r | {1 }
+	Port: transformer : FRONT_LINEAR_WEIGHT_0 | {1 2 }
+	Port: transformer : FRONT_LINEAR_WEIGHT_1 | {1 2 }
+	Port: transformer : FRONT_LINEAR_BIAS | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_0 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_0 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_0 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_1 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_1 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_1 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_2 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_2 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_2 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_3 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_3 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_3 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_4 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_4 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_4 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_5 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_5 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_5 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_6 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_6 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_6 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_7 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_7 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_7 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_0 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_1 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_2 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_3 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_4 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_5 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_6 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_7 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_BIAS | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_0 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_1 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_2 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_3 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_4 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_5 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_6 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_7 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_BIAS | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_0 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_1 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_2 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_3 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_4 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_5 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_6 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_7 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_8 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_9 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_10 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_11 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_12 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_13 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_14 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_15 | {1 2 }
+	Port: transformer : TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_BIAS | {1 2 }
+  - Chain level:
+	State 1
+		sext_ln32 : 1
+		gmem1_addr : 2
+	State 2
+	State 3
+		write_ln32 : 1
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|-----------------------------------|---------|---------|---------|---------|---------|---------|
+| Operation|          Functional Unit          |   BRAM  |   DSP   |  Delay  |    FF   |   LUT   |   URAM  |
+|----------|-----------------------------------|---------|---------|---------|---------|---------|---------|
+|   call   | grp_transformer_for_sample_fu_216 |   119   |   509   | 397.355 |  58668  |  78893  |    0    |
+|----------|-----------------------------------|---------|---------|---------|---------|---------|---------|
+|   read   |       val_r_read_read_fu_188      |    0    |    0    |    0    |    0    |    0    |    0    |
+|          |    input_array_read_read_fu_194   |    0    |    0    |    0    |    0    |    0    |    0    |
+|----------|-----------------------------------|---------|---------|---------|---------|---------|---------|
+| writeresp|        grp_writeresp_fu_200       |    0    |    0    |    0    |    0    |    0    |    0    |
+|----------|-----------------------------------|---------|---------|---------|---------|---------|---------|
+|   write  |      write_ln32_write_fu_207      |    0    |    0    |    0    |    0    |    0    |    0    |
+|----------|-----------------------------------|---------|---------|---------|---------|---------|---------|
+|partselect|          trunc_ln_fu_348          |    0    |    0    |    0    |    0    |    0    |    0    |
+|----------|-----------------------------------|---------|---------|---------|---------|---------|---------|
+|   sext   |          sext_ln32_fu_358         |    0    |    0    |    0    |    0    |    0    |    0    |
+|----------|-----------------------------------|---------|---------|---------|---------|---------|---------|
+|   Total  |                                   |   119   |   509   | 397.355 |  58668  |  78893  |    0    |
+|----------|-----------------------------------|---------|---------|---------|---------|---------|---------|
+
+Memories:
++---------------------------------------------------------+--------+--------+--------+
+|                                                         |  BRAM  |   FF   |   LUT  |
++---------------------------------------------------------+--------+--------+--------+
+|                    FRONT_LINEAR_BIAS                    |    0   |   32   |    4   |
+|                  FRONT_LINEAR_WEIGHT_0                  |    0   |   32   |    4   |
+|                  FRONT_LINEAR_WEIGHT_1                  |    0   |   32   |    4   |
+|      TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_BIAS     |    0   |   32   |    8   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_0   |    0   |   32   |    8   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_1   |    0   |   32   |    8   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_2   |    0   |   32   |    8   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_3   |    0   |   32   |    8   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_4   |    0   |   32   |    8   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_5   |    0   |   32   |    8   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_6   |    0   |   32   |    8   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT_7   |    0   |   32   |    8   |
+|      TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_BIAS     |    0   |   32   |    4   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_0   |    0   |   32   |    4   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_1   |    0   |   32   |    4   |
+|   TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_10   |    0   |   32   |    4   |
+|   TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_11   |    0   |   32   |    4   |
+|   TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_12   |    0   |   32   |    4   |
+|   TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_13   |    0   |   32   |    4   |
+|   TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_14   |    0   |   32   |    4   |
+|   TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_15   |    0   |   32   |    4   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_2   |    0   |   32   |    4   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_3   |    0   |   32   |    4   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_4   |    0   |   32   |    4   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_5   |    0   |   32   |    4   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_6   |    0   |   32   |    4   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_7   |    0   |   32   |    4   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_8   |    0   |   32   |    4   |
+|    TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT_9   |    0   |   32   |    4   |
+| TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_0 |    0   |   32   |    4   |
+| TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_1 |    0   |   32   |    4   |
+| TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_2 |    0   |   32   |    4   |
+| TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_3 |    0   |   32   |    4   |
+| TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_4 |    0   |   32   |    4   |
+| TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_5 |    0   |   32   |    4   |
+| TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_6 |    0   |   32   |    4   |
+| TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT_7 |    0   |   32   |    4   |
+|    TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_BIAS   |    0   |   32   |    4   |
+|  TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_0 |    0   |   32   |    4   |
+|  TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_1 |    0   |   32   |    4   |
+|  TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_2 |    0   |   32   |    4   |
+|  TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_3 |    0   |   32   |    4   |
+|  TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_4 |    0   |   32   |    4   |
+|  TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_5 |    0   |   32   |    4   |
+|  TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_6 |    0   |   32   |    4   |
+|  TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT_7 |    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_0|    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_1|    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_2|    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_3|    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_4|    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_5|    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_6|    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT_7|    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_0|    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_1|    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_2|    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_3|    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_4|    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_5|    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_6|    0   |   32   |    4   |
+|TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT_7|    0   |   32   |    4   |
++---------------------------------------------------------+--------+--------+--------+
+|                          Total                          |    0   |  1984  |   284  |
++---------------------------------------------------------+--------+--------+--------+
+
+* Register list:
++------------------------+--------+
+|                        |   FF   |
++------------------------+--------+
+|   gmem1_addr_reg_377   |   32   |
+|input_array_read_reg_372|   64   |
+|     result_reg_383     |   32   |
++------------------------+--------+
+|          Total         |   128  |
++------------------------+--------+
+
+* Multiplexer (MUX) list: 
+|-----------------------------------|------|------|------|--------||---------||---------|
+|                Comp               |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
+|-----------------------------------|------|------|------|--------||---------||---------|
+|        grp_writeresp_fu_200       |  p0  |   2  |   1  |    2   |
+| grp_transformer_for_sample_fu_216 |  p2  |   2  |  64  |   128  ||    9    |
+|-----------------------------------|------|------|------|--------||---------||---------|
+|               Total               |      |      |      |   130  ||  3.176  ||    9    |
+|-----------------------------------|------|------|------|--------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+--------+--------+--------+
+|           |  BRAM  |   DSP  |  Delay |   FF   |   LUT  |  URAM  |
++-----------+--------+--------+--------+--------+--------+--------+
+|  Function |   119  |   509  |   397  |  58668 |  78893 |    0   |
+|   Memory  |    0   |    -   |    -   |  1984  |   284  |    -   |
+|Multiplexer|    -   |    -   |    3   |    -   |    9   |    -   |
+|  Register |    -   |    -   |    -   |   128  |    -   |    -   |
++-----------+--------+--------+--------+--------+--------+--------+
+|   Total   |   119  |   509  |   400  |  60780 |  79186 |    0   |
++-----------+--------+--------+--------+--------+--------+--------+

@@ -1,0 +1,453 @@
+
+
+================================================================
+== Synthesis Summary Report of 'unsw_linear_transformer'
+================================================================
++ General Information: 
+    * Date:           Sat Jun 27 11:48:12 2026
+    * Version:        2022.2 (Build 3670227 on Oct 13 2022)
+    * Project:        unsw_linear_transformer_prj
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-------------------------------------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+-----------+------------+-------------+--------------+-----+
+    |                                 Modules                                 |  Issue |       | Latency |  Latency  | Iteration|         | Trip |          |           |            |             |              |     |
+    |                                 & Loops                                 |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|   BRAM    |     DSP    |      FF     |      LUT     | URAM|
+    +-------------------------------------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+-----------+------------+-------------+--------------+-----+
+    |+ unsw_linear_transformer                                                |  Timing|  -1.27|     7869|  7.869e+04|         -|     7870|     -|        no|  176 (62%)|  258 (117%)|  71828 (67%)|  65546 (123%)|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2      |  Timing|  -1.05|     1658|  1.658e+04|         -|     1658|     -|        no|    1 (~0%)|           -|    4388 (4%)|     2142 (4%)|    -|
+    |  o VITIS_LOOP_71_1_VITIS_LOOP_72_2                                      |      II|   7.30|     1656|  1.656e+04|       133|       12|   128|       yes|          -|           -|            -|             -|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5      |       -|   0.04|      225|  2.250e+03|         -|      225|     -|        no|          -|   176 (80%)|  20658 (19%)|   26694 (50%)|    -|
+    |  o VITIS_LOOP_86_4_VITIS_LOOP_87_5                                      |       -|   7.30|      223|  2.230e+03|        97|        1|   128|       yes|          -|           -|            -|             -|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_107_7_VITIS_LOOP_108_8    |       -|   0.04|      303|  3.030e+03|         -|      303|     -|        no|          -|           -|    1670 (1%)|     525 (~0%)|    -|
+    |  o VITIS_LOOP_107_7_VITIS_LOOP_108_8                                    |       -|   7.30|      301|  3.010e+03|        47|        1|   256|       yes|          -|           -|            -|             -|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_118_10                    |       -|   0.04|       59|    590.000|         -|       59|     -|        no|          -|           -|    1119 (1%)|     337 (~0%)|    -|
+    |  o VITIS_LOOP_118_10                                                    |       -|   7.30|       57|    570.000|        43|        1|    16|       yes|          -|           -|            -|             -|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17  |       -|   0.04|      220|  2.200e+03|         -|      220|     -|        no|          -|           -|    4054 (3%)|     1088 (2%)|    -|
+    |  o VITIS_LOOP_147_16_VITIS_LOOP_148_17                                  |       -|   7.30|      218|  2.180e+03|        92|        1|   128|       yes|          -|           -|            -|             -|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_17_1                      |  Timing|  -1.27|      303|  3.030e+03|         -|      303|     -|        no|          -|           -|    8125 (7%)|     4107 (7%)|    -|
+    |  o VITIS_LOOP_17_1                                                      |      II|   7.30|      301|  3.010e+03|       246|        8|     8|       yes|          -|           -|            -|             -|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20  |       -|   0.04|     2130|  2.130e+04|         -|     2130|     -|        no|    17 (6%)|           -|    2896 (2%)|     1496 (2%)|    -|
+    |  o VITIS_LOOP_168_19_VITIS_LOOP_169_20                                  |      II|   7.30|     2128|  2.128e+04|        89|        8|   256|       yes|          -|           -|            -|             -|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23  |       -|   0.04|      427|  4.270e+03|         -|      427|     -|        no|          -|           -|    7595 (7%)|     3670 (6%)|    -|
+    |  o VITIS_LOOP_180_22_VITIS_LOOP_181_23                                  |      II|   7.30|      425|  4.250e+03|       172|        2|   128|       yes|          -|           -|            -|             -|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_17_11                     |  Timing|  -1.27|      303|  3.030e+03|         -|      303|     -|        no|          -|           -|    8125 (7%)|     4107 (7%)|    -|
+    |  o VITIS_LOOP_17_1                                                      |      II|   7.30|      301|  3.010e+03|       246|        8|     8|       yes|          -|           -|            -|             -|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_200_25                    |       -|   0.04|      108|  1.080e+03|         -|      108|     -|        no|          -|           -|    917 (~0%)|     524 (~0%)|    -|
+    |  o VITIS_LOOP_200_25                                                    |      II|   7.30|      106|  1.060e+03|        47|        4|    16|       yes|          -|           -|            -|             -|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_47_1                      |       -|   0.04|       84|    840.000|         -|       84|     -|        no|          -|           -|    110 (~0%)|     128 (~0%)|    -|
+    |  o VITIS_LOOP_47_1                                                      |      II|   7.30|       82|    820.000|         8|        5|    16|       yes|          -|           -|            -|             -|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_53_2                      |       -|   0.04|       93|    930.000|         -|       93|     -|        no|          -|           -|    210 (~0%)|     220 (~0%)|    -|
+    |  o VITIS_LOOP_53_2                                                      |      II|   7.30|       91|    910.000|        17|        5|    16|       yes|          -|           -|            -|             -|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_60_3                      |       -|   0.04|       37|    370.000|         -|       37|     -|        no|          -|           -|    403 (~0%)|     109 (~0%)|    -|
+    |  o VITIS_LOOP_60_3                                                      |       -|   7.30|       35|    350.000|        21|        1|    16|       yes|          -|           -|            -|             -|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_211_27                    |       -|   0.04|       87|    870.000|         -|       87|     -|        no|          -|           -|    1340 (1%)|      660 (1%)|    -|
+    |  o VITIS_LOOP_211_27                                                    |       -|   7.30|       85|    850.000|        85|        1|     2|       yes|          -|           -|            -|             -|    -|
+    | o VITIS_LOOP_127_12                                                     |       -|   7.30|     1752|  1.752e+04|       219|        -|     8|        no|          -|           -|            -|             -|    -|
+    |  + unsw_linear_transformer_Pipeline_VITIS_LOOP_129_13                   |       -|   0.04|       88|    880.000|         -|       88|     -|        no|          -|           -|    177 (~0%)|     151 (~0%)|    -|
+    |   o VITIS_LOOP_129_13                                                   |      II|   7.30|       86|    860.000|        12|        5|    16|       yes|          -|           -|            -|             -|    -|
+    |  + unsw_linear_transformer_Pipeline_VITIS_LOOP_135_14                   |       -|   0.04|      119|  1.190e+03|         -|      119|     -|        no|          -|           -|    2809 (2%)|      637 (1%)|    -|
+    |   o VITIS_LOOP_135_14                                                   |       -|   7.30|      117|  1.170e+03|       103|        1|    16|       yes|          -|           -|            -|             -|    -|
+    +-------------------------------------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+-----------+------------+-------------+--------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* AP_MEMORY
++------------------+----------+
+| Interface        | Bitwidth |
++------------------+----------+
+| input_r_address0 | 8        |
+| input_r_address1 | 8        |
+| input_r_q0       | 32       |
+| input_r_q1       | 32       |
+| logits_address0  | 1        |
+| logits_d0        | 32       |
++------------------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+----------+
+| Argument | Direction | Datatype |
++----------+-----------+----------+
+| input    | in        | float*   |
+| logits   | out       | float*   |
++----------+-----------+----------+
+
+* SW-to-HW Mapping
++----------+------------------+---------+----------+
+| Argument | HW Interface     | HW Type | HW Usage |
++----------+------------------+---------+----------+
+| input    | input_r_address0 | port    | offset   |
+| input    | input_r_ce0      | port    |          |
+| input    | input_r_q0       | port    |          |
+| input    | input_r_address1 | port    | offset   |
+| input    | input_r_ce1      | port    |          |
+| input    | input_r_q1       | port    |          |
+| logits   | logits_address0  | port    | offset   |
+| logits   | logits_ce0       | port    |          |
+| logits   | logits_we0       | port    |          |
+| logits   | logits_d0        | port    |          |
++----------+------------------+---------+----------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++-------------------------------------------------------------------------+-----+--------+----------------+-------+---------+---------+
+| Name                                                                    | DSP | Pragma | Variable       | Op    | Impl    | Latency |
++-------------------------------------------------------------------------+-----+--------+----------------+-------+---------+---------+
+| + unsw_linear_transformer                                               | 258 |        |                |       |         |         |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U566                                    | -   |        | add_ln127      | add   | fabric  | 0       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U537                                    | 3   |        | mean           | fmul  | maxdsp  | 3       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U537                                    | 3   |        | variance       | fmul  | maxdsp  | 3       |
+|   faddfsub_32ns_32ns_32_5_full_dsp_1_U536                               | 2   |        | p_x_assign_2   | fadd  | fulldsp | 4       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U566                                    | -   |        | tmp_4          | fsqrt | fabric  | 15      |
+|   fadd_32ns_32ns_32_5_full_dsp_1_U553                                   | -   |        | inverse_std    | fdiv  | fabric  | 15      |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2     | 0   |        |                |       |         |         |
+|    sub_ln75_fu_920_p2                                                   | -   |        | sub_ln75       | sub   | fabric  | 0       |
+|    add_ln71_17_fu_837_p2                                                | -   |        | add_ln71_17    | add   | fabric  | 0       |
+|    add_ln71_fu_846_p2                                                   | -   |        | add_ln71       | add   | fabric  | 0       |
+|    sub_ln75_1_fu_944_p2                                                 | -   |        | sub_ln75_1     | sub   | fabric  | 0       |
+|    add_ln71_1_fu_1063_p2                                                | -   |        | add_ln71_1     | add   | fabric  | 0       |
+|    add_ln71_2_fu_1073_p2                                                | -   |        | add_ln71_2     | add   | fabric  | 0       |
+|    add_ln71_3_fu_1093_p2                                                | -   |        | add_ln71_3     | add   | fabric  | 0       |
+|    add_ln71_4_fu_1103_p2                                                | -   |        | add_ln71_4     | add   | fabric  | 0       |
+|    add_ln71_5_fu_1123_p2                                                | -   |        | add_ln71_5     | add   | fabric  | 0       |
+|    add_ln71_6_fu_1133_p2                                                | -   |        | add_ln71_6     | add   | fabric  | 0       |
+|    add_ln71_7_fu_1153_p2                                                | -   |        | add_ln71_7     | add   | fabric  | 0       |
+|    add_ln71_8_fu_1163_p2                                                | -   |        | add_ln71_8     | add   | fabric  | 0       |
+|    add_ln71_9_fu_1183_p2                                                | -   |        | add_ln71_9     | add   | fabric  | 0       |
+|    add_ln71_10_fu_1193_p2                                               | -   |        | add_ln71_10    | add   | fabric  | 0       |
+|    add_ln71_11_fu_1213_p2                                               | -   |        | add_ln71_11    | add   | fabric  | 0       |
+|    add_ln71_12_fu_1223_p2                                               | -   |        | add_ln71_12    | add   | fabric  | 0       |
+|    add_ln71_13_fu_1252_p2                                               | -   |        | add_ln71_13    | add   | fabric  | 0       |
+|    add_ln71_14_fu_1262_p2                                               | -   |        | add_ln71_14    | add   | fabric  | 0       |
+|    add_ln71_15_fu_1304_p2                                               | -   |        | add_ln71_15    | add   | fabric  | 0       |
+|    add_ln71_16_fu_1314_p2                                               | -   |        | add_ln71_16    | add   | fabric  | 0       |
+|    add_ln79_fu_1327_p2                                                  | -   |        | add_ln79       | add   | fabric  | 0       |
+|    add_ln72_fu_1272_p2                                                  | -   |        | add_ln72       | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5     | 176 |        |                |       |         |         |
+|    add_ln86_1_fu_1514_p2                                                | -   |        | add_ln86_1     | add   | fabric  | 0       |
+|    add_ln86_fu_1523_p2                                                  | -   |        | add_ln86       | add   | fabric  | 0       |
+|    add_ln100_fu_1884_p2                                                 | -   |        | add_ln100      | add   | fabric  | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U100                                   | 3   |        | mul2_5         | fmul  | maxdsp  | 3       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U101                                   | 3   |        | mul3_5         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U51                                   | 2   |        | value_sum_1_5  | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U102                                   | 3   |        | mul1_6         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U52                                   | 2   |        | query_sum_1_6  | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U103                                   | 3   |        | mul2_6         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U53                                   | 2   |        | key_sum_2_6    | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U104                                   | 3   |        | mul3_6         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U54                                   | 2   |        | value_sum_1_6  | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U105                                   | 3   |        | mul1_7         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U55                                   | 2   |        | query_sum_1_7  | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U106                                   | 3   |        | mul2_7         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U56                                   | 2   |        | key_sum_2_7    | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U107                                   | 3   |        | mul3_7         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U57                                   | 2   |        | value_sum_1_7  | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U108                                   | 3   |        | mul1_8         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U58                                   | 2   |        | query_sum_1_8  | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U109                                   | 3   |        | mul2_8         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U59                                   | 2   |        | key_sum_2_8    | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U110                                   | 3   |        | mul3_8         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U60                                   | 2   |        | value_sum_1_8  | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U111                                   | 3   |        | mul1_9         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U61                                   | 2   |        | query_sum_1_9  | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U112                                   | 3   |        | mul2_9         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U62                                   | 2   |        | key_sum_2_9    | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U113                                   | 3   |        | mul3_9         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U63                                   | 2   |        | value_sum_1_9  | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U114                                   | 3   |        | mul1_s         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U64                                   | 2   |        | query_sum_1_s  | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U115                                   | 3   |        | mul2_s         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U65                                   | 2   |        | key_sum_2_s    | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U116                                   | 3   |        | mul3_s         | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U66                                   | 2   |        | value_sum_1_s  | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U117                                   | 3   |        | mul1_10        | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U67                                   | 2   |        | query_sum_1_10 | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U118                                   | 3   |        | mul2_10        | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U68                                   | 2   |        | key_sum_2_10   | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U119                                   | 3   |        | mul3_10        | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U69                                   | 2   |        | value_sum_1_10 | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U120                                   | 3   |        | mul1_11        | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U70                                   | 2   |        | query_sum_1_11 | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U121                                   | 3   |        | mul2_11        | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U71                                   | 2   |        | key_sum_2_11   | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U122                                   | 3   |        | mul3_11        | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U72                                   | 2   |        | value_sum_1_11 | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U123                                   | 3   |        | mul1_12        | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U73                                   | 2   |        | query_sum_1_12 | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U124                                   | 3   |        | mul2_12        | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U74                                   | 2   |        | key_sum_2_12   | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U125                                   | 3   |        | mul3_12        | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U75                                   | 2   |        | value_sum_1_12 | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U126                                   | 3   |        | mul1_13        | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U76                                   | 2   |        | query_sum_1_13 | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U127                                   | 3   |        | mul2_13        | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U77                                   | 2   |        | key_sum_2_13   | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U128                                   | 3   |        | mul3_13        | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U78                                   | 2   |        | value_sum_1_13 | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U129                                   | 3   |        | mul1_14        | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U79                                   | 2   |        | query_sum_1_14 | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U130                                   | 3   |        | mul2_14        | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U80                                   | 2   |        | key_sum_2_14   | fadd  | fulldsp | 4       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U131                                   | 3   |        | mul3_14        | fmul  | maxdsp  | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U81                                   | 2   |        | value_sum_1_14 | fadd  | fulldsp | 4       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U82                                   | 2   |        | add_i          | fadd  | fulldsp | 4       |
+|    fexp_32ns_32ns_32_10_full_dsp_1_U134                                 | 7   |        | tmp            | fexp  | fulldsp | 9       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U83                                   | 2   |        | add_i1         | fadd  | fulldsp | 4       |
+|    fexp_32ns_32ns_32_10_full_dsp_1_U135                                 | 7   |        | tmp_1          | fexp  | fulldsp | 9       |
+|    add_ln87_fu_1890_p2                                                  | -   |        | add_ln87       | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_107_7_VITIS_LOOP_108_8   | 0   |        |                |       |         |         |
+|    add_ln107_5_fu_368_p2                                                | -   |        | add_ln107_5    | add   | fabric  | 0       |
+|    add_ln107_fu_380_p2                                                  | -   |        | add_ln107      | add   | fabric  | 0       |
+|    add_ln107_1_fu_588_p2                                                | -   |        | add_ln107_1    | add   | fabric  | 0       |
+|    add_ln107_2_fu_599_p2                                                | -   |        | add_ln107_2    | add   | fabric  | 0       |
+|    add_ln107_3_fu_610_p2                                                | -   |        | add_ln107_3    | add   | fabric  | 0       |
+|    add_ln111_fu_630_p2                                                  | -   |        | add_ln111      | add   | fabric  | 0       |
+|    add_ln111_1_fu_641_p2                                                | -   |        | add_ln111_1    | add   | fabric  | 0       |
+|    add_ln111_2_fu_652_p2                                                | -   |        | add_ln111_2    | add   | fabric  | 0       |
+|    add_ln113_fu_663_p2                                                  | -   |        | add_ln113      | add   | fabric  | 0       |
+|    add_ln108_fu_554_p2                                                  | -   |        | add_ln108      | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_118_10                   | 0   |        |                |       |         |         |
+|    add_ln118_fu_203_p2                                                  | -   |        | add_ln118      | add   | fabric  | 0       |
+|    add_ln121_fu_264_p2                                                  | -   |        | add_ln121      | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_129_13                   | 0   |        |                |       |         |         |
+|    add_ln129_fu_114_p2                                                  | -   |        | add_ln129      | add   | fabric  | 0       |
+|    add_ln130_fu_129_p2                                                  | -   |        | add_ln130      | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17 | 0   |        |                |       |         |         |
+|    add_ln147_1_fu_733_p2                                                | -   |        | add_ln147_1    | add   | fabric  | 0       |
+|    add_ln147_fu_742_p2                                                  | -   |        | add_ln147      | add   | fabric  | 0       |
+|    add_ln155_fu_1117_p2                                                 | -   |        | add_ln155      | add   | fabric  | 0       |
+|    add_ln148_fu_1123_p2                                                 | -   |        | add_ln148      | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_135_14                   | 0   |        |                |       |         |         |
+|    add_ln135_fu_557_p2                                                  | -   |        | add_ln135      | add   | fabric  | 0       |
+|    add_ln139_fu_622_p2                                                  | -   |        | add_ln139      | add   | fabric  | 0       |
+|    add_ln139_1_fu_664_p2                                                | -   |        | add_ln139_1    | add   | fabric  | 0       |
+|    add_ln139_2_fu_688_p2                                                | -   |        | add_ln139_2    | add   | fabric  | 0       |
+|    add_ln141_fu_735_p2                                                  | -   |        | add_ln141      | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_17_1                     | 0   |        |                |       |         |         |
+|    add_ln17_fu_577_p2                                                   | -   |        | add_ln17       | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20 | 0   |        |                |       |         |         |
+|    add_ln168_1_fu_625_p2                                                | -   |        | add_ln168_1    | add   | fabric  | 0       |
+|    add_ln168_fu_634_p2                                                  | -   |        | add_ln168      | add   | fabric  | 0       |
+|    add_ln175_fu_886_p2                                                  | -   |        | add_ln175      | add   | fabric  | 0       |
+|    add_ln169_fu_892_p2                                                  | -   |        | add_ln169      | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23 | 0   |        |                |       |         |         |
+|    add_ln180_1_fu_1229_p2                                               | -   |        | add_ln180_1    | add   | fabric  | 0       |
+|    add_ln180_fu_1238_p2                                                 | -   |        | add_ln180      | add   | fabric  | 0       |
+|    add_ln187_fu_1709_p2                                                 | -   |        | add_ln187      | add   | fabric  | 0       |
+|    add_ln181_fu_1715_p2                                                 | -   |        | add_ln181      | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_17_11                    | 0   |        |                |       |         |         |
+|    add_ln17_fu_577_p2                                                   | -   |        | add_ln17       | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_200_25                   | 0   |        |                |       |         |         |
+|    add_ln200_fu_167_p2                                                  | -   |        | add_ln200      | add   | fabric  | 0       |
+|    add_ln203_fu_222_p2                                                  | -   |        | add_ln203      | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_47_1                     | 0   |        |                |       |         |         |
+|    add_ln47_fu_85_p2                                                    | -   |        | add_ln47       | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_53_2                     | 0   |        |                |       |         |         |
+|    add_ln53_fu_105_p2                                                   | -   |        | add_ln53       | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_60_3                     | 0   |        |                |       |         |         |
+|    add_ln60_fu_138_p2                                                   | -   |        | add_ln60       | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_211_27                   | 0   |        |                |       |         |         |
+|    add_ln211_fu_392_p2                                                  | -   |        | add_ln211      | add   | fabric  | 0       |
++-------------------------------------------------------------------------+-----+--------+----------------+-------+---------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++-------------------------------------------------------------------------+------+------+--------+-------------------------------------+---------+------+---------+
+| Name                                                                    | BRAM | URAM | Pragma | Variable                            | Storage | Impl | Latency |
++-------------------------------------------------------------------------+------+------+--------+-------------------------------------+---------+------+---------+
+| + unsw_linear_transformer                                               | 176  | 0    |        |                                     |         |      |         |
+|   faddfsub_32ns_32ns_32_5_full_dsp_1_U546                               | 2    | -    |        | embedded                            | rom_np  | auto | 1       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U560                                    | 2    | -    |        | query                               | ram_s2p | auto | 1       |
+|   faddfsub_32ns_32ns_32_5_full_dsp_1_U545                               | 2    | -    |        | key                                 | rom_np  | auto | 1       |
+|   faddfsub_32ns_32ns_32_5_full_dsp_1_U547                               | 2    | -    |        | value                               | rom_np  | auto | 1       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U560                                    | 2    | -    |        | key_value                           | rom_np  | auto | 1       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U561                                    | -    | -    |        | key_sum                             | ram_1p  | auto | 1       |
+|   faddfsub_32ns_32ns_32_5_full_dsp_1_U546                               | 30   | -    |        | attention                           | rom_np  | auto | 1       |
+|   faddfsub_32ns_32ns_32_5_full_dsp_1_U545                               | 2    | -    |        | residual1                           | rom_np  | auto | 1       |
+|   fsqrt_32ns_32ns_32_16_no_dsp_1_U540                                   | 2    | -    |        | norm1                               | ram_t2p | auto | 1       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U562                                    | 2    | -    |        | feedforward_hidden                  | rom_np  | auto | 1       |
+|   faddfsub_32ns_32ns_32_5_full_dsp_1_U547                               | 2    | -    |        | residual2                           | rom_np  | auto | 1       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U562                                    | 2    | -    |        | norm2                               | ram_t2p | auto | 1       |
+|   faddfsub_32ns_32ns_32_5_full_dsp_1_U547                               | -    | -    |        | pooled                              | ram_1p  | auto | 1       |
+|   fmul_32ns_32ns_32_4_max_dsp_1_U563                                    | -    | -    |        | normalized_output                   | ram_s2p | auto | 1       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2     | 1    | 0    |        |                                     |         |      |         |
+|    INPUT_PROJECTION_BIAS_U                                              | -    | -    |        | INPUT_PROJECTION_BIAS               | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_0_U                                          | -    | -    |        | INPUT_PROJECTION_WEIGHT_0           | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_1_U                                          | -    | -    |        | INPUT_PROJECTION_WEIGHT_1           | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_2_U                                          | -    | -    |        | INPUT_PROJECTION_WEIGHT_2           | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_3_U                                          | -    | -    |        | INPUT_PROJECTION_WEIGHT_3           | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_4_U                                          | -    | -    |        | INPUT_PROJECTION_WEIGHT_4           | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_5_U                                          | -    | -    |        | INPUT_PROJECTION_WEIGHT_5           | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_6_U                                          | -    | -    |        | INPUT_PROJECTION_WEIGHT_6           | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_7_U                                          | -    | -    |        | INPUT_PROJECTION_WEIGHT_7           | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_8_U                                          | -    | -    |        | INPUT_PROJECTION_WEIGHT_8           | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_9_U                                          | -    | -    |        | INPUT_PROJECTION_WEIGHT_9           | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_10_U                                         | -    | -    |        | INPUT_PROJECTION_WEIGHT_10          | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_11_U                                         | -    | -    |        | INPUT_PROJECTION_WEIGHT_11          | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_12_U                                         | -    | -    |        | INPUT_PROJECTION_WEIGHT_12          | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_13_U                                         | -    | -    |        | INPUT_PROJECTION_WEIGHT_13          | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_14_U                                         | -    | -    |        | INPUT_PROJECTION_WEIGHT_14          | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_15_U                                         | -    | -    |        | INPUT_PROJECTION_WEIGHT_15          | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_16_U                                         | -    | -    |        | INPUT_PROJECTION_WEIGHT_16          | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_17_U                                         | -    | -    |        | INPUT_PROJECTION_WEIGHT_17          | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_18_U                                         | -    | -    |        | INPUT_PROJECTION_WEIGHT_18          | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_19_U                                         | -    | -    |        | INPUT_PROJECTION_WEIGHT_19          | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_20_U                                         | -    | -    |        | INPUT_PROJECTION_WEIGHT_20          | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_21_U                                         | -    | -    |        | INPUT_PROJECTION_WEIGHT_21          | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_22_U                                         | -    | -    |        | INPUT_PROJECTION_WEIGHT_22          | rom_1p  | auto | 1       |
+|    INPUT_PROJECTION_WEIGHT_23_U                                         | -    | -    |        | INPUT_PROJECTION_WEIGHT_23          | rom_1p  | auto | 1       |
+|    POSITION_EMBEDDING_0_U                                               | 1    | -    |        | POSITION_EMBEDDING_0                | rom_1p  | auto | 1       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5     | 0    | 0    |        |                                     |         |      |         |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_0_U                                  | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_0   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_0_U                                    | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_0     | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_0_U                                  | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_0   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_1_U                                  | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_1   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_1_U                                    | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_1     | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_1_U                                  | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_1   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_2_U                                  | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_2   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_2_U                                    | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_2     | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_2_U                                  | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_2   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_3_U                                  | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_3   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_3_U                                    | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_3     | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_3_U                                  | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_3   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_4_U                                  | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_4   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_4_U                                    | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_4     | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_4_U                                  | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_4   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_5_U                                  | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_5   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_5_U                                    | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_5     | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_5_U                                  | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_5   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_6_U                                  | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_6   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_6_U                                    | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_6     | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_6_U                                  | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_6   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_7_U                                  | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_7   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_7_U                                    | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_7     | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_7_U                                  | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_7   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_8_U                                  | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_8   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_8_U                                    | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_8     | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_8_U                                  | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_8   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_9_U                                  | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_9   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_9_U                                    | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_9     | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_9_U                                  | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_9   | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_10_U                                 | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_10  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_10_U                                   | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_10    | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_10_U                                 | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_10  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_11_U                                 | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_11  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_11_U                                   | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_11    | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_11_U                                 | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_11  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_12_U                                 | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_12  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_12_U                                   | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_12    | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_12_U                                 | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_12  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_13_U                                 | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_13  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_13_U                                   | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_13    | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_13_U                                 | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_13  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_14_U                                 | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_14  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_14_U                                   | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_14    | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_14_U                                 | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_14  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_15_U                                 | -    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_15  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_15_U                                   | -    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_15    | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_15_U                                 | -    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_15  | rom_1p  | auto | 1       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17 | 0    | 0    |        |                                     |         |      |         |
+|    LAYERS_0_ATTENTION_OUTPUT_BIAS_U                                     | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_BIAS      | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_0_U                                 | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_0  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_1_U                                 | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_1  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_2_U                                 | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_2  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_3_U                                 | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_3  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_4_U                                 | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_4  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_5_U                                 | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_5  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_6_U                                 | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_6  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_7_U                                 | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_7  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_8_U                                 | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_8  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_9_U                                 | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_9  | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_10_U                                | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_10 | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_11_U                                | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_11 | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_12_U                                | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_12 | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_13_U                                | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_13 | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_14_U                                | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_14 | rom_1p  | auto | 1       |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_15_U                                | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_15 | rom_1p  | auto | 1       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20 | 17   | 0    |        |                                     |         |      |         |
+|    LAYERS_0_FEEDFORWARD_0_BIAS_U                                        | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_BIAS         | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_0_U                                    | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_0     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_1_U                                    | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_1     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_2_U                                    | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_2     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_3_U                                    | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_3     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_4_U                                    | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_4     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_5_U                                    | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_5     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_6_U                                    | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_6     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_7_U                                    | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_7     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_8_U                                    | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_8     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_9_U                                    | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_9     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_10_U                                   | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_10    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_11_U                                   | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_11    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_12_U                                   | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_12    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_13_U                                   | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_13    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_14_U                                   | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_14    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_15_U                                   | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_15    | rom_1p  | auto | 1       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23 | 0    | 0    |        |                                     |         |      |         |
+|    LAYERS_0_FEEDFORWARD_3_BIAS_U                                        | -    | -    |        | LAYERS_0_FEEDFORWARD_3_BIAS         | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_0_U                                    | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_0     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_1_U                                    | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_1     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_2_U                                    | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_2     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_3_U                                    | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_3     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_4_U                                    | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_4     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_5_U                                    | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_5     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_6_U                                    | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_6     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_7_U                                    | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_7     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_8_U                                    | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_8     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_9_U                                    | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_9     | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_10_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_10    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_11_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_11    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_12_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_12    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_13_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_13    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_14_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_14    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_15_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_15    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_16_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_16    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_17_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_17    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_18_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_18    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_19_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_19    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_20_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_20    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_21_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_21    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_22_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_22    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_23_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_23    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_24_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_24    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_25_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_25    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_26_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_26    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_27_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_27    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_28_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_28    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_29_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_29    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_30_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_30    | rom_1p  | auto | 1       |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_31_U                                   | -    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_31    | rom_1p  | auto | 1       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_60_3                     | 0    | 0    |        |                                     |         |      |         |
+|    OUTPUT_NORM_WEIGHT_U                                                 | -    | -    |        | OUTPUT_NORM_WEIGHT                  | rom_1p  | auto | 1       |
+|    OUTPUT_NORM_BIAS_U                                                   | -    | -    |        | OUTPUT_NORM_BIAS                    | rom_1p  | auto | 1       |
++-------------------------------------------------------------------------+------+------+--------+-------------------------------------+---------+------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+  No pragmas found
+

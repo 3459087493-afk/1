@@ -1,0 +1,298 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+  **** SW Build 3670227 on Oct 13 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vitis_HLS/2022.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+/tools/Xilinx/Vitis_HLS/2022.2/tps/tcl/tcl8.5/tzdata/Europe/Dublin can't be opened.
+INFO: [HLS 200-10] For user 'root' on host 'finn_dev_root' (Linux_x86_64 version 6.8.0-124-generic) on Sat Jun 27 11:44:48 +0000 2026
+INFO: [HLS 200-10] On os Ubuntu 22.04.1 LTS
+INFO: [HLS 200-10] In directory '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/hls_variants/v03_full_csg_halt'
+Sourcing Tcl script 'run_csim.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset unsw_linear_transformer_prj 
+INFO: [HLS 200-10] Creating and opening project '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/hls_variants/v03_full_csg_halt/unsw_linear_transformer_prj'.
+INFO: [HLS 200-1510] Running: set_top unsw_linear_transformer 
+INFO: [HLS 200-1510] Running: add_files src/unsw_linear_transformer.cpp 
+INFO: [HLS 200-10] Adding design file 'src/unsw_linear_transformer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files src/unsw_linear_transformer.h 
+INFO: [HLS 200-10] Adding design file 'src/unsw_linear_transformer.h' to the project
+INFO: [HLS 200-1510] Running: add_files src/weights.h 
+INFO: [HLS 200-10] Adding design file 'src/weights.h' to the project
+INFO: [HLS 200-1510] Running: add_files -tb src/testbench.cpp 
+INFO: [HLS 200-10] Adding test bench file 'src/testbench.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb src/test_vectors.h 
+INFO: [HLS 200-10] Adding test bench file 'src/test_vectors.h' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 
+INFO: [HLS 200-10] Creating and opening solution '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/hls_variants/v03_full_csg_halt/unsw_linear_transformer_prj/solution1'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vivado' configuration: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xc7z020clg400-1 
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design 
+Running Dispatch Server on port: 43061
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../src/testbench.cpp in debug mode
+   Compiling ../../../../src/unsw_linear_transformer.cpp in debug mode
+../../../../src/unsw_linear_transformer.cpp: In function ‘void unsw_linear_transformer(float (*)[24], float*)’:
+../../../../src/unsw_linear_transformer.cpp:145:61: error: ambiguous overload for ‘operator*’ (operand types are ‘data_t’ {aka ‘ap_fixed<16, 6>’} and ‘float’)
+                 sum += sparse_key[sequence][active_feature] * value[sequence][value_feature];
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../../../../src/unsw_linear_transformer.cpp:145:61: note: candidate: ‘operator*(ap_slong {aka long long int}, float)’ <built-in>
+../../../../src/unsw_linear_transformer.cpp:145:61: note: candidate: ‘operator*(ap_ulong {aka long long unsigned int}, float)’ <built-in>
+../../../../src/unsw_linear_transformer.cpp:145:61: note: candidate: ‘operator*(long unsigned int, float)’ <built-in>
+../../../../src/unsw_linear_transformer.cpp:145:61: note: candidate: ‘operator*(long int, float)’ <built-in>
+../../../../src/unsw_linear_transformer.cpp:145:61: note: candidate: ‘operator*(unsigned int, float)’ <built-in>
+../../../../src/unsw_linear_transformer.cpp:145:61: note: candidate: ‘operator*(int, float)’ <built-in>
+../../../../src/unsw_linear_transformer.cpp:145:61: note: candidate: ‘operator*(float, float)’ <built-in>
+../../../../src/unsw_linear_transformer.cpp:145:61: note: candidate: ‘operator*(double, float)’ <built-in>
+../../../../src/unsw_linear_transformer.cpp:145:61: note: candidate: ‘operator*(long double, float)’ <built-in>
+In file included from /tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed.h:10,
+                 from ../../../../src/unsw_linear_transformer.h:13,
+                 from ../../../../src/unsw_linear_transformer.cpp:1:
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2291:3: note: candidate: ‘typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<1, 1, false>::mult operator*(const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>&, bool) [with int _AP_W = 16; int _AP_I = 6; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0; typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<1, 1, false>::mult = ap_fixed<17, 7, (ap_q_mode)5, (ap_o_mode)3, 0>]’
+   operator BIN_OP(                                                          \
+   ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2345:3: note: in expansion of macro ‘AF_BIN_OP_WITH_INT’
+   AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+   ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2370:1: note: in expansion of macro ‘ALL_AF_OP_WITH_INT’
+ ALL_AF_OP_WITH_INT(bool, 1, false)
+ ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2291:3: note: candidate: ‘typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<8, 8, (CHAR_IS_SIGNED)>::mult operator*(const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>&, char) [with int _AP_W = 16; int _AP_I = 6; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0; typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<8, 8, (CHAR_IS_SIGNED)>::mult = ap_fixed<24, 14, (ap_q_mode)5, (ap_o_mode)3, 0>]’
+   operator BIN_OP(                                                          \
+   ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2345:3: note: in expansion of macro ‘AF_BIN_OP_WITH_INT’
+   AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+   ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2371:1: note: in expansion of macro ‘ALL_AF_OP_WITH_INT’
+ ALL_AF_OP_WITH_INT(char, 8, CHAR_IS_SIGNED)
+ ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2291:3: note: candidate: ‘typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<8, 8, true>::mult operator*(const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>&, signed char) [with int _AP_W = 16; int _AP_I = 6; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0; typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<8, 8, true>::mult = ap_fixed<24, 14, (ap_q_mode)5, (ap_o_mode)3, 0>]’
+   operator BIN_OP(                                                          \
+   ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2345:3: note: in expansion of macro ‘AF_BIN_OP_WITH_INT’
+   AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+   ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2372:1: note: in expansion of macro ‘ALL_AF_OP_WITH_INT’
+ ALL_AF_OP_WITH_INT(signed char, 8, true)
+ ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2291:3: note: candidate: ‘typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<8, 8, false>::mult operator*(const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>&, unsigned char) [with int _AP_W = 16; int _AP_I = 6; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0; typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<8, 8, false>::mult = ap_fixed<24, 14, (ap_q_mode)5, (ap_o_mode)3, 0>]’
+   operator BIN_OP(                                                          \
+   ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2345:3: note: in expansion of macro ‘AF_BIN_OP_WITH_INT’
+   AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+   ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2373:1: note: in expansion of macro ‘ALL_AF_OP_WITH_INT’
+ ALL_AF_OP_WITH_INT(unsigned char, 8, false)
+ ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2291:3: note: candidate: ‘typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_short), (_AP_SIZE_short), true>::mult operator*(const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>&, short int) [with int _AP_W = 16; int _AP_I = 6; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0; typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_short), (_AP_SIZE_short), true>::mult = ap_fixed<32, 22, (ap_q_mode)5, (ap_o_mode)3, 0>]’
+   operator BIN_OP(                                                          \
+   ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2345:3: note: in expansion of macro ‘AF_BIN_OP_WITH_INT’
+   AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+   ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2374:1: note: in expansion of macro ‘ALL_AF_OP_WITH_INT’
+ ALL_AF_OP_WITH_INT(short, _AP_SIZE_short, true)
+ ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2291:3: note: candidate: ‘typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_short), (_AP_SIZE_short), false>::mult operator*(const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>&, short unsigned int) [with int _AP_W = 16; int _AP_I = 6; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0; typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_short), (_AP_SIZE_short), false>::mult = ap_fixed<32, 22, (ap_q_mode)5, (ap_o_mode)3, 0>]’
+   operator BIN_OP(                                                          \
+   ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2345:3: note: in expansion of macro ‘AF_BIN_OP_WITH_INT’
+   AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+   ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2375:1: note: in expansion of macro ‘ALL_AF_OP_WITH_INT’
+ ALL_AF_OP_WITH_INT(unsigned short, _AP_SIZE_short, false)
+ ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2291:3: note: candidate: ‘typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_int), (_AP_SIZE_int), true>::mult operator*(const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>&, int) [with int _AP_W = 16; int _AP_I = 6; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0; typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_int), (_AP_SIZE_int), true>::mult = ap_fixed<48, 38, (ap_q_mode)5, (ap_o_mode)3, 0>]’
+   operator BIN_OP(                                                          \
+   ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2345:3: note: in expansion of macro ‘AF_BIN_OP_WITH_INT’
+   AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+   ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2376:1: note: in expansion of macro ‘ALL_AF_OP_WITH_INT’
+ ALL_AF_OP_WITH_INT(int, _AP_SIZE_int, true)
+ ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2291:3: note: candidate: ‘typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_int), (_AP_SIZE_int), false>::mult operator*(const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>&, unsigned int) [with int _AP_W = 16; int _AP_I = 6; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0; typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_int), (_AP_SIZE_int), false>::mult = ap_fixed<48, 38, (ap_q_mode)5, (ap_o_mode)3, 0>]’
+   operator BIN_OP(                                                          \
+   ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2345:3: note: in expansion of macro ‘AF_BIN_OP_WITH_INT’
+   AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+   ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2377:1: note: in expansion of macro ‘ALL_AF_OP_WITH_INT’
+ ALL_AF_OP_WITH_INT(unsigned int, _AP_SIZE_int, false)
+ ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2291:3: note: candidate: ‘typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_long), (_AP_SIZE_long), true>::mult operator*(const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>&, long int) [with int _AP_W = 16; int _AP_I = 6; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0; typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_long), (_AP_SIZE_long), true>::mult = ap_fixed<80, 70, (ap_q_mode)5, (ap_o_mode)3, 0>]’
+   operator BIN_OP(                                                          \
+   ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2345:3: note: in expansion of macro ‘AF_BIN_OP_WITH_INT’
+   AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+   ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2378:1: note: in expansion of macro ‘ALL_AF_OP_WITH_INT’
+ ALL_AF_OP_WITH_INT(long, _AP_SIZE_long, true)
+ ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2291:3: note: candidate: ‘typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_long), (_AP_SIZE_long), false>::mult operator*(const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>&, long unsigned int) [with int _AP_W = 16; int _AP_I = 6; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0; typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_long), (_AP_SIZE_long), false>::mult = ap_fixed<80, 70, (ap_q_mode)5, (ap_o_mode)3, 0>]’
+   operator BIN_OP(                                                          \
+   ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2345:3: note: in expansion of macro ‘AF_BIN_OP_WITH_INT’
+   AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+   ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2379:1: note: in expansion of macro ‘ALL_AF_OP_WITH_INT’
+ ALL_AF_OP_WITH_INT(unsigned long, _AP_SIZE_long, false)
+ ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2291:3: note: candidate: ‘typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_ap_slong), (_AP_SIZE_ap_slong), true>::mult operator*(const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>&, ap_slong) [with int _AP_W = 16; int _AP_I = 6; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0; typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_ap_slong), (_AP_SIZE_ap_slong), true>::mult = ap_fixed<80, 70, (ap_q_mode)5, (ap_o_mode)3, 0>; ap_slong = long long int]’
+   operator BIN_OP(                                                          \
+   ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2345:3: note: in expansion of macro ‘AF_BIN_OP_WITH_INT’
+   AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+   ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2380:1: note: in expansion of macro ‘ALL_AF_OP_WITH_INT’
+ ALL_AF_OP_WITH_INT(ap_slong, _AP_SIZE_ap_slong, true)
+ ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2291:3: note: candidate: ‘typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_ap_slong), (_AP_SIZE_ap_slong), false>::mult operator*(const ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>&, ap_ulong) [with int _AP_W = 16; int _AP_I = 6; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0; typename ap_fixed_base<_AP_W, _AP_I, _AP_S>::RType<(_AP_SIZE_ap_slong), (_AP_SIZE_ap_slong), false>::mult = ap_fixed<80, 70, (ap_q_mode)5, (ap_o_mode)3, 0>; ap_ulong = long long unsigned int]’
+   operator BIN_OP(                                                          \
+   ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2345:3: note: in expansion of macro ‘AF_BIN_OP_WITH_INT’
+   AF_BIN_OP_WITH_INT(*, C_TYPE, (BITS), (SIGN), mult)     \
+   ^~~~~~~~~~~~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:2381:1: note: in expansion of macro ‘ALL_AF_OP_WITH_INT’
+ ALL_AF_OP_WITH_INT(ap_ulong, _AP_SIZE_ap_slong, false)
+ ^~~~~~~~~~~~~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: warning: ISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+         if (denominator < 1.0e-6f) {
+                           ^~~~~~~
+In file included from /tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed.h:10,
+                 from ../../../../src/unsw_linear_transformer.h:13,
+                 from ../../../../src/unsw_linear_transformer.cpp:1:
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1658:15: note: candidate 1: ‘bool ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>::operator<(double) const [with int _AP_W = 24; int _AP_I = 10; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0]’
+   INLINE bool operator Sym(double d) const { return to_double() Sym d; }
+               ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1661:3: note: in expansion of macro ‘DOUBLE_CMP_AF’
+   DOUBLE_CMP_AF(<)
+   ^~~~~~~~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: note: candidate 2: ‘operator<(double, float)’ <built-in>
+         if (denominator < 1.0e-6f) {
+                           ^~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: warning: ISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+In file included from /tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed.h:10,
+                 from ../../../../src/unsw_linear_transformer.h:13,
+                 from ../../../../src/unsw_linear_transformer.cpp:1:
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1658:15: note: candidate 1: ‘bool ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>::operator<(double) const [with int _AP_W = 24; int _AP_I = 10; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0]’
+   INLINE bool operator Sym(double d) const { return to_double() Sym d; }
+               ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1661:3: note: in expansion of macro ‘DOUBLE_CMP_AF’
+   DOUBLE_CMP_AF(<)
+   ^~~~~~~~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: note: candidate 2: ‘operator<(float, float)’ <built-in>
+         if (denominator < 1.0e-6f) {
+                           ^~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: warning: ISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+In file included from /tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed.h:10,
+                 from ../../../../src/unsw_linear_transformer.h:13,
+                 from ../../../../src/unsw_linear_transformer.cpp:1:
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1658:15: note: candidate 1: ‘bool ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>::operator<(double) const [with int _AP_W = 24; int _AP_I = 10; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0]’
+   INLINE bool operator Sym(double d) const { return to_double() Sym d; }
+               ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1661:3: note: in expansion of macro ‘DOUBLE_CMP_AF’
+   DOUBLE_CMP_AF(<)
+   ^~~~~~~~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: note: candidate 2: ‘operator<(int, float)’ <built-in>
+         if (denominator < 1.0e-6f) {
+                           ^~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: warning: ISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+In file included from /tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed.h:10,
+                 from ../../../../src/unsw_linear_transformer.h:13,
+                 from ../../../../src/unsw_linear_transformer.cpp:1:
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1658:15: note: candidate 1: ‘bool ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>::operator<(double) const [with int _AP_W = 24; int _AP_I = 10; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0]’
+   INLINE bool operator Sym(double d) const { return to_double() Sym d; }
+               ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1661:3: note: in expansion of macro ‘DOUBLE_CMP_AF’
+   DOUBLE_CMP_AF(<)
+   ^~~~~~~~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: note: candidate 2: ‘operator<(unsigned int, float)’ <built-in>
+         if (denominator < 1.0e-6f) {
+                           ^~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: warning: ISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+In file included from /tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed.h:10,
+                 from ../../../../src/unsw_linear_transformer.h:13,
+                 from ../../../../src/unsw_linear_transformer.cpp:1:
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1658:15: note: candidate 1: ‘bool ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>::operator<(double) const [with int _AP_W = 24; int _AP_I = 10; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0]’
+   INLINE bool operator Sym(double d) const { return to_double() Sym d; }
+               ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1661:3: note: in expansion of macro ‘DOUBLE_CMP_AF’
+   DOUBLE_CMP_AF(<)
+   ^~~~~~~~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: note: candidate 2: ‘operator<(long int, float)’ <built-in>
+         if (denominator < 1.0e-6f) {
+                           ^~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: warning: ISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+In file included from /tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed.h:10,
+                 from ../../../../src/unsw_linear_transformer.h:13,
+                 from ../../../../src/unsw_linear_transformer.cpp:1:
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1658:15: note: candidate 1: ‘bool ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>::operator<(double) const [with int _AP_W = 24; int _AP_I = 10; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0]’
+   INLINE bool operator Sym(double d) const { return to_double() Sym d; }
+               ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1661:3: note: in expansion of macro ‘DOUBLE_CMP_AF’
+   DOUBLE_CMP_AF(<)
+   ^~~~~~~~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: note: candidate 2: ‘operator<(long unsigned int, float)’ <built-in>
+         if (denominator < 1.0e-6f) {
+                           ^~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: warning: ISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+In file included from /tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed.h:10,
+                 from ../../../../src/unsw_linear_transformer.h:13,
+                 from ../../../../src/unsw_linear_transformer.cpp:1:
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1658:15: note: candidate 1: ‘bool ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>::operator<(double) const [with int _AP_W = 24; int _AP_I = 10; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0]’
+   INLINE bool operator Sym(double d) const { return to_double() Sym d; }
+               ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1661:3: note: in expansion of macro ‘DOUBLE_CMP_AF’
+   DOUBLE_CMP_AF(<)
+   ^~~~~~~~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: note: candidate 2: ‘operator<(ap_ulong {aka long long unsigned int}, float)’ <built-in>
+         if (denominator < 1.0e-6f) {
+                           ^~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: warning: ISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+In file included from /tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed.h:10,
+                 from ../../../../src/unsw_linear_transformer.h:13,
+                 from ../../../../src/unsw_linear_transformer.cpp:1:
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1658:15: note: candidate 1: ‘bool ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>::operator<(double) const [with int _AP_W = 24; int _AP_I = 10; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0]’
+   INLINE bool operator Sym(double d) const { return to_double() Sym d; }
+               ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1661:3: note: in expansion of macro ‘DOUBLE_CMP_AF’
+   DOUBLE_CMP_AF(<)
+   ^~~~~~~~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: note: candidate 2: ‘operator<(ap_slong {aka long long int}, float)’ <built-in>
+         if (denominator < 1.0e-6f) {
+                           ^~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: warning: ISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+In file included from /tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed.h:10,
+                 from ../../../../src/unsw_linear_transformer.h:13,
+                 from ../../../../src/unsw_linear_transformer.cpp:1:
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1658:15: note: candidate 1: ‘bool ap_fixed_base<_AP_W, _AP_I, _AP_S, _AP_Q, _AP_O, _AP_N>::operator<(double) const [with int _AP_W = 24; int _AP_I = 10; bool _AP_S = true; ap_q_mode _AP_Q = (ap_q_mode)5; ap_o_mode _AP_O = (ap_o_mode)3; int _AP_N = 0]’
+   INLINE bool operator Sym(double d) const { return to_double() Sym d; }
+               ^~~~~~~~
+/tools/Xilinx/Vitis_HLS/2022.2/include/ap_fixed_base.h:1661:3: note: in expansion of macro ‘DOUBLE_CMP_AF’
+   DOUBLE_CMP_AF(<)
+   ^~~~~~~~~~~~~
+../../../../src/unsw_linear_transformer.cpp:166:27: note: candidate 2: ‘operator<(long double, float)’ <built-in>
+         if (denominator < 1.0e-6f) {
+                           ^~~~~~~
+make: *** [csim.mk:84: obj/unsw_linear_transformer.o] Error 1
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1.49 seconds. CPU system time: 0.21 seconds. Elapsed time: 1.7 seconds; current allocated memory: 0.000 MB.
+4
+    while executing
+"source run_csim.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel \#0 [list source $arg] "
+
+INFO: [HLS 200-112] Total CPU user time: 2.47 seconds. Total CPU system time: 0.37 seconds. Total elapsed time: 12.81 seconds; peak allocated memory: 308.645 MB.
+INFO: [Common 17-206] Exiting vitis_hls at Sat Jun 27 11:45:00 2026...
+

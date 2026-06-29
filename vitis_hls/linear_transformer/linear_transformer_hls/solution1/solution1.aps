@@ -1,0 +1,33 @@
+<AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">
+    <config>
+        <config_interface m_axi_latency="0"/>
+        <config_export description="Linear Transformer HLS IP for PYNQ-Z2" display_name="linear_transformer" format="ip_catalog" rtl="verilog"/>
+    </config>
+    <clockList>
+        <clock name="default" period="10" default="false"/>
+    </clockList>
+    <Simulation argv="">
+        <SimFlow name="cosim" setup="false" dumpTrace="none" optimizeCompile="false" ldflags="" mflags="" compiledLibrary="" toolName="auto">
+            <Rtl name="systemc" active="false"/>
+            <Rtl name="verilog" active="true"/>
+            <Rtl name="vhdl" active="false"/>
+        </SimFlow>
+    </Simulation>
+    <name>
+        <value string="solution1"/>
+    </name>
+    <project>
+        <value string="linear_transformer_hls"/>
+    </project>
+    <targetInfo>
+        <TargetInfo value="xc7z020:-clg400:-1"/>
+    </targetInfo>
+    <libraryList>
+        <library value="xilinx/zynq/zynq" name="DefaultPlatform"/>
+    </libraryList>
+    <flowTarget value="vivado"/>
+    <ExportDesign askAgain="true" evaluate="false" rtl="verilog" formatName="ip_catalog">
+        <Format formatName="ip_catalog" description="Linear Transformer HLS IP for PYNQ-Z2" vendor="" library="" ipname="transformer" version="" display_name="linear_transformer" taxonomy=""/>
+    </ExportDesign>
+</AutoPilot:solution>
+

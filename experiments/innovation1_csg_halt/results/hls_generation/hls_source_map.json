@@ -1,0 +1,102 @@
+{
+  "top_function": "unsw_linear_transformer",
+  "source_files": {
+    "unsw_linear_transformer.cpp": "/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/copied_baseline/unsw_linear_transformer_hls_float_copy/src/unsw_linear_transformer.cpp",
+    "unsw_linear_transformer.h": "/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/copied_baseline/unsw_linear_transformer_hls_float_copy/src/unsw_linear_transformer.h",
+    "weights.h": "/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/copied_baseline/unsw_linear_transformer_hls_float_copy/src/weights.h",
+    "testbench.cpp": "/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/copied_baseline/unsw_linear_transformer_hls_float_copy/src/testbench.cpp",
+    "test_vectors.h": "/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/copied_baseline/unsw_linear_transformer_hls_float_copy/src/test_vectors.h",
+    "run_csim.tcl": "/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/copied_baseline/unsw_linear_transformer_hls_float_copy/run_csim.tcl",
+    "run_csynth.tcl": "/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/copied_baseline/unsw_linear_transformer_hls_float_copy/run_csynth.tcl"
+  },
+  "attention_dim": 16,
+  "active_dim": 14,
+  "seq_len": 8,
+  "input_dim": 24,
+  "input_shape": [
+    8,
+    24
+  ],
+  "output_shape": [
+    2
+  ],
+  "candidate_loops": [
+    {
+      "name": "key_value_key_feature",
+      "original_bound": "UNSW_D_MODEL",
+      "candidate_bound": "UNSW_ACTIVE_DIM",
+      "safe": true
+    },
+    {
+      "name": "key_sum_feature",
+      "original_bound": "UNSW_D_MODEL",
+      "candidate_bound": "UNSW_ACTIVE_DIM",
+      "safe": true
+    },
+    {
+      "name": "denominator_feature",
+      "original_bound": "UNSW_D_MODEL",
+      "candidate_bound": "UNSW_ACTIVE_DIM",
+      "safe": true
+    },
+    {
+      "name": "numerator_key_feature",
+      "original_bound": "UNSW_D_MODEL",
+      "candidate_bound": "UNSW_ACTIVE_DIM",
+      "safe": true
+    },
+    {
+      "name": "q_k_v_projection_output_feature",
+      "original_bound": "UNSW_D_MODEL",
+      "candidate_bound": null,
+      "safe": false,
+      "reason": "Keep weight layout and full V/output dimensions unchanged in v01."
+    }
+  ],
+  "q_projection_location": {
+    "start_line": 83,
+    "end_line": 100,
+    "source": "float query[UNSW_SEQ_LEN][UNSW_D_MODEL];"
+  },
+  "k_projection_location": {
+    "start_line": 84,
+    "end_line": 101,
+    "source": "float key[UNSW_SEQ_LEN][UNSW_D_MODEL];"
+  },
+  "v_projection_location": {
+    "start_line": 85,
+    "end_line": 102,
+    "source": "float value[UNSW_SEQ_LEN][UNSW_D_MODEL];"
+  },
+  "feature_map_location": {
+    "start_line": 6,
+    "end_line": 8,
+    "source": "static float elu_plus_one(float value) {"
+  },
+  "key_value_location": {
+    "start_line": 106,
+    "end_line": 113,
+    "source": "float key_value[UNSW_D_MODEL][UNSW_D_MODEL];"
+  },
+  "denominator_location": {
+    "start_line": 128,
+    "end_line": 133,
+    "source": "float denominator = 0.0f;"
+  },
+  "numerator_location": {
+    "start_line": 136,
+    "end_line": 141,
+    "source": "float numerator = 0.0f;"
+  },
+  "output_projection_location": {
+    "start_line": 145,
+    "end_line": 155,
+    "source": "float attention_output[UNSW_SEQ_LEN][UNSW_D_MODEL];"
+  },
+  "classifier_location": {
+    "start_line": 211,
+    "end_line": 216,
+    "source": "for (int output_class = 0; output_class < UNSW_NUM_CLASSES; ++output_class) {"
+  },
+  "safe_to_generate_variants": true
+}

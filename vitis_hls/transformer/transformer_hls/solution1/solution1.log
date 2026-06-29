@@ -1,0 +1,137 @@
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+Tool Version Limit: 2019.12
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vivado' configuration: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xc7z020-clg400-1 
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0.46 seconds. CPU system time: 0.18 seconds. Elapsed time: 0.61 seconds; current allocated memory: 0.000 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 308.613 MB.
+INFO: [HLS 200-10] Analyzing design file 'transformer.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 1.17 seconds. CPU system time: 0.32 seconds. Elapsed time: 1.48 seconds; current allocated memory: 311.066 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-178] Inlining function 'void add_bias_to_row<float, 8>(float const*, float const*, float*)' into 'void kernel_bias_add<float, 8, 8>(float const (*) [8], float const*, float (*) [8])' (./transformer.h:76:0)
+INFO: [HLS 214-178] Inlining function 'void add_bias_to_row<float, 16>(float const*, float const*, float*)' into 'void kernel_bias_add<float, 8, 16>(float const (*) [16], float const*, float (*) [16])' (./transformer.h:76:0)
+INFO: [HLS 214-178] Inlining function 'void add_bias_to_row<float, 1>(float const*, float const*, float*)' into 'void kernel_bias_add<float, 8, 1>(float const (*) [1], float const*, float (*) [1])' (./transformer.h:76:0)
+INFO: [HLS 214-178] Inlining function 'void kernel_mmult<float, 8, 2, 8>(float const (*) [2], float const (*) [8], float (*) [8])' into 'transformer_for_sample(float (*) [2], float*)' (transformer.cpp:67:0)
+INFO: [HLS 214-178] Inlining function 'void kernel_bias_add<float, 8, 8>(float const (*) [8], float const*, float (*) [8])' into 'transformer_for_sample(float (*) [2], float*)' (transformer.cpp:67:0)
+INFO: [HLS 214-178] Inlining function 'void kernel_mmult<float, 8, 8, 8>(float const (*) [8], float const (*) [8], float (*) [8])' into 'transformer_for_sample(float (*) [2], float*)' (transformer.cpp:67:0)
+INFO: [HLS 214-178] Inlining function 'std::exp(float)' into 'transformer_for_sample(float (*) [2], float*)' (transformer.cpp:67:0)
+INFO: [HLS 214-178] Inlining function 'void kernel_mmult<float, 8, 8, 16>(float const (*) [8], float const (*) [16], float (*) [16])' into 'transformer_for_sample(float (*) [2], float*)' (transformer.cpp:67:0)
+INFO: [HLS 214-178] Inlining function 'void kernel_bias_add<float, 8, 16>(float const (*) [16], float const*, float (*) [16])' into 'transformer_for_sample(float (*) [2], float*)' (transformer.cpp:67:0)
+INFO: [HLS 214-178] Inlining function 'void relu_inplace<float, 8, 16>(float (*) [16])' into 'transformer_for_sample(float (*) [2], float*)' (transformer.cpp:67:0)
+INFO: [HLS 214-178] Inlining function 'void kernel_mmult<float, 8, 16, 8>(float const (*) [16], float const (*) [8], float (*) [8])' into 'transformer_for_sample(float (*) [2], float*)' (transformer.cpp:67:0)
+INFO: [HLS 214-178] Inlining function 'void kernel_mmult<float, 8, 8, 1>(float const (*) [8], float const (*) [1], float (*) [1])' into 'transformer_for_sample(float (*) [2], float*)' (transformer.cpp:67:0)
+INFO: [HLS 214-178] Inlining function 'void kernel_bias_add<float, 8, 1>(float const (*) [1], float const*, float (*) [1])' into 'transformer_for_sample(float (*) [2], float*)' (transformer.cpp:67:0)
+WARNING: [HLS 214-167] The program may have out of bound array access
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.26 seconds. CPU system time: 0.37 seconds. Elapsed time: 2.63 seconds; current allocated memory: 311.453 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 311.453 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.23 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.24 seconds; current allocated memory: 315.758 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.23 seconds. CPU system time: 0 seconds. Elapsed time: 0.25 seconds; current allocated memory: 316.633 MB.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-2' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-3' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'loop_j' (./transformer.h:56) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_70_1' (./transformer.h:70) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-6' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-7' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-8' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'loop_j' (./transformer.h:56) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'loop_j' (./transformer.h:56) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'loop_j' (./transformer.h:56) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-12' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-13' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-14' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_127_2' (transformer.cpp:127) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-16' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-17' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-18' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_157_4' (transformer.cpp:158) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_169_6' (transformer.cpp:169) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_193_11' (transformer.cpp:194) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-22' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_214_14' (transformer.cpp:214) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-24' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-25' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'loop_j' (./transformer.h:56) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_70_1' (./transformer.h:70) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-28' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_245_15' (transformer.cpp:245) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-30' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-31' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'loop_j' (./transformer.h:56) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_70_1' (./transformer.h:70) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'relu_inplace_loop_j' (./transformer.h:215) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-35' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-36' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'loop_j' (./transformer.h:56) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_70_1' (./transformer.h:70) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-39' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_295_16' (transformer.cpp:295) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-41' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'Loop-42' in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'loop_i' (./transformer.h:53) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_77_1' (./transformer.h:77) in function 'transformer_for_sample' automatically.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_j' (./transformer.h:56) in function 'transformer_for_sample' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_j' (./transformer.h:56) in function 'transformer_for_sample' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_j' (./transformer.h:56) in function 'transformer_for_sample' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_j' (./transformer.h:56) in function 'transformer_for_sample' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_157_4' (transformer.cpp:158) in function 'transformer_for_sample' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_169_6' (transformer.cpp:169) in function 'transformer_for_sample' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_193_11' (transformer.cpp:194) in function 'transformer_for_sample' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_j' (./transformer.h:56) in function 'transformer_for_sample' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_j' (./transformer.h:56) in function 'transformer_for_sample' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_j' (./transformer.h:56) in function 'transformer_for_sample' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_i' (./transformer.h:53) in function 'transformer_for_sample' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'loop_k' (./transformer.h:56) in function 'transformer_for_sample' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_159_5' (transformer.cpp:159) in function 'transformer_for_sample' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_171_7' (transformer.cpp:171) in function 'transformer_for_sample' completely with a factor of 7.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_178_8' (transformer.cpp:178) in function 'transformer_for_sample' completely with a factor of 8.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_184_9' (transformer.cpp:184) in function 'transformer_for_sample' completely with a factor of 8.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_195_12' (transformer.cpp:195) in function 'transformer_for_sample' completely with a factor of 8.
+INFO: [XFORM 203-102] Partitioning array 'final_layer_raw' (transformer.cpp:301) in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'final_layer_output' (transformer.cpp:302) in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'xx' (transformer.cpp:44) in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_VALUE_MAT_WEIGHT' in dimension 1 automatically.
+INFO: [XFORM 203-102] Partitioning array 'TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_QUERY_MAT_WEIGHT' in dimension 1 automatically.
+INFO: [XFORM 203-102] Partitioning array 'TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_O_PROJ_WEIGHT' in dimension 1 automatically.
+INFO: [XFORM 203-102] Partitioning array 'TRANSFORMER_ENCODER_LAYERS_0_SELF_ATTN_KEY_MAT_WEIGHT' in dimension 1 automatically.
+INFO: [XFORM 203-102] Partitioning array 'TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_3_WEIGHT' in dimension 1 automatically.
+INFO: [XFORM 203-102] Partitioning array 'TRANSFORMER_ENCODER_LAYERS_0_LINEAR_NET_0_WEIGHT' in dimension 1 automatically.
+INFO: [XFORM 203-102] Partitioning array 'FRONT_LINEAR_WEIGHT' in dimension 1 automatically.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.52 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.65 seconds; current allocated memory: 344.527 MB.
+INFO: [XFORM 203-541] Flattening a loop nest 'loop_i' (./transformer.h:53:12) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_77_1' (./transformer.h:77:29) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'loop_i' (./transformer.h:53:12) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'loop_i' (./transformer.h:53:12) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'loop_i' (./transformer.h:53:12) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_126_1' (transformer.cpp:126:32) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'qkv_split_transpose' (transformer.cpp:125:12) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_156_3' (transformer.cpp:156:32) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'attention_scores' (transformer.cpp:155:12) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'attention_softmax' (transformer.cpp:168:12) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_192_10' (transformer.cpp:192:33) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'attention_weighted_values' (transformer.cpp:191:12) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_213_13' (transformer.cpp:213:33) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'attention_concat' (transformer.cpp:212:12) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'loop_i' (./transformer.h:53:12) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_77_1' (./transformer.h:77:29) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'attention_residual' (transformer.cpp:244:12) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'loop_i' (./transformer.h:53:12) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_77_1' (./transformer.h:77:29) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'relu_inplace_loop_i' (./transformer.h:213:12) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'loop_i' (./transformer.h:53:12) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_77_1' (./transformer.h:77:29) in function 'transformer_for_sample'.
+INFO: [XFORM 203-541] Flattening a loop nest 'linear_residual' (transformer.cpp:294:12) in function 'transformer_for_sample'.
+INFO: [HLS 200-111]

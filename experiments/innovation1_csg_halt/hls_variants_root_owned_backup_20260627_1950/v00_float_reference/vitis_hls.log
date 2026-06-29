@@ -1,0 +1,958 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+  **** SW Build 3670227 on Oct 13 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vitis_HLS/2022.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+/tools/Xilinx/Vitis_HLS/2022.2/tps/tcl/tcl8.5/tzdata/Europe/Dublin can't be opened.
+INFO: [HLS 200-10] For user 'root' on host 'finn_dev_root' (Linux_x86_64 version 6.8.0-124-generic) on Sat Jun 27 11:47:25 +0000 2026
+INFO: [HLS 200-10] On os Ubuntu 22.04.1 LTS
+INFO: [HLS 200-10] In directory '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/hls_variants/v00_float_reference'
+Sourcing Tcl script 'run_csynth.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset unsw_linear_transformer_prj 
+INFO: [HLS 200-10] Opening and resetting project '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/hls_variants/v00_float_reference/unsw_linear_transformer_prj'.
+INFO: [HLS 200-1510] Running: set_top unsw_linear_transformer 
+INFO: [HLS 200-1510] Running: add_files src/unsw_linear_transformer.cpp 
+INFO: [HLS 200-10] Adding design file 'src/unsw_linear_transformer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files src/unsw_linear_transformer.h 
+INFO: [HLS 200-10] Adding design file 'src/unsw_linear_transformer.h' to the project
+INFO: [HLS 200-1510] Running: add_files src/weights.h 
+INFO: [HLS 200-10] Adding design file 'src/weights.h' to the project
+INFO: [HLS 200-1510] Running: add_files -tb src/testbench.cpp 
+INFO: [HLS 200-10] Adding test bench file 'src/testbench.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb src/test_vectors.h 
+INFO: [HLS 200-10] Adding test bench file 'src/test_vectors.h' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 
+INFO: [HLS 200-10] Creating and opening solution '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/innovation1_csg_halt/hls_variants/v00_float_reference/unsw_linear_transformer_prj/solution1'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vivado' configuration: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xc7z020clg400-1 
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csynth_design 
+Running Dispatch Server on port: 43581
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 10.03 seconds; current allocated memory: 308.703 MB.
+INFO: [HLS 200-10] Analyzing design file 'src/unsw_linear_transformer.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0.47 seconds. CPU system time: 0.32 seconds. Elapsed time: 0.89 seconds; current allocated memory: 310.516 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-178] Inlining function 'std::exp(float)' into 'elu_plus_one(float)' (src/unsw_linear_transformer.cpp:6:0)
+INFO: [HLS 214-178] Inlining function 'std::sqrt(float)' into 'layer_norm_2d(float const (*) [16], float (*) [16], float const*, float const*)' (src/unsw_linear_transformer.cpp:15:0)
+INFO: [HLS 214-178] Inlining function 'std::sqrt(float)' into 'layer_norm_1d(float const*, float*, float const*, float const*)' (src/unsw_linear_transformer.cpp:44:0)
+INFO: [HLS 214-178] Inlining function 'elu_plus_one(float)' into 'unsw_linear_transformer(float (*) [24], float*)' (src/unsw_linear_transformer.cpp:69:0)
+INFO: [HLS 214-178] Inlining function 'layer_norm_2d(float const (*) [16], float (*) [16], float const*, float const*)' into 'unsw_linear_transformer(float (*) [24], float*)' (src/unsw_linear_transformer.cpp:69:0)
+INFO: [HLS 214-178] Inlining function 'layer_norm_1d(float const*, float*, float const*, float const*)' into 'unsw_linear_transformer(float (*) [24], float*)' (src/unsw_linear_transformer.cpp:69:0)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.37 seconds. CPU system time: 0.33 seconds. Elapsed time: 2.77 seconds; current allocated memory: 310.793 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 310.793 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.29 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.3 seconds; current allocated memory: 313.934 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.27 seconds. CPU system time: 0 seconds. Elapsed time: 0.27 seconds; current allocated memory: 314.363 MB.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_72_2' (src/unsw_linear_transformer.cpp:72) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_87_5' (src/unsw_linear_transformer.cpp:88) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_108_8' (src/unsw_linear_transformer.cpp:109) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_118_10' (src/unsw_linear_transformer.cpp:119) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_135_14' (src/unsw_linear_transformer.cpp:136) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_129_13' (src/unsw_linear_transformer.cpp:129) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_148_17' (src/unsw_linear_transformer.cpp:148) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_17_1' (src/unsw_linear_transformer.cpp:18) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_169_20' (src/unsw_linear_transformer.cpp:169) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_181_23' (src/unsw_linear_transformer.cpp:181) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_17_1' (src/unsw_linear_transformer.cpp:18) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_200_25' (src/unsw_linear_transformer.cpp:201) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_47_1' (src/unsw_linear_transformer.cpp:46) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_53_2' (src/unsw_linear_transformer.cpp:52) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_60_3' (src/unsw_linear_transformer.cpp:60) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_211_27' (src/unsw_linear_transformer.cpp:211) in function 'unsw_linear_transformer' automatically.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_72_2' (src/unsw_linear_transformer.cpp:72) in function 'unsw_linear_transformer' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_87_5' (src/unsw_linear_transformer.cpp:88) in function 'unsw_linear_transformer' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_108_8' (src/unsw_linear_transformer.cpp:109) in function 'unsw_linear_transformer' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_118_10' (src/unsw_linear_transformer.cpp:119) in function 'unsw_linear_transformer' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_135_14' (src/unsw_linear_transformer.cpp:136) in function 'unsw_linear_transformer' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_148_17' (src/unsw_linear_transformer.cpp:148) in function 'unsw_linear_transformer' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_17_1' (src/unsw_linear_transformer.cpp:18) in function 'unsw_linear_transformer' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_169_20' (src/unsw_linear_transformer.cpp:169) in function 'unsw_linear_transformer' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_181_23' (src/unsw_linear_transformer.cpp:181) in function 'unsw_linear_transformer' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_17_1' (src/unsw_linear_transformer.cpp:18) in function 'unsw_linear_transformer' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_200_25' (src/unsw_linear_transformer.cpp:201) in function 'unsw_linear_transformer' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_211_27' (src/unsw_linear_transformer.cpp:211) in function 'unsw_linear_transformer' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_74_3' (src/unsw_linear_transformer.cpp:74) in function 'unsw_linear_transformer' completely with a factor of 24.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_91_6' (src/unsw_linear_transformer.cpp:91) in function 'unsw_linear_transformer' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_110_9' (src/unsw_linear_transformer.cpp:110) in function 'unsw_linear_transformer' completely with a factor of 8.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_120_11' (src/unsw_linear_transformer.cpp:120) in function 'unsw_linear_transformer' completely with a factor of 8.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_137_15' (src/unsw_linear_transformer.cpp:137) in function 'unsw_linear_transformer' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_150_18' (src/unsw_linear_transformer.cpp:150) in function 'unsw_linear_transformer' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_19_2' (src/unsw_linear_transformer.cpp:18) in function 'unsw_linear_transformer' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_25_3' (src/unsw_linear_transformer.cpp:24) in function 'unsw_linear_transformer' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_32_4' (src/unsw_linear_transformer.cpp:32) in function 'unsw_linear_transformer' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_171_21' (src/unsw_linear_transformer.cpp:171) in function 'unsw_linear_transformer' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_183_24' (src/unsw_linear_transformer.cpp:183) in function 'unsw_linear_transformer' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_202_26' (src/unsw_linear_transformer.cpp:202) in function 'unsw_linear_transformer' completely with a factor of 8.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_213_28' (src/unsw_linear_transformer.cpp:212) in function 'unsw_linear_transformer' completely with a factor of 16.
+INFO: [XFORM 203-102] Partitioning array 'POSITION_EMBEDDING' in dimension 1 automatically.
+INFO: [XFORM 203-102] Partitioning array 'LAYERS_0_FEEDFORWARD_3_WEIGHT' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'LAYERS_0_FEEDFORWARD_0_WEIGHT' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'LAYERS_0_ATTENTION_VALUE_WEIGHT' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'LAYERS_0_ATTENTION_QUERY_WEIGHT' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'LAYERS_0_ATTENTION_OUTPUT_WEIGHT' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'LAYERS_0_ATTENTION_KEY_WEIGHT' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'INPUT_PROJECTION_WEIGHT' in dimension 2 automatically.
+INFO: [XFORM 203-102] Partitioning array 'CLASSIFIER_WEIGHT' in dimension 2 automatically.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.0' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.1' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.2' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.3' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.4' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.5' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.6' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.7' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.8' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.9' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.10' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.11' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.12' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.13' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.14' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_WEIGHT.15' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_BIAS' completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.0' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.1' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.2' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.3' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.4' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.5' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.6' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.7' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.8' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.9' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.10' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.11' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.12' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.13' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.14' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_WEIGHT.15' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_BIAS' in dimension 1 completely.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.52 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.78 seconds; current allocated memory: 340.973 MB.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_71_1' (src/unsw_linear_transformer.cpp:71:31) in function 'unsw_linear_transformer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_86_4' (src/unsw_linear_transformer.cpp:86:31) in function 'unsw_linear_transformer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_107_7' (src/unsw_linear_transformer.cpp:107:32) in function 'unsw_linear_transformer'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_127_12' (src/unsw_linear_transformer.cpp:128:15) in function 'unsw_linear_transformer' more than one sub loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_147_16' (src/unsw_linear_transformer.cpp:147:33) in function 'unsw_linear_transformer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_168_19' (src/unsw_linear_transformer.cpp:168:33) in function 'unsw_linear_transformer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_180_22' (src/unsw_linear_transformer.cpp:180:33) in function 'unsw_linear_transformer'.
+INFO: [HLS 200-472] Inferring partial write operation for 'embedded' (src/unsw_linear_transformer.cpp:78:48)
+INFO: [HLS 200-472] Inferring partial write operation for 'query' (src/unsw_linear_transformer.cpp:100:45)
+INFO: [HLS 200-472] Inferring partial write operation for 'key' (src/unsw_linear_transformer.cpp:101:43)
+INFO: [HLS 200-472] Inferring partial write operation for 'value' (src/unsw_linear_transformer.cpp:102:45)
+INFO: [HLS 200-472] Inferring partial write operation for 'key_value' (src/unsw_linear_transformer.cpp:113:51)
+INFO: [HLS 200-472] Inferring partial write operation for 'key_sum' (src/unsw_linear_transformer.cpp:123:26)
+INFO: [HLS 200-472] Inferring partial write operation for 'attention' (src/unsw_linear_transformer.cpp:141:48)
+INFO: [HLS 200-472] Inferring partial write operation for 'residual1' (src/unsw_linear_transformer.cpp:155:49)
+INFO: [HLS 200-472] Inferring partial write operation for 'norm1' (src/unsw_linear_transformer.cpp:34:39)
+INFO: [HLS 200-472] Inferring partial write operation for 'feedforward_hidden' (src/unsw_linear_transformer.cpp:175:58)
+INFO: [HLS 200-472] Inferring partial write operation for 'residual2' (src/unsw_linear_transformer.cpp:187:49)
+INFO: [HLS 200-472] Inferring partial write operation for 'pooled' (src/unsw_linear_transformer.cpp:205:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'normalized_output' (src/unsw_linear_transformer.cpp:62:25)
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.44 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.54 seconds; current allocated memory: 494.195 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'unsw_linear_transformer' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'embedded'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_71_1_VITIS_LOOP_72_2'.
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2' (loop 'VITIS_LOOP_71_1_VITIS_LOOP_72_2'): Unable to schedule 'load' operation ('input_r_load_1', src/unsw_linear_transformer.cpp:71) on array 'input_r' due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array 'input_r'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2' (loop 'VITIS_LOOP_71_1_VITIS_LOOP_72_2'): Unable to schedule 'load' operation ('input_r_load_3', src/unsw_linear_transformer.cpp:71) on array 'input_r' due to limited memory ports (II = 2). Please consider using a memory core with more ports or partitioning the array 'input_r'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2' (loop 'VITIS_LOOP_71_1_VITIS_LOOP_72_2'): Unable to schedule 'load' operation ('input_r_load_5', src/unsw_linear_transformer.cpp:71) on array 'input_r' due to limited memory ports (II = 3). Please consider using a memory core with more ports or partitioning the array 'input_r'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2' (loop 'VITIS_LOOP_71_1_VITIS_LOOP_72_2'): Unable to schedule 'load' operation ('input_r_load_7', src/unsw_linear_transformer.cpp:71) on array 'input_r' due to limited memory ports (II = 4). Please consider using a memory core with more ports or partitioning the array 'input_r'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2' (loop 'VITIS_LOOP_71_1_VITIS_LOOP_72_2'): Unable to schedule 'load' operation ('input_r_load_21', src/unsw_linear_transformer.cpp:71) on array 'input_r' due to limited memory ports (II = 11). Please consider using a memory core with more ports or partitioning the array 'input_r'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 12, Depth = 133, loop 'VITIS_LOOP_71_1_VITIS_LOOP_72_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.46 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.68 seconds; current allocated memory: 498.621 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.43 seconds. CPU system time: 0 seconds. Elapsed time: 0.44 seconds; current allocated memory: 498.621 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'value_r'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'key'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'embedded'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_86_4_VITIS_LOOP_87_5'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 97, loop 'VITIS_LOOP_86_4_VITIS_LOOP_87_5'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.6 seconds. CPU system time: 0 seconds. Elapsed time: 0.73 seconds; current allocated memory: 502.730 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.59 seconds. CPU system time: 0 seconds. Elapsed time: 0.59 seconds; current allocated memory: 502.730 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_107_7_VITIS_LOOP_108_8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'key_value'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'value_r'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'key'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_107_7_VITIS_LOOP_108_8'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 47, loop 'VITIS_LOOP_107_7_VITIS_LOOP_108_8'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.7 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.78 seconds; current allocated memory: 504.414 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.17 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 504.414 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_118_10' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'key'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_118_10'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 43, loop 'VITIS_LOOP_118_10'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.2 seconds. CPU system time: 0 seconds. Elapsed time: 0.23 seconds; current allocated memory: 505.031 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 505.031 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_129_13' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_129_13'.
+WARNING: [HLS 200-880] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_129_13' (loop 'VITIS_LOOP_129_13'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation ('denominator_write_ln129', src/unsw_linear_transformer.cpp:129) of variable 'denominator', src/unsw_linear_transformer.cpp:130 on local variable 'denominator' and 'load' operation ('denominator_load_1', src/unsw_linear_transformer.cpp:130) on local variable 'denominator'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_129_13' (loop 'VITIS_LOOP_129_13'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0) between 'store' operation ('denominator_write_ln129', src/unsw_linear_transformer.cpp:129) of variable 'denominator', src/unsw_linear_transformer.cpp:130 on local variable 'denominator' and 'load' operation ('denominator_load_1', src/unsw_linear_transformer.cpp:130) on local variable 'denominator'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_129_13' (loop 'VITIS_LOOP_129_13'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0) between 'store' operation ('denominator_write_ln129', src/unsw_linear_transformer.cpp:129) of variable 'denominator', src/unsw_linear_transformer.cpp:130 on local variable 'denominator' and 'load' operation ('denominator_load_1', src/unsw_linear_transformer.cpp:130) on local variable 'denominator'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_129_13' (loop 'VITIS_LOOP_129_13'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 0) between 'store' operation ('denominator_write_ln129', src/unsw_linear_transformer.cpp:129) of variable 'denominator', src/unsw_linear_transformer.cpp:130 on local variable 'denominator' and 'load' operation ('denominator_load_1', src/unsw_linear_transformer.cpp:130) on local variable 'denominator'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 5, Depth = 12, loop 'VITIS_LOOP_129_13'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.23 seconds; current allocated memory: 505.840 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 505.840 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_135_14' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'attention'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'key_value'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_135_14'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 103, loop 'VITIS_LOOP_135_14'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.23 seconds. CPU system time: 0 seconds. Elapsed time: 0.44 seconds; current allocated memory: 506.617 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.34 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.35 seconds; current allocated memory: 506.711 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'residual1'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'embedded'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'attention'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_147_16_VITIS_LOOP_148_17'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 92, loop 'VITIS_LOOP_147_16_VITIS_LOOP_148_17'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.43 seconds. CPU system time: 0 seconds. Elapsed time: 0.68 seconds; current allocated memory: 509.504 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.37 seconds. CPU system time: 0 seconds. Elapsed time: 0.38 seconds; current allocated memory: 509.504 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'residual1'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_17_1'.
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_1' (loop 'VITIS_LOOP_17_1'): Unable to schedule 'store' operation ('norm1_addr_1_write_ln34', src/unsw_linear_transformer.cpp:34) of variable 'add39_i_1', src/unsw_linear_transformer.cpp:34 on array 'norm1' due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array 'norm1'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_1' (loop 'VITIS_LOOP_17_1'): Unable to schedule 'store' operation ('norm1_addr_3_write_ln34', src/unsw_linear_transformer.cpp:34) of variable 'add39_i_3', src/unsw_linear_transformer.cpp:34 on array 'norm1' due to limited memory ports (II = 2). Please consider using a memory core with more ports or partitioning the array 'norm1'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_1' (loop 'VITIS_LOOP_17_1'): Unable to schedule 'store' operation ('norm1_addr_5_write_ln34', src/unsw_linear_transformer.cpp:34) of variable 'add39_i_5', src/unsw_linear_transformer.cpp:34 on array 'norm1' due to limited memory ports (II = 3). Please consider using a memory core with more ports or partitioning the array 'norm1'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_1' (loop 'VITIS_LOOP_17_1'): Unable to schedule 'store' operation ('norm1_addr_7_write_ln34', src/unsw_linear_transformer.cpp:34) of variable 'add39_i_7', src/unsw_linear_transformer.cpp:34 on array 'norm1' due to limited memory ports (II = 4). Please consider using a memory core with more ports or partitioning the array 'norm1'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_1' (loop 'VITIS_LOOP_17_1'): Unable to schedule 'store' operation ('norm1_addr_13_write_ln34', src/unsw_linear_transformer.cpp:34) of variable 'add39_i_12', src/unsw_linear_transformer.cpp:34 on array 'norm1' due to limited memory ports (II = 7). Please consider using a memory core with more ports or partitioning the array 'norm1'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 8, Depth = 246, loop 'VITIS_LOOP_17_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1.53 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.59 seconds; current allocated memory: 511.891 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.82 seconds. CPU system time: 0 seconds. Elapsed time: 0.82 seconds; current allocated memory: 512.699 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'feedforward_hidden'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_168_19_VITIS_LOOP_169_20'.
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20' (loop 'VITIS_LOOP_168_19_VITIS_LOOP_169_20'): Unable to schedule 'load' operation ('norm1_load_1', src/unsw_linear_transformer.cpp:168) on array 'norm1' due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array 'norm1'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20' (loop 'VITIS_LOOP_168_19_VITIS_LOOP_169_20'): Unable to schedule 'load' operation ('norm1_load_3', src/unsw_linear_transformer.cpp:168) on array 'norm1' due to limited memory ports (II = 2). Please consider using a memory core with more ports or partitioning the array 'norm1'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20' (loop 'VITIS_LOOP_168_19_VITIS_LOOP_169_20'): Unable to schedule 'load' operation ('norm1_load_5', src/unsw_linear_transformer.cpp:168) on array 'norm1' due to limited memory ports (II = 3). Please consider using a memory core with more ports or partitioning the array 'norm1'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20' (loop 'VITIS_LOOP_168_19_VITIS_LOOP_169_20'): Unable to schedule 'load' operation ('norm1_load_7', src/unsw_linear_transformer.cpp:168) on array 'norm1' due to limited memory ports (II = 4). Please consider using a memory core with more ports or partitioning the array 'norm1'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20' (loop 'VITIS_LOOP_168_19_VITIS_LOOP_169_20'): Unable to schedule 'load' operation ('norm1_load_13', src/unsw_linear_transformer.cpp:168) on array 'norm1' due to limited memory ports (II = 7). Please consider using a memory core with more ports or partitioning the array 'norm1'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 8, Depth = 89, loop 'VITIS_LOOP_168_19_VITIS_LOOP_169_20'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.69 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.77 seconds; current allocated memory: 515.215 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.3 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.31 seconds; current allocated memory: 515.215 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'residual2'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'feedforward_hidden'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_180_22_VITIS_LOOP_181_23'.
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23' (loop 'VITIS_LOOP_180_22_VITIS_LOOP_181_23'): Unable to schedule 'load' operation ('feedforward_hidden_load_16', src/unsw_linear_transformer.cpp:180) on array 'feedforward_hidden' due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array 'feedforward_hidden'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 2, Depth = 172, loop 'VITIS_LOOP_180_22_VITIS_LOOP_181_23'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.6 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.7 seconds; current allocated memory: 518.727 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.61 seconds. CPU system time: 0 seconds. Elapsed time: 0.6 seconds; current allocated memory: 518.906 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_11' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'residual2'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_17_1'.
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_11' (loop 'VITIS_LOOP_17_1'): Unable to schedule 'store' operation ('norm2_addr_8_write_ln34', src/unsw_linear_transformer.cpp:34) of variable 'add39_i1_1', src/unsw_linear_transformer.cpp:34 on array 'norm2' due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array 'norm2'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_11' (loop 'VITIS_LOOP_17_1'): Unable to schedule 'store' operation ('norm2_addr_10_write_ln34', src/unsw_linear_transformer.cpp:34) of variable 'add39_i1_3', src/unsw_linear_transformer.cpp:34 on array 'norm2' due to limited memory ports (II = 2). Please consider using a memory core with more ports or partitioning the array 'norm2'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_11' (loop 'VITIS_LOOP_17_1'): Unable to schedule 'store' operation ('norm2_addr_12_write_ln34', src/unsw_linear_transformer.cpp:34) of variable 'add39_i1_5', src/unsw_linear_transformer.cpp:34 on array 'norm2' due to limited memory ports (II = 3). Please consider using a memory core with more ports or partitioning the array 'norm2'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_11' (loop 'VITIS_LOOP_17_1'): Unable to schedule 'store' operation ('norm2_addr_14_write_ln34', src/unsw_linear_transformer.cpp:34) of variable 'add39_i1_7', src/unsw_linear_transformer.cpp:34 on array 'norm2' due to limited memory ports (II = 4). Please consider using a memory core with more ports or partitioning the array 'norm2'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_11' (loop 'VITIS_LOOP_17_1'): Unable to schedule 'store' operation ('norm2_addr_20_write_ln34', src/unsw_linear_transformer.cpp:34) of variable 'add39_i1_12', src/unsw_linear_transformer.cpp:34 on array 'norm2' due to limited memory ports (II = 7). Please consider using a memory core with more ports or partitioning the array 'norm2'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 8, Depth = 246, loop 'VITIS_LOOP_17_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1.65 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.66 seconds; current allocated memory: 521.949 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.84 seconds. CPU system time: 0 seconds. Elapsed time: 0.84 seconds; current allocated memory: 522.824 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_200_25' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_200_25'.
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_200_25' (loop 'VITIS_LOOP_200_25'): Unable to schedule 'load' operation ('norm2_load_1', src/unsw_linear_transformer.cpp:203) on array 'norm2' due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array 'norm2'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_200_25' (loop 'VITIS_LOOP_200_25'): Unable to schedule 'load' operation ('norm2_load_3', src/unsw_linear_transformer.cpp:203) on array 'norm2' due to limited memory ports (II = 2). Please consider using a memory core with more ports or partitioning the array 'norm2'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_200_25' (loop 'VITIS_LOOP_200_25'): Unable to schedule 'load' operation ('norm2_load_5', src/unsw_linear_transformer.cpp:203) on array 'norm2' due to limited memory ports (II = 3). Please consider using a memory core with more ports or partitioning the array 'norm2'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 4, Depth = 47, loop 'VITIS_LOOP_200_25'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.5 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.56 seconds; current allocated memory: 524.199 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.14 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 524.199 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_47_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_47_1'.
+WARNING: [HLS 200-880] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_47_1' (loop 'VITIS_LOOP_47_1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation ('mean_write_ln47', src/unsw_linear_transformer.cpp:47) of variable 'mean', src/unsw_linear_transformer.cpp:48 on local variable 'mean' and 'load' operation ('mean_load_1', src/unsw_linear_transformer.cpp:48) on local variable 'mean'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_47_1' (loop 'VITIS_LOOP_47_1'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0) between 'store' operation ('mean_write_ln47', src/unsw_linear_transformer.cpp:47) of variable 'mean', src/unsw_linear_transformer.cpp:48 on local variable 'mean' and 'load' operation ('mean_load_1', src/unsw_linear_transformer.cpp:48) on local variable 'mean'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_47_1' (loop 'VITIS_LOOP_47_1'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0) between 'store' operation ('mean_write_ln47', src/unsw_linear_transformer.cpp:47) of variable 'mean', src/unsw_linear_transformer.cpp:48 on local variable 'mean' and 'load' operation ('mean_load_1', src/unsw_linear_transformer.cpp:48) on local variable 'mean'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_47_1' (loop 'VITIS_LOOP_47_1'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 0) between 'store' operation ('mean_write_ln47', src/unsw_linear_transformer.cpp:47) of variable 'mean', src/unsw_linear_transformer.cpp:48 on local variable 'mean' and 'load' operation ('mean_load_1', src/unsw_linear_transformer.cpp:48) on local variable 'mean'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 5, Depth = 8, loop 'VITIS_LOOP_47_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 524.648 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 524.648 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_53_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_53_2'.
+WARNING: [HLS 200-880] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_53_2' (loop 'VITIS_LOOP_53_2'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation ('variance_write_ln53', src/unsw_linear_transformer.cpp:53) of variable 'variance', src/unsw_linear_transformer.cpp:55 on local variable 'variance' and 'load' operation ('variance_load_1', src/unsw_linear_transformer.cpp:55) on local variable 'variance'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_53_2' (loop 'VITIS_LOOP_53_2'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0) between 'store' operation ('variance_write_ln53', src/unsw_linear_transformer.cpp:53) of variable 'variance', src/unsw_linear_transformer.cpp:55 on local variable 'variance' and 'load' operation ('variance_load_1', src/unsw_linear_transformer.cpp:55) on local variable 'variance'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_53_2' (loop 'VITIS_LOOP_53_2'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0) between 'store' operation ('variance_write_ln53', src/unsw_linear_transformer.cpp:53) of variable 'variance', src/unsw_linear_transformer.cpp:55 on local variable 'variance' and 'load' operation ('variance_load_1', src/unsw_linear_transformer.cpp:55) on local variable 'variance'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_53_2' (loop 'VITIS_LOOP_53_2'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 0) between 'store' operation ('variance_write_ln53', src/unsw_linear_transformer.cpp:53) of variable 'variance', src/unsw_linear_transformer.cpp:55 on local variable 'variance' and 'load' operation ('variance_load_1', src/unsw_linear_transformer.cpp:55) on local variable 'variance'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 5, Depth = 17, loop 'VITIS_LOOP_53_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 525.086 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 525.086 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_60_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_60_3'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 21, loop 'VITIS_LOOP_60_3'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 525.379 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 525.379 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_211_27' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_211_27'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 85, loop 'VITIS_LOOP_211_27'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.22 seconds. CPU system time: 0 seconds. Elapsed time: 0.33 seconds; current allocated memory: 526.074 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.3 seconds. CPU system time: 0 seconds. Elapsed time: 0.35 seconds; current allocated memory: 526.148 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.33 seconds. CPU system time: 0 seconds. Elapsed time: 0.34 seconds; current allocated memory: 527.695 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.69 seconds. CPU system time: 0 seconds. Elapsed time: 0.74 seconds; current allocated memory: 528.504 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_BIAS_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECbkb' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_0_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECcud' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_1_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECdEe' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_2_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECeOg' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_3_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECfYi' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_4_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECg8j' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_5_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJEChbi' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_6_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECibs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_7_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECjbC' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_8_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECkbM' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_9_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJEClbW' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_10_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECmb6' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_11_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECncg' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_12_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECocq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_13_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECpcA' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_14_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECqcK' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_15_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECrcU' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_16_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECsc4' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_17_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECtde' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_18_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECudo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_19_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECvdy' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_20_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECwdI' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_21_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECxdS' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_22_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECyd2' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECTION_WEIGHT_23_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECzec' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_POSITION_EMBEDDING_0_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_POSITION_EMBAem' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2' pipeline 'VITIS_LOOP_71_1_VITIS_LOOP_72_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2'.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECbkb' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECcud' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECdEe' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECeOg' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECfYi' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECg8j' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJEChbi' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECibs' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECjbC' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECkbM' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJEClbW' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECmb6' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECncg' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECocq' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECpcA' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECqcK' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECrcU' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECsc4' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECtde' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECudo' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECvdy' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECwdI' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECxdS' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECyd2' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_INPUT_PROJECzec' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_71_1_VITIS_LOOP_72_2_POSITION_EMBAem' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1.36 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.46 seconds; current allocated memory: 532.129 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_0_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTBew' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_0_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTCeG' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_0_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTDeQ' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_1_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTEe0' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_1_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTFfa' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_1_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTGfk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_2_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTHfu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_2_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTIfE' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_2_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTJfO' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_3_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTKfY' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_3_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTLf8' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_3_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTMgi' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_4_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTNgs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_4_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTOgC' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_4_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTPgM' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_5_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTQgW' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_5_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTRg6' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_5_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTShg' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_6_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTThq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_6_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTUhA' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_6_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTVhK' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_7_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTWhU' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_7_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTXh4' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_7_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTYie' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_8_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTZio' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_8_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT0iy' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_8_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT1iI' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_9_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT2iS' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_9_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT3i2' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_9_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT4jc' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_10_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT5jm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_10_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT6jw' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_10_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT7jG' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_11_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT8jQ' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_11_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT9j0' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_11_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbak' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_12_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbbk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_12_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbck' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_12_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbdk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_13_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbek' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_13_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbfk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_13_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbgk' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_14_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbhl' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_14_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbil' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_14_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbjl' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_QUERY_WEIGHT_15_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbkl' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_KEY_WEIGHT_15_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbll' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTENTION_VALUE_WEIGHT_15_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbml' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5' pipeline 'VITIS_LOOP_86_4_VITIS_LOOP_87_5' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-104] Estimated max fanout for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5' is 30181 from HDL expression: (1'b0 == ap_block_pp0_stage0_11001)
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 43 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 7 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fcmp_32ns_32ns_1_2_no_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fexp_32ns_32ns_32_10_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 48 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5'.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTBew' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTCeG' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTDeQ' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTEe0' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTFfa' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTGfk' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTHfu' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTIfE' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTJfO' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTKfY' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTLf8' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTMgi' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTNgs' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTOgC' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTPgM' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTQgW' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTRg6' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTShg' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTThq' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTUhA' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTVhK' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTWhU' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTXh4' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTYie' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTZio' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT0iy' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT1iI' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT2iS' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT3i2' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT4jc' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT5jm' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT6jw' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT7jG' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT8jQ' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATT9j0' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbak' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbbk' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbck' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbdk' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbek' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbfk' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbgk' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbhl' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbil' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbjl' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbkl' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbll' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_86_4_VITIS_LOOP_87_5_LAYERS_0_ATTbml' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.97 seconds. CPU system time: 0.04 seconds. Elapsed time: 1.04 seconds; current allocated memory: 546.484 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_107_7_VITIS_LOOP_108_8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_107_7_VITIS_LOOP_108_8' pipeline 'VITIS_LOOP_107_7_VITIS_LOOP_108_8' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-104] Estimated max fanout for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_107_7_VITIS_LOOP_108_8' is 5291 from HDL expression: (1'b0 == ap_block_pp0_stage0_11001)
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 7 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 8 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_107_7_VITIS_LOOP_108_8'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1.3 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.4 seconds; current allocated memory: 556.215 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_118_10' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_118_10' pipeline 'VITIS_LOOP_118_10' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-104] Estimated max fanout for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_118_10' is 7335 from HDL expression: (1'b0 == ap_block_pp0_stage0_11001)
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 7 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_118_10'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.28 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.28 seconds; current allocated memory: 560.094 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_129_13' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_129_13' pipeline 'VITIS_LOOP_129_13' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_129_13'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.14 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.19 seconds; current allocated memory: 561.949 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_135_14' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_135_14' pipeline 'VITIS_LOOP_135_14' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-104] Estimated max fanout for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_135_14' is 21055 from HDL expression: (1'b0 == ap_block_pp0_stage0_11001)
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 9 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 7 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_16_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 16 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_135_14'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.14 seconds. CPU system time: 0 seconds. Elapsed time: 0.2 seconds; current allocated memory: 567.500 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_BIAS_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bnm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_0_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bom' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_1_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bpm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_2_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bqm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_3_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0brm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_4_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bsm' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_5_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0btn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_6_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bun' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_7_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bvn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_8_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bwn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_9_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bxn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_10_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0byn' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_11_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bzo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_12_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bAo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_13_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bBo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_14_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bCo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_15_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bDo' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17' pipeline 'VITIS_LOOP_147_16_VITIS_LOOP_148_17' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-104] Estimated max fanout for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17' is 28856 from HDL expression: (1'b0 == ap_block_pp0_stage0_11001)
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 10 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 7 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 16 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17'.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bnm' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bom' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bpm' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bqm' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0brm' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bsm' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0btn' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bun' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bvn' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bwn' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bxn' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0byn' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bzo' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bAo' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bBo' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bCo' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_147_16_VITIS_LOOP_148_17_LAYERS_0bDo' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.61 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.69 seconds; current allocated memory: 575.797 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_1' pipeline 'VITIS_LOOP_17_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-104] Estimated max fanout for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_1' is 7424 from HDL expression: ((1'b1 == ap_CS_fsm_pp0_stage2) & (1'b0 == ap_block_pp0_stage2_11001))
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 7 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_16_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 7 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsqrt_32ns_32ns_32_16_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.57 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.68 seconds; current allocated memory: 584.711 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_BIAS_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bEo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_0_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bFp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_1_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bGp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_2_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bHp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_3_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bIp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_4_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bJp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_5_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bKp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_6_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bLp' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_7_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bMq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_8_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bNq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_9_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bOq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_10_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bPq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_11_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bQq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_12_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bRq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_13_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bSr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_14_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bTr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0_FEEDFORWARD_0_WEIGHT_15_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bUr' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20' pipeline 'VITIS_LOOP_168_19_VITIS_LOOP_169_20' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fcmp_32ns_32ns_1_2_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20'.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bEo' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bFp' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bGp' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bHp' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bIp' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bJp' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bKp' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bLp' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bMq' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bNq' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bOq' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bPq' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bQq' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bRq' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bSr' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bTr' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_168_19_VITIS_LOOP_169_20_LAYERS_0bUr' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1.09 seconds. CPU system time: 0.03 seconds. Elapsed time: 1.22 seconds; current allocated memory: 591.949 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_BIAS_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0bVr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_0_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0bWr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_1_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0bXr' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_2_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0bYs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_3_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0bZs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_4_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b0s' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_5_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b1s' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_6_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b2s' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_7_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b3s' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_8_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b4t' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_9_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b5t' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_10_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b6t' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_11_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b7t' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_12_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b8t' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_13_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b9t' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_14_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cau' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_15_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cbu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_16_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0ccu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_17_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cdu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_18_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0ceu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_19_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cfu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_20_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cgu' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_21_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0chv' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_22_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0civ' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_23_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cjv' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_24_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0ckv' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_25_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0clv' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_26_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cmv' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_27_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cnw' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_28_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cow' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_29_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cpw' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_30_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cqw' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0_FEEDFORWARD_3_WEIGHT_31_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0crw' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23' pipeline 'VITIS_LOOP_180_22_VITIS_LOOP_181_23' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-104] Estimated max fanout for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23' is 29845 from HDL expression: ((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 10 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 7 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 16 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23'.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0bVr' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0bWr' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0bXr' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0bYs' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0bZs' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b0s' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b1s' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b2s' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b3s' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b4t' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b5t' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b6t' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b7t' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b8t' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0b9t' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cau' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cbu' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0ccu' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cdu' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0ceu' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cfu' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cgu' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0chv' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0civ' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cjv' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0ckv' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0clv' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cmv' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cnw' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cow' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cpw' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0cqw' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_180_22_VITIS_LOOP_181_23_LAYERS_0crw' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1.09 seconds. CPU system time: 0.05 seconds. Elapsed time: 1.37 seconds; current allocated memory: 603.660 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_11' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_11' pipeline 'VITIS_LOOP_17_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-104] Estimated max fanout for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_11' is 7424 from HDL expression: ((1'b1 == ap_CS_fsm_pp0_stage2) & (1'b0 == ap_block_pp0_stage2_11001))
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 7 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_16_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 7 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsqrt_32ns_32ns_32_16_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_17_11'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.82 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.87 seconds; current allocated memory: 615.680 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_200_25' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_200_25' pipeline 'VITIS_LOOP_200_25' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_200_25'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.76 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.84 seconds; current allocated memory: 621.543 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_47_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_47_1' pipeline 'VITIS_LOOP_47_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_47_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.14 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 623.266 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_53_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_53_2' pipeline 'VITIS_LOOP_53_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_53_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.13 seconds; current allocated memory: 624.383 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_60_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_60_3' pipeline 'VITIS_LOOP_60_3' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_60_3'.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_60_3_OUTPUT_NORM_WEIGHT_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_60_3_OUTPUT_NORM_BIAS_ROM_AUTO_1R' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.13 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.25 seconds; current allocated memory: 625.836 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_211_27' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_211_27' pipeline 'VITIS_LOOP_211_27' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 9 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 7 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 16 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_211_27'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.28 seconds; current allocated memory: 630.879 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'unsw_linear_transformer/input_r' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'unsw_linear_transformer/logits' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'unsw_linear_transformer' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 10 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 7 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fcmp_32ns_32ns_1_2_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_16_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsqrt_32ns_32ns_32_16_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer'.
+INFO: [RTMG 210-278] Implementing memory 'unsw_linear_transformer_embedded_RAM_1WNR_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'unsw_linear_transformer_query_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'unsw_linear_transformer_key_RAM_1WNR_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'unsw_linear_transformer_key_value_RAM_1WNR_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'unsw_linear_transformer_key_sum_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'unsw_linear_transformer_residual1_RAM_1WNR_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'unsw_linear_transformer_norm1_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'unsw_linear_transformer_normalized_output_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.65 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.67 seconds; current allocated memory: 644.445 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 2.74 seconds. CPU system time: 0.09 seconds. Elapsed time: 2.84 seconds; current allocated memory: 650.555 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.72 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.73 seconds; current allocated memory: 661.258 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for unsw_linear_transformer.
+INFO: [VLOG 209-307] Generating Verilog RTL for unsw_linear_transformer.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 116.73 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 32.61 seconds. CPU system time: 1.24 seconds. Elapsed time: 38.05 seconds; current allocated memory: 354.266 MB.
+INFO: [HLS 200-112] Total CPU user time: 33.7 seconds. Total CPU system time: 1.42 seconds. Total elapsed time: 49.34 seconds; peak allocated memory: 662.969 MB.
+INFO: [Common 17-206] Exiting vitis_hls at Sat Jun 27 11:48:14 2026...

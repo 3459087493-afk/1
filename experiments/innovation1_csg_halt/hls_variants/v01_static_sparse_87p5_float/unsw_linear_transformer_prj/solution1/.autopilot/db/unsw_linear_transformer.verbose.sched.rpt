@@ -1,0 +1,1086 @@
+
+
+================================================================
+== Vitis HLS Report for 'unsw_linear_transformer'
+================================================================
+* Date:           Sat Jun 27 20:16:33 2026
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        unsw_linear_transformer_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  8.567 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+------+------+---------+
+    |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline|
+    |   min   |   max   |    min    |    max    |  min |  max |   Type  |
+    +---------+---------+-----------+-----------+------+------+---------+
+    |     7784|     7784|  77.840 us|  77.840 us|  7785|  7785|       no|
+    +---------+---------+-----------+-----------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                     |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_145_14  |     1584|     1584|       198|          -|          -|     8|        no|
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 93
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 22 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 11 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 41 
+41 --> 42 
+42 --> 43 
+43 --> 44 
+44 --> 45 
+45 --> 46 
+46 --> 47 
+47 --> 48 
+48 --> 49 
+49 --> 50 
+50 --> 51 
+51 --> 52 
+52 --> 53 
+53 --> 54 
+54 --> 55 
+55 --> 56 
+56 --> 57 
+57 --> 58 
+58 --> 59 
+59 --> 60 
+60 --> 61 
+61 --> 62 
+62 --> 63 
+63 --> 64 
+64 --> 65 
+65 --> 66 
+66 --> 67 
+67 --> 68 
+68 --> 69 
+69 --> 70 
+70 --> 71 
+71 --> 72 
+72 --> 73 
+73 --> 74 
+74 --> 75 
+75 --> 76 
+76 --> 77 
+77 --> 78 
+78 --> 79 
+79 --> 80 
+80 --> 81 
+81 --> 82 
+82 --> 83 
+83 --> 84 
+84 --> 85 
+85 --> 86 
+86 --> 87 
+87 --> 88 
+88 --> 89 
+89 --> 90 
+90 --> 91 
+91 --> 92 
+92 --> 93 
+93 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.58>
+ST_1 : Operation 94 [1/1] (0.00ns)   --->   "%sequence_3 = alloca i32 1"   --->   Operation 94 'alloca' 'sequence_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 95 [1/1] (0.00ns)   --->   "%variance_4_loc = alloca i64 1"   --->   Operation 95 'alloca' 'variance_4_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 96 [1/1] (0.00ns)   --->   "%mean_4_loc = alloca i64 1"   --->   Operation 96 'alloca' 'mean_4_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 97 [1/1] (0.00ns)   --->   "%denominator_1_loc = alloca i64 1"   --->   Operation 97 'alloca' 'denominator_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 98 [1/1] (0.00ns)   --->   "%embedded = alloca i64 1" [src/unsw_linear_transformer.cpp:74]   --->   Operation 98 'alloca' 'embedded' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 99 [1/1] (0.00ns)   --->   "%query = alloca i64 1" [src/unsw_linear_transformer.cpp:87]   --->   Operation 99 'alloca' 'query' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 100 [1/1] (0.00ns)   --->   "%key = alloca i64 1" [src/unsw_linear_transformer.cpp:88]   --->   Operation 100 'alloca' 'key' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 101 [1/1] (0.00ns)   --->   "%value = alloca i64 1" [src/unsw_linear_transformer.cpp:89]   --->   Operation 101 'alloca' 'value' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 102 [1/1] (0.00ns)   --->   "%sparse_query = alloca i64 1" [src/unsw_linear_transformer.cpp:113]   --->   Operation 102 'alloca' 'sparse_query' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_1 : Operation 103 [1/1] (0.00ns)   --->   "%sparse_key = alloca i64 1" [src/unsw_linear_transformer.cpp:114]   --->   Operation 103 'alloca' 'sparse_key' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 104 [1/1] (0.00ns)   --->   "%key_value = alloca i64 1" [src/unsw_linear_transformer.cpp:124]   --->   Operation 104 'alloca' 'key_value' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 105 [1/1] (0.00ns)   --->   "%key_sum = alloca i64 1" [src/unsw_linear_transformer.cpp:135]   --->   Operation 105 'alloca' 'key_sum' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 106 [1/1] (0.00ns)   --->   "%attention = alloca i64 1" [src/unsw_linear_transformer.cpp:144]   --->   Operation 106 'alloca' 'attention' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 107 [1/1] (0.00ns)   --->   "%residual1 = alloca i64 1" [src/unsw_linear_transformer.cpp:164]   --->   Operation 107 'alloca' 'residual1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 108 [1/1] (0.00ns)   --->   "%norm1 = alloca i64 1" [src/unsw_linear_transformer.cpp:177]   --->   Operation 108 'alloca' 'norm1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 109 [1/1] (0.00ns)   --->   "%feedforward_hidden = alloca i64 1" [src/unsw_linear_transformer.cpp:185]   --->   Operation 109 'alloca' 'feedforward_hidden' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 110 [1/1] (0.00ns)   --->   "%residual2 = alloca i64 1" [src/unsw_linear_transformer.cpp:197]   --->   Operation 110 'alloca' 'residual2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 111 [1/1] (0.00ns)   --->   "%norm2 = alloca i64 1" [src/unsw_linear_transformer.cpp:209]   --->   Operation 111 'alloca' 'norm2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 112 [1/1] (0.00ns)   --->   "%pooled = alloca i64 1" [src/unsw_linear_transformer.cpp:217]   --->   Operation 112 'alloca' 'pooled' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 113 [1/1] (0.00ns)   --->   "%normalized_output = alloca i64 1" [src/unsw_linear_transformer.cpp:226]   --->   Operation 113 'alloca' 'normalized_output' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_1 : Operation 114 [2/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_75_1_VITIS_LOOP_76_2, i32 %input_r, i32 %embedded, i32 %INPUT_PROJECTION_BIAS, i32 %INPUT_PROJECTION_WEIGHT_0, i32 %INPUT_PROJECTION_WEIGHT_1, i32 %INPUT_PROJECTION_WEIGHT_2, i32 %INPUT_PROJECTION_WEIGHT_3, i32 %INPUT_PROJECTION_WEIGHT_4, i32 %INPUT_PROJECTION_WEIGHT_5, i32 %INPUT_PROJECTION_WEIGHT_6, i32 %INPUT_PROJECTION_WEIGHT_7, i32 %INPUT_PROJECTION_WEIGHT_8, i32 %INPUT_PROJECTION_WEIGHT_9, i32 %INPUT_PROJECTION_WEIGHT_10, i32 %INPUT_PROJECTION_WEIGHT_11, i32 %INPUT_PROJECTION_WEIGHT_12, i32 %INPUT_PROJECTION_WEIGHT_13, i32 %INPUT_PROJECTION_WEIGHT_14, i32 %INPUT_PROJECTION_WEIGHT_15, i32 %INPUT_PROJECTION_WEIGHT_16, i32 %INPUT_PROJECTION_WEIGHT_17, i32 %INPUT_PROJECTION_WEIGHT_18, i32 %INPUT_PROJECTION_WEIGHT_19, i32 %INPUT_PROJECTION_WEIGHT_20, i32 %INPUT_PROJECTION_WEIGHT_21, i32 %INPUT_PROJECTION_WEIGHT_22, i32 %INPUT_PROJECTION_WEIGHT_23, i32 %POSITION_EMBEDDING_0"   --->   Operation 114 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 115 [1/1] (1.58ns)   --->   "%store_ln145 = store i4 0, i4 %sequence_3" [src/unsw_linear_transformer.cpp:145]   --->   Operation 115 'store' 'store_ln145' <Predicate = true> <Delay = 1.58>
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 116 [1/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_75_1_VITIS_LOOP_76_2, i32 %input_r, i32 %embedded, i32 %INPUT_PROJECTION_BIAS, i32 %INPUT_PROJECTION_WEIGHT_0, i32 %INPUT_PROJECTION_WEIGHT_1, i32 %INPUT_PROJECTION_WEIGHT_2, i32 %INPUT_PROJECTION_WEIGHT_3, i32 %INPUT_PROJECTION_WEIGHT_4, i32 %INPUT_PROJECTION_WEIGHT_5, i32 %INPUT_PROJECTION_WEIGHT_6, i32 %INPUT_PROJECTION_WEIGHT_7, i32 %INPUT_PROJECTION_WEIGHT_8, i32 %INPUT_PROJECTION_WEIGHT_9, i32 %INPUT_PROJECTION_WEIGHT_10, i32 %INPUT_PROJECTION_WEIGHT_11, i32 %INPUT_PROJECTION_WEIGHT_12, i32 %INPUT_PROJECTION_WEIGHT_13, i32 %INPUT_PROJECTION_WEIGHT_14, i32 %INPUT_PROJECTION_WEIGHT_15, i32 %INPUT_PROJECTION_WEIGHT_16, i32 %INPUT_PROJECTION_WEIGHT_17, i32 %INPUT_PROJECTION_WEIGHT_18, i32 %INPUT_PROJECTION_WEIGHT_19, i32 %INPUT_PROJECTION_WEIGHT_20, i32 %INPUT_PROJECTION_WEIGHT_21, i32 %INPUT_PROJECTION_WEIGHT_22, i32 %INPUT_PROJECTION_WEIGHT_23, i32 %POSITION_EMBEDDING_0"   --->   Operation 116 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 117 [2/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_90_4_VITIS_LOOP_91_5, i32 %embedded, i32 %query, i32 %key, i32 %value, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_0, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_0, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_0, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_1, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_1, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_1, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_2, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_2, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_2, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_3, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_3, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_3, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_4, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_4, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_4, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_5, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_5, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_5, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_6, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_6, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_6, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_7, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_7, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_7, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_8, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_8, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_8, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_9, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_9, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_9, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_10, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_10, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_10, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_11, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_11, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_11, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_12, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_12, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_12, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_13, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_13, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_13, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_14, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_14, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_14, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_15, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_15, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_15"   --->   Operation 117 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 0.00>
+ST_4 : Operation 118 [1/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_90_4_VITIS_LOOP_91_5, i32 %embedded, i32 %query, i32 %key, i32 %value, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_0, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_0, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_0, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_1, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_1, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_1, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_2, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_2, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_2, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_3, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_3, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_3, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_4, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_4, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_4, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_5, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_5, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_5, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_6, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_6, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_6, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_7, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_7, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_7, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_8, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_8, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_8, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_9, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_9, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_9, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_10, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_10, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_10, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_11, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_11, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_11, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_12, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_12, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_12, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_13, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_13, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_13, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_14, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_14, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_14, i32 %LAYERS_0_ATTENTION_QUERY_WEIGHT_15, i32 %LAYERS_0_ATTENTION_KEY_WEIGHT_15, i32 %LAYERS_0_ATTENTION_VALUE_WEIGHT_15"   --->   Operation 118 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 119 [2/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_115_7_VITIS_LOOP_116_8, i32 %sparse_query, i32 %sparse_key, i32 %query, i32 %key, i4 %ACTIVE_K_CHANNELS, i1 %Q_ACTIVE_MASK"   --->   Operation 119 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 6 <SV = 5> <Delay = 0.00>
+ST_6 : Operation 120 [1/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_115_7_VITIS_LOOP_116_8, i32 %sparse_query, i32 %sparse_key, i32 %query, i32 %key, i4 %ACTIVE_K_CHANNELS, i1 %Q_ACTIVE_MASK"   --->   Operation 120 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 7 <SV = 6> <Delay = 0.00>
+ST_7 : Operation 121 [2/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_125_9_VITIS_LOOP_126_10, i32 %sparse_key, i32 %value, i32 %key_value"   --->   Operation 121 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 8 <SV = 7> <Delay = 0.00>
+ST_8 : Operation 122 [1/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_125_9_VITIS_LOOP_126_10, i32 %sparse_key, i32 %value, i32 %key_value"   --->   Operation 122 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 9 <SV = 8> <Delay = 0.00>
+ST_9 : Operation 123 [2/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_136_12, i32 %sparse_key, i32 %key_sum"   --->   Operation 123 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 10 <SV = 9> <Delay = 0.00>
+ST_10 : Operation 124 [1/1] (0.00ns)   --->   "%spectopmodule_ln70 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_4" [src/unsw_linear_transformer.cpp:70]   --->   Operation 124 'spectopmodule' 'spectopmodule_ln70' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 125 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input_r, void @empty_16, i32 0, i32 0, void @empty_3, i32 4294967295, i32 0, void @empty_3, void @empty_3, void @empty_3, i32 0, i32 0, i32 0, i32 0, void @empty_3, void @empty_3, i32 4294967295, i32 0"   --->   Operation 125 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 126 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %input_r"   --->   Operation 126 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 127 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %logits, void @empty_16, i32 0, i32 0, void @empty_3, i32 4294967295, i32 0, void @empty_3, void @empty_3, void @empty_3, i32 0, i32 0, i32 0, i32 0, void @empty_3, void @empty_3, i32 4294967295, i32 0"   --->   Operation 127 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 128 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %logits"   --->   Operation 128 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 129 [1/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_136_12, i32 %sparse_key, i32 %key_sum"   --->   Operation 129 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_10 : Operation 130 [1/1] (0.00ns)   --->   "%br_ln145 = br void %VITIS_LOOP_147_15" [src/unsw_linear_transformer.cpp:145]   --->   Operation 130 'br' 'br_ln145' <Predicate = true> <Delay = 0.00>
+
+State 11 <SV = 10> <Delay = 6.99>
+ST_11 : Operation 131 [1/1] (0.00ns)   --->   "%sequence = load i4 %sequence_3" [src/unsw_linear_transformer.cpp:145]   --->   Operation 131 'load' 'sequence' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 132 [1/1] (0.00ns)   --->   "%trunc_ln145 = trunc i4 %sequence" [src/unsw_linear_transformer.cpp:145]   --->   Operation 132 'trunc' 'trunc_ln145' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 133 [1/1] (1.30ns)   --->   "%icmp_ln145 = icmp_eq  i4 %sequence, i4 8" [src/unsw_linear_transformer.cpp:145]   --->   Operation 133 'icmp' 'icmp_ln145' <Predicate = true> <Delay = 1.30> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 134 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 8, i64 8, i64 8"   --->   Operation 134 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 135 [1/1] (1.73ns)   --->   "%add_ln145 = add i4 %sequence, i4 1" [src/unsw_linear_transformer.cpp:145]   --->   Operation 135 'add' 'add_ln145' <Predicate = true> <Delay = 1.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 136 [1/1] (0.00ns)   --->   "%br_ln145 = br i1 %icmp_ln145, void %VITIS_LOOP_147_15.split, void %VITIS_LOOP_168_20.preheader" [src/unsw_linear_transformer.cpp:145]   --->   Operation 136 'br' 'br_ln145' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 137 [1/1] (0.00ns)   --->   "%tmp_10 = bitconcatenate i7 @_ssdm_op_BitConcatenate.i7.i3.i4, i3 %trunc_ln145, i4 0" [src/unsw_linear_transformer.cpp:148]   --->   Operation 137 'bitconcatenate' 'tmp_10' <Predicate = (!icmp_ln145)> <Delay = 0.00>
+ST_11 : Operation 138 [1/1] (0.00ns)   --->   "%tmp_11 = bitconcatenate i5 @_ssdm_op_BitConcatenate.i5.i4.i1, i4 %sequence, i1 0" [src/unsw_linear_transformer.cpp:148]   --->   Operation 138 'bitconcatenate' 'tmp_11' <Predicate = (!icmp_ln145)> <Delay = 0.00>
+ST_11 : Operation 139 [1/1] (0.00ns)   --->   "%zext_ln148 = zext i5 %tmp_11" [src/unsw_linear_transformer.cpp:148]   --->   Operation 139 'zext' 'zext_ln148' <Predicate = (!icmp_ln145)> <Delay = 0.00>
+ST_11 : Operation 140 [1/1] (1.87ns)   --->   "%sub_ln148 = sub i7 %tmp_10, i7 %zext_ln148" [src/unsw_linear_transformer.cpp:148]   --->   Operation 140 'sub' 'sub_ln148' <Predicate = (!icmp_ln145)> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 141 [2/2] (5.12ns)   --->   "%call_ln148 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_147_15, i7 %sub_ln148, i32 %sparse_query, i32 %key_sum, i32 %denominator_1_loc" [src/unsw_linear_transformer.cpp:148]   --->   Operation 141 'call' 'call_ln148' <Predicate = (!icmp_ln145)> <Delay = 5.12> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_11 : Operation 142 [1/1] (1.58ns)   --->   "%store_ln145 = store i4 %add_ln145, i4 %sequence_3" [src/unsw_linear_transformer.cpp:145]   --->   Operation 142 'store' 'store_ln145' <Predicate = (!icmp_ln145)> <Delay = 1.58>
+ST_11 : Operation 143 [2/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_165_18_VITIS_LOOP_166_19, i32 %attention, i32 %embedded, i32 %residual1, i32 %LAYERS_0_ATTENTION_OUTPUT_BIAS, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_0, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_1, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_2, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_3, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_4, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_5, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_6, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_7, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_8, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_9, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_10, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_11, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_12, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_13, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_14, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_15"   --->   Operation 143 'call' 'call_ln0' <Predicate = (icmp_ln145)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 12 <SV = 11> <Delay = 0.00>
+ST_12 : Operation 144 [1/2] (0.00ns)   --->   "%call_ln148 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_147_15, i7 %sub_ln148, i32 %sparse_query, i32 %key_sum, i32 %denominator_1_loc" [src/unsw_linear_transformer.cpp:148]   --->   Operation 144 'call' 'call_ln148' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 13 <SV = 12> <Delay = 3.25>
+ST_13 : Operation 145 [1/1] (0.00ns)   --->   "%zext_ln156 = zext i7 %sub_ln148" [src/unsw_linear_transformer.cpp:156]   --->   Operation 145 'zext' 'zext_ln156' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 146 [1/1] (0.00ns)   --->   "%sparse_query_addr = getelementptr i32 %sparse_query, i64 0, i64 %zext_ln156" [src/unsw_linear_transformer.cpp:156]   --->   Operation 146 'getelementptr' 'sparse_query_addr' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 147 [1/1] (0.00ns)   --->   "%or_ln156 = or i7 %sub_ln148, i7 1" [src/unsw_linear_transformer.cpp:156]   --->   Operation 147 'or' 'or_ln156' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 148 [1/1] (0.00ns)   --->   "%zext_ln156_1 = zext i7 %or_ln156" [src/unsw_linear_transformer.cpp:156]   --->   Operation 148 'zext' 'zext_ln156_1' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 149 [1/1] (0.00ns)   --->   "%sparse_query_addr_1 = getelementptr i32 %sparse_query, i64 0, i64 %zext_ln156_1" [src/unsw_linear_transformer.cpp:156]   --->   Operation 149 'getelementptr' 'sparse_query_addr_1' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 150 [2/2] (3.25ns)   --->   "%sparse_query_load = load i7 %sparse_query_addr" [src/unsw_linear_transformer.cpp:156]   --->   Operation 150 'load' 'sparse_query_load' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_13 : Operation 151 [2/2] (3.25ns)   --->   "%sparse_query_load_1 = load i7 %sparse_query_addr_1" [src/unsw_linear_transformer.cpp:156]   --->   Operation 151 'load' 'sparse_query_load_1' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+
+State 14 <SV = 13> <Delay = 5.12>
+ST_14 : Operation 152 [1/1] (1.87ns)   --->   "%add_ln156 = add i7 %sub_ln148, i7 2" [src/unsw_linear_transformer.cpp:156]   --->   Operation 152 'add' 'add_ln156' <Predicate = true> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 153 [1/1] (0.00ns)   --->   "%zext_ln156_2 = zext i7 %add_ln156" [src/unsw_linear_transformer.cpp:156]   --->   Operation 153 'zext' 'zext_ln156_2' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 154 [1/1] (0.00ns)   --->   "%sparse_query_addr_2 = getelementptr i32 %sparse_query, i64 0, i64 %zext_ln156_2" [src/unsw_linear_transformer.cpp:156]   --->   Operation 154 'getelementptr' 'sparse_query_addr_2' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 155 [1/1] (1.87ns)   --->   "%add_ln156_1 = add i7 %sub_ln148, i7 3" [src/unsw_linear_transformer.cpp:156]   --->   Operation 155 'add' 'add_ln156_1' <Predicate = true> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 156 [1/1] (0.00ns)   --->   "%zext_ln156_3 = zext i7 %add_ln156_1" [src/unsw_linear_transformer.cpp:156]   --->   Operation 156 'zext' 'zext_ln156_3' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 157 [1/1] (0.00ns)   --->   "%sparse_query_addr_3 = getelementptr i32 %sparse_query, i64 0, i64 %zext_ln156_3" [src/unsw_linear_transformer.cpp:156]   --->   Operation 157 'getelementptr' 'sparse_query_addr_3' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 158 [1/2] (3.25ns)   --->   "%sparse_query_load = load i7 %sparse_query_addr" [src/unsw_linear_transformer.cpp:156]   --->   Operation 158 'load' 'sparse_query_load' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_14 : Operation 159 [1/2] (3.25ns)   --->   "%sparse_query_load_1 = load i7 %sparse_query_addr_1" [src/unsw_linear_transformer.cpp:156]   --->   Operation 159 'load' 'sparse_query_load_1' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_14 : Operation 160 [2/2] (3.25ns)   --->   "%sparse_query_load_2 = load i7 %sparse_query_addr_2" [src/unsw_linear_transformer.cpp:156]   --->   Operation 160 'load' 'sparse_query_load_2' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_14 : Operation 161 [2/2] (3.25ns)   --->   "%sparse_query_load_3 = load i7 %sparse_query_addr_3" [src/unsw_linear_transformer.cpp:156]   --->   Operation 161 'load' 'sparse_query_load_3' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+
+State 15 <SV = 14> <Delay = 5.12>
+ST_15 : Operation 162 [1/1] (1.87ns)   --->   "%add_ln156_2 = add i7 %sub_ln148, i7 4" [src/unsw_linear_transformer.cpp:156]   --->   Operation 162 'add' 'add_ln156_2' <Predicate = true> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 163 [1/1] (0.00ns)   --->   "%zext_ln156_4 = zext i7 %add_ln156_2" [src/unsw_linear_transformer.cpp:156]   --->   Operation 163 'zext' 'zext_ln156_4' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 164 [1/1] (0.00ns)   --->   "%sparse_query_addr_4 = getelementptr i32 %sparse_query, i64 0, i64 %zext_ln156_4" [src/unsw_linear_transformer.cpp:156]   --->   Operation 164 'getelementptr' 'sparse_query_addr_4' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 165 [1/1] (1.87ns)   --->   "%add_ln156_3 = add i7 %sub_ln148, i7 5" [src/unsw_linear_transformer.cpp:156]   --->   Operation 165 'add' 'add_ln156_3' <Predicate = true> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 166 [1/1] (0.00ns)   --->   "%zext_ln156_5 = zext i7 %add_ln156_3" [src/unsw_linear_transformer.cpp:156]   --->   Operation 166 'zext' 'zext_ln156_5' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 167 [1/1] (0.00ns)   --->   "%sparse_query_addr_5 = getelementptr i32 %sparse_query, i64 0, i64 %zext_ln156_5" [src/unsw_linear_transformer.cpp:156]   --->   Operation 167 'getelementptr' 'sparse_query_addr_5' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 168 [1/2] (3.25ns)   --->   "%sparse_query_load_2 = load i7 %sparse_query_addr_2" [src/unsw_linear_transformer.cpp:156]   --->   Operation 168 'load' 'sparse_query_load_2' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_15 : Operation 169 [1/2] (3.25ns)   --->   "%sparse_query_load_3 = load i7 %sparse_query_addr_3" [src/unsw_linear_transformer.cpp:156]   --->   Operation 169 'load' 'sparse_query_load_3' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_15 : Operation 170 [2/2] (3.25ns)   --->   "%sparse_query_load_4 = load i7 %sparse_query_addr_4" [src/unsw_linear_transformer.cpp:156]   --->   Operation 170 'load' 'sparse_query_load_4' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_15 : Operation 171 [2/2] (3.25ns)   --->   "%sparse_query_load_5 = load i7 %sparse_query_addr_5" [src/unsw_linear_transformer.cpp:156]   --->   Operation 171 'load' 'sparse_query_load_5' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+
+State 16 <SV = 15> <Delay = 5.12>
+ST_16 : Operation 172 [1/1] (1.87ns)   --->   "%add_ln156_4 = add i7 %sub_ln148, i7 6" [src/unsw_linear_transformer.cpp:156]   --->   Operation 172 'add' 'add_ln156_4' <Predicate = true> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 173 [1/1] (0.00ns)   --->   "%zext_ln156_6 = zext i7 %add_ln156_4" [src/unsw_linear_transformer.cpp:156]   --->   Operation 173 'zext' 'zext_ln156_6' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 174 [1/1] (0.00ns)   --->   "%sparse_query_addr_6 = getelementptr i32 %sparse_query, i64 0, i64 %zext_ln156_6" [src/unsw_linear_transformer.cpp:156]   --->   Operation 174 'getelementptr' 'sparse_query_addr_6' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 175 [1/1] (1.87ns)   --->   "%add_ln156_5 = add i7 %sub_ln148, i7 7" [src/unsw_linear_transformer.cpp:156]   --->   Operation 175 'add' 'add_ln156_5' <Predicate = true> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 176 [1/1] (0.00ns)   --->   "%zext_ln156_7 = zext i7 %add_ln156_5" [src/unsw_linear_transformer.cpp:156]   --->   Operation 176 'zext' 'zext_ln156_7' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 177 [1/1] (0.00ns)   --->   "%sparse_query_addr_7 = getelementptr i32 %sparse_query, i64 0, i64 %zext_ln156_7" [src/unsw_linear_transformer.cpp:156]   --->   Operation 177 'getelementptr' 'sparse_query_addr_7' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 178 [1/2] (3.25ns)   --->   "%sparse_query_load_4 = load i7 %sparse_query_addr_4" [src/unsw_linear_transformer.cpp:156]   --->   Operation 178 'load' 'sparse_query_load_4' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_16 : Operation 179 [1/2] (3.25ns)   --->   "%sparse_query_load_5 = load i7 %sparse_query_addr_5" [src/unsw_linear_transformer.cpp:156]   --->   Operation 179 'load' 'sparse_query_load_5' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_16 : Operation 180 [2/2] (3.25ns)   --->   "%sparse_query_load_6 = load i7 %sparse_query_addr_6" [src/unsw_linear_transformer.cpp:156]   --->   Operation 180 'load' 'sparse_query_load_6' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_16 : Operation 181 [2/2] (3.25ns)   --->   "%sparse_query_load_7 = load i7 %sparse_query_addr_7" [src/unsw_linear_transformer.cpp:156]   --->   Operation 181 'load' 'sparse_query_load_7' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+
+State 17 <SV = 16> <Delay = 5.12>
+ST_17 : Operation 182 [1/1] (1.87ns)   --->   "%add_ln156_6 = add i7 %sub_ln148, i7 8" [src/unsw_linear_transformer.cpp:156]   --->   Operation 182 'add' 'add_ln156_6' <Predicate = true> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 183 [1/1] (0.00ns)   --->   "%zext_ln156_8 = zext i7 %add_ln156_6" [src/unsw_linear_transformer.cpp:156]   --->   Operation 183 'zext' 'zext_ln156_8' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 184 [1/1] (0.00ns)   --->   "%sparse_query_addr_8 = getelementptr i32 %sparse_query, i64 0, i64 %zext_ln156_8" [src/unsw_linear_transformer.cpp:156]   --->   Operation 184 'getelementptr' 'sparse_query_addr_8' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 185 [1/1] (1.87ns)   --->   "%add_ln156_7 = add i7 %sub_ln148, i7 9" [src/unsw_linear_transformer.cpp:156]   --->   Operation 185 'add' 'add_ln156_7' <Predicate = true> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 186 [1/1] (0.00ns)   --->   "%zext_ln156_9 = zext i7 %add_ln156_7" [src/unsw_linear_transformer.cpp:156]   --->   Operation 186 'zext' 'zext_ln156_9' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 187 [1/1] (0.00ns)   --->   "%sparse_query_addr_9 = getelementptr i32 %sparse_query, i64 0, i64 %zext_ln156_9" [src/unsw_linear_transformer.cpp:156]   --->   Operation 187 'getelementptr' 'sparse_query_addr_9' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 188 [1/2] (3.25ns)   --->   "%sparse_query_load_6 = load i7 %sparse_query_addr_6" [src/unsw_linear_transformer.cpp:156]   --->   Operation 188 'load' 'sparse_query_load_6' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_17 : Operation 189 [1/2] (3.25ns)   --->   "%sparse_query_load_7 = load i7 %sparse_query_addr_7" [src/unsw_linear_transformer.cpp:156]   --->   Operation 189 'load' 'sparse_query_load_7' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_17 : Operation 190 [2/2] (3.25ns)   --->   "%sparse_query_load_8 = load i7 %sparse_query_addr_8" [src/unsw_linear_transformer.cpp:156]   --->   Operation 190 'load' 'sparse_query_load_8' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_17 : Operation 191 [2/2] (3.25ns)   --->   "%sparse_query_load_9 = load i7 %sparse_query_addr_9" [src/unsw_linear_transformer.cpp:156]   --->   Operation 191 'load' 'sparse_query_load_9' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+
+State 18 <SV = 17> <Delay = 5.43>
+ST_18 : Operation 192 [1/1] (1.87ns)   --->   "%add_ln156_8 = add i7 %sub_ln148, i7 10" [src/unsw_linear_transformer.cpp:156]   --->   Operation 192 'add' 'add_ln156_8' <Predicate = true> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 193 [1/1] (0.00ns)   --->   "%zext_ln156_10 = zext i7 %add_ln156_8" [src/unsw_linear_transformer.cpp:156]   --->   Operation 193 'zext' 'zext_ln156_10' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 194 [1/1] (0.00ns)   --->   "%sparse_query_addr_10 = getelementptr i32 %sparse_query, i64 0, i64 %zext_ln156_10" [src/unsw_linear_transformer.cpp:156]   --->   Operation 194 'getelementptr' 'sparse_query_addr_10' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 195 [1/1] (1.87ns)   --->   "%add_ln156_9 = add i7 %sub_ln148, i7 11" [src/unsw_linear_transformer.cpp:156]   --->   Operation 195 'add' 'add_ln156_9' <Predicate = true> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 196 [1/1] (0.00ns)   --->   "%zext_ln156_11 = zext i7 %add_ln156_9" [src/unsw_linear_transformer.cpp:156]   --->   Operation 196 'zext' 'zext_ln156_11' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 197 [1/1] (0.00ns)   --->   "%sparse_query_addr_11 = getelementptr i32 %sparse_query, i64 0, i64 %zext_ln156_11" [src/unsw_linear_transformer.cpp:156]   --->   Operation 197 'getelementptr' 'sparse_query_addr_11' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 198 [1/1] (0.00ns)   --->   "%denominator_1_loc_load = load i32 %denominator_1_loc"   --->   Operation 198 'load' 'denominator_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 199 [2/2] (5.43ns)   --->   "%tmp_s = fcmp_olt  i32 %denominator_1_loc_load, i32 1e-06" [src/unsw_linear_transformer.cpp:150]   --->   Operation 199 'fcmp' 'tmp_s' <Predicate = true> <Delay = 5.43> <CoreInst = "FCompare">   --->   Core 19 'FCompare' <Latency = 1> <II = 1> <Delay = 5.43> <FuncUnit> <Opcode : 'fcmp'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 200 [1/2] (3.25ns)   --->   "%sparse_query_load_8 = load i7 %sparse_query_addr_8" [src/unsw_linear_transformer.cpp:156]   --->   Operation 200 'load' 'sparse_query_load_8' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_18 : Operation 201 [1/2] (3.25ns)   --->   "%sparse_query_load_9 = load i7 %sparse_query_addr_9" [src/unsw_linear_transformer.cpp:156]   --->   Operation 201 'load' 'sparse_query_load_9' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_18 : Operation 202 [2/2] (3.25ns)   --->   "%sparse_query_load_10 = load i7 %sparse_query_addr_10" [src/unsw_linear_transformer.cpp:156]   --->   Operation 202 'load' 'sparse_query_load_10' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_18 : Operation 203 [2/2] (3.25ns)   --->   "%sparse_query_load_11 = load i7 %sparse_query_addr_11" [src/unsw_linear_transformer.cpp:156]   --->   Operation 203 'load' 'sparse_query_load_11' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+
+State 19 <SV = 18> <Delay = 6.40>
+ST_19 : Operation 204 [1/1] (1.87ns)   --->   "%add_ln156_10 = add i7 %sub_ln148, i7 12" [src/unsw_linear_transformer.cpp:156]   --->   Operation 204 'add' 'add_ln156_10' <Predicate = true> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 205 [1/1] (0.00ns)   --->   "%zext_ln156_12 = zext i7 %add_ln156_10" [src/unsw_linear_transformer.cpp:156]   --->   Operation 205 'zext' 'zext_ln156_12' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 206 [1/1] (0.00ns)   --->   "%sparse_query_addr_12 = getelementptr i32 %sparse_query, i64 0, i64 %zext_ln156_12" [src/unsw_linear_transformer.cpp:156]   --->   Operation 206 'getelementptr' 'sparse_query_addr_12' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 207 [1/1] (1.87ns)   --->   "%add_ln156_11 = add i7 %sub_ln148, i7 13" [src/unsw_linear_transformer.cpp:156]   --->   Operation 207 'add' 'add_ln156_11' <Predicate = true> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 208 [1/1] (0.00ns)   --->   "%zext_ln156_13 = zext i7 %add_ln156_11" [src/unsw_linear_transformer.cpp:156]   --->   Operation 208 'zext' 'zext_ln156_13' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 209 [1/1] (0.00ns)   --->   "%sparse_query_addr_13 = getelementptr i32 %sparse_query, i64 0, i64 %zext_ln156_13" [src/unsw_linear_transformer.cpp:156]   --->   Operation 209 'getelementptr' 'sparse_query_addr_13' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 210 [1/1] (0.00ns)   --->   "%bitcast_ln150 = bitcast i32 %denominator_1_loc_load" [src/unsw_linear_transformer.cpp:150]   --->   Operation 210 'bitcast' 'bitcast_ln150' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 211 [1/1] (0.00ns)   --->   "%tmp_9 = partselect i8 @_ssdm_op_PartSelect.i8.i32.i32.i32, i32 %bitcast_ln150, i32 23, i32 30" [src/unsw_linear_transformer.cpp:150]   --->   Operation 211 'partselect' 'tmp_9' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 212 [1/1] (0.00ns)   --->   "%trunc_ln150 = trunc i32 %bitcast_ln150" [src/unsw_linear_transformer.cpp:150]   --->   Operation 212 'trunc' 'trunc_ln150' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 213 [1/1] (1.55ns)   --->   "%icmp_ln150 = icmp_ne  i8 %tmp_9, i8 255" [src/unsw_linear_transformer.cpp:150]   --->   Operation 213 'icmp' 'icmp_ln150' <Predicate = true> <Delay = 1.55> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 214 [1/1] (2.44ns)   --->   "%icmp_ln150_1 = icmp_eq  i23 %trunc_ln150, i23 0" [src/unsw_linear_transformer.cpp:150]   --->   Operation 214 'icmp' 'icmp_ln150_1' <Predicate = true> <Delay = 2.44> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 215 [1/1] (0.00ns) (grouped into LUT with out node denominator)   --->   "%or_ln150 = or i1 %icmp_ln150_1, i1 %icmp_ln150" [src/unsw_linear_transformer.cpp:150]   --->   Operation 215 'or' 'or_ln150' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 216 [1/2] (5.43ns)   --->   "%tmp_s = fcmp_olt  i32 %denominator_1_loc_load, i32 1e-06" [src/unsw_linear_transformer.cpp:150]   --->   Operation 216 'fcmp' 'tmp_s' <Predicate = true> <Delay = 5.43> <CoreInst = "FCompare">   --->   Core 19 'FCompare' <Latency = 1> <II = 1> <Delay = 5.43> <FuncUnit> <Opcode : 'fcmp'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 217 [1/1] (0.00ns) (grouped into LUT with out node denominator)   --->   "%and_ln150 = and i1 %or_ln150, i1 %tmp_s" [src/unsw_linear_transformer.cpp:150]   --->   Operation 217 'and' 'and_ln150' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 218 [1/1] (0.97ns) (out node of the LUT)   --->   "%denominator = select i1 %and_ln150, i32 1e-06, i32 %denominator_1_loc_load" [src/unsw_linear_transformer.cpp:150]   --->   Operation 218 'select' 'denominator' <Predicate = true> <Delay = 0.97> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_19 : Operation 219 [1/2] (3.25ns)   --->   "%sparse_query_load_10 = load i7 %sparse_query_addr_10" [src/unsw_linear_transformer.cpp:156]   --->   Operation 219 'load' 'sparse_query_load_10' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_19 : Operation 220 [1/2] (3.25ns)   --->   "%sparse_query_load_11 = load i7 %sparse_query_addr_11" [src/unsw_linear_transformer.cpp:156]   --->   Operation 220 'load' 'sparse_query_load_11' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_19 : Operation 221 [2/2] (3.25ns)   --->   "%sparse_query_load_12 = load i7 %sparse_query_addr_12" [src/unsw_linear_transformer.cpp:156]   --->   Operation 221 'load' 'sparse_query_load_12' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_19 : Operation 222 [2/2] (3.25ns)   --->   "%sparse_query_load_13 = load i7 %sparse_query_addr_13" [src/unsw_linear_transformer.cpp:156]   --->   Operation 222 'load' 'sparse_query_load_13' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+
+State 20 <SV = 19> <Delay = 5.12>
+ST_20 : Operation 223 [1/2] (3.25ns)   --->   "%sparse_query_load_12 = load i7 %sparse_query_addr_12" [src/unsw_linear_transformer.cpp:156]   --->   Operation 223 'load' 'sparse_query_load_12' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_20 : Operation 224 [1/2] (3.25ns)   --->   "%sparse_query_load_13 = load i7 %sparse_query_addr_13" [src/unsw_linear_transformer.cpp:156]   --->   Operation 224 'load' 'sparse_query_load_13' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 112> <RAM>
+ST_20 : Operation 225 [2/2] (1.87ns)   --->   "%call_ln148 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_153_16, i32 %key_value, i7 %tmp_10, i32 %attention, i32 %sparse_query_load, i32 %sparse_query_load_1, i32 %sparse_query_load_2, i32 %sparse_query_load_3, i32 %sparse_query_load_4, i32 %sparse_query_load_5, i32 %sparse_query_load_6, i32 %sparse_query_load_7, i32 %sparse_query_load_8, i32 %sparse_query_load_9, i32 %sparse_query_load_10, i32 %sparse_query_load_11, i32 %sparse_query_load_12, i32 %sparse_query_load_13, i32 %denominator" [src/unsw_linear_transformer.cpp:148]   --->   Operation 225 'call' 'call_ln148' <Predicate = true> <Delay = 1.87> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 21 <SV = 20> <Delay = 0.00>
+ST_21 : Operation 226 [1/1] (0.00ns)   --->   "%specloopname_ln146 = specloopname void @_ssdm_op_SpecLoopName, void @empty_10" [src/unsw_linear_transformer.cpp:146]   --->   Operation 226 'specloopname' 'specloopname_ln146' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 227 [1/2] (0.00ns)   --->   "%call_ln148 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_153_16, i32 %key_value, i7 %tmp_10, i32 %attention, i32 %sparse_query_load, i32 %sparse_query_load_1, i32 %sparse_query_load_2, i32 %sparse_query_load_3, i32 %sparse_query_load_4, i32 %sparse_query_load_5, i32 %sparse_query_load_6, i32 %sparse_query_load_7, i32 %sparse_query_load_8, i32 %sparse_query_load_9, i32 %sparse_query_load_10, i32 %sparse_query_load_11, i32 %sparse_query_load_12, i32 %sparse_query_load_13, i32 %denominator" [src/unsw_linear_transformer.cpp:148]   --->   Operation 227 'call' 'call_ln148' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_21 : Operation 228 [1/1] (0.00ns)   --->   "%br_ln145 = br void %VITIS_LOOP_147_15" [src/unsw_linear_transformer.cpp:145]   --->   Operation 228 'br' 'br_ln145' <Predicate = true> <Delay = 0.00>
+
+State 22 <SV = 11> <Delay = 0.00>
+ST_22 : Operation 229 [1/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_165_18_VITIS_LOOP_166_19, i32 %attention, i32 %embedded, i32 %residual1, i32 %LAYERS_0_ATTENTION_OUTPUT_BIAS, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_0, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_1, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_2, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_3, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_4, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_5, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_6, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_7, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_8, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_9, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_10, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_11, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_12, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_13, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_14, i32 %LAYERS_0_ATTENTION_OUTPUT_WEIGHT_15"   --->   Operation 229 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 23 <SV = 12> <Delay = 0.00>
+ST_23 : Operation 230 [2/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_21_1, i32 %residual1, i32 %norm1"   --->   Operation 230 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 24 <SV = 13> <Delay = 0.00>
+ST_24 : Operation 231 [1/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_21_1, i32 %residual1, i32 %norm1"   --->   Operation 231 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 25 <SV = 14> <Delay = 0.00>
+ST_25 : Operation 232 [2/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_186_21_VITIS_LOOP_187_22, i32 %norm1, i32 %feedforward_hidden, i32 %LAYERS_0_FEEDFORWARD_0_BIAS, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_0, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_1, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_2, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_3, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_4, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_5, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_6, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_7, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_8, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_9, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_10, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_11, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_12, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_13, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_14, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_15"   --->   Operation 232 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 26 <SV = 15> <Delay = 0.00>
+ST_26 : Operation 233 [1/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_186_21_VITIS_LOOP_187_22, i32 %norm1, i32 %feedforward_hidden, i32 %LAYERS_0_FEEDFORWARD_0_BIAS, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_0, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_1, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_2, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_3, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_4, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_5, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_6, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_7, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_8, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_9, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_10, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_11, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_12, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_13, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_14, i32 %LAYERS_0_FEEDFORWARD_0_WEIGHT_15"   --->   Operation 233 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 27 <SV = 16> <Delay = 0.00>
+ST_27 : Operation 234 [2/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_198_24_VITIS_LOOP_199_25, i32 %feedforward_hidden, i32 %norm1, i32 %residual2, i32 %LAYERS_0_FEEDFORWARD_3_BIAS, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_0, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_1, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_2, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_3, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_4, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_5, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_6, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_7, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_8, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_9, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_10, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_11, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_12, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_13, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_14, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_15, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_16, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_17, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_18, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_19, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_20, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_21, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_22, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_23, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_24, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_25, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_26, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_27, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_28, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_29, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_30, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_31"   --->   Operation 234 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 28 <SV = 17> <Delay = 0.00>
+ST_28 : Operation 235 [1/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_198_24_VITIS_LOOP_199_25, i32 %feedforward_hidden, i32 %norm1, i32 %residual2, i32 %LAYERS_0_FEEDFORWARD_3_BIAS, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_0, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_1, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_2, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_3, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_4, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_5, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_6, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_7, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_8, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_9, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_10, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_11, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_12, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_13, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_14, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_15, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_16, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_17, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_18, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_19, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_20, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_21, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_22, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_23, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_24, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_25, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_26, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_27, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_28, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_29, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_30, i32 %LAYERS_0_FEEDFORWARD_3_WEIGHT_31"   --->   Operation 235 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 29 <SV = 18> <Delay = 0.00>
+ST_29 : Operation 236 [2/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_21_11, i32 %residual2, i32 %norm2"   --->   Operation 236 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 30 <SV = 19> <Delay = 0.00>
+ST_30 : Operation 237 [1/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_21_11, i32 %residual2, i32 %norm2"   --->   Operation 237 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 31 <SV = 20> <Delay = 0.00>
+ST_31 : Operation 238 [2/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_218_27, i32 %norm2, i32 %pooled"   --->   Operation 238 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 32 <SV = 21> <Delay = 0.00>
+ST_32 : Operation 239 [1/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_218_27, i32 %norm2, i32 %pooled"   --->   Operation 239 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 33 <SV = 22> <Delay = 0.00>
+ST_33 : Operation 240 [2/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_51_1, i32 %pooled, i32 %mean_4_loc"   --->   Operation 240 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 34 <SV = 23> <Delay = 0.00>
+ST_34 : Operation 241 [1/2] (0.00ns)   --->   "%call_ln0 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_51_1, i32 %pooled, i32 %mean_4_loc"   --->   Operation 241 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 35 <SV = 24> <Delay = 5.70>
+ST_35 : Operation 242 [1/1] (0.00ns)   --->   "%mean_4_loc_load = load i32 %mean_4_loc"   --->   Operation 242 'load' 'mean_4_loc_load' <Predicate = true> <Delay = 0.00>
+ST_35 : Operation 243 [4/4] (5.70ns)   --->   "%mean = fmul i32 %mean_4_loc_load, i32 0.0625" [src/unsw_linear_transformer.cpp:54]   --->   Operation 243 'fmul' 'mean' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 30 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 36 <SV = 25> <Delay = 5.70>
+ST_36 : Operation 244 [3/4] (5.70ns)   --->   "%mean = fmul i32 %mean_4_loc_load, i32 0.0625" [src/unsw_linear_transformer.cpp:54]   --->   Operation 244 'fmul' 'mean' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 30 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 37 <SV = 26> <Delay = 5.70>
+ST_37 : Operation 245 [2/4] (5.70ns)   --->   "%mean = fmul i32 %mean_4_loc_load, i32 0.0625" [src/unsw_linear_transformer.cpp:54]   --->   Operation 245 'fmul' 'mean' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 30 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 38 <SV = 27> <Delay = 5.70>
+ST_38 : Operation 246 [1/4] (5.70ns)   --->   "%mean = fmul i32 %mean_4_loc_load, i32 0.0625" [src/unsw_linear_transformer.cpp:54]   --->   Operation 246 'fmul' 'mean' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 30 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 39 <SV = 28> <Delay = 0.00>
+ST_39 : Operation 247 [2/2] (0.00ns)   --->   "%call_ln54 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_57_2, i32 %pooled, i32 %mean, i32 %variance_4_loc" [src/unsw_linear_transformer.cpp:54]   --->   Operation 247 'call' 'call_ln54' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 40 <SV = 29> <Delay = 0.00>
+ST_40 : Operation 248 [1/2] (0.00ns)   --->   "%call_ln54 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_57_2, i32 %pooled, i32 %mean, i32 %variance_4_loc" [src/unsw_linear_transformer.cpp:54]   --->   Operation 248 'call' 'call_ln54' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 41 <SV = 30> <Delay = 5.70>
+ST_41 : Operation 249 [1/1] (0.00ns)   --->   "%variance_4_loc_load = load i32 %variance_4_loc"   --->   Operation 249 'load' 'variance_4_loc_load' <Predicate = true> <Delay = 0.00>
+ST_41 : Operation 250 [4/4] (5.70ns)   --->   "%variance = fmul i32 %variance_4_loc_load, i32 0.0625" [src/unsw_linear_transformer.cpp:61]   --->   Operation 250 'fmul' 'variance' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 30 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 42 <SV = 31> <Delay = 5.70>
+ST_42 : Operation 251 [3/4] (5.70ns)   --->   "%variance = fmul i32 %variance_4_loc_load, i32 0.0625" [src/unsw_linear_transformer.cpp:61]   --->   Operation 251 'fmul' 'variance' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 30 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 43 <SV = 32> <Delay = 5.70>
+ST_43 : Operation 252 [2/4] (5.70ns)   --->   "%variance = fmul i32 %variance_4_loc_load, i32 0.0625" [src/unsw_linear_transformer.cpp:61]   --->   Operation 252 'fmul' 'variance' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 30 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 44 <SV = 33> <Delay = 5.70>
+ST_44 : Operation 253 [1/4] (5.70ns)   --->   "%variance = fmul i32 %variance_4_loc_load, i32 0.0625" [src/unsw_linear_transformer.cpp:61]   --->   Operation 253 'fmul' 'variance' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 30 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 45 <SV = 34> <Delay = 7.25>
+ST_45 : Operation 254 [5/5] (7.25ns)   --->   "%p_x_assign_2 = fadd i32 %variance, i32 1e-05" [src/unsw_linear_transformer.cpp:62]   --->   Operation 254 'fadd' 'p_x_assign_2' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 46 <SV = 35> <Delay = 7.25>
+ST_46 : Operation 255 [4/5] (7.25ns)   --->   "%p_x_assign_2 = fadd i32 %variance, i32 1e-05" [src/unsw_linear_transformer.cpp:62]   --->   Operation 255 'fadd' 'p_x_assign_2' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 47 <SV = 36> <Delay = 7.25>
+ST_47 : Operation 256 [3/5] (7.25ns)   --->   "%p_x_assign_2 = fadd i32 %variance, i32 1e-05" [src/unsw_linear_transformer.cpp:62]   --->   Operation 256 'fadd' 'p_x_assign_2' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 48 <SV = 37> <Delay = 7.25>
+ST_48 : Operation 257 [2/5] (7.25ns)   --->   "%p_x_assign_2 = fadd i32 %variance, i32 1e-05" [src/unsw_linear_transformer.cpp:62]   --->   Operation 257 'fadd' 'p_x_assign_2' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 49 <SV = 38> <Delay = 7.25>
+ST_49 : Operation 258 [1/5] (7.25ns)   --->   "%p_x_assign_2 = fadd i32 %variance, i32 1e-05" [src/unsw_linear_transformer.cpp:62]   --->   Operation 258 'fadd' 'p_x_assign_2' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 18 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 50 <SV = 39> <Delay = 6.23>
+ST_50 : Operation 259 [16/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 259 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 51 <SV = 40> <Delay = 6.23>
+ST_51 : Operation 260 [15/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 260 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 52 <SV = 41> <Delay = 6.23>
+ST_52 : Operation 261 [14/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 261 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 53 <SV = 42> <Delay = 6.23>
+ST_53 : Operation 262 [13/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 262 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 54 <SV = 43> <Delay = 6.23>
+ST_54 : Operation 263 [12/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 263 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 55 <SV = 44> <Delay = 6.23>
+ST_55 : Operation 264 [11/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 264 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 56 <SV = 45> <Delay = 6.23>
+ST_56 : Operation 265 [10/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 265 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 57 <SV = 46> <Delay = 6.23>
+ST_57 : Operation 266 [9/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 266 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 58 <SV = 47> <Delay = 6.23>
+ST_58 : Operation 267 [8/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 267 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 59 <SV = 48> <Delay = 6.23>
+ST_59 : Operation 268 [7/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 268 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 60 <SV = 49> <Delay = 6.23>
+ST_60 : Operation 269 [6/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 269 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 61 <SV = 50> <Delay = 6.23>
+ST_61 : Operation 270 [5/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 270 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 62 <SV = 51> <Delay = 6.23>
+ST_62 : Operation 271 [4/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 271 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 63 <SV = 52> <Delay = 6.23>
+ST_63 : Operation 272 [3/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 272 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 64 <SV = 53> <Delay = 6.23>
+ST_64 : Operation 273 [2/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 273 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 65 <SV = 54> <Delay = 6.23>
+ST_65 : Operation 274 [1/16] (6.23ns)   --->   "%tmp_4 = fsqrt i32 @llvm.sqrt.f32, i32 %p_x_assign_2" [/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464]   --->   Operation 274 'fsqrt' 'tmp_4' <Predicate = true> <Delay = 6.23> <CoreInst = "FSqrt">   --->   Core 35 'FSqrt' <Latency = 15> <II = 1> <Delay = 6.23> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 66 <SV = 55> <Delay = 6.07>
+ST_66 : Operation 275 [16/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 275 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 67 <SV = 56> <Delay = 6.07>
+ST_67 : Operation 276 [15/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 276 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 68 <SV = 57> <Delay = 6.07>
+ST_68 : Operation 277 [14/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 277 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 69 <SV = 58> <Delay = 6.07>
+ST_69 : Operation 278 [13/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 278 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 70 <SV = 59> <Delay = 6.07>
+ST_70 : Operation 279 [12/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 279 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 71 <SV = 60> <Delay = 6.07>
+ST_71 : Operation 280 [11/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 280 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 72 <SV = 61> <Delay = 6.07>
+ST_72 : Operation 281 [10/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 281 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 73 <SV = 62> <Delay = 6.07>
+ST_73 : Operation 282 [9/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 282 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 74 <SV = 63> <Delay = 6.07>
+ST_74 : Operation 283 [8/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 283 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 75 <SV = 64> <Delay = 6.07>
+ST_75 : Operation 284 [7/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 284 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 76 <SV = 65> <Delay = 6.07>
+ST_76 : Operation 285 [6/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 285 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 77 <SV = 66> <Delay = 6.07>
+ST_77 : Operation 286 [5/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 286 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 78 <SV = 67> <Delay = 6.07>
+ST_78 : Operation 287 [4/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 287 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 79 <SV = 68> <Delay = 6.07>
+ST_79 : Operation 288 [3/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 288 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 80 <SV = 69> <Delay = 6.07>
+ST_80 : Operation 289 [2/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 289 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 81 <SV = 70> <Delay = 6.07>
+ST_81 : Operation 290 [1/16] (6.07ns)   --->   "%inverse_std = fdiv i32 1, i32 %tmp_4" [src/unsw_linear_transformer.cpp:62]   --->   Operation 290 'fdiv' 'inverse_std' <Predicate = true> <Delay = 6.07> <CoreInst = "FDiv">   --->   Core 20 'FDiv' <Latency = 15> <II = 1> <Delay = 6.07> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_81 : Operation 291 [2/2] (0.00ns)   --->   "%call_ln54 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_64_3, i32 %pooled, i32 %mean, i32 %inverse_std, i32 %normalized_output, i32 %OUTPUT_NORM_WEIGHT, i32 %OUTPUT_NORM_BIAS" [src/unsw_linear_transformer.cpp:54]   --->   Operation 291 'call' 'call_ln54' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 82 <SV = 71> <Delay = 0.00>
+ST_82 : Operation 292 [1/2] (0.00ns)   --->   "%call_ln54 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_64_3, i32 %pooled, i32 %mean, i32 %inverse_std, i32 %normalized_output, i32 %OUTPUT_NORM_WEIGHT, i32 %OUTPUT_NORM_BIAS" [src/unsw_linear_transformer.cpp:54]   --->   Operation 292 'call' 'call_ln54' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 83 <SV = 72> <Delay = 2.32>
+ST_83 : Operation 293 [1/1] (0.00ns)   --->   "%normalized_output_addr = getelementptr i32 %normalized_output, i64 0, i64 0" [src/unsw_linear_transformer.cpp:232]   --->   Operation 293 'getelementptr' 'normalized_output_addr' <Predicate = true> <Delay = 0.00>
+ST_83 : Operation 294 [2/2] (2.32ns)   --->   "%normalized_output_load = load i4 %normalized_output_addr" [src/unsw_linear_transformer.cpp:232]   --->   Operation 294 'load' 'normalized_output_load' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_83 : Operation 295 [1/1] (0.00ns)   --->   "%normalized_output_addr_1 = getelementptr i32 %normalized_output, i64 0, i64 1" [src/unsw_linear_transformer.cpp:232]   --->   Operation 295 'getelementptr' 'normalized_output_addr_1' <Predicate = true> <Delay = 0.00>
+ST_83 : Operation 296 [2/2] (2.32ns)   --->   "%normalized_output_load_1 = load i4 %normalized_output_addr_1" [src/unsw_linear_transformer.cpp:232]   --->   Operation 296 'load' 'normalized_output_load_1' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+
+State 84 <SV = 73> <Delay = 2.32>
+ST_84 : Operation 297 [1/2] (2.32ns)   --->   "%normalized_output_load = load i4 %normalized_output_addr" [src/unsw_linear_transformer.cpp:232]   --->   Operation 297 'load' 'normalized_output_load' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_84 : Operation 298 [1/2] (2.32ns)   --->   "%normalized_output_load_1 = load i4 %normalized_output_addr_1" [src/unsw_linear_transformer.cpp:232]   --->   Operation 298 'load' 'normalized_output_load_1' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_84 : Operation 299 [1/1] (0.00ns)   --->   "%normalized_output_addr_2 = getelementptr i32 %normalized_output, i64 0, i64 2" [src/unsw_linear_transformer.cpp:232]   --->   Operation 299 'getelementptr' 'normalized_output_addr_2' <Predicate = true> <Delay = 0.00>
+ST_84 : Operation 300 [2/2] (2.32ns)   --->   "%normalized_output_load_2 = load i4 %normalized_output_addr_2" [src/unsw_linear_transformer.cpp:232]   --->   Operation 300 'load' 'normalized_output_load_2' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_84 : Operation 301 [1/1] (0.00ns)   --->   "%normalized_output_addr_3 = getelementptr i32 %normalized_output, i64 0, i64 3" [src/unsw_linear_transformer.cpp:232]   --->   Operation 301 'getelementptr' 'normalized_output_addr_3' <Predicate = true> <Delay = 0.00>
+ST_84 : Operation 302 [2/2] (2.32ns)   --->   "%normalized_output_load_3 = load i4 %normalized_output_addr_3" [src/unsw_linear_transformer.cpp:232]   --->   Operation 302 'load' 'normalized_output_load_3' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+
+State 85 <SV = 74> <Delay = 2.32>
+ST_85 : Operation 303 [1/2] (2.32ns)   --->   "%normalized_output_load_2 = load i4 %normalized_output_addr_2" [src/unsw_linear_transformer.cpp:232]   --->   Operation 303 'load' 'normalized_output_load_2' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_85 : Operation 304 [1/2] (2.32ns)   --->   "%normalized_output_load_3 = load i4 %normalized_output_addr_3" [src/unsw_linear_transformer.cpp:232]   --->   Operation 304 'load' 'normalized_output_load_3' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_85 : Operation 305 [1/1] (0.00ns)   --->   "%normalized_output_addr_4 = getelementptr i32 %normalized_output, i64 0, i64 4" [src/unsw_linear_transformer.cpp:232]   --->   Operation 305 'getelementptr' 'normalized_output_addr_4' <Predicate = true> <Delay = 0.00>
+ST_85 : Operation 306 [2/2] (2.32ns)   --->   "%normalized_output_load_4 = load i4 %normalized_output_addr_4" [src/unsw_linear_transformer.cpp:232]   --->   Operation 306 'load' 'normalized_output_load_4' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_85 : Operation 307 [1/1] (0.00ns)   --->   "%normalized_output_addr_5 = getelementptr i32 %normalized_output, i64 0, i64 5" [src/unsw_linear_transformer.cpp:232]   --->   Operation 307 'getelementptr' 'normalized_output_addr_5' <Predicate = true> <Delay = 0.00>
+ST_85 : Operation 308 [2/2] (2.32ns)   --->   "%normalized_output_load_5 = load i4 %normalized_output_addr_5" [src/unsw_linear_transformer.cpp:232]   --->   Operation 308 'load' 'normalized_output_load_5' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+
+State 86 <SV = 75> <Delay = 2.32>
+ST_86 : Operation 309 [1/2] (2.32ns)   --->   "%normalized_output_load_4 = load i4 %normalized_output_addr_4" [src/unsw_linear_transformer.cpp:232]   --->   Operation 309 'load' 'normalized_output_load_4' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_86 : Operation 310 [1/2] (2.32ns)   --->   "%normalized_output_load_5 = load i4 %normalized_output_addr_5" [src/unsw_linear_transformer.cpp:232]   --->   Operation 310 'load' 'normalized_output_load_5' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_86 : Operation 311 [1/1] (0.00ns)   --->   "%normalized_output_addr_6 = getelementptr i32 %normalized_output, i64 0, i64 6" [src/unsw_linear_transformer.cpp:232]   --->   Operation 311 'getelementptr' 'normalized_output_addr_6' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 312 [2/2] (2.32ns)   --->   "%normalized_output_load_6 = load i4 %normalized_output_addr_6" [src/unsw_linear_transformer.cpp:232]   --->   Operation 312 'load' 'normalized_output_load_6' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_86 : Operation 313 [1/1] (0.00ns)   --->   "%normalized_output_addr_7 = getelementptr i32 %normalized_output, i64 0, i64 7" [src/unsw_linear_transformer.cpp:232]   --->   Operation 313 'getelementptr' 'normalized_output_addr_7' <Predicate = true> <Delay = 0.00>
+ST_86 : Operation 314 [2/2] (2.32ns)   --->   "%normalized_output_load_7 = load i4 %normalized_output_addr_7" [src/unsw_linear_transformer.cpp:232]   --->   Operation 314 'load' 'normalized_output_load_7' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+
+State 87 <SV = 76> <Delay = 2.32>
+ST_87 : Operation 315 [1/2] (2.32ns)   --->   "%normalized_output_load_6 = load i4 %normalized_output_addr_6" [src/unsw_linear_transformer.cpp:232]   --->   Operation 315 'load' 'normalized_output_load_6' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_87 : Operation 316 [1/2] (2.32ns)   --->   "%normalized_output_load_7 = load i4 %normalized_output_addr_7" [src/unsw_linear_transformer.cpp:232]   --->   Operation 316 'load' 'normalized_output_load_7' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_87 : Operation 317 [1/1] (0.00ns)   --->   "%normalized_output_addr_8 = getelementptr i32 %normalized_output, i64 0, i64 8" [src/unsw_linear_transformer.cpp:232]   --->   Operation 317 'getelementptr' 'normalized_output_addr_8' <Predicate = true> <Delay = 0.00>
+ST_87 : Operation 318 [2/2] (2.32ns)   --->   "%normalized_output_load_8 = load i4 %normalized_output_addr_8" [src/unsw_linear_transformer.cpp:232]   --->   Operation 318 'load' 'normalized_output_load_8' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_87 : Operation 319 [1/1] (0.00ns)   --->   "%normalized_output_addr_9 = getelementptr i32 %normalized_output, i64 0, i64 9" [src/unsw_linear_transformer.cpp:232]   --->   Operation 319 'getelementptr' 'normalized_output_addr_9' <Predicate = true> <Delay = 0.00>
+ST_87 : Operation 320 [2/2] (2.32ns)   --->   "%normalized_output_load_9 = load i4 %normalized_output_addr_9" [src/unsw_linear_transformer.cpp:232]   --->   Operation 320 'load' 'normalized_output_load_9' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+
+State 88 <SV = 77> <Delay = 2.32>
+ST_88 : Operation 321 [1/2] (2.32ns)   --->   "%normalized_output_load_8 = load i4 %normalized_output_addr_8" [src/unsw_linear_transformer.cpp:232]   --->   Operation 321 'load' 'normalized_output_load_8' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_88 : Operation 322 [1/2] (2.32ns)   --->   "%normalized_output_load_9 = load i4 %normalized_output_addr_9" [src/unsw_linear_transformer.cpp:232]   --->   Operation 322 'load' 'normalized_output_load_9' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_88 : Operation 323 [1/1] (0.00ns)   --->   "%normalized_output_addr_10 = getelementptr i32 %normalized_output, i64 0, i64 10" [src/unsw_linear_transformer.cpp:232]   --->   Operation 323 'getelementptr' 'normalized_output_addr_10' <Predicate = true> <Delay = 0.00>
+ST_88 : Operation 324 [2/2] (2.32ns)   --->   "%normalized_output_load_10 = load i4 %normalized_output_addr_10" [src/unsw_linear_transformer.cpp:232]   --->   Operation 324 'load' 'normalized_output_load_10' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_88 : Operation 325 [1/1] (0.00ns)   --->   "%normalized_output_addr_11 = getelementptr i32 %normalized_output, i64 0, i64 11" [src/unsw_linear_transformer.cpp:232]   --->   Operation 325 'getelementptr' 'normalized_output_addr_11' <Predicate = true> <Delay = 0.00>
+ST_88 : Operation 326 [2/2] (2.32ns)   --->   "%normalized_output_load_11 = load i4 %normalized_output_addr_11" [src/unsw_linear_transformer.cpp:232]   --->   Operation 326 'load' 'normalized_output_load_11' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+
+State 89 <SV = 78> <Delay = 2.32>
+ST_89 : Operation 327 [1/2] (2.32ns)   --->   "%normalized_output_load_10 = load i4 %normalized_output_addr_10" [src/unsw_linear_transformer.cpp:232]   --->   Operation 327 'load' 'normalized_output_load_10' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_89 : Operation 328 [1/2] (2.32ns)   --->   "%normalized_output_load_11 = load i4 %normalized_output_addr_11" [src/unsw_linear_transformer.cpp:232]   --->   Operation 328 'load' 'normalized_output_load_11' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_89 : Operation 329 [1/1] (0.00ns)   --->   "%normalized_output_addr_12 = getelementptr i32 %normalized_output, i64 0, i64 12" [src/unsw_linear_transformer.cpp:232]   --->   Operation 329 'getelementptr' 'normalized_output_addr_12' <Predicate = true> <Delay = 0.00>
+ST_89 : Operation 330 [2/2] (2.32ns)   --->   "%normalized_output_load_12 = load i4 %normalized_output_addr_12" [src/unsw_linear_transformer.cpp:232]   --->   Operation 330 'load' 'normalized_output_load_12' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_89 : Operation 331 [1/1] (0.00ns)   --->   "%normalized_output_addr_13 = getelementptr i32 %normalized_output, i64 0, i64 13" [src/unsw_linear_transformer.cpp:232]   --->   Operation 331 'getelementptr' 'normalized_output_addr_13' <Predicate = true> <Delay = 0.00>
+ST_89 : Operation 332 [2/2] (2.32ns)   --->   "%normalized_output_load_13 = load i4 %normalized_output_addr_13" [src/unsw_linear_transformer.cpp:232]   --->   Operation 332 'load' 'normalized_output_load_13' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+
+State 90 <SV = 79> <Delay = 2.32>
+ST_90 : Operation 333 [1/2] (2.32ns)   --->   "%normalized_output_load_12 = load i4 %normalized_output_addr_12" [src/unsw_linear_transformer.cpp:232]   --->   Operation 333 'load' 'normalized_output_load_12' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_90 : Operation 334 [1/2] (2.32ns)   --->   "%normalized_output_load_13 = load i4 %normalized_output_addr_13" [src/unsw_linear_transformer.cpp:232]   --->   Operation 334 'load' 'normalized_output_load_13' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_90 : Operation 335 [1/1] (0.00ns)   --->   "%normalized_output_addr_14 = getelementptr i32 %normalized_output, i64 0, i64 14" [src/unsw_linear_transformer.cpp:232]   --->   Operation 335 'getelementptr' 'normalized_output_addr_14' <Predicate = true> <Delay = 0.00>
+ST_90 : Operation 336 [2/2] (2.32ns)   --->   "%normalized_output_load_14 = load i4 %normalized_output_addr_14" [src/unsw_linear_transformer.cpp:232]   --->   Operation 336 'load' 'normalized_output_load_14' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_90 : Operation 337 [1/1] (0.00ns)   --->   "%normalized_output_addr_15 = getelementptr i32 %normalized_output, i64 0, i64 15" [src/unsw_linear_transformer.cpp:232]   --->   Operation 337 'getelementptr' 'normalized_output_addr_15' <Predicate = true> <Delay = 0.00>
+ST_90 : Operation 338 [2/2] (2.32ns)   --->   "%normalized_output_load_15 = load i4 %normalized_output_addr_15" [src/unsw_linear_transformer.cpp:232]   --->   Operation 338 'load' 'normalized_output_load_15' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+
+State 91 <SV = 80> <Delay = 2.32>
+ST_91 : Operation 339 [1/2] (2.32ns)   --->   "%normalized_output_load_14 = load i4 %normalized_output_addr_14" [src/unsw_linear_transformer.cpp:232]   --->   Operation 339 'load' 'normalized_output_load_14' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_91 : Operation 340 [1/2] (2.32ns)   --->   "%normalized_output_load_15 = load i4 %normalized_output_addr_15" [src/unsw_linear_transformer.cpp:232]   --->   Operation 340 'load' 'normalized_output_load_15' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+
+State 92 <SV = 81> <Delay = 5.70>
+ST_92 : Operation 341 [2/2] (5.70ns)   --->   "%call_ln232 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_229_29, i32 %normalized_output_load, i32 %normalized_output_load_1, i32 %normalized_output_load_2, i32 %normalized_output_load_3, i32 %normalized_output_load_4, i32 %normalized_output_load_5, i32 %normalized_output_load_6, i32 %normalized_output_load_7, i32 %normalized_output_load_8, i32 %normalized_output_load_9, i32 %normalized_output_load_10, i32 %normalized_output_load_11, i32 %normalized_output_load_12, i32 %normalized_output_load_13, i32 %normalized_output_load_14, i32 %normalized_output_load_15, i32 %logits" [src/unsw_linear_transformer.cpp:232]   --->   Operation 341 'call' 'call_ln232' <Predicate = true> <Delay = 5.70> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 93 <SV = 82> <Delay = 0.00>
+ST_93 : Operation 342 [1/2] (0.00ns)   --->   "%call_ln232 = call void @unsw_linear_transformer_Pipeline_VITIS_LOOP_229_29, i32 %normalized_output_load, i32 %normalized_output_load_1, i32 %normalized_output_load_2, i32 %normalized_output_load_3, i32 %normalized_output_load_4, i32 %normalized_output_load_5, i32 %normalized_output_load_6, i32 %normalized_output_load_7, i32 %normalized_output_load_8, i32 %normalized_output_load_9, i32 %normalized_output_load_10, i32 %normalized_output_load_11, i32 %normalized_output_load_12, i32 %normalized_output_load_13, i32 %normalized_output_load_14, i32 %normalized_output_load_15, i32 %logits" [src/unsw_linear_transformer.cpp:232]   --->   Operation 342 'call' 'call_ln232' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_93 : Operation 343 [1/1] (0.00ns)   --->   "%ret_ln236 = ret" [src/unsw_linear_transformer.cpp:236]   --->   Operation 343 'ret' 'ret_ln236' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 1.59ns
+The critical path consists of the following:
+	'alloca' operation ('sequence') [148]  (0 ns)
+	'store' operation ('store_ln145', src/unsw_linear_transformer.cpp:145) of constant 0 on local variable 'sequence' [178]  (1.59 ns)
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+ <State 4>: 0ns
+The critical path consists of the following:
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+ <State 7>: 0ns
+The critical path consists of the following:
+
+ <State 8>: 0ns
+The critical path consists of the following:
+
+ <State 9>: 0ns
+The critical path consists of the following:
+
+ <State 10>: 0ns
+The critical path consists of the following:
+
+ <State 11>: 6.99ns
+The critical path consists of the following:
+	'load' operation ('sequence', src/unsw_linear_transformer.cpp:145) on local variable 'sequence' [181]  (0 ns)
+	'sub' operation ('sub_ln148', src/unsw_linear_transformer.cpp:148) [191]  (1.87 ns)
+	'call' operation ('call_ln148', src/unsw_linear_transformer.cpp:148) to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_147_15' [234]  (5.12 ns)
+
+ <State 12>: 0ns
+The critical path consists of the following:
+
+ <State 13>: 3.25ns
+The critical path consists of the following:
+	'getelementptr' operation ('sparse_query_addr', src/unsw_linear_transformer.cpp:156) [193]  (0 ns)
+	'load' operation ('sparse_query_load', src/unsw_linear_transformer.cpp:156) on array 'sparse_query', src/unsw_linear_transformer.cpp:113 [245]  (3.25 ns)
+
+ <State 14>: 5.12ns
+The critical path consists of the following:
+	'add' operation ('add_ln156', src/unsw_linear_transformer.cpp:156) [197]  (1.87 ns)
+	'getelementptr' operation ('sparse_query_addr_2', src/unsw_linear_transformer.cpp:156) [199]  (0 ns)
+	'load' operation ('sparse_query_load_2', src/unsw_linear_transformer.cpp:156) on array 'sparse_query', src/unsw_linear_transformer.cpp:113 [247]  (3.25 ns)
+
+ <State 15>: 5.12ns
+The critical path consists of the following:
+	'add' operation ('add_ln156_2', src/unsw_linear_transformer.cpp:156) [203]  (1.87 ns)
+	'getelementptr' operation ('sparse_query_addr_4', src/unsw_linear_transformer.cpp:156) [205]  (0 ns)
+	'load' operation ('sparse_query_load_4', src/unsw_linear_transformer.cpp:156) on array 'sparse_query', src/unsw_linear_transformer.cpp:113 [249]  (3.25 ns)
+
+ <State 16>: 5.12ns
+The critical path consists of the following:
+	'add' operation ('add_ln156_4', src/unsw_linear_transformer.cpp:156) [209]  (1.87 ns)
+	'getelementptr' operation ('sparse_query_addr_6', src/unsw_linear_transformer.cpp:156) [211]  (0 ns)
+	'load' operation ('sparse_query_load_6', src/unsw_linear_transformer.cpp:156) on array 'sparse_query', src/unsw_linear_transformer.cpp:113 [251]  (3.25 ns)
+
+ <State 17>: 5.12ns
+The critical path consists of the following:
+	'add' operation ('add_ln156_6', src/unsw_linear_transformer.cpp:156) [215]  (1.87 ns)
+	'getelementptr' operation ('sparse_query_addr_8', src/unsw_linear_transformer.cpp:156) [217]  (0 ns)
+	'load' operation ('sparse_query_load_8', src/unsw_linear_transformer.cpp:156) on array 'sparse_query', src/unsw_linear_transformer.cpp:113 [253]  (3.25 ns)
+
+ <State 18>: 5.43ns
+The critical path consists of the following:
+	'load' operation ('denominator_1_loc_load') on local variable 'denominator_1_loc' [235]  (0 ns)
+	'fcmp' operation ('tmp_s', src/unsw_linear_transformer.cpp:150) [242]  (5.43 ns)
+
+ <State 19>: 6.41ns
+The critical path consists of the following:
+	'fcmp' operation ('tmp_s', src/unsw_linear_transformer.cpp:150) [242]  (5.43 ns)
+	'and' operation ('and_ln150', src/unsw_linear_transformer.cpp:150) [243]  (0 ns)
+	'select' operation ('denominator', src/unsw_linear_transformer.cpp:150) [244]  (0.978 ns)
+
+ <State 20>: 5.12ns
+The critical path consists of the following:
+	'load' operation ('sparse_query_load_12', src/unsw_linear_transformer.cpp:156) on array 'sparse_query', src/unsw_linear_transformer.cpp:113 [257]  (3.25 ns)
+	'call' operation ('call_ln148', src/unsw_linear_transformer.cpp:148) to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_153_16' [259]  (1.87 ns)
+
+ <State 21>: 0ns
+The critical path consists of the following:
+
+ <State 22>: 0ns
+The critical path consists of the following:
+
+ <State 23>: 0ns
+The critical path consists of the following:
+
+ <State 24>: 0ns
+The critical path consists of the following:
+
+ <State 25>: 0ns
+The critical path consists of the following:
+
+ <State 26>: 0ns
+The critical path consists of the following:
+
+ <State 27>: 0ns
+The critical path consists of the following:
+
+ <State 28>: 0ns
+The critical path consists of the following:
+
+ <State 29>: 0ns
+The critical path consists of the following:
+
+ <State 30>: 0ns
+The critical path consists of the following:
+
+ <State 31>: 0ns
+The critical path consists of the following:
+
+ <State 32>: 0ns
+The critical path consists of the following:
+
+ <State 33>: 0ns
+The critical path consists of the following:
+
+ <State 34>: 0ns
+The critical path consists of the following:
+
+ <State 35>: 5.7ns
+The critical path consists of the following:
+	'load' operation ('mean_4_loc_load') on local variable 'mean_4_loc' [270]  (0 ns)
+	'fmul' operation ('mean', src/unsw_linear_transformer.cpp:54) [271]  (5.7 ns)
+
+ <State 36>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('mean', src/unsw_linear_transformer.cpp:54) [271]  (5.7 ns)
+
+ <State 37>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('mean', src/unsw_linear_transformer.cpp:54) [271]  (5.7 ns)
+
+ <State 38>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('mean', src/unsw_linear_transformer.cpp:54) [271]  (5.7 ns)
+
+ <State 39>: 0ns
+The critical path consists of the following:
+
+ <State 40>: 0ns
+The critical path consists of the following:
+
+ <State 41>: 5.7ns
+The critical path consists of the following:
+	'load' operation ('variance_4_loc_load') on local variable 'variance_4_loc' [273]  (0 ns)
+	'fmul' operation ('variance', src/unsw_linear_transformer.cpp:61) [274]  (5.7 ns)
+
+ <State 42>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('variance', src/unsw_linear_transformer.cpp:61) [274]  (5.7 ns)
+
+ <State 43>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('variance', src/unsw_linear_transformer.cpp:61) [274]  (5.7 ns)
+
+ <State 44>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('variance', src/unsw_linear_transformer.cpp:61) [274]  (5.7 ns)
+
+ <State 45>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('__x', src/unsw_linear_transformer.cpp:62) [275]  (7.26 ns)
+
+ <State 46>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('__x', src/unsw_linear_transformer.cpp:62) [275]  (7.26 ns)
+
+ <State 47>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('__x', src/unsw_linear_transformer.cpp:62) [275]  (7.26 ns)
+
+ <State 48>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('__x', src/unsw_linear_transformer.cpp:62) [275]  (7.26 ns)
+
+ <State 49>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('__x', src/unsw_linear_transformer.cpp:62) [275]  (7.26 ns)
+
+ <State 50>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 51>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 52>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 53>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 54>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 55>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 56>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 57>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 58>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 59>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 60>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 61>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 62>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 63>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 64>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 65>: 6.24ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_4', /tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath:464) [276]  (6.24 ns)
+
+ <State 66>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 67>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 68>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 69>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 70>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 71>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 72>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 73>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 74>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 75>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 76>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 77>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 78>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 79>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 80>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 81>: 6.08ns
+The critical path consists of the following:
+	'fdiv' operation ('inverse_std', src/unsw_linear_transformer.cpp:62) [277]  (6.08 ns)
+
+ <State 82>: 0ns
+The critical path consists of the following:
+
+ <State 83>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('normalized_output_addr', src/unsw_linear_transformer.cpp:232) [279]  (0 ns)
+	'load' operation ('normalized_output_load', src/unsw_linear_transformer.cpp:232) on array 'output', src/unsw_linear_transformer.cpp:226 [280]  (2.32 ns)
+
+ <State 84>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('normalized_output_load', src/unsw_linear_transformer.cpp:232) on array 'output', src/unsw_linear_transformer.cpp:226 [280]  (2.32 ns)
+
+ <State 85>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('normalized_output_load_2', src/unsw_linear_transformer.cpp:232) on array 'output', src/unsw_linear_transformer.cpp:226 [284]  (2.32 ns)
+
+ <State 86>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('normalized_output_load_4', src/unsw_linear_transformer.cpp:232) on array 'output', src/unsw_linear_transformer.cpp:226 [288]  (2.32 ns)
+
+ <State 87>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('normalized_output_load_6', src/unsw_linear_transformer.cpp:232) on array 'output', src/unsw_linear_transformer.cpp:226 [292]  (2.32 ns)
+
+ <State 88>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('normalized_output_load_8', src/unsw_linear_transformer.cpp:232) on array 'output', src/unsw_linear_transformer.cpp:226 [296]  (2.32 ns)
+
+ <State 89>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('normalized_output_load_10', src/unsw_linear_transformer.cpp:232) on array 'output', src/unsw_linear_transformer.cpp:226 [300]  (2.32 ns)
+
+ <State 90>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('normalized_output_load_12', src/unsw_linear_transformer.cpp:232) on array 'output', src/unsw_linear_transformer.cpp:226 [304]  (2.32 ns)
+
+ <State 91>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('normalized_output_load_14', src/unsw_linear_transformer.cpp:232) on array 'output', src/unsw_linear_transformer.cpp:226 [308]  (2.32 ns)
+
+ <State 92>: 5.7ns
+The critical path consists of the following:
+	'call' operation ('call_ln232', src/unsw_linear_transformer.cpp:232) to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_229_29' [311]  (5.7 ns)
+
+ <State 93>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+	State 78
+	State 79
+	State 80
+	State 81
+	State 82
+	State 83
+	State 84
+	State 85
+	State 86
+	State 87
+	State 88
+	State 89
+	State 90
+	State 91
+	State 92
+	State 93
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

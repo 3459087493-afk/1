@@ -1,0 +1,77 @@
+{
+  "checkpoint_path": "/home/cym/prj2/finn/notebooks/icl_thesis-master/results/linear_unsw_baseline/best_model.pt",
+  "checkpoint_format": "model_state_dict",
+  "model_class": "LinearUNSWAnomalyDetector",
+  "model_config": {
+    "input_dim": 24,
+    "seq_len": 8,
+    "d_model": 16,
+    "dim_feedforward": 32,
+    "num_layers": 1,
+    "dropout": 0.1,
+    "num_classes": 2
+  },
+  "input_shape": [
+    1,
+    8,
+    24
+  ],
+  "output_shape": [
+    1,
+    2
+  ],
+  "onnx_path": "/home/cym/prj2/finn/notebooks/icl_thesis-master/results/linear_unsw_baseline/onnx/unsw_linear_transformer.onnx",
+  "onnx_opset_version": 13,
+  "onnx_operator_counts": {
+    "Add": 15,
+    "Clip": 1,
+    "Constant": 11,
+    "Div": 4,
+    "Elu": 2,
+    "Gemm": 1,
+    "MatMul": 10,
+    "Mul": 3,
+    "Pow": 3,
+    "ReduceMean": 7,
+    "ReduceSum": 1,
+    "Relu": 1,
+    "Sqrt": 3,
+    "Sub": 3,
+    "Transpose": 1,
+    "Unsqueeze": 1
+  },
+  "single_sample": {
+    "pytorch_logits": [
+      [
+        -1.355611801147461,
+        1.2704846858978271
+      ]
+    ],
+    "onnx_logits": [
+      [
+        -1.35561203956604,
+        1.2704851627349854
+      ]
+    ],
+    "max_abs_error": 4.76837158203125e-07,
+    "mean_abs_error": 3.5762786865234375e-07,
+    "rmse": 3.769728732309794e-07,
+    "pytorch_predicted_label": 1,
+    "onnx_predicted_label": 1,
+    "true_label": 0,
+    "prediction_match": true
+  },
+  "first100": {
+    "max_abs_error": 1.0728836059570312e-06,
+    "mean_abs_error": 2.9675662517547606e-07,
+    "rmse": 3.9339206660985735e-07,
+    "prediction_match_rate": 1.0,
+    "logits_allclose_rtol_1e-4_atol_1e-5": true
+  },
+  "can_proceed_to_hls_vivado_pynq": true,
+  "environment": {
+    "torch": "1.13.1+cu116",
+    "onnx": "1.13.0",
+    "onnxruntime": "1.16.1"
+  }
+}

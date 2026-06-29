@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /home/cym/prj2/finn/notebooks/icl_thesis-master/vitis_hls/linear_transformer/linear_transformer_hls/solution1/./sim/autowrap/testbench/linear_transformer.cpp_pre.cpp.tb.cpp

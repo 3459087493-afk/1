@@ -1,0 +1,223 @@
+
+
+================================================================
+== Vitis HLS Report for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_137_12'
+================================================================
+* Date:           Sat Jun 27 20:17:13 2026
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        unsw_linear_transformer_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.803 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       17|       17|  0.170 us|  0.170 us|   17|   17|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                     |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_137_12  |       15|       15|         3|          1|          1|    14|       yes|
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 5.12>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%active_feature = alloca i32 1"   --->   Operation 6 'alloca' 'active_feature' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (1.58ns)   --->   "%store_ln0 = store i4 0, i4 %active_feature"   --->   Operation 7 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%br_ln0 = br void %VITIS_LOOP_139_13"   --->   Operation 8 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%active_feature_2 = load i4 %active_feature" [src/unsw_linear_transformer.cpp:137]   --->   Operation 9 'load' 'active_feature_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 10 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (1.30ns)   --->   "%icmp_ln137 = icmp_eq  i4 %active_feature_2, i4 14" [src/unsw_linear_transformer.cpp:137]   --->   Operation 11 'icmp' 'icmp_ln137' <Predicate = true> <Delay = 1.30> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 14, i64 14, i64 14"   --->   Operation 12 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (1.73ns)   --->   "%add_ln137 = add i4 %active_feature_2, i4 1" [src/unsw_linear_transformer.cpp:137]   --->   Operation 13 'add' 'add_ln137' <Predicate = true> <Delay = 1.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%br_ln137 = br i1 %icmp_ln137, void %VITIS_LOOP_139_13.split, void %VITIS_LOOP_148_15.preheader.exitStub" [src/unsw_linear_transformer.cpp:137]   --->   Operation 14 'br' 'br_ln137' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%active_feature_2_cast = zext i4 %active_feature_2" [src/unsw_linear_transformer.cpp:137]   --->   Operation 15 'zext' 'active_feature_2_cast' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%zext_ln837 = zext i4 %active_feature_2"   --->   Operation 16 'zext' 'zext_ln837' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%zext_ln837_2 = zext i4 %active_feature_2"   --->   Operation 17 'zext' 'zext_ln837_2' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%zext_ln837_3 = zext i4 %active_feature_2"   --->   Operation 18 'zext' 'zext_ln837_3' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%sparse_key_V_addr = getelementptr i16 %sparse_key_V, i64 0, i64 %active_feature_2_cast"   --->   Operation 19 'getelementptr' 'sparse_key_V_addr' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (1.78ns)   --->   "%add_ln837 = add i5 %zext_ln837_3, i5 14"   --->   Operation 20 'add' 'add_ln837' <Predicate = (!icmp_ln137)> <Delay = 1.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%zext_ln837_4 = zext i5 %add_ln837"   --->   Operation 21 'zext' 'zext_ln837_4' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%sparse_key_V_addr_1 = getelementptr i16 %sparse_key_V, i64 0, i64 %zext_ln837_4"   --->   Operation 22 'getelementptr' 'sparse_key_V_addr_1' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (1.82ns)   --->   "%add_ln837_1 = add i6 %zext_ln837_2, i6 28"   --->   Operation 23 'add' 'add_ln837_1' <Predicate = (!icmp_ln137)> <Delay = 1.82> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%zext_ln837_5 = zext i6 %add_ln837_1"   --->   Operation 24 'zext' 'zext_ln837_5' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%sparse_key_V_addr_2 = getelementptr i16 %sparse_key_V, i64 0, i64 %zext_ln837_5"   --->   Operation 25 'getelementptr' 'sparse_key_V_addr_2' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (1.82ns)   --->   "%add_ln837_2 = add i6 %zext_ln837_2, i6 42"   --->   Operation 26 'add' 'add_ln837_2' <Predicate = (!icmp_ln137)> <Delay = 1.82> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%zext_ln837_6 = zext i6 %add_ln837_2"   --->   Operation 27 'zext' 'zext_ln837_6' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%sparse_key_V_addr_3 = getelementptr i16 %sparse_key_V, i64 0, i64 %zext_ln837_6"   --->   Operation 28 'getelementptr' 'sparse_key_V_addr_3' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (1.87ns)   --->   "%add_ln837_3 = add i7 %zext_ln837, i7 56"   --->   Operation 29 'add' 'add_ln837_3' <Predicate = (!icmp_ln137)> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%zext_ln837_7 = zext i7 %add_ln837_3"   --->   Operation 30 'zext' 'zext_ln837_7' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%sparse_key_V_addr_4 = getelementptr i16 %sparse_key_V, i64 0, i64 %zext_ln837_7"   --->   Operation 31 'getelementptr' 'sparse_key_V_addr_4' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (1.87ns)   --->   "%add_ln837_4 = add i7 %zext_ln837, i7 70"   --->   Operation 32 'add' 'add_ln837_4' <Predicate = (!icmp_ln137)> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%zext_ln837_8 = zext i7 %add_ln837_4"   --->   Operation 33 'zext' 'zext_ln837_8' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%sparse_key_V_addr_5 = getelementptr i16 %sparse_key_V, i64 0, i64 %zext_ln837_8"   --->   Operation 34 'getelementptr' 'sparse_key_V_addr_5' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (1.87ns)   --->   "%add_ln837_5 = add i7 %zext_ln837, i7 84"   --->   Operation 35 'add' 'add_ln837_5' <Predicate = (!icmp_ln137)> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%zext_ln837_9 = zext i7 %add_ln837_5"   --->   Operation 36 'zext' 'zext_ln837_9' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%sparse_key_V_addr_6 = getelementptr i16 %sparse_key_V, i64 0, i64 %zext_ln837_9"   --->   Operation 37 'getelementptr' 'sparse_key_V_addr_6' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (1.82ns)   --->   "%add_ln837_6 = add i6 %zext_ln837_2, i6 34"   --->   Operation 38 'add' 'add_ln837_6' <Predicate = (!icmp_ln137)> <Delay = 1.82> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%sext_ln837_7 = sext i6 %add_ln837_6"   --->   Operation 39 'sext' 'sext_ln837_7' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%zext_ln837_10 = zext i7 %sext_ln837_7"   --->   Operation 40 'zext' 'zext_ln837_10' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%sparse_key_V_addr_7 = getelementptr i16 %sparse_key_V, i64 0, i64 %zext_ln837_10"   --->   Operation 41 'getelementptr' 'sparse_key_V_addr_7' <Predicate = (!icmp_ln137)> <Delay = 0.00>
+ST_1 : Operation 42 [2/2] (3.25ns)   --->   "%sparse_key_V_load = load i7 %sparse_key_V_addr"   --->   Operation 42 'load' 'sparse_key_V_load' <Predicate = (!icmp_ln137)> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_1 : Operation 43 [2/2] (3.25ns)   --->   "%sparse_key_V_load_1 = load i7 %sparse_key_V_addr_1"   --->   Operation 43 'load' 'sparse_key_V_load_1' <Predicate = (!icmp_ln137)> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_1 : Operation 44 [2/2] (3.25ns)   --->   "%sparse_key_V_load_2 = load i7 %sparse_key_V_addr_2"   --->   Operation 44 'load' 'sparse_key_V_load_2' <Predicate = (!icmp_ln137)> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_1 : Operation 45 [2/2] (3.25ns)   --->   "%sparse_key_V_load_3 = load i7 %sparse_key_V_addr_3"   --->   Operation 45 'load' 'sparse_key_V_load_3' <Predicate = (!icmp_ln137)> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_1 : Operation 46 [2/2] (3.25ns)   --->   "%sparse_key_V_load_4 = load i7 %sparse_key_V_addr_4"   --->   Operation 46 'load' 'sparse_key_V_load_4' <Predicate = (!icmp_ln137)> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_1 : Operation 47 [2/2] (3.25ns)   --->   "%sparse_key_V_load_5 = load i7 %sparse_key_V_addr_5"   --->   Operation 47 'load' 'sparse_key_V_load_5' <Predicate = (!icmp_ln137)> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_1 : Operation 48 [2/2] (3.25ns)   --->   "%sparse_key_V_load_6 = load i7 %sparse_key_V_addr_6"   --->   Operation 48 'load' 'sparse_key_V_load_6' <Predicate = (!icmp_ln137)> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_1 : Operation 49 [2/2] (3.25ns)   --->   "%sparse_key_V_load_7 = load i7 %sparse_key_V_addr_7"   --->   Operation 49 'load' 'sparse_key_V_load_7' <Predicate = (!icmp_ln137)> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_1 : Operation 50 [1/1] (1.58ns)   --->   "%store_ln137 = store i4 %add_ln137, i4 %active_feature" [src/unsw_linear_transformer.cpp:137]   --->   Operation 50 'store' 'store_ln137' <Predicate = (!icmp_ln137)> <Delay = 1.58>
+
+State 2 <SV = 1> <Delay = 5.44>
+ST_2 : Operation 51 [1/2] (3.25ns)   --->   "%sparse_key_V_load = load i7 %sparse_key_V_addr"   --->   Operation 51 'load' 'sparse_key_V_load' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%shl_ln = bitconcatenate i20 @_ssdm_op_BitConcatenate.i20.i16.i4, i16 %sparse_key_V_load, i4 0"   --->   Operation 52 'bitconcatenate' 'shl_ln' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 53 [1/1] (0.00ns)   --->   "%sext_ln837 = sext i20 %shl_ln"   --->   Operation 53 'sext' 'sext_ln837' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 54 [1/2] (3.25ns)   --->   "%sparse_key_V_load_1 = load i7 %sparse_key_V_addr_1"   --->   Operation 54 'load' 'sparse_key_V_load_1' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_2 : Operation 55 [1/1] (0.00ns)   --->   "%shl_ln838_3 = bitconcatenate i20 @_ssdm_op_BitConcatenate.i20.i16.i4, i16 %sparse_key_V_load_1, i4 0"   --->   Operation 55 'bitconcatenate' 'shl_ln838_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 56 [1/1] (0.00ns)   --->   "%sext_ln837_1 = sext i20 %shl_ln838_3"   --->   Operation 56 'sext' 'sext_ln837_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 57 [1/2] (3.25ns)   --->   "%sparse_key_V_load_2 = load i7 %sparse_key_V_addr_2"   --->   Operation 57 'load' 'sparse_key_V_load_2' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_2 : Operation 58 [1/1] (0.00ns)   --->   "%shl_ln838_8 = bitconcatenate i20 @_ssdm_op_BitConcatenate.i20.i16.i4, i16 %sparse_key_V_load_2, i4 0"   --->   Operation 58 'bitconcatenate' 'shl_ln838_8' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 59 [1/1] (0.00ns)   --->   "%sext_ln837_2 = sext i20 %shl_ln838_8"   --->   Operation 59 'sext' 'sext_ln837_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 60 [1/2] (3.25ns)   --->   "%sparse_key_V_load_3 = load i7 %sparse_key_V_addr_3"   --->   Operation 60 'load' 'sparse_key_V_load_3' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_2 : Operation 61 [1/1] (0.00ns)   --->   "%shl_ln838_9 = bitconcatenate i20 @_ssdm_op_BitConcatenate.i20.i16.i4, i16 %sparse_key_V_load_3, i4 0"   --->   Operation 61 'bitconcatenate' 'shl_ln838_9' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 62 [1/1] (0.00ns)   --->   "%sext_ln837_3 = sext i20 %shl_ln838_9"   --->   Operation 62 'sext' 'sext_ln837_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 63 [1/2] (3.25ns)   --->   "%sparse_key_V_load_4 = load i7 %sparse_key_V_addr_4"   --->   Operation 63 'load' 'sparse_key_V_load_4' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%shl_ln838_10 = bitconcatenate i20 @_ssdm_op_BitConcatenate.i20.i16.i4, i16 %sparse_key_V_load_4, i4 0"   --->   Operation 64 'bitconcatenate' 'shl_ln838_10' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 65 [1/1] (0.00ns)   --->   "%sext_ln837_4 = sext i20 %shl_ln838_10"   --->   Operation 65 'sext' 'sext_ln837_4' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 66 [1/2] (3.25ns)   --->   "%sparse_key_V_load_5 = load i7 %sparse_key_V_addr_5"   --->   Operation 66 'load' 'sparse_key_V_load_5' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "%shl_ln838_11 = bitconcatenate i20 @_ssdm_op_BitConcatenate.i20.i16.i4, i16 %sparse_key_V_load_5, i4 0"   --->   Operation 67 'bitconcatenate' 'shl_ln838_11' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "%sext_ln837_5 = sext i20 %shl_ln838_11"   --->   Operation 68 'sext' 'sext_ln837_5' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 69 [1/2] (3.25ns)   --->   "%sparse_key_V_load_6 = load i7 %sparse_key_V_addr_6"   --->   Operation 69 'load' 'sparse_key_V_load_6' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_2 : Operation 70 [1/1] (0.00ns)   --->   "%shl_ln838_12 = bitconcatenate i20 @_ssdm_op_BitConcatenate.i20.i16.i4, i16 %sparse_key_V_load_6, i4 0"   --->   Operation 70 'bitconcatenate' 'shl_ln838_12' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "%sext_ln837_6 = sext i20 %shl_ln838_12"   --->   Operation 71 'sext' 'sext_ln837_6' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 72 [1/2] (3.25ns)   --->   "%sparse_key_V_load_7 = load i7 %sparse_key_V_addr_7"   --->   Operation 72 'load' 'sparse_key_V_load_7' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 16> <Depth = 112> <RAM>
+ST_2 : Operation 73 [1/1] (0.00ns)   --->   "%shl_ln838_s = bitconcatenate i20 @_ssdm_op_BitConcatenate.i20.i16.i4, i16 %sparse_key_V_load_7, i4 0"   --->   Operation 73 'bitconcatenate' 'shl_ln838_s' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 74 [1/1] (0.00ns)   --->   "%sext_ln813 = sext i20 %shl_ln838_s"   --->   Operation 74 'sext' 'sext_ln813' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 75 [1/1] (2.19ns)   --->   "%add_ln813 = add i21 %sext_ln837_1, i21 %sext_ln837"   --->   Operation 75 'add' 'add_ln813' <Predicate = true> <Delay = 2.19> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.19> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 76 [1/1] (2.19ns)   --->   "%add_ln813_1 = add i21 %sext_ln837_2, i21 %sext_ln837_3"   --->   Operation 76 'add' 'add_ln813_1' <Predicate = true> <Delay = 2.19> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.19> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 77 [1/1] (2.19ns)   --->   "%add_ln813_3 = add i21 %sext_ln837_4, i21 %sext_ln837_5"   --->   Operation 77 'add' 'add_ln813_3' <Predicate = true> <Delay = 2.19> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.19> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 78 [1/1] (2.19ns)   --->   "%add_ln813_4 = add i21 %sext_ln837_6, i21 %sext_ln813"   --->   Operation 78 'add' 'add_ln813_4' <Predicate = true> <Delay = 2.19> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.19> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 92 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 92 'ret' 'ret_ln0' <Predicate = (icmp_ln137)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 6.80>
+ST_3 : Operation 79 [1/1] (0.00ns)   --->   "%specloopname_ln661 = specloopname void @_ssdm_op_SpecLoopName, void @empty_11"   --->   Operation 79 'specloopname' 'specloopname_ln661' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 80 [1/1] (0.00ns)   --->   "%sext_ln813_1 = sext i21 %add_ln813"   --->   Operation 80 'sext' 'sext_ln813_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 81 [1/1] (0.00ns)   --->   "%sext_ln813_2 = sext i21 %add_ln813_1"   --->   Operation 81 'sext' 'sext_ln813_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 82 [1/1] (2.22ns)   --->   "%add_ln813_2 = add i22 %sext_ln813_2, i22 %sext_ln813_1"   --->   Operation 82 'add' 'add_ln813_2' <Predicate = true> <Delay = 2.22> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.22> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 83 [1/1] (0.00ns)   --->   "%sext_ln813_3 = sext i22 %add_ln813_2"   --->   Operation 83 'sext' 'sext_ln813_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 84 [1/1] (0.00ns)   --->   "%sext_ln813_4 = sext i21 %add_ln813_3"   --->   Operation 84 'sext' 'sext_ln813_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 85 [1/1] (0.00ns)   --->   "%sext_ln813_5 = sext i21 %add_ln813_4"   --->   Operation 85 'sext' 'sext_ln813_5' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 86 [1/1] (2.22ns)   --->   "%add_ln813_5 = add i22 %sext_ln813_5, i22 %sext_ln813_4"   --->   Operation 86 'add' 'add_ln813_5' <Predicate = true> <Delay = 2.22> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.22> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 87 [1/1] (0.00ns)   --->   "%sext_ln813_6 = sext i22 %add_ln813_5"   --->   Operation 87 'sext' 'sext_ln813_6' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 88 [1/1] (2.25ns)   --->   "%add_ln813_6 = add i23 %sext_ln813_6, i23 %sext_ln813_3"   --->   Operation 88 'add' 'add_ln813_6' <Predicate = true> <Delay = 2.25> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.25> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 89 [1/1] (0.00ns)   --->   "%key_sum_V_addr = getelementptr i23 %key_sum_V, i64 0, i64 %active_feature_2_cast" [src/unsw_linear_transformer.cpp:142]   --->   Operation 89 'getelementptr' 'key_sum_V_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 90 [1/1] (2.32ns)   --->   "%store_ln142 = store i23 %add_ln813_6, i4 %key_sum_V_addr" [src/unsw_linear_transformer.cpp:142]   --->   Operation 90 'store' 'store_ln142' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 23> <Depth = 14> <RAM>
+ST_3 : Operation 91 [1/1] (0.00ns)   --->   "%br_ln137 = br void %VITIS_LOOP_139_13" [src/unsw_linear_transformer.cpp:137]   --->   Operation 91 'br' 'br_ln137' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 5.12ns
+The critical path consists of the following:
+	'alloca' operation ('active_feature') [3]  (0 ns)
+	'load' operation ('active_feature', src/unsw_linear_transformer.cpp:137) on local variable 'active_feature' [7]  (0 ns)
+	'add' operation ('add_ln837_3') [28]  (1.87 ns)
+	'getelementptr' operation ('sparse_key_V_addr_4') [30]  (0 ns)
+	'load' operation ('sparse_key_V_load_4') on array 'sparse_key_V' [54]  (3.25 ns)
+
+ <State 2>: 5.45ns
+The critical path consists of the following:
+	'load' operation ('sparse_key_V_load') on array 'sparse_key_V' [42]  (3.25 ns)
+	'add' operation ('add_ln813') [66]  (2.2 ns)
+
+ <State 3>: 6.8ns
+The critical path consists of the following:
+	'add' operation ('add_ln813_2') [70]  (2.23 ns)
+	'add' operation ('add_ln813_6') [78]  (2.26 ns)
+	'store' operation ('store_ln142', src/unsw_linear_transformer.cpp:142) of variable 'add_ln813_6' on array 'key_sum_V' [80]  (2.32 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

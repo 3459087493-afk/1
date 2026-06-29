@@ -1,0 +1,211 @@
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: ./transformer.h, Line: 76, Column: 0 }
+Function:        _Z15kernel_bias_addIfLi8ELi8EEvPAT1__KT_PS1_PAT1__S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void add_bias_to_row<float, 8>(float const*, float const*, float*)'
+    DebugLoc:        { File: ./transformer.h, Line: 69, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void kernel_bias_add<float, 8, 8>(float const (*) [8], float const*, float (*) [8])'
+    DebugLoc:        { File: ./transformer.h, Line: 76, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: ./transformer.h, Line: 76, Column: 0 }
+Function:        _Z15kernel_bias_addIfLi8ELi16EEvPAT1__KT_PS1_PAT1__S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void add_bias_to_row<float, 16>(float const*, float const*, float*)'
+    DebugLoc:        { File: ./transformer.h, Line: 69, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void kernel_bias_add<float, 8, 16>(float const (*) [16], float const*, float (*) [16])'
+    DebugLoc:        { File: ./transformer.h, Line: 76, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: ./transformer.h, Line: 76, Column: 0 }
+Function:        _Z15kernel_bias_addIfLi8ELi1EEvPAT1__KT_PS1_PAT1__S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void add_bias_to_row<float, 1>(float const*, float const*, float*)'
+    DebugLoc:        { File: ./transformer.h, Line: 69, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void kernel_bias_add<float, 8, 1>(float const (*) [1], float const*, float (*) [1])'
+    DebugLoc:        { File: ./transformer.h, Line: 76, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+Function:        _Z22transformer_for_samplePA2_fPf
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void kernel_mmult<float, 8, 2, 8>(float const (*) [2], float const (*) [8], float (*) [8])'
+    DebugLoc:        { File: ./transformer.h, Line: 51, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'transformer_for_sample(float (*) [2], float*)'
+    DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+Function:        _Z22transformer_for_samplePA2_fPf
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void kernel_bias_add<float, 8, 8>(float const (*) [8], float const*, float (*) [8])'
+    DebugLoc:        { File: ./transformer.h, Line: 76, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'transformer_for_sample(float (*) [2], float*)'
+    DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+Function:        _Z22transformer_for_samplePA2_fPf
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void kernel_mmult<float, 8, 8, 8>(float const (*) [8], float const (*) [8], float (*) [8])'
+    DebugLoc:        { File: ./transformer.h, Line: 51, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'transformer_for_sample(float (*) [2], float*)'
+    DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+Function:        _Z22transformer_for_samplePA2_fPf
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'std::exp(float)'
+    DebugLoc:        { File: '/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath', 
+                       Line: 223, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'transformer_for_sample(float (*) [2], float*)'
+    DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+Function:        _Z22transformer_for_samplePA2_fPf
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void kernel_mmult<float, 8, 8, 16>(float const (*) [8], float const (*) [16], float (*) [16])'
+    DebugLoc:        { File: ./transformer.h, Line: 51, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'transformer_for_sample(float (*) [2], float*)'
+    DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+Function:        _Z22transformer_for_samplePA2_fPf
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void kernel_bias_add<float, 8, 16>(float const (*) [16], float const*, float (*) [16])'
+    DebugLoc:        { File: ./transformer.h, Line: 76, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'transformer_for_sample(float (*) [2], float*)'
+    DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+Function:        _Z22transformer_for_samplePA2_fPf
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void relu_inplace<float, 8, 16>(float (*) [16])'
+    DebugLoc:        { File: ./transformer.h, Line: 211, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'transformer_for_sample(float (*) [2], float*)'
+    DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+Function:        _Z22transformer_for_samplePA2_fPf
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void kernel_mmult<float, 8, 16, 8>(float const (*) [16], float const (*) [8], float (*) [8])'
+    DebugLoc:        { File: ./transformer.h, Line: 51, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'transformer_for_sample(float (*) [2], float*)'
+    DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+Function:        _Z22transformer_for_samplePA2_fPf
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void kernel_mmult<float, 8, 8, 1>(float const (*) [8], float const (*) [1], float (*) [1])'
+    DebugLoc:        { File: ./transformer.h, Line: 51, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'transformer_for_sample(float (*) [2], float*)'
+    DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+Function:        _Z22transformer_for_samplePA2_fPf
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void kernel_bias_add<float, 8, 1>(float const (*) [1], float const*, float (*) [1])'
+    DebugLoc:        { File: ./transformer.h, Line: 76, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'transformer_for_sample(float (*) [2], float*)'
+    DebugLoc:        { File: transformer.cpp, Line: 67, Column: 0 }
+  - String:          ''''
+...
+--- !Failure
+Pass:            reflow-syncheck
+Name:            WarningOutOfBoundArrayAccess
+Function:        _Z22transformer_for_samplePA2_fPf
+Args:            
+  - String:          The program may have out of bound array access
+...
+--- !Failure
+Pass:            reflow-syncheck
+Name:            WarningOutOfBoundArrayAccess
+Function:        _Z22transformer_for_samplePA2_fPf
+Args:            
+  - String:          The program may have out of bound array access
+...
+--- !Failure
+Pass:            reflow-syncheck
+Name:            WarningOutOfBoundArrayAccess
+Function:        _Z22transformer_for_samplePA2_fPf
+Args:            
+  - String:          The program may have out of bound array access
+...
+--- !Failure
+Pass:            reflow-syncheck
+Name:            WarningOutOfBoundArrayAccess
+Function:        _Z22transformer_for_samplePA2_fPf
+Args:            
+  - String:          The program may have out of bound array access
+...
