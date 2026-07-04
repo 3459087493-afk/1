@@ -1,0 +1,6 @@
+method,dataset,input_mode,resize_size,patch_size,seq_len,input_dim,quant_bits,sparsity,test_set_type,num_test_samples,accuracy,precision,recall,f1,auc,notes
+ViT4Mal,IMG_DS,RGB,128,8,unknown,unknown,16,0,full_test,unknown,93.89,NA,NA,NA,NA,published FPGA recommended version 2enc4head
+ViT4Mal,IMG_DS,RGB,128,8,unknown,unknown,16,0,full_test,unknown,92.41,NA,NA,NA,NA,published FPGA fastest version 1enc2head
+Ours-LinearTransformer-Dense-Q32,IMG_DS,grayscale,32,8,16,64,32,0,full_test,3444,94.19279907084785,97.70753733935394,95.45300305395318,96.56711294198421,97.91292717280949,Stage1 float32 software baseline full test set
+Ours-LinearTransformer-Dense-Q16-FakeQuant,IMG_DS,grayscale,32,8,16,64,16,0,eval200,200,95.5,97.59036144578313,97.0059880239521,97.2972972972973,95.8265287606605,Stage2 Q16 weight-only fake quantization eval200; prediction_match_rate_vs_q32=0.995
+Ours-LinearTransformer-Dense-Q16-PARETO2-HLS-CSIM,IMG_DS,grayscale,32,8,16,64,16,0,eval200,200,94.5,NA,NA,NA,NA,HLS C simulation relaxed pass; prediction_match_rate_vs_q32=0.985; hw_label_accuracy=94.5%

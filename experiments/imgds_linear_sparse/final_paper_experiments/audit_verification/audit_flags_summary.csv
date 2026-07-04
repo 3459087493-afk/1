@@ -1,0 +1,11 @@
+severity,priority,title,description,fix
+WARN,HIGH,Tiny-Q16 per-sample verification pending,Ours-Tiny-Q16 has PYNQ result CSV and full runtime log (3444 samples NaN=0 Inf=0 match=98.58% HW acc=94.80%). Per-sample HW logits were not saved so independent recomputation cannot be done. CSV/log evidence is sufficient for paper.,"Add per-sample HW logit saving to PYNQ scripts. Re-run Tiny to capture per-sample logits if independent verification is needed for camera-ready."
+FAIL,CRITICAL,[4] unit error (ms vs us),[4] reports 29.86 micro-seconds (us). Written as 29.86 ms in figure (1000× wrong).,"Fix figure annotation: ""29.86 us = 0.02986 ms"". Regenerate fig_teacher_acc_vs_latency."
+WARN,HIGH,Train/test overlap TBD,Exact hash overlap check running. 504 potential hits from first-32-feature check may be false positives (zeros).,"Run full exact hash check. If >0, document and explain split strategy."
+WARN,HIGH,No per-sample HW logits,No PYNQ script saved per-sample HW logits. All accuracy numbers accepted from CSV only — cannot independently verify.,Add per-sample HW logit saving to all PYNQ scripts. Re-run for at least 2 models.
+WARN,MEDIUM,ViT4Mal comparison disclaimer insufficient,"Comparison is cross-paper reported-results, not apples-to-apples. Input resolution, model architecture, latency scope all differ.",Add explicit fairness statement to all figures and tables.
+WARN,LOW,Q16 accuracy precision,Q16 claims 94.19% ref acc but actual ref acc is 94.1928%. Q16 claims 94.13% HW acc on 3444 but was 99% on eval200.,Document the eval200→3444 discrepancy clearly in paper.
+WARN,LOW,P50 vs mean latency mixed,"Some points use mean latency, some use P50.",Standardize to mean ± std for all reporting.
+PASS,GOOD,All 5 validated points have bit/hwh/test_npz/result_csv/log,"Q16, Mid, Compact, Tiny, Q8 all have complete verification packages including runtime logs.",
+PASS,GOOD,I/O protocol verified int16 Q6.10 for all models,"All HLS headers confirm data_t = ap_fixed<16,6>. All PYNQ scripts use int16.",
+PASS,GOOD,Sparse points correctly labeled SW/HLS,Sparse S0/S10/S20/S30 not marked as PYNQ measured in CSVs.,Check figure legends still correct.

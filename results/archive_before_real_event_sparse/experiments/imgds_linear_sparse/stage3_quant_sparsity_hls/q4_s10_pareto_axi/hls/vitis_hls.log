@@ -1,0 +1,86 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+  **** SW Build 3670227 on Oct 13 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vitis_HLS/2022.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'cym' on host 'cym-HP-OmniBook-7-Laptop-16-az0xxx' (Linux_x86_64 version 6.8.0-124-generic) on Wed Jul 01 13:32:07 CST 2026
+INFO: [HLS 200-10] On os Ubuntu 22.04.5 LTS
+INFO: [HLS 200-10] In directory '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/stage3_quant_sparsity_hls/q4_s10_pareto_axi/hls'
+Sourcing Tcl script 'run_hls.tcl'
+INFO: [HLS 200-1510] Running: open_project imgds_linear_dense_q4 
+INFO: [HLS 200-10] Creating and opening project '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/stage3_quant_sparsity_hls/q4_s10_pareto_axi/hls/imgds_linear_dense_q4'.
+INFO: [HLS 200-1510] Running: set_top imgds_linear_dense_q4 
+INFO: [HLS 200-1510] Running: add_files src/imgds_linear_dense_q4.cpp 
+INFO: [HLS 200-10] Adding design file 'src/imgds_linear_dense_q4.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files src/imgds_linear_dense_q4.h 
+INFO: [HLS 200-10] Adding design file 'src/imgds_linear_dense_q4.h' to the project
+INFO: [HLS 200-1510] Running: add_files src/hls_params_q4.h 
+INFO: [HLS 200-10] Adding design file 'src/hls_params_q4.h' to the project
+INFO: [HLS 200-1510] Running: add_files src/eval_samples_q4.h 
+INFO: [HLS 200-10] Adding design file 'src/eval_samples_q4.h' to the project
+INFO: [HLS 200-1510] Running: add_files src/active_channels.h 
+INFO: [HLS 200-10] Adding design file 'src/active_channels.h' to the project
+INFO: [HLS 200-1510] Running: add_files src/testbench.cpp -tb 
+INFO: [HLS 200-10] Adding test bench file 'src/testbench.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/stage3_quant_sparsity_hls/q4_s10_pareto_axi/hls/imgds_linear_dense_q4/solution1'.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vivado' configuration: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xc7z020clg400-1 
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design 
+Running Dispatch Server on port: 39539
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../src/testbench.cpp in debug mode
+   Compiling ../../../../src/imgds_linear_dense_q4.cpp in debug mode
+   Generating csim.exe
+Q4-S10 CSIM Testbench
+==================================================
+
+==================================================
+Q4-S10 CSIM Results (N=200)
+==================================================
+  Prediction match rate vs Q4 ref:  0.8250  (165/200)
+  HW  label accuracy:               0.8700  (174/200)
+  Ref label accuracy:               0.9150  (183/200)
+  Mismatch count (hw!=ref):         35
+  Max  abs error vs Q4 ref:         0.42979753
+  Mean abs error vs Q4 ref:         0.21831916
+
+  First 10 mismatches:
+  3      [-0.1787, 0.1191] [-0.0658,-0.1205] hw=1 ref=0 lbl=1
+  36     [-0.0039, 0.0205] [ 0.0754,-0.1795] hw=1 ref=0 lbl=0
+  40     [-0.0752,-0.0713] [ 0.0303,-0.2574] hw=1 ref=0 lbl=0
+  43     [-0.0947,-0.0918] [-0.0180,-0.2647] hw=1 ref=0 lbl=0
+  56     [-0.2812, 0.0332] [-0.1560,-0.1821] hw=1 ref=0 lbl=1
+  57     [-0.2090,-0.1953] [-0.0566,-0.4125] hw=1 ref=0 lbl=0
+  61     [-0.0742,-0.0391] [ 0.0245,-0.2290] hw=1 ref=0 lbl=0
+  65     [-0.0322, 0.0645] [ 0.0780,-0.1782] hw=1 ref=0 lbl=0
+  67     [-0.1172,-0.0049] [-0.0324,-0.1855] hw=1 ref=0 lbl=0
+  70     [-0.4082,-0.1689] [-0.2860,-0.3483] hw=1 ref=0 lbl=1
+
+==================================================
+  Match >= 0.90: FAIL
+==================================================
+
+CSIM FAILED (match=0.8250 < 0.90).
+@E Simulation failed: Function 'main' returns nonzero value '1'.
+ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 9.97 seconds. CPU system time: 0.44 seconds. Elapsed time: 10.39 seconds; current allocated memory: 0.000 MB.
+4
+    while executing
+"source run_hls.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel \#0 [list source $arg] "
+
+INFO: [HLS 200-112] Total CPU user time: 10.96 seconds. Total CPU system time: 0.6 seconds. Total elapsed time: 21.43 seconds; peak allocated memory: 308.672 MB.
+INFO: [Common 17-206] Exiting vitis_hls at Wed Jul  1 13:32:28 2026...

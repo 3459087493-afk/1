@@ -1,0 +1,8 @@
+model,device,latency_mean_us,latency_std_us,num_runs,source,notes
+Ours-LinearTransformer-Dense,PyTorch-CPU,284.4373,185.8501,10000,DOCKER_MEASURED,"PyTorch fp32 single-sample inference (model only, no data IO)"
+Ours-LinearTransformer-Dense,ONNXRuntime-CPU,43.1636,11.9492,10000,DOCKER_MEASURED,ONNX single-sample inference
+Ours-LinearTransformer-Dense,GPU,N/A,N/A,N/A,N/A,GPU not available in Docker environment
+Ours-Q16-S0-PARETO2,FPGA-HLS-Estimated,740.84,N/A,1,HLS_ESTIMATED,"74,084 cycles / 100 MHz = 740.84 us (0.741 ms); NOT board-validated"
+Ours-Q16-S0-PARETO2,FPGA-PYNQ-Z2,PENDING_BOARD,PENDING_BOARD,PENDING_BOARD,PENDING_BOARD,Awaiting Vivado bitstream generation + PYNQ-Z2 on-board measurement
+ViT4Mal-1enc2head-fastest,PYNQ-Z1,810000,N/A,1,PYNQ_MEASURED,"Published 0.81 s = 810,000 us; reference for speedup comparison"
+ViT4Mal-2enc4head-recommended,PYNQ-Z1,1480000,N/A,1,PYNQ_MEASURED,"Published 1.48 s = 1,480,000 us; reference"

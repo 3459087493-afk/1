@@ -1,0 +1,66 @@
+dataset:
+  name: IMG_DS
+  root: /home/cym/prj2/finn/notebooks/icl_thesis-master/data/IMG_DS
+  classes:
+    Benign: 0
+    Malware: 1
+  split:
+    train: 0.7
+    val: 0.1
+    test: 0.2
+    seed: 42
+
+preprocess:
+  color_mode: grayscale
+  resize_size: 32
+  patch_size: 8
+  normalize: zero_one
+  expected_seq_len: 16
+  expected_input_dim: 64
+
+model:
+  name: LinearIMGDSDenseBaseline
+  input_dim: 64
+  seq_len: 16
+  d_model: 16
+  dim_feedforward: 32
+  num_layers: 1
+  dropout: 0.1
+  num_classes: 2
+
+training:
+  epochs: 30
+  batch_size: 128
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  optimizer: AdamW
+  loss: CrossEntropyLoss
+  use_class_weight: true
+  seed: 42
+
+onnx:
+  export: true
+  opset_version: 17
+  input_name: input
+  output_name: logits
+  dynamic_batch: true
+  check_with_onnxruntime: true
+  tolerance_atol: 1.0e-5
+  tolerance_rtol: 1.0e-4
+
+stage:
+  name: stage1_dense_software_baseline_with_onnx
+  do_quantization: false
+  do_sparsity: false
+  do_hls: false
+  do_pynq: false
+
+future_experiments:
+  quant_bits: [4, 8, 16, 32]
+  sparsity: [0, 10, 30, 50, 70, 90, 100]
+  target_board: PYNQ-Z2
+  target_lut_limit: 53200
+  compare_with:
+    - ViT4Mal
+    - MalViT_Zou_2025
+    - Original_Linear_Transformer_FPGA

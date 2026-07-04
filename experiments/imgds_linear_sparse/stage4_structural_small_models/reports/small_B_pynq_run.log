@@ -1,0 +1,50 @@
+/home/xilinx/jupyter_notebooks/sy1/imgds2/run_small_b_pynq_test.py:122: RuntimeWarning: invalid value encountered in float_scalars
+  e0, e1 = abs(hw[0][0]-ref[i][0]), abs(hw[0][1]-ref[i][1])
+/home/xilinx/jupyter_notebooks/sy1/imgds2/run_small_b_pynq_test.py:146: RuntimeWarning: invalid value encountered in float_scalars
+  e0, e1 = abs(hw[0][0]-ref[i][0]), abs(hw[0][1]-ref[i][1])
+============================================================
+small_B PYNQ-Z2 ON-BOARD TEST
+d_model=8 ff_dim=16 quant=ap_fixed<16,6>
+============================================================
+Loading small_b.bit ...
+IP: imgds_linear_small_b_0 at 0x40000000
+
+============================================================
+STAGE 1: Sanity Check (n=1)
+============================================================
+  SW: [-0.2974,-0.6632] pred=1
+  HW: [0.0000,0.0000] pred=1
+  Label: 0   Match: OK
+
+============================================================
+STAGE 2: Quick Correctness (n=200)
+============================================================
+  Match vs ref: 0.1850 (37/200)
+  HW acc: 0.7950 (159/200)  Ref acc: 0.0400 (8/200)
+  Max err: 3.27793264  Mean err: nan
+
+============================================================
+STAGE 3: Full Correctness (n=3444)
+============================================================
+  Match vs ref: 0.1646 (567/3444)
+  HW acc: 0.8110 (2793/3444)  Ref acc: 0.0482 (166/3444)
+  Max err: 3.43166828  Mean err: nan
+  Total time: 15651756.76 us  Throughput: 220.04 samples/s
+
+============================================================
+STAGE 4a: Kernel Latency (100 runs)
+============================================================
+  Mean: 422.7331 us  Std: 3.0217 us
+  Min: 407.8950 us  Max: 433.6550 us
+
+============================================================
+STAGE 4b: Kernel Latency (1000 runs)
+============================================================
+  Mean: 420.7164 us  Std: 4.2881 us
+  Min: 407.9020 us  Max: 459.0400 us
+
+Results: small_B_pynq_result.csv
+Speedup vs ViT4Mal fastest: 0.05x
+Speedup vs ViT4Mal rec:     0.09x
+
+small_B PYNQ test complete.

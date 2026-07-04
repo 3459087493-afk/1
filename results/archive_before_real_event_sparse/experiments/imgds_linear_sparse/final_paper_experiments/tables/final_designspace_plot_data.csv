@@ -1,0 +1,15 @@
+Model,Group,Accuracy,LUT,DSP,FF,BRAM,Latency_ms,Latency_us,Board,Source,Main_Result,Note
+ViT4Mal-Fastest (1E2H),ViT4Mal,92.41,16545,69,16911,92,810,810000,PYNQ-Z1,ViT4Mal Table 13,False,
+ViT4Mal 1E4H,ViT4Mal,92.47,16029,69,16358,84,870,870000,PYNQ-Z1,ViT4Mal Table 13,False,
+ViT4Mal 2E2H,ViT4Mal,93.86,16219,69,16393,92,1450,1450000,PYNQ-Z1,ViT4Mal Table 13,False,
+ViT4Mal-Rec (2E4H),ViT4Mal,93.89,16079,69,16356,84,1480,1480000,PYNQ-Z1,ViT4Mal Table 13,False,
+ViT4Mal 4E2H,ViT4Mal,93.16,16200,69,16390,92,2810,2810000,PYNQ-Z1,ViT4Mal Table 13,False,
+ViT4Mal 4E4H,ViT4Mal,92.16,16135,69,16364,84,2820,2820000,PYNQ-Z1,ViT4Mal Table 13,False,
+Ours-Dense-Q16 (d=16/ff=32),Ours-Final,94.13,14004,156,12903,15,0.926,926.31,PYNQ-Z2,PYNQ-Z2 measured,True,
+Ours-Compact-Q16 (d=8/ff=16),Ours-Final,93.96,13095,98,12154,11,0.455,454.92,PYNQ-Z2,PYNQ-Z2 measured,True,
+Q16 dense (HLS baseline),Ours-Candidate,94.43,25402,—,—,—,0.756,756.27,—,HLS CSYNTH,False,LUT/HLS: HLS CSYNTH
+Q8 dense (HLS),Ours-Candidate,91.0,25378,—,—,—,0.758,758.43,—,HLS CSYNTH,False,LUT/HLS: HLS CSYNTH
+Q16 attn S10 (HLS),Ours-Candidate,95.18,25700,—,—,—,0.776,776.45,—,HLS CSYNTH,False,LUT/HLS: HLS CSYNTH
+Q16 attn S30 (HLS),Ours-Candidate,95.21,25700,—,—,—,0.738,738.32,—,HLS CSYNTH,False,LUT/HLS: HLS CSYNTH
+"small_A (d=12/ff=24, SW)",Ours-Candidate,96.05,16300,—,—,—,0.485,485.0,—,"SW only, est. LUT",False,"LUT/HLS: SW only, est. LUT"
+"tiny (d=6/ff=12, SW)",Ours-Candidate,95.53,9450,—,—,—,0.281,281.0,—,"SW only, est. LUT",False,"LUT/HLS: SW only, est. LUT"

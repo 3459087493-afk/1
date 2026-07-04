@@ -1,0 +1,9 @@
+method,architecture,dataset,board,precision,BRAM,DSP,LUT,FF,power_w,accuracy,inference_time_s,inference_time_ms,latency_source,pynq_measured,speedup_vs_vit4mal_fastest,notes
+ViT4Mal_4enc4head,4 encoders & 4 heads,IMG_DS,PYNQ-Z1,16-bit,84,69,16135,16364,1.89,92.16,2.82,2820,PYNQ_MEASURED,True,0.29x,Published Table 13 dense ViT
+ViT4Mal_4enc2head,4 encoders & 2 heads,IMG_DS,PYNQ-Z1,16-bit,92,69,16200,16390,1.90,93.16,2.81,2810,PYNQ_MEASURED,True,0.29x,Published Table 13 dense ViT
+ViT4Mal_2enc4head,2 encoders & 4 heads,IMG_DS,PYNQ-Z1,16-bit,84,69,16079,16356,1.87,93.89,1.48,1480,PYNQ_MEASURED,True,0.55x,Published FPGA recommended version
+ViT4Mal_2enc2head,2 encoders & 2 heads,IMG_DS,PYNQ-Z1,16-bit,92,69,16219,16393,1.88,93.86,1.45,1450,PYNQ_MEASURED,True,0.56x,Published Table 13 dense ViT
+ViT4Mal_1enc4head,1 encoder & 4 heads,IMG_DS,PYNQ-Z1,16-bit,84,69,16029,16358,1.85,92.47,0.87,870,PYNQ_MEASURED,True,0.93x,Published Table 13 dense ViT
+ViT4Mal_1enc2head,1 encoder & 2 heads,IMG_DS,PYNQ-Z1,16-bit,92,69,16545,16911,1.89,92.41,0.81,810,PYNQ_MEASURED,True,1.00x,Published FPGA fastest version (baseline for speedup)
+Ours-Q16-PARETO2-HLS-estimated,Linear Transformer 1-layer,IMG_DS,PYNQ-Z2,16-bit,13,156,22056,9484,NA,94.50,NA,0.74084,HLS_ESTIMATED_NOT_BOARD,False,1093x,HLS estimated at 100MHz; speedup vs ViT4Mal fastest; NOT board measured
+Ours-Q16-PARETO2-PYNQ-measured,Linear Transformer 1-layer,IMG_DS,PYNQ-Z2,16-bit,PENDING_BOARD,PENDING_BOARD,PENDING_BOARD,PENDING_BOARD,PENDING_BOARD,PENDING_BOARD,PENDING_BOARD,PENDING_BOARD,PENDING_BOARD,PENDING_BOARD,PENDING_BOARD,Awaiting Vivado bitstream generation and PYNQ-Z2 deployment

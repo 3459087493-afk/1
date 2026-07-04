@@ -1,0 +1,234 @@
+#!/usr/bin/env python3
+"""
+small_B PYNQ-Z2 On-Board Test Script (Staged Validation)
+=========================================================
+Deploy small_B (d=8, ff=16) Linear Transformer IP to PYNQ-Z2.
+
+Stages:
+  1. Sanity check (n=1): confirm overlay + AXI + IO
+  2. Quick correctness (n=200): prediction match rate vs small_B ref
+  3. Full correctness (n=3444): complete IMG_DS test set validation
+  4. Latency 100 runs
+  5. Latency 1000 runs
+
+Run on PYNQ-Z2:
+    sudo python3 run_small_b_pynq_test.py
+
+Reference: small_B SW acc=95.18%, Vivado LUT=13,095, Vivado DSP=98
+"""
+
+import os, sys, time, csv, numpy as np
+
+try:
+    from pynq import Overlay, Xlnk
+except ImportError:
+    print("ERROR: pynq not available. Run on PYNQ-Z2 board with: sudo python3 ...")
+    sys.exit(1)
+
+# ---- Config ----
+BIT_FILE  = "small_b.bit"
+HWH_FILE  = "small_b.hwh"
+EVAL_200  = "small_B_eval200.npz"
+FULL_TEST = "small_B_test_3444.npz"
+SANITY    = "small_B_sanity.npz"
+OUTPUT_CSV = "small_B_pynq_result.csv"
+
+N_WARMUP = 10
+
+# HLS AXI-Lite register offsets (from ximgds_linear_small_b_hw.h)
+S_AXI_BASE   = 0x40000000
+CONTROL_ADDR = 0x00   # bit0=ap_start, bit1=ap_done
+INPUT_R_ADDR = 0x10   # 64-bit base address for gmem0
+LOGITS_ADDR  = 0x1C   # 64-bit base address for gmem1
+SEQ_LEN      = 16
+INPUT_DIM    = 64
+N_CLASSES    = 2
+INPUT_BYTES  = SEQ_LEN * INPUT_DIM * 4
+LOGITS_BYTES = N_CLASSES * 4
+
+
+def load_ip():
+    """Load overlay and return the HLS IP instance."""
+    if not os.path.exists(BIT_FILE):
+        print(f"ERROR: {BIT_FILE} not found"); sys.exit(1)
+    print(f"Loading {BIT_FILE} ...")
+    ol = Overlay(BIT_FILE)
+    ip_name = list(ol.ip_dict.keys())[0]
+    ip = getattr(ol, ip_name)
+    print(f"IP: {ip_name} at {hex(S_AXI_BASE)}")
+    return ol, ip
+
+
+def run_kernel(ip, xm, sample):
+    """Run single inference. Returns HW logits [1, 2]."""
+    in_buf = xm.allocate(INPUT_BYTES)
+    in_buf[:] = sample.astype(np.float32).flatten()[:]
+    in_buf.flush()
+    out_buf = xm.allocate(LOGITS_BYTES)
+    ip.write(INPUT_R_ADDR, in_buf.physical_address)
+    ip.write(LOGITS_ADDR, out_buf.physical_address)
+    ip.write(CONTROL_ADDR, 0x1)
+    while (ip.read(CONTROL_ADDR) & 0x2) == 0:
+        pass
+    out_buf.invalidate()
+    hw = np.frombuffer(out_buf, dtype=np.float32).reshape(1, 2)
+    del in_buf, out_buf
+    return hw
+
+
+# ===== Stage 1: Sanity =====
+def stage1_sanity(ol, ip, xm):
+    print("\n" + "="*60)
+    print("STAGE 1: Sanity Check (n=1)")
+    print("="*60)
+    d = np.load(SANITY)
+    hw = run_kernel(ip, xm, d['X'][0])
+    sw = d['ref_logits'][0]
+    sw_p, hw_p = int(sw[0] > sw[1]), int(hw[0][0] > hw[0][1])
+    ok = sw_p == hw_p
+    print(f"  SW: [{sw[0]:.4f},{sw[1]:.4f}] pred={sw_p}")
+    print(f"  HW: [{hw[0][0]:.4f},{hw[0][1]:.4f}] pred={hw_p}")
+    print(f"  Label: {d['y'][0]}   Match: {'OK' if ok else 'FAIL'}")
+    return ok
+
+
+# ===== Stage 2: Quick 200 =====
+def stage2_quick(ol, ip, xm):
+    print("\n" + "="*60)
+    print("STAGE 2: Quick Correctness (n=200)")
+    print("="*60)
+    d = np.load(EVAL_200)
+    X, y, ref = d['X'], d['y'], d['ref_logits']
+    n = len(X); mc, hc, rc = 0, 0, 0; me, se = 0.0, 0.0
+    for i in range(n):
+        hw = run_kernel(ip, xm, X[i])
+        sp = int(ref[i][0] > ref[i][1]); hp = int(hw[0][0] > hw[0][1])
+        if hp == sp: mc += 1
+        if hp == y[i]: hc += 1
+        if sp == y[i]: rc += 1
+        e0, e1 = abs(hw[0][0]-ref[i][0]), abs(hw[0][1]-ref[i][1])
+        me = max(me, e0, e1); se += e0 + e1
+    mr, ha, ra, ma = mc/n, hc/n, rc/n, se/(n*2)
+    print(f"  Match vs ref: {mr:.4f} ({mc}/{n})")
+    print(f"  HW acc: {ha:.4f} ({hc}/{n})  Ref acc: {ra:.4f} ({rc}/{n})")
+    print(f"  Max err: {me:.8f}  Mean err: {ma:.8f}")
+    return mr, ha, ra, me, ma
+
+
+# ===== Stage 3: Full 3444 =====
+def stage3_full(ol, ip, xm):
+    print("\n" + "="*60)
+    print("STAGE 3: Full Correctness (n=3444)")
+    print("="*60)
+    d = np.load(FULL_TEST)
+    X, y, ref = d['X'], d['y'], d['ref_logits']
+    n = len(X); mc, hc, rc = 0, 0, 0; me, se = 0.0, 0.0
+    t0 = time.perf_counter()
+    for i in range(n):
+        hw = run_kernel(ip, xm, X[i])
+        sp = int(ref[i][0] > ref[i][1]); hp = int(hw[0][0] > hw[0][1])
+        if hp == sp: mc += 1
+        if hp == y[i]: hc += 1
+        if sp == y[i]: rc += 1
+        e0, e1 = abs(hw[0][0]-ref[i][0]), abs(hw[0][1]-ref[i][1])
+        me = max(me, e0, e1); se += e0 + e1
+    t1 = time.perf_counter()
+    total_us = (t1 - t0) * 1e6
+    mr, ha, ra, ma = mc/n, hc/n, rc/n, se/(n*2)
+    tp = n / (t1 - t0)
+    print(f"  Match vs ref: {mr:.4f} ({mc}/{n})")
+    print(f"  HW acc: {ha:.4f} ({hc}/{n})  Ref acc: {ra:.4f} ({rc}/{n})")
+    print(f"  Max err: {me:.8f}  Mean err: {ma:.8f}")
+    print(f"  Total time: {total_us:.2f} us  Throughput: {tp:.2f} samples/s")
+    return mr, ha, total_us, tp, me, ma
+
+
+# ===== Stage 4: Latency =====
+def stage4_latency(ol, ip, xm, n_runs, label):
+    print(f"\n" + "="*60)
+    print(f"STAGE 4{label}: Kernel Latency ({n_runs} runs)")
+    print("="*60)
+    d = np.load(FULL_TEST)
+    s0 = d['X'][0]
+    in_buf = xm.allocate(INPUT_BYTES)
+    in_buf[:] = s0.astype(np.float32).flatten()[:]; in_buf.flush()
+    out_buf = xm.allocate(LOGITS_BYTES)
+    pa_in, pa_out = in_buf.physical_address, out_buf.physical_address
+    for _ in range(N_WARMUP):
+        ip.write(INPUT_R_ADDR, pa_in); ip.write(LOGITS_ADDR, pa_out)
+        ip.write(CONTROL_ADDR, 0x1)
+        while (ip.read(CONTROL_ADDR) & 0x2) == 0: pass
+    times = np.zeros(n_runs)
+    for i in range(n_runs):
+        t0 = time.perf_counter()
+        ip.write(INPUT_R_ADDR, pa_in); ip.write(LOGITS_ADDR, pa_out)
+        ip.write(CONTROL_ADDR, 0x1)
+        while (ip.read(CONTROL_ADDR) & 0x2) == 0: pass
+        t1 = time.perf_counter()
+        times[i] = (t1 - t0) * 1e6
+    print(f"  Mean: {times.mean():.4f} us  Std: {times.std():.4f} us")
+    print(f"  Min: {times.min():.4f} us  Max: {times.max():.4f} us")
+    del in_buf, out_buf
+    return times.mean(), times.std()
+
+
+# ===== Main =====
+def main():
+    print("="*60)
+    print("small_B PYNQ-Z2 ON-BOARD TEST")
+    print("d_model=8 ff_dim=16 quant=ap_fixed<16,6>")
+    print("="*60)
+
+    ol, ip = load_ip()
+    xm = Xlnk()
+
+    # Stage 1
+    if not stage1_sanity(ol, ip, xm):
+        print("SANITY FAILED. Stopping."); sys.exit(1)
+
+    # Stage 2: Quick 200
+    mr2, ha2, ra2, mx2, mn2 = stage2_quick(ol, ip, xm)
+
+    # Stage 3: Full 3444
+    mr3, ha3, total_us, tp, mx3, mn3 = stage3_full(ol, ip, xm)
+
+    # Stage 4a: 100 runs
+    km100, ks100 = stage4_latency(ol, ip, xm, 100, "a")
+
+    # Stage 4b: 1000 runs
+    km1k, ks1k = stage4_latency(ol, ip, xm, 1000, "b")
+
+    # Save CSV
+    with open(OUTPUT_CSV, 'w', newline='') as f:
+        w = csv.writer(f)
+        w.writerow(['metric', 'value'])
+        rows = [
+            ('model_id', 'small_B'), ('d_model', 8), ('ff_dim', 16), ('quant_bits', 16),
+            ('vivado_lut', 13095), ('vivado_dsp', 98), ('vivado_ff', 12154), ('vivado_bram', 11),
+            ('software_accuracy', 0.9518), ('n_sanity_samples', 1), ('n_correctness_samples', 3444),
+            ('prediction_match_rate_vs_small_B_ref', round(mr3, 6)),
+            ('hw_label_accuracy', round(ha3, 6)),
+            ('ref_label_accuracy', round(mr3, 6)),
+            ('max_abs_error_vs_small_B_ref', round(mx3, 8)),
+            ('mean_abs_error_vs_small_B_ref', round(mn3, 8)),
+            ('kernel_runtime_mean_us_100runs', round(km100, 6)),
+            ('kernel_runtime_std_us_100runs', round(ks100, 6)),
+            ('kernel_runtime_mean_us_1000runs', round(km1k, 6)),
+            ('kernel_runtime_std_us_1000runs', round(ks1k, 6)),
+            ('total_runtime_mean_us_correctness', round(total_us, 6)),
+            ('throughput_samples_per_sec', round(tp, 6)),
+            ('latency_source', 'PYNQ_Z2_MEASURED'),
+            ('pynq_measured', True),
+            ('notes', 'small_B (d=8/ff=16) PYNQ-Z2 measured. 3444 samples.'),
+        ]
+        for k, v in rows: w.writerow([k, v])
+
+    print(f"\nResults: {OUTPUT_CSV}")
+    vit_f, vit_r = 810000.0, 1480000.0
+    print(f"Speedup vs ViT4Mal fastest: {vit_f/total_us:.2f}x")
+    print(f"Speedup vs ViT4Mal rec:     {vit_r/total_us:.2f}x")
+    print("\nsmall_B PYNQ test complete.")
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,21 @@
+metric,value
+model_id,Ours-Q8-S30-AttnSparse
+code_name,q8_s30_attn_sparse
+quant_bits,8
+effective_sparsity,31.25%
+n_warmup,20
+n_runs,1000
+application_latency_mean_us,2103.805402
+application_latency_std_us,131.701504
+application_latency_min_us,2046.880000
+application_latency_p50_us,2074.464500
+application_latency_p95_us,2169.080250
+application_latency_max_us,3329.520000
+application_throughput_samples_per_sec,475.329134
+kernel_latency_us_1000runs,933.539608
+speedup_vs_ViT4Mal_fastest_0p81s_application,385.016599
+speedup_vs_ViT4Mal_selected_1p48s_application,703.487118
+pynq_measured,True
+latency_scope,application_level_single_sample_excluding_overlay_and_file_io
+notes,"Includes in-memory sample extraction, host Q6.10 conversion, PYNQ buffer copy/flush, kernel start/wait, output invalidate/read, dequantization, and argmax; excludes Overlay/NPZ loading, allocation, and warm-up."
+prediction_checksum,798

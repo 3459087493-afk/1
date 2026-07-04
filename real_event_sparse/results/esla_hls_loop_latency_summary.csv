@@ -1,0 +1,32 @@
+loop_name,original_bound,new_bound,latency_cycles,ii,tripcount,reduction_type,notes
+input_projection_VITIS_LOOP_201_1_VITIS_LOOP_202_2,16,16,20736,-,256,none,Outer iterates 16 tokens 16 d_model each=256 inner loops each 64 iterations. DENSE unchanged.
+input_projection_VITIS_LOOP_204_3,64,64,71,1,64,none,Inner pipeline I=64 II=1 Depth=7
+K_scoring_VITIS_LOOP_217_4,16,16,11056,-,16,none,Outer loop 16 tokens. DENSE unchanged because K scoring must cover all candidates.
+K_scoring_VITIS_LOOP_219_5,16,16,688,-,16,none,K projection inner iterate 16 d_model per token
+K_scoring_VITIS_LOOP_221_6,16,16,21,1,16,none,Inner accumulate II=1 Depth=5 trip=16
+select_top13_sort_VITIS_LOOP_48_2,16,16,VARIABLE,-,-,none,Insertion sort over 16 scores. Data-dependent while loop latency.
+select_top13_sort_VITIS_LOOP_52_3,16,16,VARIABLE,3,-,none,Inner while loop II=3 Depth=4. Unknown trip count data-dependent.
+select_top13_output_VITIS_LOOP_63_4,13,13,16,1,13,token_sparse,Write 13 active indices to output. Token sparse 13/16.
+compaction_read_VITIS_LOOP_241_7,13,13,108,8,13,token_sparse,Read 13 active tokens from x_full/phi_k_full
+compaction_write_AXI_VITIS_LOOP_67_5,13,13,VARIABLE,-,-,token_sparse,Compaction data AXI transfer. gmem2 read with data-dependent pattern.
+compaction_write_AXI_VITIS_LOOP_70_6,13,13,VARIABLE,16,-,token_sparse,Inner AXI load loop II=16 due to gmem2 response dependency
+Q_projection_active_VITIS_LOOP_87_1_VITIS_LOOP_88_2,13,13,9152,-,208,token_sparse,13 tokens 16 channels Q+V projection. Trip=208 inner.
+Q_projection_active_VITIS_LOOP_91_3,16,16,21,1,16,none,Inner accumulate II=1 Depth=5
+KV_accumulation_VITIS_LOOP_115_7,13,13,304,-,16,token_sparse,Outer d1 loop 16. Token sparse 13 active tokens.
+KV_accumulation_VITIS_LOOP_117_8,13,13,16,1,13,token_sparse,Inner K_V accumulation II=1 trip=13
+K_sum_loop_VITIS_LOOP_124_9,13,13,9503,-,13,token_sparse,Outer d loop 16. Inner active=13 tokens.
+K_sum_loop_VITIS_LOOP_126_10,16,16,21,1,16,none,Inner accumulate II=1 Depth=5 trip=16
+attention_output_VITIS_LOOP_103_4_VITIS_LOOP_104_5_VITIS_LOOP_106_6,13,13,3335,-,3328,token_sparse,13 active tokens 256 Q-KV products. Trip=3328
+attention_output_proj_VITIS_LOOP_133_11_VITIS_LOOP_135_12,13,13,265,1,256,token_sparse,Attention output projection trip=256 (16)
+attention_output_residual_VITIS_LOOP_142_13,13,13,416,-,16,token_sparse,Residual add outer d. Inner=16
+attention_output_residual_VITIS_LOOP_144_14,16,16,22,1,16,none,Inner residual
+LayerNorm1_active_VITIS_LOOP_251_9,13,13,1172,90,13,token_sparse,LN1 applied to 13 active tokens. Trip=13
+LayerNorm2_active_VITIS_LOOP_258_10,13,13,1172,90,13,token_sparse,LN2 applied to 13 active tokens. Trip=13
+FFN_active_VITIS_LOOP_158_1,13,13,19643,-,13,token_sparse,FFN outer 13 active tokens
+FFN_hidden_VITIS_LOOP_160_2,32,32,832,-,32,none,FFN hidden layer 32 dim
+FFN_hidden_VITIS_LOOP_162_3,16,16,21,1,16,none,Inner accumulate
+FFN_output_VITIS_LOOP_172_4,16,16,656,-,16,none,FFN output layer 16 dim
+FFN_output_VITIS_LOOP_174_5,32,32,37,1,32,none,Inner accumulate
+pooling_active_VITIS_LOOP_265_11_VITIS_LOOP_267_12,13,13,215,1,208,token_sparse,Pool 13 active tokens 16 channels = 208 inner
+classifier_VITIS_LOOP_265_11,2,2,-,unroll,2,none,Classifier unrolled 2 classes
+final_LayerNorm,16,16,114,-,-,none,Final LN over pooled 16 dim

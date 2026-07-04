@@ -1,0 +1,66 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+  **** SW Build 3670227 on Oct 13 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vitis_HLS/2022.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'cym' on host 'cym-HP-OmniBook-7-Laptop-16-az0xxx' (Linux_x86_64 version 6.8.0-124-generic) on Mon Jun 29 21:36:22 CST 2026
+INFO: [HLS 200-10] On os Ubuntu 22.04.5 LTS
+INFO: [HLS 200-10] In directory '/home/cym/prj2/finn/notebooks/icl_thesis-master/vitis_hls/unsw_linear_transformer_fixed16_v1'
+Sourcing Tcl script 'run_csim.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset unsw_linear_transformer_fixed16_v1_prj 
+INFO: [HLS 200-10] Creating and opening project '/home/cym/prj2/finn/notebooks/icl_thesis-master/vitis_hls/unsw_linear_transformer_fixed16_v1/unsw_linear_transformer_fixed16_v1_prj'.
+INFO: [HLS 200-1510] Running: set_top unsw_linear_transformer 
+INFO: [HLS 200-1510] Running: add_files src/unsw_linear_transformer.cpp 
+INFO: [HLS 200-10] Adding design file 'src/unsw_linear_transformer.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files src/unsw_linear_transformer.h 
+INFO: [HLS 200-10] Adding design file 'src/unsw_linear_transformer.h' to the project
+INFO: [HLS 200-1510] Running: add_files src/hls_types.h 
+INFO: [HLS 200-10] Adding design file 'src/hls_types.h' to the project
+INFO: [HLS 200-1510] Running: add_files src/weights.h 
+INFO: [HLS 200-10] Adding design file 'src/weights.h' to the project
+INFO: [HLS 200-1510] Running: add_files -tb src/testbench.cpp 
+INFO: [HLS 200-10] Adding test bench file 'src/testbench.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb src/test_vectors.h 
+INFO: [HLS 200-10] Adding test bench file 'src/test_vectors.h' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 
+INFO: [HLS 200-10] Creating and opening solution '/home/cym/prj2/finn/notebooks/icl_thesis-master/vitis_hls/unsw_linear_transformer_fixed16_v1/unsw_linear_transformer_fixed16_v1_prj/solution1'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vivado' configuration: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xc7z020clg400-1 
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design 
+Running Dispatch Server on port: 34883
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../src/testbench.cpp in debug mode
+   Compiling ../../../../src/unsw_linear_transformer.cpp in debug mode
+   Generating csim.exe
+sample=0 expected_logits=[-1.355611682e+00,1.270484686e+00] actual_logits=[-1.355468750e+00,1.272460938e+00] max_abs_error=1.976251602e-03 expected_prediction=1 actual_prediction=1 true_label=0 prediction_match=true
+sample=1 expected_logits=[-1.047775626e+00,9.893724918e-01] actual_logits=[-1.039062500e+00,9.824218750e-01] max_abs_error=8.713126183e-03 expected_prediction=1 actual_prediction=1 true_label=0 prediction_match=true
+sample=2 expected_logits=[-7.640827298e-01,6.561261415e-01] actual_logits=[-7.587890625e-01,6.513671875e-01] max_abs_error=5.293667316e-03 expected_prediction=1 actual_prediction=1 true_label=0 prediction_match=true
+sample=3 expected_logits=[-8.474467397e-01,7.323932648e-01] actual_logits=[-8.427734375e-01,7.275390625e-01] max_abs_error=4.854202271e-03 expected_prediction=1 actual_prediction=1 true_label=0 prediction_match=true
+sample=4 expected_logits=[-1.067565680e+00,1.000867009e+00] actual_logits=[-1.064453125e+00,9.990234375e-01] max_abs_error=3.112554550e-03 expected_prediction=1 actual_prediction=1 true_label=0 prediction_match=true
+sample=5 expected_logits=[-1.196464539e+00,1.123359442e+00] actual_logits=[-1.189453125e+00,1.117187500e+00] max_abs_error=7.011413574e-03 expected_prediction=1 actual_prediction=1 true_label=0 prediction_match=true
+sample=6 expected_logits=[-1.292602181e+00,1.261707306e+00] actual_logits=[-1.289062500e+00,1.259765625e+00] max_abs_error=3.539681435e-03 expected_prediction=1 actual_prediction=1 true_label=0 prediction_match=true
+sample=7 expected_logits=[-5.800948739e-01,4.922561049e-01] actual_logits=[-5.751953125e-01,4.882812500e-01] max_abs_error=4.899561405e-03 expected_prediction=1 actual_prediction=1 true_label=0 prediction_match=true
+sample=8 expected_logits=[3.660477877e+00,-2.975163460e+00] actual_logits=[3.660156250e+00,-2.978515625e+00] max_abs_error=3.352165222e-03 expected_prediction=0 actual_prediction=0 true_label=0 prediction_match=true
+sample=9 expected_logits=[3.660477638e+00,-2.975162745e+00] actual_logits=[3.660156250e+00,-2.978515625e+00] max_abs_error=3.352880478e-03 expected_prediction=0 actual_prediction=0 true_label=0 prediction_match=true
+sample=10 expected_logits=[3.660477877e+00,-2.975163460e+00] actual_logits=[3.660156250e+00,-2.978515625e+00] max_abs_error=3.352165222e-03 expected_prediction=0 actual_prediction=0 true_label=0 prediction_match=true
+sample=11 expected_logits=[3.660477638e+00,-2.975162745e+00] actual_logits=[3.660156250e+00,-2.978515625e+00] max_abs_error=3.352880478e-03 expected_prediction=0 actual_prediction=0 true_label=0 prediction_match=true
+sample=12 expected_logits=[-9.527899623e-01,9.121407270e-01] actual_logits=[-9.521484375e-01,9.111328125e-01] max_abs_error=1.007914543e-03 expected_prediction=1 actual_prediction=1 true_label=0 prediction_match=true
+sample=13 expected_logits=[-1.056905985e+00,9.965369701e-01] actual_logits=[-1.056640625e+00,9.980468750e-01] max_abs_error=1.509904861e-03 expected_prediction=1 actual_prediction=1 true_label=0 prediction_match=true
+sample=14 expected_logits=[-1.238231897e+00,1.188285232e+00] actual_logits=[-1.234375000e+00,1.184570312e+00] max_abs_error=3.856897354e-03 expected_prediction=1 actual_prediction=1 true_label=0 prediction_match=true
+sample=15 expected_logits=[-7.957557440e-01,7.076832056e-01] actual_logits=[-7.890625000e-01,7.021484375e-01] max_abs_error=6.693243980e-03 expected_prediction=1 actual_prediction=1 true_label=0 prediction_match=true
+CSIM_METRICS max_abs_error=8.713126183e-03 mean_abs_error=3.368092701e-03 prediction_match_rate=1.000000000e+00
+CSIM PASS
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 4.09 seconds. CPU system time: 0.33 seconds. Elapsed time: 4.41 seconds; current allocated memory: 0.000 MB.
+INFO: [HLS 200-112] Total CPU user time: 5.07 seconds. Total CPU system time: 0.49 seconds. Total elapsed time: 15.44 seconds; peak allocated memory: 308.707 MB.
+INFO: [Common 17-206] Exiting vitis_hls at Mon Jun 29 21:36:37 2026...

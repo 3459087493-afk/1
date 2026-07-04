@@ -1,0 +1,944 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+  **** SW Build 3670227 on Oct 13 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vitis_HLS/2022.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'cym' on host 'cym-HP-OmniBook-7-Laptop-16-az0xxx' (Linux_x86_64 version 6.8.0-124-generic) on Fri Jul 03 13:39:22 CST 2026
+INFO: [HLS 200-10] On os Ubuntu 22.04.5 LTS
+INFO: [HLS 200-10] In directory '/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13'
+Sourcing Tcl script 'run_csynth.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset q16_esla_k13_csynth 
+INFO: [HLS 200-10] Creating and opening project '/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/q16_esla_k13_csynth'.
+INFO: [HLS 200-1510] Running: set_top q16_esla_k13 
+INFO: [HLS 200-1510] Running: add_files /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp -cflags -I/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src 
+INFO: [HLS 200-10] Adding design file '/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.h 
+INFO: [HLS 200-10] Adding design file '/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.h' to the project
+INFO: [HLS 200-1510] Running: add_files /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/hls_params_q16.h 
+INFO: [HLS 200-10] Adding design file '/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/hls_params_q16.h' to the project
+INFO: [HLS 200-1510] Running: add_files /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/tb/testbench.cpp -tb -cflags -I/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src 
+INFO: [HLS 200-10] Adding test bench file '/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/tb/testbench.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution -reset solution1 -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution '/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/q16_esla_k13_csynth/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vivado' configuration: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xc7z020-clg400-1 
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csynth_design 
+Running Dispatch Server on port: 40193
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 10.02 seconds; current allocated memory: 305.719 MB.
+INFO: [HLS 200-10] Analyzing design file '/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp' ... 
+WARNING: [HLS 207-5555] unexpected pragma argument 'mul', expects function/operation (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:82:34)
+WARNING: [HLS 207-5555] unexpected pragma argument 'mul', expects function/operation (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:157:34)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 4.29 seconds. CPU system time: 0.45 seconds. Elapsed time: 5.22 seconds; current allocated memory: 308.359 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-131] Inlining function 'feature_map(ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>)' into 'attention_active13(ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [16], ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> const (*) [16])' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:97:23)
+INFO: [HLS 214-131] Inlining function 'feature_map(ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>)' into 'q16_esla_k13(ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [64], ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>*, int*)' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:226:28)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_275_13' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:275:24) in function 'q16_esla_k13' completely with a factor of 2 (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:190:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_278_14' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:278:28) in function 'q16_esla_k13' completely with a factor of 16 (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:190:0)
+INFO: [HLS 214-178] Inlining function 'select_top13(ap_fixed<24, 10, (ap_q_mode)5, (ap_o_mode)3, 0> const*, int*)' into 'q16_esla_k13(ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [64], ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>*, int*)' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:190:0)
+INFO: [HLS 214-178] Inlining function 'feedforward_active13(ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [16])' into 'q16_esla_k13(ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [64], ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>*, int*)' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:190:0)
+INFO: [HLS 214-241] Aggregating maxi variable 'input' with compact=none mode in 16-bits (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:190:0)
+INFO: [HLS 214-115] Multiple burst reads of length 64 and bit width 16 in loop 'VITIS_LOOP_204_3'(/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:204:31) has been inferred on bundle 'gmem0'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:204:31)
+INFO: [HLS 214-115] Multiple burst writes of length 13 and bit width 32 in loop 'VITIS_LOOP_63_4'(/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:63:22) has been inferred on bundle 'gmem2'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:63:22)
+INFO: [HLS 214-115] Multiple burst reads of length 13 and bit width 32 in loop 'VITIS_LOOP_241_7'(/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:241:23) has been inferred on bundle 'gmem2'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:241:23)
+INFO: [HLS 214-115] Multiple burst writes of length 2 and bit width 16 has been inferred on bundle 'gmem1'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:275:33)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 3.56 seconds. CPU system time: 0.39 seconds. Elapsed time: 4.26 seconds; current allocated memory: 308.895 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 308.895 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.25 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.34 seconds; current allocated memory: 337.766 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+WARNING: [SYNCHK 200-23] /tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_fixed_base.h:1102: variable-indexed range selection may cause suboptimal QoR.
+WARNING: [SYNCHK 200-120] /tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_fixed_base.h:1273: multiplication is assumed not to overflow by default, otherwise, please add option '-fwrapv'.
+INFO: [SYNCHK 200-10] 0 error(s), 2 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.35 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.38 seconds; current allocated memory: 378.211 MB.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_19_1' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:18) in function 'layer_norm_q16' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_23_2' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:22) in function 'layer_norm_q16' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_29_3' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:29) in function 'layer_norm_q16' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_43_1' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:43) in function 'q16_esla_k13' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_52_3' in function 'q16_esla_k13' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_63_4' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:63) in function 'q16_esla_k13' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_70_6' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:70) in function 'q16_esla_k13' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_241_7' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:241) in function 'q16_esla_k13' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_251_9' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:251) in function 'q16_esla_k13' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_181_6' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:181) in function 'q16_esla_k13' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_258_10' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:258) in function 'q16_esla_k13' automatically.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_241_7' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:241) in function 'q16_esla_k13' for pipelining.
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'layer_norm_q16.1' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:18:22).
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_243_8' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:243) in function 'q16_esla_k13' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_19_1' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:18) in function 'layer_norm_q16.1' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_23_2' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:22) in function 'layer_norm_q16.1' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_29_3' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:29) in function 'layer_norm_q16.1' completely with a factor of 16.
+INFO: [XFORM 203-102] Partitioning array 'layers_0_norm2_weight.V' automatically.
+INFO: [XFORM 203-102] Partitioning array 'layers_0_norm2_bias.V' automatically.
+INFO: [XFORM 203-102] Partitioning array 'layers_0_norm1_weight.V' automatically.
+INFO: [XFORM 203-102] Partitioning array 'layers_0_norm1_bias.V' automatically.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:7:41) to (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:219:27) in function 'q16_esla_k13'... converting 16 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:33:1) in function 'layer_norm_q16.1'... converting 16 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:29:22) in function 'layer_norm_q16'... converting 16 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:7:41) to (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:88:26) in function 'attention_active13'... converting 16 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:133:28) in function 'attention_active13'... converting 16 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'layer_norm_q16.1' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:28:1)...29 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.74 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.98 seconds; current allocated memory: 450.078 MB.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_202_2' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:202:36) in function 'q16_esla_k13' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_201_1' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:201:32) in function 'q16_esla_k13'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_219_5' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:218:15) in function 'q16_esla_k13' the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_217_4' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:217:32) in function 'q16_esla_k13' the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_48_2' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:48:31) in function 'q16_esla_k13' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_67_5' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:67:31) in function 'q16_esla_k13' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_160_2' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:160:36) in function 'q16_esla_k13' the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_172_4' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:172:36) in function 'q16_esla_k13' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_158_1' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:158:29) in function 'q16_esla_k13' more than one sub loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_265_11' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:265:33) in function 'q16_esla_k13'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_88_2' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:88:35) in function 'attention_active13' the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_87_1' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:87:31) in function 'attention_active13'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_104_5' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:104:36) in function 'attention_active13'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_103_4' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:103:32) in function 'attention_active13'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_115_7' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:115:32) in function 'attention_active13' the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_133_11' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:133:37) in function 'attention_active13'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_142_13' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:142:37) in function 'attention_active13' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_124_9' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:125:15) in function 'attention_active13' more than one sub loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+INFO: [HLS 200-472] Inferring partial write operation for 'x_full.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:209:26)
+INFO: [HLS 200-472] Inferring partial write operation for 'phi_k_full.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:227:30)
+INFO: [HLS 200-472] Inferring partial write operation for 'token_score.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:232:24)
+INFO: [HLS 200-472] Inferring partial write operation for 'sorted_score.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:44:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'sorted_index' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:45:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'sorted_score.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:55:33)
+INFO: [HLS 200-472] Inferring partial write operation for 'sorted_index' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:56:33)
+INFO: [HLS 200-472] Inferring partial write operation for 'sorted_score.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:59:29)
+INFO: [HLS 200-472] Inferring partial write operation for 'sorted_index' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:60:29)
+INFO: [HLS 200-472] Inferring partial write operation for 'x_active.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:244:28)
+INFO: [HLS 200-472] Inferring partial write operation for 'phi_k_active.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:245:32)
+INFO: [HLS 200-472] Inferring partial write operation for 'hidden.V' 
+INFO: [HLS 200-472] Inferring partial write operation for 'ff_out.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:179:23)
+INFO: [HLS 200-472] Inferring partial write operation for 'x_active.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:182:28)
+INFO: [HLS 200-472] Inferring partial write operation for 'pooled.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:271:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'x' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:31:14)
+INFO: [HLS 200-472] Inferring partial write operation for 'Q.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:97:21)
+INFO: [HLS 200-472] Inferring partial write operation for 'V.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:98:21)
+INFO: [HLS 200-472] Inferring partial write operation for 'KV.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:110:24)
+INFO: [HLS 200-472] Inferring partial write operation for 'K_sum.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:121:18)
+INFO: [HLS 200-472] Inferring partial write operation for 'attended.V' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:139:26)
+INFO: [HLS 200-472] Inferring partial write operation for 'x_active' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:149:28)
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 1.01 seconds. CPU system time: 0.06 seconds. Elapsed time: 1.11 seconds; current allocated memory: 700.984 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'q16_esla_k13' ...
+WARNING: [SYN 201-103] Legalizing function name 'layer_norm_q16.1' to 'layer_norm_q16_1'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_4) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'x_full_V'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_204_3'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 7, loop 'VITIS_LOOP_204_3'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.11 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.28 seconds; current allocated memory: 703.109 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 703.109 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'q16_esla_k13_Pipeline_VITIS_LOOP_221_6' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'x_full_V'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_221_6'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'VITIS_LOOP_221_6'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 703.602 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 703.602 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'q16_esla_k13_Pipeline_VITIS_LOOP_43_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'sorted_index'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_43_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'VITIS_LOOP_43_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 703.969 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 703.969 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'q16_esla_k13_Pipeline_VITIS_LOOP_52_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'sorted_index'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_52_3'.
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('icmp' operation ('icmp_ln1653')) in the first pipeline iteration (II = 1 cycles).
+Resolution: For help on HLS 200-878 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-878.html
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('icmp' operation ('icmp_ln54', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:54)) in the first pipeline iteration (II = 2 cycles).
+Resolution: For help on HLS 200-878 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-878.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 3, Depth = 4, loop 'VITIS_LOOP_52_3'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 704.719 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 704.719 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'sorted_index'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_63_4'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_63_4'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 704.914 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 704.914 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'q16_esla_k13_Pipeline_VITIS_LOOP_70_6' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_70_6'.
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('icmp' operation ('icmp_ln70', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:70)) in the first pipeline iteration (II = 1 cycles).
+Resolution: For help on HLS 200-878 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-878.html
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('icmp' operation ('icmp_ln70', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:70)) in the first pipeline iteration (II = 2 cycles).
+Resolution: For help on HLS 200-878 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-878.html
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('icmp' operation ('icmp_ln70', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:70)) in the first pipeline iteration (II = 3 cycles).
+Resolution: For help on HLS 200-878 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-878.html
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('icmp' operation ('icmp_ln70', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:70)) in the first pipeline iteration (II = 4 cycles).
+Resolution: For help on HLS 200-878 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-878.html
+WARNING: [HLS 200-880] The II Violation in module 'q16_esla_k13_Pipeline_VITIS_LOOP_70_6' (loop 'VITIS_LOOP_70_6'): Unable to enforce a carried dependence constraint (II = 11, distance = 1, offset = 1) between bus response operation ('gmem2_addr_4_resp', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:71) on port 'gmem2' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:71) and bus request operation ('gmem2_load_req', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:70) on port 'gmem2' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:70).
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'q16_esla_k13_Pipeline_VITIS_LOOP_70_6' (loop 'VITIS_LOOP_70_6'): Unable to enforce a carried dependence constraint (II = 15, distance = 1, offset = 1) between bus response operation ('gmem2_addr_4_resp', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:71) on port 'gmem2' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:71) and bus request operation ('gmem2_load_req', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:70) on port 'gmem2' (/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:70).
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 16, Depth = 17, loop 'VITIS_LOOP_70_6'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 705.277 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 705.277 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'phi_k_full_V'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'x_full_V'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_241_7'.
+WARNING: [HLS 200-885] The II Violation in module 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7' (loop 'VITIS_LOOP_241_7'): Unable to schedule 'store' operation ('x_active_V_addr_1_write_ln244', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:244) of variable 'x_full_V_load_1', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:244 on array 'x_active_V' due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array 'x_active_V'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7' (loop 'VITIS_LOOP_241_7'): Unable to schedule 'store' operation ('x_active_V_addr_3_write_ln244', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:244) of variable 'x_full_V_load_3', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:244 on array 'x_active_V' due to limited memory ports (II = 2). Please consider using a memory core with more ports or partitioning the array 'x_active_V'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7' (loop 'VITIS_LOOP_241_7'): Unable to schedule 'store' operation ('x_active_V_addr_5_write_ln244', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:244) of variable 'x_full_V_load_5', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:244 on array 'x_active_V' due to limited memory ports (II = 3). Please consider using a memory core with more ports or partitioning the array 'x_active_V'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7' (loop 'VITIS_LOOP_241_7'): Unable to schedule 'store' operation ('x_active_V_addr_7_write_ln244', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:244) of variable 'x_full_V_load_7', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:244 on array 'x_active_V' due to limited memory ports (II = 4). Please consider using a memory core with more ports or partitioning the array 'x_active_V'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7' (loop 'VITIS_LOOP_241_7'): Unable to schedule 'store' operation ('x_active_V_addr_13_write_ln244', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:244) of variable 'x_full_V_load_13', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:244 on array 'x_active_V' due to limited memory ports (II = 7). Please consider using a memory core with more ports or partitioning the array 'x_active_V'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 8, Depth = 11, loop 'VITIS_LOOP_241_7'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.26 seconds. CPU system time: 0 seconds. Elapsed time: 0.58 seconds; current allocated memory: 706.621 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 706.621 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'attention_active13_Pipeline_VITIS_LOOP_91_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_96) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_91_3'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'VITIS_LOOP_91_3'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 707.215 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 707.215 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'attention_active13_Pipeline_VITIS_LOOP_103_4_VITIS_LOOP_104_5_VITIS_LOOP_106_6' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_103_4_VITIS_LOOP_104_5_VITIS_LOOP_106_6'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 7, loop 'VITIS_LOOP_103_4_VITIS_LOOP_104_5_VITIS_LOOP_106_6'
+WARNING: [HLS 200-871] Estimated clock period (7.605ns) exceeds the target (target clock period: 10ns, clock uncertainty: 2.7ns, effective delay budget: 7.3ns).
+Resolution: For help on HLS 200-871 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-871.html
+WARNING: [HLS 200-1016] The critical path in module 'attention_active13_Pipeline_VITIS_LOOP_103_4_VITIS_LOOP_104_5_VITIS_LOOP_106_6' consists of the following:	'load' operation ('a_load', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:106) on local variable 'a' [25]  (0 ns)
+	'icmp' operation ('icmp_ln106', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:106) [38]  (1.3 ns)
+	'and' operation ('and_ln103', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:103) [39]  (0.978 ns)
+	'or' operation ('or_ln104', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:104) [42]  (0.978 ns)
+	'select' operation ('select_ln104', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:104) [43]  (1.02 ns)
+	'add' operation ('add_ln106', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:106) [67]  (1.74 ns)
+	'store' operation ('a_write_ln106', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:106) of variable 'add_ln106', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:106 on local variable 'a' [81]  (1.59 ns)
+
+Resolution: For help on HLS 200-1016 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1016.html
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 707.980 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 707.980 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'attention_active13_Pipeline_VITIS_LOOP_117_8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_117_8'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_117_8'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 708.418 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 708.418 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'attention_active13_Pipeline_VITIS_LOOP_126_10' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_126_10'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'VITIS_LOOP_126_10'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 708.754 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 708.754 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'attention_active13_Pipeline_VITIS_LOOP_133_11_VITIS_LOOP_135_12' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1270) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_133_11_VITIS_LOOP_135_12'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 9, loop 'VITIS_LOOP_133_11_VITIS_LOOP_135_12'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 709.195 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 709.195 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'attention_active13_Pipeline_VITIS_LOOP_144_14' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_98) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_144_14'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 6, loop 'VITIS_LOOP_144_14'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 709.637 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 709.637 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'attention_active13' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.17 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 711.770 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.3 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.33 seconds; current allocated memory: 711.770 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'layer_norm_q16_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln837_11) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348_15) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln837_10) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348_14) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln837_9) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348_13) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln813_3) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348_12) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln837_8) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348_11) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln837_7) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348_10) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln837_6) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348_9) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln813_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348_8) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln813_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348_7) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln813) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348_6) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln837_5) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348_5) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln837_4) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348_4) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln837_3) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348_3) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln837_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln837_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln837) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=sub_ln1348) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347_15) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347_14) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347_13) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347_12) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347_11) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347_10) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347_9) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347_8) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347_7) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347_6) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347_5) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347_4) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347_3) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln818) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining function 'layer_norm_q16.1'.
+WARNING: [HLS 200-880] The II Violation in module 'layer_norm_q16_1' (function 'layer_norm_q16.1'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('x_addr_write_ln31', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:31) of variable 'trunc_ln818_16' on array 'x' and 'load' operation ('x_load') on array 'x'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'layer_norm_q16_1' (function 'layer_norm_q16.1'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'store' operation ('x_addr_write_ln31', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:31) of variable 'trunc_ln818_16' on array 'x' and 'load' operation ('x_load') on array 'x'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'layer_norm_q16_1' (function 'layer_norm_q16.1'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'store' operation ('x_addr_write_ln31', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:31) of variable 'trunc_ln818_16' on array 'x' and 'load' operation ('x_load') on array 'x'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'layer_norm_q16_1' (function 'layer_norm_q16.1'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between 'store' operation ('x_addr_write_ln31', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:31) of variable 'trunc_ln818_16' on array 'x' and 'load' operation ('x_load') on array 'x'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'layer_norm_q16_1' (function 'layer_norm_q16.1'): Unable to enforce a carried dependence constraint (II = 67, distance = 1, offset = 1) between 'store' operation ('x_addr_write_ln31', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:31) of variable 'trunc_ln818_16' on array 'x' and 'load' operation ('x_load') on array 'x'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-885] The II Violation in module 'layer_norm_q16_1' (function 'layer_norm_q16.1'): Unable to schedule 'load' operation ('x_load_13') on array 'x' due to limited memory ports (II = 82). Please consider using a memory core with more ports or partitioning the array 'x'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'layer_norm_q16_1' (function 'layer_norm_q16.1'): Unable to schedule 'load' operation ('x_load_1') on array 'x' due to limited memory ports (II = 86). Please consider using a memory core with more ports or partitioning the array 'x'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'layer_norm_q16_1' (function 'layer_norm_q16.1'): Unable to schedule 'load' operation ('x_load_1') on array 'x' due to limited memory ports (II = 88). Please consider using a memory core with more ports or partitioning the array 'x'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'layer_norm_q16_1' (function 'layer_norm_q16.1'): Unable to schedule 'load' operation ('x_load_1') on array 'x' due to limited memory ports (II = 89). Please consider using a memory core with more ports or partitioning the array 'x'.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 90, Depth = 90, function 'layer_norm_q16.1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 4.59 seconds. CPU system time: 0.01 seconds. Elapsed time: 4.61 seconds; current allocated memory: 716.438 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.33 seconds. CPU system time: 0 seconds. Elapsed time: 0.34 seconds; current allocated memory: 716.438 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'q16_esla_k13_Pipeline_VITIS_LOOP_251_9' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_251_9'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 90, Depth = 91, loop 'VITIS_LOOP_251_9'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.32 seconds. CPU system time: 0 seconds. Elapsed time: 0.32 seconds; current allocated memory: 717.609 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.24 seconds. CPU system time: 0 seconds. Elapsed time: 0.25 seconds; current allocated memory: 718.031 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'q16_esla_k13_Pipeline_VITIS_LOOP_162_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_8) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_162_3'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'VITIS_LOOP_162_3'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.2 seconds. CPU system time: 0 seconds. Elapsed time: 0.2 seconds; current allocated memory: 719.043 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 719.043 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'q16_esla_k13_Pipeline_VITIS_LOOP_174_5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_6) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_174_5'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'VITIS_LOOP_174_5'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 719.648 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 719.648 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'q16_esla_k13_Pipeline_VITIS_LOOP_181_6' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_181_6'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_181_6'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 719.867 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 719.867 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'q16_esla_k13_Pipeline_VITIS_LOOP_258_10' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_258_10'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 90, Depth = 91, loop 'VITIS_LOOP_258_10'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 720.191 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.24 seconds. CPU system time: 0 seconds. Elapsed time: 0.26 seconds; current allocated memory: 720.719 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'q16_esla_k13_Pipeline_VITIS_LOOP_265_11_VITIS_LOOP_267_12' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_265_11_VITIS_LOOP_267_12'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 7, loop 'VITIS_LOOP_265_11_VITIS_LOOP_267_12'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.2 seconds. CPU system time: 0 seconds. Elapsed time: 0.21 seconds; current allocated memory: 721.801 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 721.801 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'layer_norm_q16_Pipeline_VITIS_LOOP_19_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_19_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'VITIS_LOOP_19_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 722.215 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 722.215 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'layer_norm_q16_Pipeline_VITIS_LOOP_23_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 5, loop 'VITIS_LOOP_23_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 722.504 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 722.504 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'layer_norm_q16_Pipeline_VITIS_LOOP_29_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln837) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=ret_V_33) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_29_3'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 8, loop 'VITIS_LOOP_29_3'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 723.016 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 723.016 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'layer_norm_q16' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 723.402 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.19 seconds. CPU system time: 0 seconds. Elapsed time: 0.28 seconds; current allocated memory: 723.445 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'q16_esla_k13' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_91) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_90) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_89) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_87) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_86) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_83) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_81) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_80) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_78) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1270) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_77) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_75) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_73) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_71) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_69) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_66) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_64) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_62) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_60) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_58) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_56) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_54) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_52) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_50) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1347) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'sorted_index'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'phi_k_full_V'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.49 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.61 seconds; current allocated memory: 728.602 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.62 seconds. CPU system time: 0 seconds. Elapsed time: 0.63 seconds; current allocated memory: 728.602 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3' pipeline 'VITIS_LOOP_204_3' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3/m_axi_gmem0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3/m_axi_gmem0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3/m_axi_gmem0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3/m_axi_gmem0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3/m_axi_gmem0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3/m_axi_gmem0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3/m_axi_gmem0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3/m_axi_gmem0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3/m_axi_gmem0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3/m_axi_gmem0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3/m_axi_gmem0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3/m_axi_gmem0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_9s_16s_25_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'q16_esla_k13_Pipeline_VITIS_LOOP_204_3'.
+INFO: [RTMG 210-279] Implementing memory 'q16_esla_k13_q16_esla_k13_Pipeline_VITIS_LOOP_204_3_input_projection_weight_V_ROM_AUTO_1R' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.99 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.99 seconds; current allocated memory: 729.219 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'q16_esla_k13_Pipeline_VITIS_LOOP_221_6' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'q16_esla_k13_Pipeline_VITIS_LOOP_221_6_layers_0_attention_key_weight_V_ROM_AUTO_1R' to 'q16_esla_k13_Pipeline_VITIS_LOOP_221_6_layers_0_attention_key_weight_V_ROM_AUbkb' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'q16_esla_k13_Pipeline_VITIS_LOOP_221_6' pipeline 'VITIS_LOOP_221_6' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_11s_16s_27_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'q16_esla_k13_Pipeline_VITIS_LOOP_221_6'.
+INFO: [RTMG 210-279] Implementing memory 'q16_esla_k13_q16_esla_k13_Pipeline_VITIS_LOOP_221_6_layers_0_attention_key_weight_V_ROM_AUbkb' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 730.719 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'q16_esla_k13_Pipeline_VITIS_LOOP_43_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'q16_esla_k13_Pipeline_VITIS_LOOP_43_1' pipeline 'VITIS_LOOP_43_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'q16_esla_k13_Pipeline_VITIS_LOOP_43_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 731.809 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'q16_esla_k13_Pipeline_VITIS_LOOP_52_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'q16_esla_k13_Pipeline_VITIS_LOOP_52_3'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 732.742 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4' pipeline 'VITIS_LOOP_63_4' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4/m_axi_gmem2_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4/m_axi_gmem2_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4/m_axi_gmem2_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4/m_axi_gmem2_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4/m_axi_gmem2_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4/m_axi_gmem2_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4/m_axi_gmem2_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4/m_axi_gmem2_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4/m_axi_gmem2_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4/m_axi_gmem2_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4/m_axi_gmem2_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4/m_axi_gmem2_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4/m_axi_gmem2_BREADY' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'q16_esla_k13_Pipeline_VITIS_LOOP_63_4'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.15 seconds; current allocated memory: 734.355 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'q16_esla_k13_Pipeline_VITIS_LOOP_70_6' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'q16_esla_k13_Pipeline_VITIS_LOOP_70_6'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 735.480 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7' pipeline 'VITIS_LOOP_241_7' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7/m_axi_gmem2_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7/m_axi_gmem2_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7/m_axi_gmem2_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7/m_axi_gmem2_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7/m_axi_gmem2_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7/m_axi_gmem2_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7/m_axi_gmem2_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7/m_axi_gmem2_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7/m_axi_gmem2_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7/m_axi_gmem2_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7/m_axi_gmem2_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7/m_axi_gmem2_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'q16_esla_k13_Pipeline_VITIS_LOOP_241_7'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 737.559 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'attention_active13_Pipeline_VITIS_LOOP_91_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'attention_active13_Pipeline_VITIS_LOOP_91_3_layers_0_attention_query_weight_V_ROM_AUTO_1R' to 'attention_active13_Pipeline_VITIS_LOOP_91_3_layers_0_attention_query_weight_Vcud' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'attention_active13_Pipeline_VITIS_LOOP_91_3_layers_0_attention_value_weight_V_ROM_AUTO_1R' to 'attention_active13_Pipeline_VITIS_LOOP_91_3_layers_0_attention_value_weight_VdEe' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'attention_active13_Pipeline_VITIS_LOOP_91_3' pipeline 'VITIS_LOOP_91_3' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_10s_16s_26_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_12s_16s_28_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'attention_active13_Pipeline_VITIS_LOOP_91_3'.
+INFO: [RTMG 210-279] Implementing memory 'q16_esla_k13_attention_active13_Pipeline_VITIS_LOOP_91_3_layers_0_attention_query_weight_Vcud' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'q16_esla_k13_attention_active13_Pipeline_VITIS_LOOP_91_3_layers_0_attention_value_weight_VdEe' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.17 seconds; current allocated memory: 741.398 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'attention_active13_Pipeline_VITIS_LOOP_103_4_VITIS_LOOP_104_5_VITIS_LOOP_106_6' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'attention_active13_Pipeline_VITIS_LOOP_103_4_VITIS_LOOP_104_5_VITIS_LOOP_106_6' pipeline 'VITIS_LOOP_103_4_VITIS_LOOP_104_5_VITIS_LOOP_106_6' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_16s_30ns_30_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'attention_active13_Pipeline_VITIS_LOOP_103_4_VITIS_LOOP_104_5_VITIS_LOOP_106_6'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 743.051 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'attention_active13_Pipeline_VITIS_LOOP_117_8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'attention_active13_Pipeline_VITIS_LOOP_117_8' pipeline 'VITIS_LOOP_117_8' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'attention_active13_Pipeline_VITIS_LOOP_117_8'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 744.754 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'attention_active13_Pipeline_VITIS_LOOP_126_10' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'attention_active13_Pipeline_VITIS_LOOP_126_10' pipeline 'VITIS_LOOP_126_10' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_16s_30ns_30_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'attention_active13_Pipeline_VITIS_LOOP_126_10'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 745.617 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'attention_active13_Pipeline_VITIS_LOOP_133_11_VITIS_LOOP_135_12' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'attention_active13_Pipeline_VITIS_LOOP_133_11_VITIS_LOOP_135_12' pipeline 'VITIS_LOOP_133_11_VITIS_LOOP_135_12' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_16s_30ns_30_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_24s_16s_30_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'attention_active13_Pipeline_VITIS_LOOP_133_11_VITIS_LOOP_135_12'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 746.855 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'attention_active13_Pipeline_VITIS_LOOP_144_14' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'attention_active13_Pipeline_VITIS_LOOP_144_14_layers_0_attention_output_weight_V_ROM_AUTO_1R' to 'attention_active13_Pipeline_VITIS_LOOP_144_14_layers_0_attention_output_weigheOg' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'attention_active13_Pipeline_VITIS_LOOP_144_14' pipeline 'VITIS_LOOP_144_14' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_10s_16s_26_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'attention_active13_Pipeline_VITIS_LOOP_144_14'.
+INFO: [RTMG 210-279] Implementing memory 'q16_esla_k13_attention_active13_Pipeline_VITIS_LOOP_144_14_layers_0_attention_output_weigheOg' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 748.578 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'attention_active13' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_16_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fexp_32ns_32ns_32_10_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fpext_32ns_64_2_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'attention_active13'.
+INFO: [RTMG 210-279] Implementing memory 'q16_esla_k13_attention_active13_layers_0_attention_output_bias_V_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'q16_esla_k13_attention_active13_Q_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'q16_esla_k13_attention_active13_KV_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'q16_esla_k13_attention_active13_K_sum_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.14 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.25 seconds; current allocated memory: 752.309 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'layer_norm_q16_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'am_submul_16s_16s_16s_26_4_1': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_16_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fpext_32ns_64_2_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsqrt_32ns_32ns_32_16_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_10ns_16ns_26_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_10ns_16s_26_4_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_10ns_18s_26_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_11ns_15ns_26_4_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_11ns_15s_26_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_11ns_16ns_26_4_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_11ns_16s_26_4_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_11ns_17s_26_4_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_11ns_18s_26_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_16s_30ns_30_4_1': 15 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_16s_16s_30_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'layer_norm_q16_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.77 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.87 seconds; current allocated memory: 762.562 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'q16_esla_k13_Pipeline_VITIS_LOOP_251_9' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'q16_esla_k13_Pipeline_VITIS_LOOP_251_9' pipeline 'VITIS_LOOP_251_9' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'q16_esla_k13_Pipeline_VITIS_LOOP_251_9'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.59 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.65 seconds; current allocated memory: 773.613 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'q16_esla_k13_Pipeline_VITIS_LOOP_162_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'q16_esla_k13_Pipeline_VITIS_LOOP_162_3_layers_0_feedforward_0_weight_V_ROM_AUTO_1R' to 'q16_esla_k13_Pipeline_VITIS_LOOP_162_3_layers_0_feedforward_0_weight_V_ROM_AUfYi' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'q16_esla_k13_Pipeline_VITIS_LOOP_162_3' pipeline 'VITIS_LOOP_162_3' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_11s_16s_27_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'q16_esla_k13_Pipeline_VITIS_LOOP_162_3'.
+INFO: [RTMG 210-279] Implementing memory 'q16_esla_k13_q16_esla_k13_Pipeline_VITIS_LOOP_162_3_layers_0_feedforward_0_weight_V_ROM_AUfYi' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.22 seconds. CPU system time: 0 seconds. Elapsed time: 0.21 seconds; current allocated memory: 774.473 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'q16_esla_k13_Pipeline_VITIS_LOOP_174_5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'q16_esla_k13_Pipeline_VITIS_LOOP_174_5_layers_0_feedforward_3_weight_V_ROM_AUTO_1R' to 'q16_esla_k13_Pipeline_VITIS_LOOP_174_5_layers_0_feedforward_3_weight_V_ROM_AUg8j' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'q16_esla_k13_Pipeline_VITIS_LOOP_174_5' pipeline 'VITIS_LOOP_174_5' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_10s_15ns_25_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'q16_esla_k13_Pipeline_VITIS_LOOP_174_5'.
+INFO: [RTMG 210-279] Implementing memory 'q16_esla_k13_q16_esla_k13_Pipeline_VITIS_LOOP_174_5_layers_0_feedforward_3_weight_V_ROM_AUg8j' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 775.816 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'q16_esla_k13_Pipeline_VITIS_LOOP_181_6' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'q16_esla_k13_Pipeline_VITIS_LOOP_181_6' pipeline 'VITIS_LOOP_181_6' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'q16_esla_k13_Pipeline_VITIS_LOOP_181_6'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 776.887 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'q16_esla_k13_Pipeline_VITIS_LOOP_258_10' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'q16_esla_k13_Pipeline_VITIS_LOOP_258_10' pipeline 'VITIS_LOOP_258_10' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'q16_esla_k13_Pipeline_VITIS_LOOP_258_10'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 778.777 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'q16_esla_k13_Pipeline_VITIS_LOOP_265_11_VITIS_LOOP_267_12' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'q16_esla_k13_Pipeline_VITIS_LOOP_265_11_VITIS_LOOP_267_12' pipeline 'VITIS_LOOP_265_11_VITIS_LOOP_267_12' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_38s_40ns_77_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'q16_esla_k13_Pipeline_VITIS_LOOP_265_11_VITIS_LOOP_267_12'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.21 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.21 seconds; current allocated memory: 780.117 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'layer_norm_q16_Pipeline_VITIS_LOOP_19_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'layer_norm_q16_Pipeline_VITIS_LOOP_19_1' pipeline 'VITIS_LOOP_19_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'layer_norm_q16_Pipeline_VITIS_LOOP_19_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.12 seconds; current allocated memory: 781.508 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'layer_norm_q16_Pipeline_VITIS_LOOP_23_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'layer_norm_q16_Pipeline_VITIS_LOOP_23_2' pipeline 'VITIS_LOOP_23_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_16s_30ns_30_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'layer_norm_q16_Pipeline_VITIS_LOOP_23_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 782.371 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'layer_norm_q16_Pipeline_VITIS_LOOP_29_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'layer_norm_q16_Pipeline_VITIS_LOOP_29_3' pipeline 'VITIS_LOOP_29_3' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'am_submul_16s_16s_16s_26_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_11ns_18s_26_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'layer_norm_q16_Pipeline_VITIS_LOOP_29_3'.
+INFO: [RTMG 210-279] Implementing memory 'q16_esla_k13_layer_norm_q16_Pipeline_VITIS_LOOP_29_3_output_norm_weight_V_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'q16_esla_k13_layer_norm_q16_Pipeline_VITIS_LOOP_29_3_output_norm_bias_V_ROM_AUTO_1R' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.15 seconds; current allocated memory: 783.449 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'layer_norm_q16' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_16_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fpext_32ns_64_2_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsqrt_32ns_32ns_32_16_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'layer_norm_q16'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 785.793 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'q16_esla_k13' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'q16_esla_k13/gmem0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'q16_esla_k13/gmem1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'q16_esla_k13/gmem2' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'q16_esla_k13/input_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'q16_esla_k13/logits' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'q16_esla_k13/active_token_indices' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'q16_esla_k13' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'input_r', 'logits', 'active_token_indices' and 'return' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_16_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fexp_32ns_32ns_32_10_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fpext_32ns_64_2_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_10ns_26ns_26_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_10s_25s_26_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_10s_26ns_26_4_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_7ns_24s_25_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_7ns_26s_26_4_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_8ns_25s_26_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_8ns_26s_26_4_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_8s_26s_26_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_9ns_18s_25_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_9ns_26ns_26_4_1': 5 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_9s_19s_24_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_16s_9s_26s_26_4_1': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'q16_esla_k13'.
+INFO: [RTMG 210-279] Implementing memory 'q16_esla_k13_input_projection_bias_V_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'q16_esla_k13_position_embedding_V_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'q16_esla_k13_layers_0_feedforward_0_bias_V_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'q16_esla_k13_layers_0_feedforward_3_bias_V_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'q16_esla_k13_hidden_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'q16_esla_k13_sorted_score_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'q16_esla_k13_sorted_index_RAM_1WNR_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'q16_esla_k13_x_full_V_RAM_1WNR_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'q16_esla_k13_x_active_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'q16_esla_k13_phi_k_active_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'q16_esla_k13_pooled_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.53 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.56 seconds; current allocated memory: 795.852 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 2.46 seconds. CPU system time: 0.05 seconds. Elapsed time: 2.6 seconds; current allocated memory: 807.160 MB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1.25 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.27 seconds; current allocated memory: 825.910 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for q16_esla_k13.
+INFO: [VLOG 209-307] Generating Verilog RTL for q16_esla_k13.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 131.49 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 29.09 seconds. CPU system time: 1.29 seconds. Elapsed time: 33.78 seconds; current allocated memory: 520.238 MB.
+INFO: [HLS 200-112] Total CPU user time: 30.11 seconds. Total CPU system time: 1.45 seconds. Total elapsed time: 44.93 seconds; peak allocated memory: 825.957 MB.
+INFO: [Common 17-206] Exiting vitis_hls at Fri Jul  3 13:40:06 2026...

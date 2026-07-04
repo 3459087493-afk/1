@@ -1,0 +1,17 @@
+Config=q16_s30_attn_sparse; images=3444; Pillow=9.0.1
+Preprocess=PIL L -> 32x32 BILINEAR -> float32/255 -> row-major 8x8 patches
+Cold start: Overlay + buffers + first image inference
+Warm-up 20 image inferences (excluded) ...
+Measuring all 3444 images ...
+  [500/3444] mean=21594.399 us mismatches=0
+  [1000/3444] mean=20100.264 us mismatches=0
+  [1500/3444] mean=19584.914 us mismatches=0
+  [2000/3444] mean=19297.705 us mismatches=0
+  [2500/3444] mean=19171.545 us mismatches=0
+  [3000/3444] mean=19079.375 us mismatches=0
+  [3444/3444] mean=19012.376 us mismatches=0
+Warm mean=19012.376 us P50=18498.135 us P95=22935.071 us P99=27207.552 us
+Cold start=3656891.674 us
+Accuracy=0.941347 Precision=0.977391 Recall=0.953512 F1=0.965304 Match=0.994193
+Speedup vs 0.81s=42.604x vs 1.48s=77.844x; claim= >30x
+Saved e2e_image_latency_result.csv

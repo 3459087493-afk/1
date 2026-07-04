@@ -1,0 +1,204 @@
+
+
+================================================================
+== Vitis HLS Report for 'imgds_linear_dense_q16_Pipeline_VITIS_LOOP_211_5'
+================================================================
+* Date:           Thu Jul  2 17:14:56 2026
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        q16_s20_attn_sparse
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  5.404 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       37|       37|  0.370 us|  0.370 us|   37|   37|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_211_5  |       35|       35|         5|          1|          1|    32|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 5
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 5, States = { 1 2 3 4 5 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 5.07>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%lhs = alloca i32 1"   --->   Operation 8 'alloca' 'lhs' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%i = alloca i32 1"   --->   Operation 9 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%tmp_104_read = read i9 @_ssdm_op_Read.ap_auto.i9, i9 %tmp_104"   --->   Operation 10 'read' 'tmp_104_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%zext_ln209_read = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %zext_ln209"   --->   Operation 11 'read' 'zext_ln209_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%sext_ln210_read = read i13 @_ssdm_op_Read.ap_auto.i13, i13 %sext_ln210"   --->   Operation 12 'read' 'sext_ln210_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%zext_ln209_cast = zext i4 %zext_ln209_read"   --->   Operation 13 'zext' 'zext_ln209_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%sext_ln210_cast = sext i13 %sext_ln210_read"   --->   Operation 14 'sext' 'sext_ln210_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (1.58ns)   --->   "%store_ln0 = store i6 0, i6 %i"   --->   Operation 15 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 16 [1/1] (1.58ns)   --->   "%store_ln0 = store i24 %sext_ln210_cast, i24 %lhs"   --->   Operation 16 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.body49.i"   --->   Operation 17 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%i_6 = load i6 %i" [src/imgds_linear_dense_q16.cpp:211]   --->   Operation 18 'load' 'i_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%ff_out_V_addr = getelementptr i16 %ff_out_V, i64 0, i64 %zext_ln209_cast" [src/imgds_linear_dense_q16.cpp:215]   --->   Operation 19 'getelementptr' 'ff_out_V_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (1.42ns)   --->   "%icmp_ln211 = icmp_eq  i6 %i_6, i6 32" [src/imgds_linear_dense_q16.cpp:211]   --->   Operation 20 'icmp' 'icmp_ln211' <Predicate = true> <Delay = 1.42> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.42> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 32, i64 32, i64 32"   --->   Operation 21 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (1.82ns)   --->   "%add_ln211 = add i6 %i_6, i6 1" [src/imgds_linear_dense_q16.cpp:211]   --->   Operation 22 'add' 'add_ln211' <Predicate = true> <Delay = 1.82> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%br_ln211 = br i1 %icmp_ln211, void %for.body49.i.split, void %for.end60.i.exitStub" [src/imgds_linear_dense_q16.cpp:211]   --->   Operation 23 'br' 'br_ln211' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%zext_ln211 = zext i6 %i_6" [src/imgds_linear_dense_q16.cpp:211]   --->   Operation 24 'zext' 'zext_ln211' <Predicate = (!icmp_ln211)> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%zext_ln211_1 = zext i6 %i_6" [src/imgds_linear_dense_q16.cpp:211]   --->   Operation 25 'zext' 'zext_ln211_1' <Predicate = (!icmp_ln211)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (1.82ns)   --->   "%add_ln213 = add i9 %zext_ln211_1, i9 %tmp_104_read" [src/imgds_linear_dense_q16.cpp:213]   --->   Operation 26 'add' 'add_ln213' <Predicate = (!icmp_ln211)> <Delay = 1.82> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%zext_ln1271 = zext i9 %add_ln213"   --->   Operation 27 'zext' 'zext_ln1271' <Predicate = (!icmp_ln211)> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%hidden_V_addr = getelementptr i15 %hidden_V, i64 0, i64 %zext_ln211"   --->   Operation 28 'getelementptr' 'hidden_V_addr' <Predicate = (!icmp_ln211)> <Delay = 0.00>
+ST_1 : Operation 29 [2/2] (2.32ns)   --->   "%r_V = load i5 %hidden_V_addr"   --->   Operation 29 'load' 'r_V' <Predicate = (!icmp_ln211)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 15> <Depth = 32> <RAM>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%layers_0_feedforward_3_weight_V_addr = getelementptr i10 %layers_0_feedforward_3_weight_V, i64 0, i64 %zext_ln1271"   --->   Operation 30 'getelementptr' 'layers_0_feedforward_3_weight_V_addr' <Predicate = (!icmp_ln211)> <Delay = 0.00>
+ST_1 : Operation 31 [2/2] (3.25ns)   --->   "%layers_0_feedforward_3_weight_V_load = load i9 %layers_0_feedforward_3_weight_V_addr"   --->   Operation 31 'load' 'layers_0_feedforward_3_weight_V_load' <Predicate = (!icmp_ln211)> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 95 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 10> <Depth = 512> <ROM>
+ST_1 : Operation 32 [1/1] (1.42ns)   --->   "%icmp_ln211_1 = icmp_eq  i6 %add_ln211, i6 32" [src/imgds_linear_dense_q16.cpp:211]   --->   Operation 32 'icmp' 'icmp_ln211_1' <Predicate = (!icmp_ln211)> <Delay = 1.42> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.42> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%br_ln211 = br i1 %icmp_ln211_1, void %ifFalse12, void %ifTrue11" [src/imgds_linear_dense_q16.cpp:211]   --->   Operation 33 'br' 'br_ln211' <Predicate = (!icmp_ln211)> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (1.58ns)   --->   "%store_ln211 = store i6 %add_ln211, i6 %i" [src/imgds_linear_dense_q16.cpp:211]   --->   Operation 34 'store' 'store_ln211' <Predicate = (!icmp_ln211)> <Delay = 1.58>
+
+State 2 <SV = 1> <Delay = 5.40>
+ST_2 : Operation 35 [1/2] (2.32ns)   --->   "%r_V = load i5 %hidden_V_addr"   --->   Operation 35 'load' 'r_V' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 15> <Depth = 32> <RAM>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%zext_ln1270 = zext i15 %r_V"   --->   Operation 36 'zext' 'zext_ln1270' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 37 [1/2] (3.25ns)   --->   "%layers_0_feedforward_3_weight_V_load = load i9 %layers_0_feedforward_3_weight_V_addr"   --->   Operation 37 'load' 'layers_0_feedforward_3_weight_V_load' <Predicate = true> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 95 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 10> <Depth = 512> <ROM>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%sext_ln1273 = sext i10 %layers_0_feedforward_3_weight_V_load"   --->   Operation 38 'sext' 'sext_ln1273' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 39 [4/4] (2.15ns) (root node of the DSP)   --->   "%r_V_13 = mul i25 %sext_ln1273, i25 %zext_ln1270"   --->   Operation 39 'mul' 'r_V_13' <Predicate = true> <Delay = 2.15> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 3 <SV = 2> <Delay = 2.15>
+ST_3 : Operation 40 [3/4] (2.15ns) (root node of the DSP)   --->   "%r_V_13 = mul i25 %sext_ln1273, i25 %zext_ln1270"   --->   Operation 40 'mul' 'r_V_13' <Predicate = true> <Delay = 2.15> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 4 <SV = 3> <Delay = 2.15>
+ST_4 : Operation 41 [2/4] (2.15ns) (root node of the DSP)   --->   "%r_V_13 = mul i25 %sext_ln1273, i25 %zext_ln1270"   --->   Operation 41 'mul' 'r_V_13' <Predicate = true> <Delay = 2.15> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 59 'ret' 'ret_ln0' <Predicate = (icmp_ln211)> <Delay = 0.00>
+
+State 5 <SV = 4> <Delay = 4.69>
+ST_5 : Operation 42 [1/1] (0.00ns)   --->   "%lhs_load = load i24 %lhs"   --->   Operation 42 'load' 'lhs_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 43 [1/1] (0.00ns)   --->   "%specpipeline_ln212 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_2" [src/imgds_linear_dense_q16.cpp:212]   --->   Operation 43 'specpipeline' 'specpipeline_ln212' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 44 [1/1] (0.00ns)   --->   "%specloopname_ln210 = specloopname void @_ssdm_op_SpecLoopName, void @empty_13" [src/imgds_linear_dense_q16.cpp:210]   --->   Operation 44 'specloopname' 'specloopname_ln210' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 45 [1/4] (0.00ns) (root node of the DSP)   --->   "%r_V_13 = mul i25 %sext_ln1273, i25 %zext_ln1270"   --->   Operation 45 'mul' 'r_V_13' <Predicate = true> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 46 [1/1] (0.00ns)   --->   "%lhs_9 = bitconcatenate i30 @_ssdm_op_BitConcatenate.i30.i24.i6, i24 %lhs_load, i6 0"   --->   Operation 46 'bitconcatenate' 'lhs_9' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 47 [1/1] (0.00ns)   --->   "%sext_ln1347 = sext i25 %r_V_13"   --->   Operation 47 'sext' 'sext_ln1347' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 48 [1/1] (0.00ns)   --->   "%sext_ln1347_16 = sext i25 %r_V_13"   --->   Operation 48 'sext' 'sext_ln1347_16' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 49 [1/1] (0.00ns)   --->   "%trunc_ln1347 = trunc i24 %lhs_load"   --->   Operation 49 'trunc' 'trunc_ln1347' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 50 [1/1] (0.00ns)   --->   "%trunc_ln1347_9 = bitconcatenate i26 @_ssdm_op_BitConcatenate.i26.i20.i6, i20 %trunc_ln1347, i6 0"   --->   Operation 50 'bitconcatenate' 'trunc_ln1347_9' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 51 [1/1] (2.49ns)   --->   "%ret_V = add i30 %lhs_9, i30 %sext_ln1347"   --->   Operation 51 'add' 'ret_V' <Predicate = true> <Delay = 2.49> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.49> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 52 [1/1] (2.37ns)   --->   "%add_ln1347_32 = add i26 %trunc_ln1347_9, i26 %sext_ln1347_16"   --->   Operation 52 'add' 'add_ln1347_32' <Predicate = true> <Delay = 2.37> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.37> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 53 [1/1] (0.00ns)   --->   "%s_V = partselect i24 @_ssdm_op_PartSelect.i24.i30.i32.i32, i30 %ret_V, i32 6, i32 29"   --->   Operation 53 'partselect' 's_V' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 54 [1/1] (0.00ns)   --->   "%trunc_ln = partselect i16 @_ssdm_op_PartSelect.i16.i26.i32.i32, i26 %add_ln1347_32, i32 10, i32 25" [src/imgds_linear_dense_q16.cpp:211]   --->   Operation 54 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 55 [1/1] (2.32ns)   --->   "%store_ln215 = store i16 %trunc_ln, i4 %ff_out_V_addr" [src/imgds_linear_dense_q16.cpp:215]   --->   Operation 55 'store' 'store_ln215' <Predicate = (icmp_ln211_1)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 16> <RAM>
+ST_5 : Operation 56 [1/1] (0.00ns)   --->   "%br_ln0 = br void %ifFalse12"   --->   Operation 56 'br' 'br_ln0' <Predicate = (icmp_ln211_1)> <Delay = 0.00>
+ST_5 : Operation 57 [1/1] (1.58ns)   --->   "%store_ln818 = store i24 %s_V, i24 %lhs"   --->   Operation 57 'store' 'store_ln818' <Predicate = true> <Delay = 1.58>
+ST_5 : Operation 58 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.body49.i"   --->   Operation 58 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 5.08ns
+The critical path consists of the following:
+	'alloca' operation ('i') [8]  (0 ns)
+	'load' operation ('i', src/imgds_linear_dense_q16.cpp:211) on local variable 'i' [18]  (0 ns)
+	'add' operation ('add_ln213', src/imgds_linear_dense_q16.cpp:213) [30]  (1.82 ns)
+	'getelementptr' operation ('layers_0_feedforward_3_weight_V_addr') [35]  (0 ns)
+	'load' operation ('layers_0_feedforward_3_weight_V_load') on array 'layers_0_feedforward_3_weight_V' [36]  (3.25 ns)
+
+ <State 2>: 5.4ns
+The critical path consists of the following:
+	'load' operation ('layers_0_feedforward_3_weight_V_load') on array 'layers_0_feedforward_3_weight_V' [36]  (3.25 ns)
+	'mul' operation of DSP[38] ('r.V') [38]  (2.15 ns)
+
+ <State 3>: 2.15ns
+The critical path consists of the following:
+	'mul' operation of DSP[38] ('r.V') [38]  (2.15 ns)
+
+ <State 4>: 2.15ns
+The critical path consists of the following:
+	'mul' operation of DSP[38] ('r.V') [38]  (2.15 ns)
+
+ <State 5>: 4.7ns
+The critical path consists of the following:
+	'load' operation ('lhs_load') on local variable 'lhs' [25]  (0 ns)
+	'add' operation ('add_ln1347_32') [45]  (2.37 ns)
+	'store' operation ('store_ln215', src/imgds_linear_dense_q16.cpp:215) of variable 'trunc_ln', src/imgds_linear_dense_q16.cpp:211 on array 'ff_out_V' [51]  (2.32 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,16 @@
+loop_name,function,active_ch,other_ch,tripcount,ii,full_or_sparse,verification
+VITIS_LOOP_96_1 (token outer),Q/K/V projection,SEQ_LEN=16,SEQ_LEN=16,16,-,FULL,Token loop unchanged
+VITIS_LOOP_98_2_VITIS_LOOP_100_3 (V proj),V projection,ACTIVE_DIM n/a,D_MODEL=16,256=16×16,1,FULL,V FULL 16 channels
+VITIS_LOOP_107_4 (Q/K outer),Q/K projection,ACTIVE_DIM=13,D_MODEL=16,13,-,SPARSE,Q/K channels REDUCED to 13
+VITIS_LOOP_110_5 (inner),Q/K projection,D_MODEL=16,D_MODEL=16,16,1,FULL,Inner accumulate FULL
+VITIS_LOOP_137_9 (K_sum outer),K_sum,ACTIVE_DIM=13,D_MODEL=16,13,-,SPARSE,K_sum REDUCED to 13
+VITIS_LOOP_140_10 (inner),K_sum,D_MODEL=16,D_MODEL=16,16,1,FULL,Inner accumulate FULL
+VITIS_LOOP_148_11 (attend outer),Attention output,SEQ_LEN=16,D_MODEL=16,16,-,FULL,Token loop unchanged
+VITIS_LOOP_151_12 (Q·K),Q·K normalizer,ACTIVE_DIM=13,D_MODEL=16,13,1,SPARSE,Q·K sum REDUCED to 13
+VITIS_LOOP_161_13_VITIS_LOOP_163_14 (KV),KV accumulation d1,ACTIVE_DIM=13,D_MODEL=16,208=13×16,1,SPARSE,KV outer REDUCED to 13
+VITIS_LOOP_172_15 (residual),Residual add,SEQ_LEN=16,D_MODEL=16,16,-,FULL,Token loop unchanged
+VITIS_LOOP_174_16 (V-out),V output projection,D_MODEL=16,D_MODEL=16,16,1,FULL,V-out FULL 16 channels
+VITIS_LOOP_245_1 (input proj),Input projection,SEQ_LEN=16,INPUT_DIM=64,256=16×16,-,FULL,Input proj FULL
+VITIS_LOOP_268_4 (LN1 tokens),LayerNorm 1,SEQ_LEN=16,D_MODEL=16,16,90,FULL,LN1 per-token FULL 16
+VITIS_LOOP_194_1 (FFN tokens),FeedForward,SEQ_LEN=16,FF_DIM=32,16,-,FULL,FFN per-token FULL 16
+VITIS_LOOP_286_6 (pooling),Mean pooling,SEQ_LEN=16,D_MODEL=16,256=16×16,1,FULL,Pooling FULL 16 tokens

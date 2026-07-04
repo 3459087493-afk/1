@@ -1,0 +1,19 @@
+component,included_in_kernel_latency,included_in_current_model_inference_time,included_in_full_application_latency,should_include_in_vit4mal_aligned_time,reason,evidence_from_script,source_file,line_number_or_code_snippet
+input tensor write,no,yes,yes,yes,required PS shared-buffer preparation,in_buf[:] = flat[:],run_qks_v2_pynq.py,62-65
+cache flush,no,yes,yes,yes,commits cached input for PL access,in_buf.flush(),run_qks_v2_pynq.py,65
+register setup/control write,start only,yes,yes,yes,address setup and launch are inference control,input_r/logits writes and CTRL=1,run_qks_v2_pynq.py,67-80
+PS-PL transfer/address handoff,no,yes,yes,yes,represented by shared-buffer write flush and address handoff,in_phys/out_phys and AXI-lite writes,run_qks_v2_pynq.py,67-75
+FPGA IP execution,yes,yes,yes,yes,core PL model execution,poll ap_done,run_qks_v2_pynq.py,77-81
+output readback/cache invalidate,no,yes,yes,yes,required to make logits visible to PS,out_buf.invalidate and copy,run_qks_v2_pynq.py,83-86
+decoder/classifier/argmax,no,no,yes,yes,learned classifier is PL and PS conversion/argmax completes prediction,argmax is after t1,run_qks_v2_pynq.py,177-186
+patch embedding/projection,yes,no separate PS item,yes,yes if PS otherwise kernel,input projection and position embedding are inside PL,input projection loop in PL,q16_qksv2_d16.cpp,212-224
+runtime weight transfer,no,no,no,no,top has no weight port and parameters are static const,static const parameter arrays,qks_v2_params_q16_qksv2_d16.h,18 onward
+per-sample buffer allocation,no,yes,yes,no,steady-state protocol allocates once,allocate inside run_pynq_inference,run_qks_v2_pynq.py,55-60
+overlay loading,no,no,no,no,deployment initialization occurs before sample timing,Overlay before inference loop,run_qks_v2_pynq.py,160-177
+image file read,no,no,yes,no,offline prepared-input boundary,Image.open in preprocess before timer,run_qks_v2_pynq.py,29-33 and 139-158
+JPEG/PNG decode,no,no,yes,no,offline prepared-input boundary,Image.open/convert before timer,run_qks_v2_pynq.py,29-33
+resize,no,no,yes,no,offline image preprocessing,img.resize before timer,run_qks_v2_pynq.py,33
+normalize,no,no,yes,no,offline image preprocessing,pixel divide by 255 before timer,run_qks_v2_pynq.py,34
+patch construction,no,no,yes,no,offline prepared-tensor construction,4x4 patch loops before timer,run_qks_v2_pynq.py,35-41
+quantization,no,no,yes,no,prepared Q6.10 tensor loaded before aligned timer,float_to_q16 before overlay/run,run_qks_v2_pynq.py,16-19 and 146-158
+logging/printing,no,progress checks outside sample timer,implementation-dependent,no,measurement perturbation rather than inference,print occurs before t0,run_qks_v2_pynq.py,173-177

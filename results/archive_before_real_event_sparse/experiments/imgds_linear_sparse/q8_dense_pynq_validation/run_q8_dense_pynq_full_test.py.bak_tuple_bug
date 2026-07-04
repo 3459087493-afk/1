@@ -1,0 +1,186 @@
+#!/usr/bin/env python3
+"""
+Ours-Dense-Q8 PYNQ-Z2 Full-Test Validation
+==========================================
+Q8 weight storage + Q16 data path. m_axi I/O = ap_fixed<16,6> = int16.
+Same buffer protocol as Q16 Main and Compact-Q16 (verified working).
+
+Stages: 0.Reference → 1.Sanity → 2.Quick(200) → 3.Full(3444) → 4.Latency(100+1000)
+"""
+
+import os, sys, time, csv, numpy as np
+
+FP_SCALE = 1 << 10       # ap_fixed<16,6> → Q6.10 → scale=1024
+FP_I16_MAX, FP_I16_MIN = 32767, -32768
+
+def float_to_fixed(x):
+    q = np.round(x.astype(np.float64) * FP_SCALE)
+    return np.clip(q, FP_I16_MIN, FP_I16_MAX).astype(np.int16)
+
+def fixed_to_float(x):
+    return x.astype(np.float32) / np.float32(FP_SCALE)
+
+def reference_sanity():
+    print("=" * 60)
+    print("STAGE 0: Reference Sanity Check")
+    print("=" * 60)
+    for n, p in [("full 3444","q8_dense_test_3444.npz"),("eval 200","q8_dense_eval200.npz"),("sanity 1","q8_dense_sanity.npz")]:
+        d = np.load(p); ref, y = d['ref_logits'], d['y']; ra = (np.argmax(ref,axis=1)==y).mean()
+        print(f"  {n}: shape={ref.shape} labels={np.bincount(y.astype(int))} argmax_ref_acc={ra:.6f}")
+    print("  PASSED.\n")
+
+try:
+    from pynq import Overlay, allocate; HAS_PYNQ = True
+except ImportError:
+    HAS_PYNQ = False
+
+BIT = "q8_dense.bit"; EVAL200 = "q8_dense_eval200.npz"; FULL = "q8_dense_test_3444.npz"; SANITY = "q8_dense_sanity.npz"
+OUT_CSV = "q8_dense_pynq_result.csv"
+SEQ_LEN = 16; INPUT_DIM = 64; N_CLASSES = 2
+INPUT_ELEMS = SEQ_LEN * INPUT_DIM; LOGITS_ELEMS = N_CLASSES
+CONTROL_ADDR = 0x00; INPUT_R_ADDR = 0x10; LOGITS_ADDR = 0x1C
+N_WARMUP = 10
+
+def write_ptr(ip, base, pa):
+    p = int(pa); ip.write(base, p & 0xFFFFFFFF); ip.write(base+4, (p>>32) & 0xFFFFFFFF)
+
+def run_kernel(ip, sample_float):
+    fixed = float_to_fixed(sample_float).ravel()
+    ib = allocate(shape=(INPUT_ELEMS,), dtype=np.int16); ob = allocate(shape=(LOGITS_ELEMS,), dtype=np.int16)
+    ob[:] = 0; ob.flush(); ib[:] = fixed[:]; ib.flush()
+    write_ptr(ip, INPUT_R_ADDR, ib.physical_address); write_ptr(ip, LOGITS_ADDR, ob.physical_address)
+    ip.write(CONTROL_ADDR, 0x1)
+    while (ip.read(CONTROL_ADDR) & 0x2) == 0: pass
+    ob.invalidate(); hw_f = np.asarray(ob, dtype=np.int16).reshape(1,N_CLASSES).copy()
+    del ib, ob; return fixed_to_float(hw_f), hw_f
+
+def pred(logits_2d, row=0): return int(np.argmax(logits_2d[row]))
+
+def stage1_sanity(ol, ip):
+    print("=" * 60); print("STAGE 1: Sanity (n=1)"); print("=" * 60)
+    d = np.load(SANITY); X, y, ref = d['X'], d['y'], d['ref_logits']
+    print(f"  I/O: int16 (ap_fixed<16,6>), scale={FP_SCALE}")
+    print(f"  first 8 input: {X[0].ravel()[:8]}")
+    hw_f, hw_raw = run_kernel(ip, X[0]); sp = pred(ref,0); hp = pred(hw_f,0); ok = sp == hp
+    print(f"  Ref: [{ref[0][0]:.6f},{ref[0][1]:.6f}] pred={sp}")
+    print(f"  HW raw: [{hw_raw[0][0]},{hw_raw[0][1]}]")
+    print(f"  HW float: [{hw_f[0][0]:.6f},{hw_f[0][1]:.6f}] pred={hp} finite={np.isfinite(hw_f).all()}")
+    print(f"  Label: {y[0]}  Match: {'OK' if ok else 'FAIL'}")
+    if not np.isfinite(hw_f).all(): print("  *** NaN/Inf in HW! ***")
+    return ok
+
+def stage2_quick(ol, ip):
+    print("\n"+"="*60); print("STAGE 2: Quick (n=200)"); print("="*60)
+    d = np.load(EVAL200); X, y, ref = d['X'], d['y'], d['ref_logits']; n = len(X)
+    mc=hc=rc=0; nan_c=inf_c=0; me=se=fe=0.0,0.0,0
+    for i in range(n):
+        hw_f,_ = run_kernel(ip, X[i]); sp=pred(ref,i); hp=pred(hw_f,0)
+        if hp==sp: mc+=1
+        if hp==y[i]: hc+=1
+        if sp==y[i]: rc+=1
+        hwf=hw_f.ravel()
+        if not np.isfinite(hwf).all():
+            if np.isnan(hwf).any(): nan_c+=1
+            if np.isinf(hwf).any(): inf_c+=1
+        e0,e1=abs(hwf[0]-ref[i][0]),abs(hwf[1]-ref[i][1])
+        if np.isfinite(e0) and np.isfinite(e1): me=max(me,e0,e1); se+=e0+e1; fe+=1
+        if i<10: print(f"  [{i}] y={y[i]} ref=[{ref[i][0]:.4f},{ref[i][1]:.4f}] hw=[{hwf[0]:.4f},{hwf[1]:.4f}] sp={sp} hp={hp}")
+    mr,ha,ra=mc/n,hc/n,rc/n; ma=se/(fe*2) if fe>0 else float('nan')
+    print(f"\n  n={n} NaN={nan_c} Inf={inf_c}")
+    print(f"  Match vs ref: {mr:.4f} ({mc}/{n})  HW acc: {ha:.4f} ({hc}/{n})  Ref acc: {ra:.4f} ({rc}/{n})")
+    print(f"  Max err: {me:.8f}  Mean err: {ma:.8f}")
+    return mr,ha,ra,me,ma
+
+def stage3_full(ol, ip):
+    print("\n"+"="*60); print("STAGE 3: Full (n=3444)"); print("="*60)
+    d = np.load(FULL); X,y,ref = d['X'],d['y'],d['ref_logits']; n=len(X)
+    mc=hc=rc=0; nan_c=inf_c=0; me=se=fe=0.0,0.0,0
+    t0=time.perf_counter()
+    for i in range(n):
+        hw_f,_ = run_kernel(ip, X[i]); sp=pred(ref,i); hp=pred(hw_f,0)
+        if hp==sp: mc+=1
+        if hp==y[i]: hc+=1
+        if sp==y[i]: rc+=1
+        hwf=hw_f.ravel()
+        if not np.isfinite(hwf).all():
+            if np.isnan(hwf).any(): nan_c+=1
+            if np.isinf(hwf).any(): inf_c+=1
+        e0,e1=abs(hwf[0]-ref[i][0]),abs(hwf[1]-ref[i][1])
+        if np.isfinite(e0) and np.isfinite(e1): me=max(me,e0,e1); se+=e0+e1; fe+=1
+        if (i+1)%500==0: print(f"  [{i+1}/{n}] done...")
+    t1=time.perf_counter(); tus=(t1-t0)*1e6; mr,ha,ra=mc/n,hc/n,rc/n
+    ma=se/(fe*2) if fe>0 else float('nan'); tp=n/(t1-t0)
+    print(f"\n  n={n} NaN={nan_c} Inf={inf_c}")
+    print(f"  Time: {tus:.2f} us  Match vs ref: {mr:.4f} ({mc}/{n})")
+    print(f"  HW acc: {ha:.4f} ({hc}/{n})  Ref acc: {ra:.4f} ({rc}/{n})")
+    print(f"  Max err: {me:.8f}  Mean err: {ma:.8f}  Throughput: {tp:.2f} samples/s")
+    return mr,ha,ra,tus,tp,me,ma,nan_c,inf_c
+
+def stage4_latency(ol, ip, n_runs, label=""):
+    print(f"\n"+"="*60); print(f"STAGE 4{label}: Latency ({n_runs} runs)"); print("="*60)
+    d = np.load(FULL); s0 = float_to_fixed(d['X'][0]).ravel()
+    ib = allocate(shape=(INPUT_ELEMS,), dtype=np.int16); ob = allocate(shape=(LOGITS_ELEMS,), dtype=np.int16)
+    ib[:] = s0[:]; ib.flush(); ob[:] = 0; ob.flush()
+    pi,po=int(ib.physical_address),int(ob.physical_address); ilo=pi&0xFFFFFFFF; ihi=(pi>>32)&0xFFFFFFFF; olo=po&0xFFFFFFFF; ohi=(po>>32)&0xFFFFFFFF
+    for _ in range(N_WARMUP):
+        ip.write(INPUT_R_ADDR,ilo); ip.write(INPUT_R_ADDR+4,ihi); ip.write(LOGITS_ADDR,olo); ip.write(LOGITS_ADDR+4,ohi)
+        ip.write(CONTROL_ADDR,0x1)
+        while (ip.read(CONTROL_ADDR)&0x2)==0: pass
+    times=np.zeros(n_runs)
+    for i in range(n_runs):
+        t0=time.perf_counter()
+        ip.write(INPUT_R_ADDR,ilo); ip.write(INPUT_R_ADDR+4,ihi); ip.write(LOGITS_ADDR,olo); ip.write(LOGITS_ADDR+4,ohi)
+        ip.write(CONTROL_ADDR,0x1)
+        while (ip.read(CONTROL_ADDR)&0x2)==0: pass
+        t1=time.perf_counter(); times[i]=(t1-t0)*1e6
+    del ib,ob
+    print(f"  Runs: {n_runs}  Mean: {times.mean():.4f} us  Std: {times.std():.4f} us")
+    print(f"  Min: {times.min():.4f} us  Max: {times.max():.4f} us  P50: {np.median(times):.4f} us")
+    return times.mean(),times.std()
+
+def main():
+    reference_sanity()
+    if not HAS_PYNQ: print("No PYNQ. Ref check only."); return
+
+    print("="*60); print("Ours-Dense-Q8 PYNQ-Z2 FULL TEST"); print("d=16 ff=32 Q8-weight Q16-data"); print("Vivado LUT=14,019 DSP=124 SW acc=91.00%"); print("="*60)
+    print(f"\n  I/O: int16 (ap_fixed<16,6>), scale={FP_SCALE}")
+    if not os.path.exists(BIT): print(f"ERROR: {BIT}"); sys.exit(1)
+    ol = Overlay(BIT); ip = getattr(ol, list(ol.ip_dict.keys())[0])
+    print(f"IP: {list(ol.ip_dict.keys())[0]}")
+
+    if not stage1_sanity(ol,ip): print("SANITY FAILED."); sys.exit(1)
+    mr2,ha2,ra2,mx2,mn2 = stage2_quick(ol,ip)
+    mr3,ha3,ra3,tus,tp,mx3,mn3,nan3,inf3 = stage3_full(ol,ip)
+    km100,ks100 = stage4_latency(ol,ip,100,"a")
+    km1k,ks1k   = stage4_latency(ol,ip,1000,"b")
+
+    print("\n"+"="*60); print("SAVING"); print("="*60)
+    rows = [
+        ("model_id","Ours-Dense-Q8"),("d_model",16),("ff_dim",32),("quant_bits",8),
+        ("weight_type","ap_fixed<8,4>"),("data_type","ap_fixed<16,6>"),("io_dtype","int16 Q6.10"),
+        ("vivado_lut",14019),("vivado_dsp",124),("vivado_ff",13373),("vivado_bram",15),
+        ("software_accuracy",0.9100),("n_correctness_samples",3444),
+        ("prediction_match_rate_vs_Q8_ref",round(mr3,6)),
+        ("hw_label_accuracy",round(ha3,6)),
+        ("ref_label_accuracy",round(ra3,6)),
+        ("max_abs_error",round(mx3,8) if np.isfinite(mx3) else "nan"),
+        ("mean_abs_error",round(mn3,8) if np.isfinite(mn3) else "nan"),
+        ("nan_samples",nan3),("inf_samples",inf3),
+        ("kernel_runtime_mean_us_100runs",round(km100,6)),
+        ("kernel_runtime_std_us_100runs",round(ks100,6)),
+        ("kernel_runtime_mean_us_1000runs",round(km1k,6)),
+        ("kernel_runtime_std_us_1000runs",round(ks1k,6)),
+        ("total_runtime_us_correctness",round(tus,6)),
+        ("throughput_samples_per_sec",round(tp,6)),
+        ("latency_source","PYNQ_Z2_MEASURED"),("pynq_measured","True"),
+        ("notes",f"Q8 Dense (d=16/ff=32) PYNQ-Z2. Q8 weights, Q16 data path. {3444} samples."),
+    ]
+    with open(OUT_CSV,'w',newline='') as f:
+        w=csv.writer(f); w.writerow(["metric","value"])
+        for k,v in rows: w.writerow([k,v])
+    print(f"Results: {OUT_CSV}")
+    print(f"\nKernel latency (1000): {km1k:.2f} us")
+    print(f"Total time ({3444}): {tus:.2f} us")
+    print("Ours-Dense-Q8 PYNQ test complete.")
+
+if __name__=="__main__": main()

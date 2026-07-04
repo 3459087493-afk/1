@@ -1,0 +1,35 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../src/testbench.cpp in debug mode
+   Compiling ../../../../src/imgds_linear_dense_q8.cpp in debug mode
+   Generating csim.exe
+Q8-S0 CSIM Testbench
+==================================================
+
+==================================================
+Q8-S0  CSIM Results (N=200)
+==================================================
+  Prediction match rate vs Q8 ref:  0.9700  (194/200)
+  HW  label accuracy:               0.9150  (183/200)
+  Ref label accuracy:               0.8850  (177/200)
+  Mismatch count  (hw!=ref):        6
+  Max  abs error vs Q8 ref:         0.39715230
+  Mean abs error vs Q8 ref:         0.07557669
+
+  First 6 mismatches:
+  sample hw_logits      ref_logits     hw_pr  ref_pr label 
+  54     [ 0.3545, 0.4219] [ 0.5162, 0.3330] 1     0     1    
+  56     [ 0.4561, 0.5908] [ 0.5544, 0.5217] 1     0     1    
+  82     [ 0.6094, 0.6982] [ 0.7610, 0.6254] 1     0     1    
+  132    [ 0.0107, 0.3213] [ 0.2368, 0.2006] 1     0     1    
+  136    [ 0.4678, 0.6826] [ 0.5887, 0.5829] 1     0     1    
+  152    [ 0.5840, 0.7012] [ 0.6547, 0.6470] 1     0     1    
+
+==================================================
+  Match rate >= 0.95:  PASS
+  Relaxed criteria  :  FAIL
+==================================================
+
+CSIM PASSED. HW accuracy=0.9150.
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

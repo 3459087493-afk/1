@@ -1,0 +1,245 @@
+
+
+================================================================
+== Vitis HLS Report for 'q16_esla_k13_Pipeline_VITIS_LOOP_52_3'
+================================================================
+* Date:           Fri Jul  3 13:39:45 2026
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        q16_esla_k13_csynth
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.901 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_52_3  |        ?|        ?|         4|          3|          1|     ?|       yes|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 3, depth = 4
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 8
+* Pipeline : 1
+  Pipeline-0 : II = 3, D = 4, States = { 2 3 4 7 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 6 8 7 
+5 --> 
+6 --> 5 
+7 --> 2 
+8 --> 5 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.58>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%reuse_addr_reg6 = alloca i32 1"   --->   Operation 9 'alloca' 'reuse_addr_reg6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%reuse_reg5 = alloca i32 1"   --->   Operation 10 'alloca' 'reuse_reg5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%reuse_addr_reg = alloca i32 1"   --->   Operation 11 'alloca' 'reuse_addr_reg' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%reuse_reg = alloca i32 1"   --->   Operation 12 'alloca' 'reuse_reg' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%j = alloca i32 1"   --->   Operation 13 'alloca' 'j' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%key_index_read = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %key_index"   --->   Operation 14 'read' 'key_index_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%key_score_V_read = read i21 @_ssdm_op_Read.ap_auto.i21, i21 %key_score_V"   --->   Operation 15 'read' 'key_score_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%zext_ln48_read = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %zext_ln48"   --->   Operation 16 'read' 'zext_ln48_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%zext_ln48_cast = zext i4 %zext_ln48_read"   --->   Operation 17 'zext' 'zext_ln48_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (1.58ns)   --->   "%store_ln0 = store i64 %zext_ln48_cast, i64 %j"   --->   Operation 18 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 19 [1/1] (1.58ns)   --->   "%store_ln0 = store i4 0, i4 %reuse_reg"   --->   Operation 19 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 20 [1/1] (1.58ns)   --->   "%store_ln0 = store i64 18446744073709551615, i64 %reuse_addr_reg"   --->   Operation 20 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 21 [1/1] (1.58ns)   --->   "%store_ln0 = store i21 0, i21 %reuse_reg5"   --->   Operation 21 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 22 [1/1] (1.58ns)   --->   "%store_ln0 = store i64 18446744073709551615, i64 %reuse_addr_reg6"   --->   Operation 22 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%br_ln0 = br void %while.cond.i"   --->   Operation 23 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 2.32>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%j_2 = load i64 %j" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 24 'load' 'j_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%empty = trunc i64 %j_2" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 25 'trunc' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 26 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%tmp = bitselect i1 @_ssdm_op_BitSelect.i1.i64.i32, i64 %j_2, i32 63" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 27 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%br_ln52 = br i1 %tmp, void %land.rhs.i, void %while.cond.i.for.inc42.i_crit_edge.exitStub" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 28 'br' 'br_ln52' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%sorted_score_V_addr = getelementptr i21 %sorted_score_V, i64 0, i64 %j_2"   --->   Operation 29 'getelementptr' 'sorted_score_V_addr' <Predicate = (!tmp)> <Delay = 0.00>
+ST_2 : Operation 30 [2/2] (2.32ns)   --->   "%sorted_score_V_load = load i4 %sorted_score_V_addr"   --->   Operation 30 'load' 'sorted_score_V_load' <Predicate = (!tmp)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 21> <Depth = 16> <RAM>
+
+State 3 <SV = 2> <Delay = 6.90>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%specloopname_ln1650 = specloopname void @_ssdm_op_SpecLoopName, void @empty_38"   --->   Operation 31 'specloopname' 'specloopname_ln1650' <Predicate = (!tmp)> <Delay = 0.00>
+ST_3 : Operation 32 [1/1] (0.00ns)   --->   "%reuse_reg5_load = load i21 %reuse_reg5"   --->   Operation 32 'load' 'reuse_reg5_load' <Predicate = (!tmp)> <Delay = 0.00>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%reuse_addr_reg6_load = load i64 %reuse_addr_reg6"   --->   Operation 33 'load' 'reuse_addr_reg6_load' <Predicate = (!tmp)> <Delay = 0.00>
+ST_3 : Operation 34 [1/2] (2.32ns)   --->   "%sorted_score_V_load = load i4 %sorted_score_V_addr"   --->   Operation 34 'load' 'sorted_score_V_load' <Predicate = (!tmp)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 21> <Depth = 16> <RAM>
+ST_3 : Operation 35 [1/1] (2.77ns)   --->   "%addr_cmp9 = icmp_eq  i64 %reuse_addr_reg6_load, i64 %j_2" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 35 'icmp' 'addr_cmp9' <Predicate = (!tmp)> <Delay = 2.77> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 36 [1/1] (0.70ns)   --->   "%reuse_select10 = select i1 %addr_cmp9, i21 %reuse_reg5_load, i21 %sorted_score_V_load" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 36 'select' 'reuse_select10' <Predicate = (!tmp)> <Delay = 0.70> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 37 [1/1] (2.44ns)   --->   "%icmp_ln1650 = icmp_slt  i21 %reuse_select10, i21 %key_score_V_read"   --->   Operation 37 'icmp' 'icmp_ln1650' <Predicate = (!tmp)> <Delay = 2.44> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%br_ln53 = br i1 %icmp_ln1650, void %lor.rhs.i, void %while.body.i" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:53]   --->   Operation 38 'br' 'br_ln53' <Predicate = (!tmp)> <Delay = 0.00>
+ST_3 : Operation 39 [1/1] (2.44ns)   --->   "%icmp_ln1653 = icmp_eq  i21 %reuse_select10, i21 %key_score_V_read"   --->   Operation 39 'icmp' 'icmp_ln1653' <Predicate = (!tmp & !icmp_ln1650)> <Delay = 2.44> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%br_ln54 = br i1 %icmp_ln1653, void %lor.rhs.i.for.inc42.i_crit_edge.exitStub, void %land.rhs22.i" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:54]   --->   Operation 40 'br' 'br_ln54' <Predicate = (!tmp & !icmp_ln1650)> <Delay = 0.00>
+ST_3 : Operation 41 [1/1] (0.00ns)   --->   "%sorted_index_addr = getelementptr i4 %sorted_index, i64 0, i64 %j_2" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:54]   --->   Operation 41 'getelementptr' 'sorted_index_addr' <Predicate = (!tmp & !icmp_ln1650 & icmp_ln1653)> <Delay = 0.00>
+ST_3 : Operation 42 [2/2] (2.32ns)   --->   "%sorted_index_load = load i4 %sorted_index_addr" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:54]   --->   Operation 42 'load' 'sorted_index_load' <Predicate = (!tmp & !icmp_ln1650 & icmp_ln1653)> <Delay = 2.32> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 4> <Depth = 16> <RAM>
+
+State 4 <SV = 3> <Delay = 6.40>
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%reuse_reg_load = load i4 %reuse_reg"   --->   Operation 43 'load' 'reuse_reg_load' <Predicate = (!tmp & !icmp_ln1650 & icmp_ln1653)> <Delay = 0.00>
+ST_4 : Operation 44 [1/1] (0.00ns)   --->   "%reuse_addr_reg_load = load i64 %reuse_addr_reg"   --->   Operation 44 'load' 'reuse_addr_reg_load' <Predicate = (!tmp & !icmp_ln1650 & icmp_ln1653)> <Delay = 0.00>
+ST_4 : Operation 45 [1/2] (2.32ns)   --->   "%sorted_index_load = load i4 %sorted_index_addr" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:54]   --->   Operation 45 'load' 'sorted_index_load' <Predicate = (!tmp & !icmp_ln1650 & icmp_ln1653)> <Delay = 2.32> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 4> <Depth = 16> <RAM>
+ST_4 : Operation 46 [1/1] (2.77ns)   --->   "%addr_cmp = icmp_eq  i64 %reuse_addr_reg_load, i64 %j_2" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 46 'icmp' 'addr_cmp' <Predicate = (!tmp & !icmp_ln1650 & icmp_ln1653)> <Delay = 2.77> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 47 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln54)   --->   "%reuse_select = select i1 %addr_cmp, i4 %reuse_reg_load, i4 %sorted_index_load" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 47 'select' 'reuse_select' <Predicate = (!tmp & !icmp_ln1650 & icmp_ln1653)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 1.02> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 48 [1/1] (1.30ns) (out node of the LUT)   --->   "%icmp_ln54 = icmp_ugt  i4 %reuse_select, i4 %key_index_read" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:54]   --->   Operation 48 'icmp' 'icmp_ln54' <Predicate = (!tmp & !icmp_ln1650 & icmp_ln1653)> <Delay = 1.30> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 49 [1/1] (0.00ns)   --->   "%br_ln52 = br i1 %icmp_ln54, void %land.rhs22.i.for.inc42.i_crit_edge.exitStub, void %while.body.i" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 49 'br' 'br_ln52' <Predicate = (!tmp & !icmp_ln1650 & icmp_ln1653)> <Delay = 0.00>
+ST_4 : Operation 50 [1/1] (1.73ns)   --->   "%add_ln55 = add i4 %empty, i4 1" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:55]   --->   Operation 50 'add' 'add_ln55' <Predicate = (!tmp & icmp_ln1653 & icmp_ln54) | (!tmp & icmp_ln1650)> <Delay = 1.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 51 [1/1] (0.00ns)   --->   "%zext_ln55 = zext i4 %add_ln55" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:55]   --->   Operation 51 'zext' 'zext_ln55' <Predicate = (!tmp & icmp_ln1653 & icmp_ln54) | (!tmp & icmp_ln1650)> <Delay = 0.00>
+ST_4 : Operation 52 [1/1] (0.00ns)   --->   "%sorted_score_V_addr_1 = getelementptr i21 %sorted_score_V, i64 0, i64 %zext_ln55" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:55]   --->   Operation 52 'getelementptr' 'sorted_score_V_addr_1' <Predicate = (!tmp & icmp_ln1653 & icmp_ln54) | (!tmp & icmp_ln1650)> <Delay = 0.00>
+ST_4 : Operation 53 [1/1] (2.32ns)   --->   "%store_ln55 = store i21 %reuse_select10, i4 %sorted_score_V_addr_1" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:55]   --->   Operation 53 'store' 'store_ln55' <Predicate = (!tmp & icmp_ln1653 & icmp_ln54) | (!tmp & icmp_ln1650)> <Delay = 2.32> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 21> <Depth = 16> <RAM>
+ST_4 : Operation 54 [1/1] (1.58ns)   --->   "%store_ln52 = store i21 %reuse_select10, i21 %reuse_reg5" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 54 'store' 'store_ln52' <Predicate = (!tmp & icmp_ln1653 & icmp_ln54) | (!tmp & icmp_ln1650)> <Delay = 1.58>
+ST_4 : Operation 55 [1/1] (1.58ns)   --->   "%store_ln55 = store i64 %zext_ln55, i64 %reuse_addr_reg6" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:55]   --->   Operation 55 'store' 'store_ln55' <Predicate = (!tmp & icmp_ln1653 & icmp_ln54) | (!tmp & icmp_ln1650)> <Delay = 1.58>
+ST_4 : Operation 56 [1/1] (0.00ns)   --->   "%sorted_index_addr_1 = getelementptr i4 %sorted_index, i64 0, i64 %j_2" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:56]   --->   Operation 56 'getelementptr' 'sorted_index_addr_1' <Predicate = (!tmp & icmp_ln1653 & icmp_ln54) | (!tmp & icmp_ln1650)> <Delay = 0.00>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%reuse_addr_reg_load_1 = load i64 %reuse_addr_reg"   --->   Operation 57 'load' 'reuse_addr_reg_load_1' <Predicate = (!tmp & icmp_ln1653 & icmp_ln54) | (!tmp & icmp_ln1650)> <Delay = 0.00>
+ST_4 : Operation 58 [2/2] (2.32ns)   --->   "%sorted_index_load_1 = load i4 %sorted_index_addr_1" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:56]   --->   Operation 58 'load' 'sorted_index_load_1' <Predicate = (!tmp & icmp_ln1653 & icmp_ln54) | (!tmp & icmp_ln1650)> <Delay = 2.32> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 4> <Depth = 16> <RAM>
+ST_4 : Operation 59 [1/1] (2.77ns)   --->   "%addr_cmp3 = icmp_eq  i64 %reuse_addr_reg_load_1, i64 %j_2" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 59 'icmp' 'addr_cmp3' <Predicate = (!tmp & icmp_ln1653 & icmp_ln54) | (!tmp & icmp_ln1650)> <Delay = 2.77> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 60 [1/1] (1.58ns)   --->   "%store_ln55 = store i64 %zext_ln55, i64 %reuse_addr_reg" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:55]   --->   Operation 60 'store' 'store_ln55' <Predicate = (!tmp & icmp_ln1653 & icmp_ln54) | (!tmp & icmp_ln1650)> <Delay = 1.58>
+ST_4 : Operation 61 [1/1] (3.52ns)   --->   "%add_ln57 = add i64 %j_2, i64 18446744073709551615" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:57]   --->   Operation 61 'add' 'add_ln57' <Predicate = (!tmp & icmp_ln1653 & icmp_ln54) | (!tmp & icmp_ln1650)> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 62 [1/1] (1.58ns)   --->   "%store_ln52 = store i64 %add_ln57, i64 %j" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 62 'store' 'store_ln52' <Predicate = (!tmp & icmp_ln1653 & icmp_ln54) | (!tmp & icmp_ln1650)> <Delay = 1.58>
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 63 [1/1] (0.00ns)   --->   "%write_ln52 = write void @_ssdm_op_Write.ap_auto.i4P0A, i4 %j_out, i4 %empty" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 63 'write' 'write_ln52' <Predicate = (!tmp & icmp_ln1653)> <Delay = 0.00>
+ST_5 : Operation 64 [1/1] (0.00ns)   --->   "%br_ln0 = br void %UnifiedReturnBlock"   --->   Operation 64 'br' 'br_ln0' <Predicate = (!tmp & icmp_ln1653)> <Delay = 0.00>
+ST_5 : Operation 65 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 65 'ret' 'ret_ln0' <Predicate = true> <Delay = 0.00>
+
+State 6 <SV = 3> <Delay = 0.00>
+ST_6 : Operation 66 [1/1] (0.00ns)   --->   "%write_ln52 = write void @_ssdm_op_Write.ap_auto.i4P0A, i4 %j_out, i4 %empty" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 66 'write' 'write_ln52' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 67 [1/1] (0.00ns)   --->   "%br_ln0 = br void %UnifiedReturnBlock"   --->   Operation 67 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+
+State 7 <SV = 4> <Delay = 5.66>
+ST_7 : Operation 68 [1/1] (0.00ns)   --->   "%reuse_reg_load_1 = load i4 %reuse_reg"   --->   Operation 68 'load' 'reuse_reg_load_1' <Predicate = (addr_cmp3)> <Delay = 0.00>
+ST_7 : Operation 69 [1/2] (2.32ns)   --->   "%sorted_index_load_1 = load i4 %sorted_index_addr_1" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:56]   --->   Operation 69 'load' 'sorted_index_load_1' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 4> <Depth = 16> <RAM>
+ST_7 : Operation 70 [1/1] (1.02ns)   --->   "%reuse_select4 = select i1 %addr_cmp3, i4 %reuse_reg_load_1, i4 %sorted_index_load_1" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 70 'select' 'reuse_select4' <Predicate = true> <Delay = 1.02> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 1.02> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 71 [1/1] (0.00ns)   --->   "%sorted_index_addr_2 = getelementptr i4 %sorted_index, i64 0, i64 %zext_ln55" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:56]   --->   Operation 71 'getelementptr' 'sorted_index_addr_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 72 [1/1] (2.32ns)   --->   "%store_ln56 = store i4 %reuse_select4, i4 %sorted_index_addr_2" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:56]   --->   Operation 72 'store' 'store_ln56' <Predicate = true> <Delay = 2.32> <CoreInst = "RAM_1WnR">   --->   Core 83 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 4> <Depth = 16> <RAM>
+ST_7 : Operation 73 [1/1] (1.58ns)   --->   "%store_ln52 = store i4 %reuse_select4, i4 %reuse_reg" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 73 'store' 'store_ln52' <Predicate = true> <Delay = 1.58>
+ST_7 : Operation 74 [1/1] (0.00ns)   --->   "%br_ln52 = br void %while.cond.i" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 74 'br' 'br_ln52' <Predicate = true> <Delay = 0.00>
+
+State 8 <SV = 2> <Delay = 0.00>
+ST_8 : Operation 75 [1/1] (0.00ns)   --->   "%write_ln52 = write void @_ssdm_op_Write.ap_auto.i4P0A, i4 %j_out, i4 %empty" [/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52]   --->   Operation 75 'write' 'write_ln52' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 76 [1/1] (0.00ns)   --->   "%br_ln0 = br void %UnifiedReturnBlock"   --->   Operation 76 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 1.59ns
+The critical path consists of the following:
+	'alloca' operation ('j') [11]  (0 ns)
+	'store' operation ('store_ln0') of variable 'zext_ln48_cast' on local variable 'j' [16]  (1.59 ns)
+
+ <State 2>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('j', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52) on local variable 'j' [23]  (0 ns)
+	'getelementptr' operation ('sorted_score_V_addr') [30]  (0 ns)
+	'load' operation ('sorted_score_V_load') on array 'sorted_score_V' [33]  (2.32 ns)
+
+ <State 3>: 6.9ns
+The critical path consists of the following:
+	'load' operation ('reuse_addr_reg6_load') on local variable 'reuse_addr_reg6' [32]  (0 ns)
+	'icmp' operation ('addr_cmp9', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52) [34]  (2.78 ns)
+	'select' operation ('reuse_select10', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52) [35]  (0.704 ns)
+	'icmp' operation ('icmp_ln1653') [39]  (2.44 ns)
+	blocking operation 0.978 ns on control path)
+
+ <State 4>: 6.4ns
+The critical path consists of the following:
+	'add' operation ('add_ln57', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:57) [73]  (3.52 ns)
+	'store' operation ('store_ln52', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52) of variable 'add_ln57', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:57 on local variable 'j' [74]  (1.59 ns)
+	blocking operation 1.29 ns on control path)
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+ <State 7>: 5.67ns
+The critical path consists of the following:
+	'load' operation ('sorted_index_load_1', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:56) on array 'sorted_index' [66]  (2.32 ns)
+	'select' operation ('reuse_select4', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52) [68]  (1.02 ns)
+	'store' operation ('store_ln56', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:56) of variable 'reuse_select4', /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp:52 on array 'sorted_index' [70]  (2.32 ns)
+
+ <State 8>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

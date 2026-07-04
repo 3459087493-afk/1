@@ -1,0 +1,545 @@
+
+
+================================================================
+== Synthesis Summary Report of 'unsw_linear_transformer'
+================================================================
++ General Information: 
+    * Date:           Mon Jun 29 22:15:08 2026
+    * Version:        2022.2 (Build 3670227 on Oct 13 2022)
+    * Project:        unsw_linear_transformer_fixed16_v3b_hotspot_ii1_prj
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------------------------------------------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+----------+-------------+-------------+-----+
+    |                                        Modules                                        |  Issue |       | Latency |  Latency  | Iteration|         | Trip |          |         |          |             |             |     |
+    |                                        & Loops                                        |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM   |    DSP   |      FF     |     LUT     | URAM|
+    +---------------------------------------------------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+----------+-------------+-------------+-----+
+    |+ unsw_linear_transformer                                                              |  Timing|  -3.03|    64720|  6.683e+05|         -|    64721|     -|        no|  20 (7%)|  29 (13%)|  13838 (13%)|  29693 (55%)|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_93_1_VITIS_LOOP_94_2                    |       -|   0.08|      393|  3.930e+03|         -|      393|     -|        no|        -|         -|    574 (~0%)|    1403 (2%)|    -|
+    |  o VITIS_LOOP_93_1_VITIS_LOOP_94_2                                                    |       -|   7.30|      391|  3.910e+03|        10|        2|   192|       yes|        -|         -|            -|            -|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_172_15_VITIS_LOOP_173_16_VITIS_LOOP_s   |       -|   0.27|     4101|  4.101e+04|         -|     4101|     -|        no|        -|   1 (~0%)|    266 (~0%)|     590 (1%)|    -|
+    |  o VITIS_LOOP_172_15_VITIS_LOOP_173_16_VITIS_LOOP_175_17                              |       -|   7.30|     4099|  4.099e+04|         6|        2|  2048|       yes|        -|         -|            -|            -|    -|
+    | + layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_s                      |       -|   0.01|     1377|  1.377e+04|         -|     1377|     -|        no|        -|    5 (2%)|    1749 (1%)|    4442 (8%)|    -|
+    |  o VITIS_LOOP_14_1                                                                    |       -|   7.30|     1376|  1.376e+04|       172|        -|     8|        no|        -|         -|            -|            -|    -|
+    |   + layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2  |       -|   2.18|       34|    340.000|         -|       34|     -|        no|        -|         -|     51 (~0%)|    234 (~0%)|    -|
+    |    o VITIS_LOOP_16_2                                                                  |       -|   7.30|       32|    320.000|         3|        2|    16|       yes|        -|         -|            -|            -|    -|
+    |   + layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1  |       -|   0.99|       36|    360.000|         -|       36|     -|        no|        -|   1 (~0%)|    180 (~0%)|    375 (~0%)|    -|
+    |    o VITIS_LOOP_23_3                                                                  |       -|   7.30|       34|    340.000|         5|        2|    16|       yes|        -|         -|            -|            -|    -|
+    |   + layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO    |       -|   0.01|       45|    450.000|         -|       45|     -|        no|        -|   2 (~0%)|    453 (~0%)|     614 (1%)|    -|
+    |    o VITIS_LOOP_35_4                                                                  |       -|   7.30|       43|    430.000|        14|        2|    16|       yes|        -|         -|            -|            -|    -|
+    | + unsw_linear_transformer_Pipeline_VITIS_LOOP_279_33_VITIS_LOOP_281_34                |       -|   0.59|      261|  2.610e+03|         -|      261|     -|        no|        -|         -|    274 (~0%)|     625 (1%)|    -|
+    |  o VITIS_LOOP_279_33_VITIS_LOOP_281_34                                                |       -|   7.30|      259|  2.590e+03|         6|        2|   128|       yes|        -|         -|            -|            -|    -|
+    | + layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_s                      |       -|   0.04|      169|  1.690e+03|         -|      169|     -|        no|        -|    5 (2%)|    1638 (1%)|    4299 (8%)|    -|
+    |  + layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2   |       -|   0.10|       34|    340.000|         -|       34|     -|        no|        -|         -|     32 (~0%)|    191 (~0%)|    -|
+    |   o VITIS_LOOP_56_1                                                                   |       -|   7.30|       32|    320.000|         2|        2|    16|       yes|        -|         -|            -|            -|    -|
+    |  + layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1   |       -|   1.09|       36|    360.000|         -|       36|     -|        no|        -|   1 (~0%)|    180 (~0%)|    361 (~0%)|    -|
+    |   o VITIS_LOOP_63_2                                                                   |       -|   7.30|       34|    340.000|         5|        2|    16|       yes|        -|         -|            -|            -|    -|
+    |  + layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO     |       -|   0.08|       45|    450.000|         -|       45|     -|        no|        -|   2 (~0%)|    386 (~0%)|     571 (1%)|    -|
+    |   o VITIS_LOOP_75_3                                                                   |       -|   7.30|       43|    430.000|        14|        2|    16|       yes|        -|         -|            -|            -|    -|
+    | o VITIS_LOOP_102_3_VITIS_LOOP_103_4                                                   |       -|   7.30|     7808|  8.063e+04|        61|        -|   128|        no|        -|         -|            -|            -|    -|
+    |  + unsw_linear_transformer_Pipeline_VITIS_LOOP_105_5                                  |       -|   0.23|       56|    560.000|         -|       56|     -|        no|  1 (~0%)|   1 (~0%)|    400 (~0%)|     701 (1%)|    -|
+    |   o VITIS_LOOP_105_5                                                                  |       -|   7.30|       54|    540.000|         9|        2|    24|       yes|        -|         -|            -|            -|    -|
+    | o VITIS_LOOP_117_6_VITIS_LOOP_118_7                                                   |       -|   7.30|     7936|  8.195e+04|        62|        -|   128|        no|        -|         -|            -|            -|    -|
+    |  + unsw_linear_transformer_Pipeline_VITIS_LOOP_120_8                                  |       -|   0.23|       38|    380.000|         -|       38|     -|        no|  1 (~0%)|   1 (~0%)|    104 (~0%)|    356 (~0%)|    -|
+    |   o VITIS_LOOP_120_8                                                                  |       -|   7.30|       36|    360.000|         7|        2|    16|       yes|        -|         -|            -|            -|    -|
+    | o VITIS_LOOP_137_9_VITIS_LOOP_138_10                                                  |       -|   7.30|     7936|  8.195e+04|        62|        -|   128|        no|        -|         -|            -|            -|    -|
+    |  + unsw_linear_transformer_Pipeline_VITIS_LOOP_140_11                                 |       -|   0.23|       38|    380.000|         -|       38|     -|        no|  1 (~0%)|   1 (~0%)|    106 (~0%)|    356 (~0%)|    -|
+    |   o VITIS_LOOP_140_11                                                                 |       -|   7.30|       36|    360.000|         7|        2|    16|       yes|        -|         -|            -|            -|    -|
+    | o VITIS_LOOP_157_12_VITIS_LOOP_158_13                                                 |       -|   7.30|     5504|  5.684e+04|        43|        -|   128|        no|        -|         -|            -|            -|    -|
+    |  + unsw_linear_transformer_Pipeline_VITIS_LOOP_160_14                                 |       -|   0.23|       38|    380.000|         -|       38|     -|        no|  1 (~0%)|   1 (~0%)|    106 (~0%)|    356 (~0%)|    -|
+    |   o VITIS_LOOP_160_14                                                                 |       -|   7.30|       36|    360.000|         7|        2|    16|       yes|        -|         -|            -|            -|    -|
+    | o VITIS_LOOP_186_18                                                                   |       -|   7.30|      352|  3.635e+03|        22|        -|    16|        no|        -|         -|            -|            -|    -|
+    |  + unsw_linear_transformer_Pipeline_VITIS_LOOP_188_19                                 |       -|   2.42|       18|    180.000|         -|       18|     -|        no|        -|         -|     50 (~0%)|    219 (~0%)|    -|
+    |   o VITIS_LOOP_188_19                                                                 |       -|   7.30|       16|    160.000|         3|        2|     8|       yes|        -|         -|            -|            -|    -|
+    | o VITIS_LOOP_197_20                                                                   |       -|   7.30|     4872|  5.031e+04|       609|        -|     8|        no|        -|         -|            -|            -|    -|
+    |  + unsw_linear_transformer_Pipeline_VITIS_LOOP_199_21                                 |       -|   0.98|       36|    360.000|         -|       36|     -|        no|        -|   1 (~0%)|    195 (~0%)|    380 (~0%)|    -|
+    |   o VITIS_LOOP_199_21                                                                 |       -|   7.30|       34|    340.000|         5|        2|    16|       yes|        -|         -|            -|            -|    -|
+    |  + unsw_linear_transformer_Pipeline_VITIS_LOOP_207_22_VITIS_LOOP_209_23               |       -|   0.19|      569|  5.690e+03|         -|      569|     -|        no|        -|   2 (~0%)|    5007 (4%)|    4044 (7%)|    -|
+    |   o VITIS_LOOP_207_22_VITIS_LOOP_209_23                                               |       -|   7.30|      567|  5.670e+03|        58|        2|   256|       yes|        -|         -|            -|            -|    -|
+    | o VITIS_LOOP_221_24_VITIS_LOOP_222_25                                                 |       -|   7.30|     5760|  5.948e+04|        45|        -|   128|        no|        -|         -|            -|            -|    -|
+    |  + unsw_linear_transformer_Pipeline_VITIS_LOOP_224_26                                 |       -|   0.23|       38|    380.000|         -|       38|     -|        no|  1 (~0%)|   1 (~0%)|    105 (~0%)|    356 (~0%)|    -|
+    |   o VITIS_LOOP_224_26                                                                 |       -|   7.30|       36|    360.000|         7|        2|    16|       yes|        -|         -|            -|            -|    -|
+    | o VITIS_LOOP_244_27_VITIS_LOOP_245_28                                                 |       -|   7.30|    11008|  1.137e+05|        43|        -|   256|        no|        -|         -|            -|            -|    -|
+    |  + unsw_linear_transformer_Pipeline_VITIS_LOOP_247_29                                 |       -|   0.23|       38|    380.000|         -|       38|     -|        no|  1 (~0%)|   1 (~0%)|    106 (~0%)|    355 (~0%)|    -|
+    |   o VITIS_LOOP_247_29                                                                 |       -|   7.30|       36|    360.000|         7|        2|    16|       yes|        -|         -|            -|            -|    -|
+    | o VITIS_LOOP_258_30_VITIS_LOOP_259_31                                                 |       -|   7.30|     5760|  5.948e+04|        45|        -|   128|        no|        -|         -|            -|            -|    -|
+    |  + unsw_linear_transformer_Pipeline_VITIS_LOOP_261_32                                 |  Timing|  -3.03|       40|    413.060|         -|       40|     -|        no|  1 (~0%)|   1 (~0%)|    306 (~0%)|     583 (1%)|    -|
+    |   o VITIS_LOOP_261_32                                                                 |       -|   7.30|       38|    392.407|         8|        1|    32|       yes|        -|         -|            -|            -|    -|
+    | o VITIS_LOOP_296_35                                                                   |       -|   7.30|       84|    867.426|        42|        -|     2|        no|        -|         -|            -|            -|    -|
+    |  + unsw_linear_transformer_Pipeline_VITIS_LOOP_298_36                                 |       -|   0.23|       38|    380.000|         -|       38|     -|        no|        -|   1 (~0%)|    117 (~0%)|    346 (~0%)|    -|
+    |   o VITIS_LOOP_298_36                                                                 |       -|   7.30|       36|    360.000|         7|        2|    16|       yes|        -|         -|            -|            -|    -|
+    +---------------------------------------------------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+----------+-------------+-------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* AP_MEMORY
++------------------+----------+
+| Interface        | Bitwidth |
++------------------+----------+
+| input_r_address0 | 8        |
+| input_r_q0       | 32       |
+| logits_address0  | 1        |
+| logits_address1  | 1        |
+| logits_d0        | 32       |
+| logits_d1        | 32       |
++------------------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+----------+
+| Argument | Direction | Datatype |
++----------+-----------+----------+
+| input    | in        | float*   |
+| logits   | out       | float*   |
++----------+-----------+----------+
+
+* SW-to-HW Mapping
++----------+------------------+---------+----------+
+| Argument | HW Interface     | HW Type | HW Usage |
++----------+------------------+---------+----------+
+| input    | input_r_address0 | port    | offset   |
+| input    | input_r_ce0      | port    |          |
+| input    | input_r_q0       | port    |          |
+| logits   | logits_address0  | port    | offset   |
+| logits   | logits_ce0       | port    |          |
+| logits   | logits_we0       | port    |          |
+| logits   | logits_d0        | port    |          |
+| logits   | logits_address1  | port    | offset   |
+| logits   | logits_ce1       | port    |          |
+| logits   | logits_we1       | port    |          |
+| logits   | logits_d1        | port    |          |
++----------+------------------+---------+----------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++--------------------------------------------------------------------------------------+-----+--------+-----------------+-------+---------+---------+
+| Name                                                                                 | DSP | Pragma | Variable        | Op    | Impl    | Latency |
++--------------------------------------------------------------------------------------+-----+--------+-----------------+-------+---------+---------+
+| + unsw_linear_transformer                                                            | 29  |        |                 |       |         |         |
+|   add_ln102_1_fu_977_p2                                                              | -   |        | add_ln102_1     | add   | fabric  | 0       |
+|   add_ln102_fu_989_p2                                                                | -   |        | add_ln102       | add   | fabric  | 0       |
+|   sub_ln837_fu_1104_p2                                                               | -   |        | sub_ln837       | sub   | fabric  | 0       |
+|   sub_ln837_1_fu_1129_p2                                                             | -   |        | sub_ln837_1     | sub   | fabric  | 0       |
+|   add_ln837_fu_1064_p2                                                               | -   |        | add_ln837       | add   | fabric  | 0       |
+|   add_ln103_fu_1075_p2                                                               | -   |        | add_ln103       | add   | fabric  | 0       |
+|   add_ln117_1_fu_1162_p2                                                             | -   |        | add_ln117_1     | add   | fabric  | 0       |
+|   add_ln117_fu_1174_p2                                                               | -   |        | add_ln117       | add   | fabric  | 0       |
+|   add_ln130_fu_1254_p2                                                               | -   |        | add_ln130       | add   | fabric  | 0       |
+|   fpext_32ns_64_2_no_dsp_1_U143                                                      | -   |        | p_Val2_41       | add   | fabric  | 0       |
+|   tmp_V_fu_1420_p2                                                                   | -   |        | tmp_V           | sub   | fabric  | 0       |
+|   sub_ln1099_fu_1464_p2                                                              | -   |        | sub_ln1099      | sub   | fabric  | 0       |
+|   lsb_index_fu_1558_p2                                                               | -   |        | lsb_index       | add   | fabric  | 0       |
+|   ret_V_fu_2271_p2                                                                   | -   |        | ret_V           | add   | fabric  | 0       |
+|   p_Val2_44_fu_2285_p2                                                               | -   |        | p_Val2_44       | add   | fabric  | 0       |
+|   sub_ln1102_fu_1579_p2                                                              | -   |        | sub_ln1102      | sub   | fabric  | 0       |
+|   add_ln1104_fu_1625_p2                                                              | -   |        | add_ln1104      | add   | fabric  | 0       |
+|   add_ln1113_fu_1666_p2                                                              | -   |        | add_ln1113      | add   | fabric  | 0       |
+|   sub_ln1114_fu_1681_p2                                                              | -   |        | sub_ln1114      | sub   | fabric  | 0       |
+|   m_3_fu_1706_p2                                                                     | -   |        | m_3             | add   | fabric  | 0       |
+|   fexp_32ns_32ns_32_10_full_dsp_1_U144                                               | 7   |        | d_assign_1      | fexp  | fulldsp | 9       |
+|   man_V_3_fu_1828_p2                                                                 | -   |        | man_V_3         | sub   | fabric  | 0       |
+|   F2_fu_1841_p2                                                                      | -   |        | F2              | sub   | fabric  | 0       |
+|   add_ln570_fu_1853_p2                                                               | -   |        | add_ln570       | add   | fabric  | 0       |
+|   sub_ln570_fu_1859_p2                                                               | -   |        | sub_ln570       | sub   | fabric  | 0       |
+|   add_ln580_fu_1984_p2                                                               | -   |        | add_ln580       | add   | fabric  | 0       |
+|   p_Val2_53_fu_2066_p2                                                               | -   |        | p_Val2_53       | add   | fabric  | 0       |
+|   pos1_fu_1899_p2                                                                    | -   |        | pos1            | add   | fabric  | 0       |
+|   pos2_fu_2013_p2                                                                    | -   |        | pos2            | add   | fabric  | 0       |
+|   add_ln118_fu_1260_p2                                                               | -   |        | add_ln118       | add   | fabric  | 0       |
+|   add_ln137_1_fu_2521_p2                                                             | -   |        | add_ln137_1     | add   | fabric  | 0       |
+|   add_ln137_fu_2533_p2                                                               | -   |        | add_ln137       | add   | fabric  | 0       |
+|   add_ln150_fu_2613_p2                                                               | -   |        | add_ln150       | add   | fabric  | 0       |
+|   p_Val2_56_fu_2679_p2                                                               | -   |        | p_Val2_56       | add   | fabric  | 0       |
+|   tmp_V_2_fu_2779_p2                                                                 | -   |        | tmp_V_2         | sub   | fabric  | 0       |
+|   sub_ln1099_1_fu_2823_p2                                                            | -   |        | sub_ln1099_1    | sub   | fabric  | 0       |
+|   lsb_index_1_fu_2917_p2                                                             | -   |        | lsb_index_1     | add   | fabric  | 0       |
+|   ret_V_3_fu_3630_p2                                                                 | -   |        | ret_V_3         | add   | fabric  | 0       |
+|   p_Val2_62_fu_3644_p2                                                               | -   |        | p_Val2_62       | add   | fabric  | 0       |
+|   sub_ln1102_1_fu_2938_p2                                                            | -   |        | sub_ln1102_1    | sub   | fabric  | 0       |
+|   add_ln1104_1_fu_2984_p2                                                            | -   |        | add_ln1104_1    | add   | fabric  | 0       |
+|   add_ln1113_1_fu_3025_p2                                                            | -   |        | add_ln1113_1    | add   | fabric  | 0       |
+|   sub_ln1114_1_fu_3040_p2                                                            | -   |        | sub_ln1114_1    | sub   | fabric  | 0       |
+|   m_7_fu_3065_p2                                                                     | -   |        | m_7             | add   | fabric  | 0       |
+|   fexp_32ns_32ns_32_10_full_dsp_1_U144                                               | 7   |        | d_assign_2      | fexp  | fulldsp | 9       |
+|   man_V_6_fu_3187_p2                                                                 | -   |        | man_V_6         | sub   | fabric  | 0       |
+|   F2_1_fu_3200_p2                                                                    | -   |        | F2_1            | sub   | fabric  | 0       |
+|   add_ln570_1_fu_3212_p2                                                             | -   |        | add_ln570_1     | add   | fabric  | 0       |
+|   sub_ln570_1_fu_3218_p2                                                             | -   |        | sub_ln570_1     | sub   | fabric  | 0       |
+|   add_ln580_1_fu_3343_p2                                                             | -   |        | add_ln580_1     | add   | fabric  | 0       |
+|   p_Val2_67_fu_3425_p2                                                               | -   |        | p_Val2_67       | add   | fabric  | 0       |
+|   pos1_1_fu_3258_p2                                                                  | -   |        | pos1_1          | add   | fabric  | 0       |
+|   pos2_1_fu_3372_p2                                                                  | -   |        | pos2_1          | add   | fabric  | 0       |
+|   add_ln138_fu_2619_p2                                                               | -   |        | add_ln138       | add   | fabric  | 0       |
+|   add_ln157_1_fu_3880_p2                                                             | -   |        | add_ln157_1     | add   | fabric  | 0       |
+|   add_ln157_fu_3892_p2                                                               | -   |        | add_ln157       | add   | fabric  | 0       |
+|   add_ln166_fu_3962_p2                                                               | -   |        | add_ln166       | add   | fabric  | 0       |
+|   p_Val2_72_fu_4020_p2                                                               | -   |        | p_Val2_72       | add   | fabric  | 0       |
+|   add_ln158_fu_3968_p2                                                               | -   |        | add_ln158       | add   | fabric  | 0       |
+|   add_ln186_fu_4209_p2                                                               | -   |        | add_ln186       | add   | fabric  | 0       |
+|   p_Val2_74_fu_4271_p2                                                               | -   |        | p_Val2_74       | add   | fabric  | 0       |
+|   add_ln197_fu_4464_p2                                                               | -   |        | add_ln197       | add   | fabric  | 0       |
+|   add_ln221_1_fu_4532_p2                                                             | -   |        | add_ln221_1     | add   | fabric  | 0       |
+|   add_ln221_fu_4598_p2                                                               | -   |        | add_ln221       | add   | fabric  | 0       |
+|   add_ln837_5_fu_4639_p2                                                             | -   |        | add_ln837_5     | add   | fabric  | 0       |
+|   p_Val2_76_fu_4698_p2                                                               | -   |        | p_Val2_76       | add   | fabric  | 0       |
+|   add_ln1347_fu_4896_p2                                                              | -   |        | add_ln1347      | add   | fabric  | 0       |
+|   add_ln810_fu_4902_p2                                                               | -   |        | add_ln810       | add   | fabric  | 0       |
+|   add_ln222_fu_4564_p2                                                               | -   |        | add_ln222       | add   | fabric  | 0       |
+|   add_ln244_1_fu_5009_p2                                                             | -   |        | add_ln244_1     | add   | fabric  | 0       |
+|   add_ln244_fu_5075_p2                                                               | -   |        | add_ln244       | add   | fabric  | 0       |
+|   add_ln252_fu_5123_p2                                                               | -   |        | add_ln252       | add   | fabric  | 0       |
+|   p_Val2_79_fu_5194_p2                                                               | -   |        | p_Val2_79       | add   | fabric  | 0       |
+|   add_ln856_fu_5200_p2                                                               | -   |        | add_ln856       | add   | fabric  | 0       |
+|   add_ln245_fu_5041_p2                                                               | -   |        | add_ln245       | add   | fabric  | 0       |
+|   add_ln258_1_fu_5294_p2                                                             | -   |        | add_ln258_1     | add   | fabric  | 0       |
+|   add_ln258_fu_5306_p2                                                               | -   |        | add_ln258       | add   | fabric  | 0       |
+|   add_ln837_6_fu_5371_p2                                                             | -   |        | add_ln837_6     | add   | fabric  | 0       |
+|   add_ln259_fu_5382_p2                                                               | -   |        | add_ln259       | add   | fabric  | 0       |
+|   add_ln296_fu_5440_p2                                                               | -   |        | add_ln296       | add   | fabric  | 0       |
+|   p_Val2_87_fu_5662_p2                                                               | -   |        | p_Val2_87       | add   | fabric  | 0       |
+|   tmp_V_4_fu_5483_p2                                                                 | -   |        | tmp_V_4         | sub   | fabric  | 0       |
+|   sub_ln1099_2_fu_5527_p2                                                            | -   |        | sub_ln1099_2    | sub   | fabric  | 0       |
+|   lsb_index_2_fu_5860_p2                                                             | -   |        | lsb_index_2     | add   | fabric  | 0       |
+|   sub_ln1102_2_fu_5881_p2                                                            | -   |        | sub_ln1102_2    | sub   | fabric  | 0       |
+|   add_ln1104_2_fu_5927_p2                                                            | -   |        | add_ln1104_2    | add   | fabric  | 0       |
+|   add_ln1113_2_fu_6073_p2                                                            | -   |        | add_ln1113_2    | add   | fabric  | 0       |
+|   sub_ln1114_2_fu_6088_p2                                                            | -   |        | sub_ln1114_2    | sub   | fabric  | 0       |
+|   m_13_fu_6113_p2                                                                    | -   |        | m_13            | add   | fabric  | 0       |
+|   tmp_V_6_fu_5559_p2                                                                 | -   |        | tmp_V_6         | sub   | fabric  | 0       |
+|   sub_ln1099_3_fu_5603_p2                                                            | -   |        | sub_ln1099_3    | sub   | fabric  | 0       |
+|   lsb_index_3_fu_5965_p2                                                             | -   |        | lsb_index_3     | add   | fabric  | 0       |
+|   sub_ln1102_3_fu_5986_p2                                                            | -   |        | sub_ln1102_3    | sub   | fabric  | 0       |
+|   add_ln1104_3_fu_6032_p2                                                            | -   |        | add_ln1104_3    | add   | fabric  | 0       |
+|   add_ln1113_3_fu_6140_p2                                                            | -   |        | add_ln1113_3    | add   | fabric  | 0       |
+|   sub_ln1114_3_fu_6155_p2                                                            | -   |        | sub_ln1114_3    | sub   | fabric  | 0       |
+|   m_17_fu_6180_p2                                                                    | -   |        | m_17            | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_93_1_VITIS_LOOP_94_2                  | 0   |        |                 |       |         |         |
+|    add_ln93_1_fu_187_p2                                                              | -   |        | add_ln93_1      | add   | fabric  | 0       |
+|    add_ln93_fu_199_p2                                                                | -   |        | add_ln93        | add   | fabric  | 0       |
+|    man_V_2_fu_346_p2                                                                 | -   |        | man_V_2         | sub   | fabric  | 0       |
+|    F2_fu_359_p2                                                                      | -   |        | F2              | sub   | fabric  | 0       |
+|    add_ln570_fu_371_p2                                                               | -   |        | add_ln570       | add   | fabric  | 0       |
+|    sub_ln570_fu_377_p2                                                               | -   |        | sub_ln570       | sub   | fabric  | 0       |
+|    add_ln580_fu_497_p2                                                               | -   |        | add_ln580       | add   | fabric  | 0       |
+|    p_Val2_3_fu_579_p2                                                                | -   |        | p_Val2_3        | add   | fabric  | 0       |
+|    pos1_fu_417_p2                                                                    | -   |        | pos1            | add   | fabric  | 0       |
+|    pos2_fu_526_p2                                                                    | -   |        | pos2            | add   | fabric  | 0       |
+|    add_ln94_fu_267_p2                                                                | -   |        | add_ln94        | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_105_5                                 | 1   |        |                 |       |         |         |
+|    add_ln105_fu_240_p2                                                               | -   |        | add_ln105       | add   | fabric  | 0       |
+|    add_ln837_1_fu_254_p2                                                             | -   |        | add_ln837_1     | add   | fabric  | 0       |
+|    add_ln837_2_fu_265_p2                                                             | -   |        | add_ln837_2     | add   | fabric  | 0       |
+|    mul_mul_15s_20s_35_4_1_U4                                                         | 1   |        | r_V             | mul   | dsp48   | 3       |
+|    ret_V_fu_339_p2                                                                   | -   |        | ret_V           | add   | fabric  | 0       |
+|    add_ln1347_2_fu_345_p2                                                            | -   |        | add_ln1347_2    | add   | fabric  | 0       |
+|    sum_V_16_fu_380_p2                                                                | -   |        | sum_V_16        | add   | fabric  | 0       |
+|    ret_V_2_fu_530_p2                                                                 | -   |        | ret_V_2         | add   | fabric  | 0       |
+|    sum_V_17_fu_543_p2                                                                | -   |        | sum_V_17        | add   | fabric  | 0       |
+|    p_Val2_40_fu_628_p2                                                               | -   |        | p_Val2_40       | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_120_8                                 | 1   |        |                 |       |         |         |
+|    add_ln120_fu_152_p2                                                               | -   |        | add_ln120       | add   | fabric  | 0       |
+|    add_ln837_3_fu_166_p2                                                             | -   |        | add_ln837_3     | add   | fabric  | 0       |
+|    add_ln122_fu_177_p2                                                               | -   |        | add_ln122       | add   | fabric  | 0       |
+|    mul_mul_13s_20s_33_4_1_U15                                                        | 1   |        | r_V             | mul   | dsp48   | 3       |
+|    ret_V_fu_245_p2                                                                   | -   |        | ret_V           | add   | fabric  | 0       |
+|    add_ln1347_6_fu_251_p2                                                            | -   |        | add_ln1347_6    | add   | fabric  | 0       |
+|    query_sum_V_4_fu_286_p2                                                           | -   |        | query_sum_V_4   | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_140_11                                | 1   |        |                 |       |         |         |
+|    add_ln140_fu_152_p2                                                               | -   |        | add_ln140       | add   | fabric  | 0       |
+|    add_ln837_4_fu_166_p2                                                             | -   |        | add_ln837_4     | add   | fabric  | 0       |
+|    add_ln142_fu_177_p2                                                               | -   |        | add_ln142       | add   | fabric  | 0       |
+|    mul_mul_15s_20s_35_4_1_U22                                                        | 1   |        | r_V             | mul   | dsp48   | 3       |
+|    ret_V_fu_245_p2                                                                   | -   |        | ret_V           | add   | fabric  | 0       |
+|    add_ln1347_9_fu_251_p2                                                            | -   |        | add_ln1347_9    | add   | fabric  | 0       |
+|    key_sum_V_4_fu_286_p2                                                             | -   |        | key_sum_V_4     | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_172_15_VITIS_LOOP_173_16_VITIS_LOOP_s | 1   |        |                 |       |         |         |
+|    add_ln172_1_fu_195_p2                                                             | -   |        | add_ln172_1     | add   | fabric  | 0       |
+|    add_ln172_fu_210_p2                                                               | -   |        | add_ln172       | add   | fabric  | 0       |
+|    add_ln173_fu_260_p2                                                               | -   |        | add_ln173       | add   | fabric  | 0       |
+|    add_ln180_fu_335_p2                                                               | -   |        | add_ln180       | add   | fabric  | 0       |
+|    add_ln837_fu_349_p2                                                               | -   |        | add_ln837       | add   | fabric  | 0       |
+|    add_ln837_4_fu_360_p2                                                             | -   |        | add_ln837_4     | add   | fabric  | 0       |
+|    mul_22s_22s_44_1_1_U34                                                            | 1   |        | r_V             | mul   | auto    | 0       |
+|    ret_V_fu_453_p2                                                                   | -   |        | ret_V           | add   | fabric  | 0       |
+|    add_ln1347_8_fu_459_p2                                                            | -   |        | add_ln1347_8    | add   | fabric  | 0       |
+|    sum_V_12_fu_493_p2                                                                | -   |        | sum_V_12        | add   | fabric  | 0       |
+|    add_ln175_fu_371_p2                                                               | -   |        | add_ln175       | add   | fabric  | 0       |
+|    add_ln173_1_fu_280_p2                                                             | -   |        | add_ln173_1     | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_160_14                                | 1   |        |                 |       |         |         |
+|    add_ln160_fu_152_p2                                                               | -   |        | add_ln160       | add   | fabric  | 0       |
+|    add_ln837_fu_166_p2                                                               | -   |        | add_ln837       | add   | fabric  | 0       |
+|    add_ln162_fu_177_p2                                                               | -   |        | add_ln162       | add   | fabric  | 0       |
+|    mul_mul_15s_20s_35_4_1_U28                                                        | 1   |        | r_V_14          | mul   | dsp48   | 3       |
+|    ret_V_fu_245_p2                                                                   | -   |        | ret_V           | add   | fabric  | 0       |
+|    add_ln1347_9_fu_251_p2                                                            | -   |        | add_ln1347_9    | add   | fabric  | 0       |
+|    value_sum_V_4_fu_286_p2                                                           | -   |        | value_sum_V_4   | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_188_19                                | 0   |        |                 |       |         |         |
+|    add_ln188_fu_113_p2                                                               | -   |        | add_ln188       | add   | fabric  | 0       |
+|    ret_V_fu_159_p2                                                                   | -   |        | ret_V           | add   | fabric  | 0       |
+|    sum_V_10_fu_173_p2                                                                | -   |        | sum_V_10        | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_199_21                                | 1   |        |                 |       |         |         |
+|    add_ln199_fu_138_p2                                                               | -   |        | add_ln199       | add   | fabric  | 0       |
+|    add_ln837_fu_153_p2                                                               | -   |        | add_ln837       | add   | fabric  | 0       |
+|    mul_22s_22s_44_1_1_U42                                                            | 1   |        | r_V_12          | mul   | auto    | 0       |
+|    ret_V_fu_223_p2                                                                   | -   |        | ret_V           | add   | fabric  | 0       |
+|    add_ln1347_7_fu_229_p2                                                            | -   |        | add_ln1347_7    | add   | fabric  | 0       |
+|    denominator_V_2_fu_263_p2                                                         | -   |        | denominator_V_2 | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_207_22_VITIS_LOOP_209_23              | 2   |        |                 |       |         |         |
+|    add_ln207_1_fu_226_p2                                                             | -   |        | add_ln207_1     | add   | fabric  | 0       |
+|    add_ln207_fu_238_p2                                                               | -   |        | add_ln207       | add   | fabric  | 0       |
+|    add_ln214_fu_802_p2                                                               | -   |        | add_ln214       | add   | fabric  | 0       |
+|    add_ln837_fu_285_p2                                                               | -   |        | add_ln837       | add   | fabric  | 0       |
+|    add_ln1273_fu_303_p2                                                              | -   |        | add_ln1273      | add   | fabric  | 0       |
+|    mul_22s_28s_50_3_1_U47                                                            | 2   |        | r_V_10          | mul   | auto    | 2       |
+|    ret_V_fu_381_p2                                                                   | -   |        | ret_V           | add   | fabric  | 0       |
+|    numerator_V_4_fu_415_p2                                                           | -   |        | numerator_V_4   | add   | fabric  | 0       |
+|    add_ln209_fu_314_p2                                                               | -   |        | add_ln209       | add   | fabric  | 0       |
+|    p_Val2_22_fu_671_p2                                                               | -   |        | p_Val2_22       | add   | fabric  | 0       |
+|  + layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_s                    | 5   |        |                 |       |         |         |
+|    add_ln14_fu_264_p2                                                                | -   |        | add_ln14        | add   | fabric  | 0       |
+|    sub_ln1303_fu_303_p2                                                              | -   |        | sub_ln1303      | sub   | fabric  | 0       |
+|    sub_ln1303_2_fu_323_p2                                                            | -   |        | sub_ln1303_2    | sub   | fabric  | 0       |
+|    mean_val_V_4_fu_384_p2                                                            | -   |        | mean_val_V_4    | add   | fabric  | 0       |
+|    sub_ln1303_3_fu_555_p2                                                            | -   |        | sub_ln1303_3    | sub   | fabric  | 0       |
+|    sub_ln1303_4_fu_575_p2                                                            | -   |        | sub_ln1303_4    | sub   | fabric  | 0       |
+|    var_val_V_1_fu_636_p2                                                             | -   |        | var_val_V_1     | add   | fabric  | 0       |
+|    tmp_V_fu_801_p2                                                                   | -   |        | tmp_V           | sub   | fabric  | 0       |
+|    sub_ln1099_fu_842_p2                                                              | -   |        | sub_ln1099      | sub   | fabric  | 0       |
+|    lsb_index_fu_860_p2                                                               | -   |        | lsb_index       | add   | fabric  | 0       |
+|    sub_ln1102_fu_881_p2                                                              | -   |        | sub_ln1102      | sub   | fabric  | 0       |
+|    add_ln1104_fu_927_p2                                                              | -   |        | add_ln1104      | add   | fabric  | 0       |
+|    add_ln1113_fu_968_p2                                                              | -   |        | add_ln1113      | add   | fabric  | 0       |
+|    sub_ln1114_fu_983_p2                                                              | -   |        | sub_ln1114      | sub   | fabric  | 0       |
+|    m_24_fu_1008_p2                                                                   | -   |        | m_24            | add   | fabric  | 0       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U84                                                | 2   |        | phitmp          | fadd  | fulldsp | 4       |
+|    fsqrt_32ns_32ns_32_16_no_dsp_1_U87                                                | -   |        | tmp_29          | fsqrt | fabric  | 15      |
+|    fdiv_32ns_32ns_32_16_no_dsp_1_U85                                                 | -   |        | d_assign        | fdiv  | fabric  | 15      |
+|    man_V_10_fu_1137_p2                                                               | -   |        | man_V_10        | sub   | fabric  | 0       |
+|    F2_fu_1150_p2                                                                     | -   |        | F2              | sub   | fabric  | 0       |
+|    add_ln570_fu_1162_p2                                                              | -   |        | add_ln570       | add   | fabric  | 0       |
+|    sub_ln570_fu_1168_p2                                                              | -   |        | sub_ln570       | sub   | fabric  | 0       |
+|    add_ln580_fu_1292_p2                                                              | -   |        | add_ln580       | add   | fabric  | 0       |
+|    p_Val2_116_fu_1374_p2                                                             | -   |        | p_Val2_116      | add   | fabric  | 0       |
+|    pos1_fu_1208_p2                                                                   | -   |        | pos1            | add   | fabric  | 0       |
+|    pos2_fu_1321_p2                                                                   | -   |        | pos2            | add   | fabric  | 0       |
+|   + layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2 | 0   |        |                 |       |         |         |
+|     add_ln16_fu_109_p2                                                               | -   |        | add_ln16        | add   | fabric  | 0       |
+|     add_ln837_fu_119_p2                                                              | -   |        | add_ln837       | add   | fabric  | 0       |
+|     ret_V_fu_157_p2                                                                  | -   |        | ret_V           | add   | fabric  | 0       |
+|     mean_V_2_fu_171_p2                                                               | -   |        | mean_V_2        | add   | fabric  | 0       |
+|   + layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1 | 1   |        |                 |       |         |         |
+|     add_ln23_fu_153_p2                                                               | -   |        | add_ln23        | add   | fabric  | 0       |
+|     add_ln25_fu_163_p2                                                               | -   |        | add_ln25        | add   | fabric  | 0       |
+|     ret_V_fu_183_p2                                                                  | -   |        | ret_V           | sub   | fabric  | 0       |
+|     mul_20s_20s_40_1_1_U67                                                           | 1   |        | r_V_17          | mul   | auto    | 0       |
+|     ret_V_4_fu_282_p2                                                                | -   |        | ret_V_4         | add   | fabric  | 0       |
+|     variance_V_4_fu_316_p2                                                           | -   |        | variance_V_4    | add   | fabric  | 0       |
+|   + layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO   | 2   |        |                 |       |         |         |
+|     add_ln35_fu_232_p2                                                               | -   |        | add_ln35        | add   | fabric  | 0       |
+|     add_ln37_fu_242_p2                                                               | -   |        | add_ln37        | add   | fabric  | 0       |
+|     ret_V_fu_262_p2                                                                  | -   |        | ret_V           | sub   | fabric  | 0       |
+|     mul_mul_16s_16s_32_4_1_U73                                                       | 1   |        | r_V_21          | mul   | dsp48   | 3       |
+|     normalized_V_1_fu_397_p2                                                         | -   |        | normalized_V_1  | add   | fabric  | 0       |
+|     mul_mul_20s_16s_36_4_1_U74                                                       | 1   |        | r_V_22          | mul   | dsp48   | 3       |
+|     ret_V_5_fu_567_p2                                                                | -   |        | ret_V_5         | add   | fabric  | 0       |
+|     scaled_V_1_fu_605_p2                                                             | -   |        | scaled_V_1      | add   | fabric  | 0       |
+|     p_Val2_103_fu_789_p2                                                             | -   |        | p_Val2_103      | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_224_26                                | 1   |        |                 |       |         |         |
+|    add_ln224_fu_164_p2                                                               | -   |        | add_ln224       | add   | fabric  | 0       |
+|    add_ln837_fu_178_p2                                                               | -   |        | add_ln837       | add   | fabric  | 0       |
+|    add_ln837_3_fu_189_p2                                                             | -   |        | add_ln837_3     | add   | fabric  | 0       |
+|    mul_mul_14s_20s_34_4_1_U56                                                        | 1   |        | r_V_8           | mul   | dsp48   | 3       |
+|    ret_V_fu_257_p2                                                                   | -   |        | ret_V           | add   | fabric  | 0       |
+|    add_ln1347_6_fu_263_p2                                                            | -   |        | add_ln1347_6    | add   | fabric  | 0       |
+|    sum_V_9_fu_298_p2                                                                 | -   |        | sum_V_9         | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_247_29                                | 1   |        |                 |       |         |         |
+|    add_ln247_fu_164_p2                                                               | -   |        | add_ln247       | add   | fabric  | 0       |
+|    add_ln837_fu_178_p2                                                               | -   |        | add_ln837       | add   | fabric  | 0       |
+|    add_ln837_2_fu_189_p2                                                             | -   |        | add_ln837_2     | add   | fabric  | 0       |
+|    mul_mul_15s_20s_35_4_1_U95                                                        | 1   |        | r_V_6           | mul   | dsp48   | 3       |
+|    ret_V_fu_257_p2                                                                   | -   |        | ret_V           | add   | fabric  | 0       |
+|    add_ln1347_5_fu_263_p2                                                            | -   |        | add_ln1347_5    | add   | fabric  | 0       |
+|    sum_V_7_fu_298_p2                                                                 | -   |        | sum_V_7         | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_261_32                                | 1   |        |                 |       |         |         |
+|    add_ln261_fu_252_p2                                                               | -   |        | add_ln261       | add   | fabric  | 0       |
+|    add_ln837_fu_266_p2                                                               | -   |        | add_ln837       | add   | fabric  | 0       |
+|    add_ln837_1_fu_277_p2                                                             | -   |        | add_ln837_1     | add   | fabric  | 0       |
+|    mul_mul_14s_19ns_33_4_1_U102                                                      | 1   |        | r_V_4           | mul   | dsp48   | 3       |
+|    ret_V_fu_351_p2                                                                   | -   |        | ret_V           | add   | fabric  | 0       |
+|    add_ln1347_2_fu_357_p2                                                            | -   |        | add_ln1347_2    | add   | fabric  | 0       |
+|    sum_V_5_fu_392_p2                                                                 | -   |        | sum_V_5         | add   | fabric  | 0       |
+|    ret_V_1_fu_560_p2                                                                 | -   |        | ret_V_1         | add   | fabric  | 0       |
+|    add_ln1347_3_fu_565_p2                                                            | -   |        | add_ln1347_3    | add   | fabric  | 0       |
+|    add_ln1347_4_fu_570_p2                                                            | -   |        | add_ln1347_4    | add   | fabric  | 0       |
+|    p_Val2_14_fu_612_p2                                                               | -   |        | p_Val2_14       | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_279_33_VITIS_LOOP_281_34              | 0   |        |                 |       |         |         |
+|    add_ln279_1_fu_179_p2                                                             | -   |        | add_ln279_1     | add   | fabric  | 0       |
+|    add_ln279_fu_191_p2                                                               | -   |        | add_ln279       | add   | fabric  | 0       |
+|    add_ln837_fu_260_p2                                                               | -   |        | add_ln837       | add   | fabric  | 0       |
+|    ret_V_fu_301_p2                                                                   | -   |        | ret_V           | add   | fabric  | 0       |
+|    sum_V_3_fu_315_p2                                                                 | -   |        | sum_V_3         | add   | fabric  | 0       |
+|    add_ln281_fu_223_p2                                                               | -   |        | add_ln281       | add   | fabric  | 0       |
+|    sub_ln1303_fu_377_p2                                                              | -   |        | sub_ln1303      | sub   | fabric  | 0       |
+|    sub_ln1303_1_fu_397_p2                                                            | -   |        | sub_ln1303_1    | sub   | fabric  | 0       |
+|    p_Val2_9_fu_461_p2                                                                | -   |        | p_Val2_9        | add   | fabric  | 0       |
+|  + layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_s                    | 5   |        |                 |       |         |         |
+|    sub_ln1303_fu_242_p2                                                              | -   |        | sub_ln1303      | sub   | fabric  | 0       |
+|    sub_ln1303_5_fu_262_p2                                                            | -   |        | sub_ln1303_5    | sub   | fabric  | 0       |
+|    mean_val_V_8_fu_323_p2                                                            | -   |        | mean_val_V_8    | add   | fabric  | 0       |
+|    sub_ln1303_6_fu_495_p2                                                            | -   |        | sub_ln1303_6    | sub   | fabric  | 0       |
+|    sub_ln1303_7_fu_515_p2                                                            | -   |        | sub_ln1303_7    | sub   | fabric  | 0       |
+|    var_val_V_3_fu_576_p2                                                             | -   |        | var_val_V_3     | add   | fabric  | 0       |
+|    tmp_V_fu_741_p2                                                                   | -   |        | tmp_V           | sub   | fabric  | 0       |
+|    sub_ln1099_fu_782_p2                                                              | -   |        | sub_ln1099      | sub   | fabric  | 0       |
+|    lsb_index_fu_800_p2                                                               | -   |        | lsb_index       | add   | fabric  | 0       |
+|    sub_ln1102_fu_821_p2                                                              | -   |        | sub_ln1102      | sub   | fabric  | 0       |
+|    add_ln1104_fu_867_p2                                                              | -   |        | add_ln1104      | add   | fabric  | 0       |
+|    add_ln1113_fu_908_p2                                                              | -   |        | add_ln1113      | add   | fabric  | 0       |
+|    sub_ln1114_fu_923_p2                                                              | -   |        | sub_ln1114      | sub   | fabric  | 0       |
+|    m_28_fu_948_p2                                                                    | -   |        | m_28            | add   | fabric  | 0       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U131                                               | 2   |        | phitmp          | fadd  | fulldsp | 4       |
+|    fsqrt_32ns_32ns_32_16_no_dsp_1_U134                                               | -   |        | tmp_35          | fsqrt | fabric  | 15      |
+|    fdiv_32ns_32ns_32_16_no_dsp_1_U132                                                | -   |        | d_assign        | fdiv  | fabric  | 15      |
+|    man_V_12_fu_1077_p2                                                               | -   |        | man_V_12        | sub   | fabric  | 0       |
+|    F2_fu_1090_p2                                                                     | -   |        | F2              | sub   | fabric  | 0       |
+|    add_ln570_fu_1102_p2                                                              | -   |        | add_ln570       | add   | fabric  | 0       |
+|    sub_ln570_fu_1108_p2                                                              | -   |        | sub_ln570       | sub   | fabric  | 0       |
+|    add_ln580_fu_1232_p2                                                              | -   |        | add_ln580       | add   | fabric  | 0       |
+|    p_Val2_145_fu_1314_p2                                                             | -   |        | p_Val2_145      | add   | fabric  | 0       |
+|    pos1_fu_1148_p2                                                                   | -   |        | pos1            | add   | fabric  | 0       |
+|    pos2_fu_1261_p2                                                                   | -   |        | pos2            | add   | fabric  | 0       |
+|   + layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2 | 0   |        |                 |       |         |         |
+|     add_ln56_fu_99_p2                                                                | -   |        | add_ln56        | add   | fabric  | 0       |
+|     ret_V_fu_138_p2                                                                  | -   |        | ret_V           | add   | fabric  | 0       |
+|     mean_V_4_fu_152_p2                                                               | -   |        | mean_V_4        | add   | fabric  | 0       |
+|   + layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1 | 1   |        |                 |       |         |         |
+|     add_ln63_fu_143_p2                                                               | -   |        | add_ln63        | add   | fabric  | 0       |
+|     ret_V_fu_163_p2                                                                  | -   |        | ret_V           | sub   | fabric  | 0       |
+|     mul_20s_20s_40_1_1_U118                                                          | 1   |        | r_V_24          | mul   | auto    | 0       |
+|     ret_V_6_fu_262_p2                                                                | -   |        | ret_V_6         | add   | fabric  | 0       |
+|     variance_V_8_fu_296_p2                                                           | -   |        | variance_V_8    | add   | fabric  | 0       |
+|   + layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO   | 2   |        |                 |       |         |         |
+|     add_ln75_fu_220_p2                                                               | -   |        | add_ln75        | add   | fabric  | 0       |
+|     ret_V_fu_240_p2                                                                  | -   |        | ret_V           | sub   | fabric  | 0       |
+|     mul_mul_16s_16s_32_4_1_U122                                                      | 1   |        | r_V_28          | mul   | dsp48   | 3       |
+|     normalized_V_2_fu_371_p2                                                         | -   |        | normalized_V_2  | add   | fabric  | 0       |
+|     mul_mul_20s_15ns_35_4_1_U123                                                     | 1   |        | r_V_29          | mul   | dsp48   | 3       |
+|     ret_V_7_fu_541_p2                                                                | -   |        | ret_V_7         | add   | fabric  | 0       |
+|     scaled_V_3_fu_579_p2                                                             | -   |        | scaled_V_3      | add   | fabric  | 0       |
+|     p_Val2_132_fu_763_p2                                                             | -   |        | p_Val2_132      | add   | fabric  | 0       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_298_36                                | 1   |        |                 |       |         |         |
+|    add_ln298_fu_154_p2                                                               | -   |        | add_ln298       | add   | fabric  | 0       |
+|    add_ln837_fu_165_p2                                                               | -   |        | add_ln837       | add   | fabric  | 0       |
+|    mul_mul_15s_20s_35_4_1_U137                                                       | 1   |        | r_V_2           | mul   | dsp48   | 3       |
+|    ret_V_fu_233_p2                                                                   | -   |        | ret_V           | add   | fabric  | 0       |
+|    add_ln1347_1_fu_239_p2                                                            | -   |        | add_ln1347_1    | add   | fabric  | 0       |
+|    sum_V_2_fu_274_p2                                                                 | -   |        | sum_V_2         | add   | fabric  | 0       |
++--------------------------------------------------------------------------------------+-----+--------+-----------------+-------+---------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++------------------------------------------------------------------------------------+------+------+--------+------------------------------------+---------+------+---------+
+| Name                                                                               | BRAM | URAM | Pragma | Variable                           | Storage | Impl | Latency |
++------------------------------------------------------------------------------------+------+------+--------+------------------------------------+---------+------+---------+
+| + unsw_linear_transformer                                                          | 20   | 0    |        |                                    |         |      |         |
+|   input_fp_V_U                                                                     | 1    | -    |        | input_fp_V                         | ram_1p  | auto | 1       |
+|   fpext_32ns_64_2_no_dsp_1_U143                                                    | 1    | -    |        | embedded_V                         | ram_1p  | auto | 1       |
+|   query_V_U                                                                        | 1    | -    |        | query_V                            | ram_1p  | auto | 1       |
+|   key_V_U                                                                          | 1    | -    |        | key_V                              | ram_1p  | auto | 1       |
+|   value_V_U                                                                        | 1    | -    |        | value_V                            | ram_1p  | auto | 1       |
+|   key_value_V_U                                                                    | 2    | -    |        | key_value_V                        | ram_1p  | auto | 1       |
+|   key_sum_arr_V_U                                                                  | -    | -    |        | key_sum_arr_V                      | ram_1p  | auto | 1       |
+|   attention_V_U                                                                    | 1    | -    |        | attention_V                        | ram_1p  | auto | 1       |
+|   residual1_V_U                                                                    | 1    | -    |        | residual1_V                        | ram_1p  | auto | 1       |
+|   norm1_U                                                                          | 1    | -    |        | norm1                              | ram_1p  | auto | 1       |
+|   feedforward_hidden_V_U                                                           | 1    | -    |        | feedforward_hidden_V               | ram_1p  | auto | 1       |
+|   residual2_V_U                                                                    | 1    | -    |        | residual2_V                        | ram_1p  | auto | 1       |
+|   norm2_U                                                                          | 1    | -    |        | norm2                              | ram_1p  | auto | 1       |
+|   pooled_V_U                                                                       | -    | -    |        | pooled_V                           | ram_1p  | auto | 1       |
+|   normalized_output_U                                                              | -    | -    |        | normalized_output                  | ram_1p  | auto | 1       |
+|   INPUT_PROJECTION_BIAS_V_U                                                        | -    | -    |        | INPUT_PROJECTION_BIAS_V            | rom_1p  | auto | 1       |
+|   POSITION_EMBEDDING_V_0_U                                                         | 1    | -    |        | POSITION_EMBEDDING_V_0             | rom_1p  | auto | 1       |
+|   LAYERS_0_ATTENTION_OUTPUT_BIAS_V_U                                               | -    | -    |        | LAYERS_0_ATTENTION_OUTPUT_BIAS_V   | rom_1p  | auto | 1       |
+|   LAYERS_0_NORM1_WEIGHT_V_U                                                        | -    | -    |        | LAYERS_0_NORM1_WEIGHT_V            | rom_1p  | auto | 1       |
+|   LAYERS_0_NORM1_BIAS_V_U                                                          | -    | -    |        | LAYERS_0_NORM1_BIAS_V              | rom_1p  | auto | 1       |
+|   LAYERS_0_FEEDFORWARD_0_BIAS_V_U                                                  | -    | -    |        | LAYERS_0_FEEDFORWARD_0_BIAS_V      | rom_1p  | auto | 1       |
+|   LAYERS_0_FEEDFORWARD_3_BIAS_V_U                                                  | -    | -    |        | LAYERS_0_FEEDFORWARD_3_BIAS_V      | rom_1p  | auto | 1       |
+|   LAYERS_0_NORM2_WEIGHT_V_U                                                        | -    | -    |        | LAYERS_0_NORM2_WEIGHT_V            | rom_1p  | auto | 1       |
+|   LAYERS_0_NORM2_BIAS_V_U                                                          | -    | -    |        | LAYERS_0_NORM2_BIAS_V              | rom_1p  | auto | 1       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_105_5                               | 1    | 0    |        |                                    |         |      |         |
+|    INPUT_PROJECTION_WEIGHT_V_U                                                     | 1    | -    |        | INPUT_PROJECTION_WEIGHT_V          | rom_1p  | auto | 1       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_120_8                               | 1    | 0    |        |                                    |         |      |         |
+|    LAYERS_0_ATTENTION_QUERY_WEIGHT_V_U                                             | 1    | -    |        | LAYERS_0_ATTENTION_QUERY_WEIGHT_V  | rom_1p  | auto | 1       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_140_11                              | 1    | 0    |        |                                    |         |      |         |
+|    LAYERS_0_ATTENTION_KEY_WEIGHT_V_U                                               | 1    | -    |        | LAYERS_0_ATTENTION_KEY_WEIGHT_V    | rom_1p  | auto | 1       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_160_14                              | 1    | 0    |        |                                    |         |      |         |
+|    LAYERS_0_ATTENTION_VALUE_WEIGHT_V_U                                             | 1    | -    |        | LAYERS_0_ATTENTION_VALUE_WEIGHT_V  | rom_1p  | auto | 1       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_224_26                              | 1    | 0    |        |                                    |         |      |         |
+|    LAYERS_0_ATTENTION_OUTPUT_WEIGHT_V_U                                            | 1    | -    |        | LAYERS_0_ATTENTION_OUTPUT_WEIGHT_V | rom_1p  | auto | 1       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_247_29                              | 1    | 0    |        |                                    |         |      |         |
+|    LAYERS_0_FEEDFORWARD_0_WEIGHT_V_U                                               | 1    | -    |        | LAYERS_0_FEEDFORWARD_0_WEIGHT_V    | rom_1p  | auto | 1       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_261_32                              | 1    | 0    |        |                                    |         |      |         |
+|    LAYERS_0_FEEDFORWARD_3_WEIGHT_V_U                                               | 1    | -    |        | LAYERS_0_FEEDFORWARD_3_WEIGHT_V    | rom_1p  | auto | 1       |
+|  + layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_s                  | 0    | 0    |        |                                    |         |      |         |
+|   + layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO | 0    | 0    |        |                                    |         |      |         |
+|     OUTPUT_NORM_WEIGHT_V_U                                                         | -    | -    |        | OUTPUT_NORM_WEIGHT_V               | rom_1p  | auto | 1       |
+|     OUTPUT_NORM_BIAS_V_U                                                           | -    | -    |        | OUTPUT_NORM_BIAS_V                 | rom_1p  | auto | 1       |
+|  + unsw_linear_transformer_Pipeline_VITIS_LOOP_298_36                              | 0    | 0    |        |                                    |         |      |         |
+|    CLASSIFIER_WEIGHT_V_U                                                           | -    | -    |        | CLASSIFIER_WEIGHT_V                | rom_1p  | auto | 1       |
++------------------------------------------------------------------------------------+------+------+--------+------------------------------------+---------+------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++------------+-----------------------------------+----------------------------------------------------------------+
+| Type       | Options                           | Location                                                       |
++------------+-----------------------------------+----------------------------------------------------------------+
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:17 in layer_norm_2d            |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:24 in layer_norm_2d            |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:36 in layer_norm_2d            |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:57 in layer_norm_1d            |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:64 in layer_norm_1d            |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:76 in layer_norm_1d            |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:95 in unsw_linear_transformer  |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:106 in unsw_linear_transformer |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:121 in unsw_linear_transformer |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:141 in unsw_linear_transformer |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:161 in unsw_linear_transformer |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:176 in unsw_linear_transformer |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:189 in unsw_linear_transformer |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:200 in unsw_linear_transformer |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:210 in unsw_linear_transformer |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:225 in unsw_linear_transformer |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:248 in unsw_linear_transformer |
+| pipeline   | II=1                              | src/unsw_linear_transformer.cpp:262 in unsw_linear_transformer |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:282 in unsw_linear_transformer |
+| pipeline   | II=2                              | src/unsw_linear_transformer.cpp:299 in unsw_linear_transformer |
+| allocation | operation instances=mul limit=180 | run_csynth.tcl:12 in unsw_linear_transformer                   |
++------------+-----------------------------------+----------------------------------------------------------------+
+
+

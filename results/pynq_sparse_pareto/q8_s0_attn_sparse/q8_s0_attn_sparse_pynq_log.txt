@@ -1,0 +1,45 @@
+============================================================
+Q8 S0 PYNQ-Z2 FULL TEST
+============================================================
+  full: ref_acc=0.909988
+  eval200: ref_acc=0.915000
+  sanity: ref_acc=1.000000
+
+Loading overlay...
+IP: imgds_linear_dense_q8_0
+DMA: in=0x15849000 out=0x1584a000
+
+--- Stage 1: Sanity ---
+  Ref: [0.573455, 0.389931] pred=0
+  HW:  [0.330078, 0.672852] pred=1 int16=[338,689]
+  OK=False finite=True
+
+--- Stage 2: Quick n=200 ---
+  [0] y=0 ref=[0.5735,0.3899] hw=[0.3301,0.6729] m=X
+  [1] y=1 ref=[-2.6619,1.8991] hw=[-2.2480,1.8438] m=OK
+  [2] y=1 ref=[-1.4301,1.7008] hw=[-1.0879,1.5430] m=OK
+  [3] y=1 ref=[0.8207,0.2854] hw=[1.1650,0.2051] m=OK
+  [4] y=1 ref=[-2.1072,1.9157] hw=[-1.8164,1.8789] m=OK
+  [5] y=1 ref=[-0.5467,1.0446] hw=[-0.7139,1.2588] m=OK
+  [6] y=1 ref=[-0.4534,0.6491] hw=[-0.3730,0.8193] m=OK
+  [7] y=1 ref=[-1.6707,1.5960] hw=[-1.2686,1.5840] m=OK
+  [8] y=1 ref=[-0.0999,0.3460] hw=[0.1367,0.3848] m=OK
+  [9] y=1 ref=[-1.6824,1.6700] hw=[-1.2754,1.5918] m=OK
+  n=200 NaN=0 Inf=0 match=0.9750 hw_acc=0.9000 ref_acc=0.9150 max_err=0.530763 mean_err=0.159193
+
+--- Stage 3: Full n=3444 ---
+  [500/3444] match=0.9800
+  [1000/3444] match=0.9790
+  [1500/3444] match=0.9833
+  [2000/3444] match=0.9860
+  [2500/3444] match=0.9848
+  [3000/3444] match=0.9830
+  n=3444 NaN=0 Inf=0 match=0.9829 hw_acc=0.9097 ref_acc=0.9100
+  max_err=0.682998 mean_err=0.165042 time=7.6s tp=450.3 samp/s
+  TP=2674 FP=38 FN=273 TN=459 Prec=0.9860 Rec=0.9074 F1=0.9450
+
+--- Stage 4: Latency ---
+  100runs: mean=852.63us  1000runs: mean=846.79us
+
+Saved q8_s0_attn_sparse_pynq_result.csv and per_sample files
+Q8 S0: acc=0.9097 F1=0.9450 latency=846.79us speedup=956.6x

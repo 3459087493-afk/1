@@ -1,0 +1,51 @@
+============================================================
+Q16 Main / Ours-Dense-Q16 PYNQ-Z2 Full-Test Result
+============================================================
+
+[Model]
+Model name              : Ours-Dense-Q16
+Code name               : Q16 Main
+d_model                 : 16
+ff_dim                  : 32
+Quantization            : 16-bit ap_fixed<16,6> / int16 Q6.10
+
+[Resource]
+Vivado LUT              : 14,004
+Vivado DSP              : 156
+Vivado FF               : 12,903
+Vivado BRAM             : 15
+
+[Accuracy]
+Test samples            : 3,444
+Software / Ref Accuracy : 94.19%
+PYNQ HW Accuracy        : 94.13%
+Prediction Match vs Ref : 99.25%
+
+[Stability]
+NaN samples             : 0
+Inf samples             : 0
+
+[Error vs Q16 Reference]
+Max Abs Error           : 0.56076181
+Mean Abs Error          : 0.07329194
+
+[Latency]
+100-run mean latency    : 931.7774 us
+100-run std             : 5.4986 us
+100-run min             : 925.5640 us
+100-run max             : 973.3420 us
+100-run p50             : 930.5075 us
+
+1000-run mean latency   : 926.3135 us
+1000-run std            : 10.8342 us
+1000-run min            : 918.2210 us
+1000-run max            : 1134.3390 us
+1000-run p50            : 923.6645 us
+
+[Throughput]
+Full-test total runtime : 22.18 s
+Throughput              : 155.25 samples/s
+
+[Conclusion]
+Ours-Dense-Q16 achieved 94.13% hardware accuracy on the full 3,444-sample IMG_DS test set, with 14,004 LUTs and 926.31 us average PYNQ-Z2 kernel latency.
+============================================================

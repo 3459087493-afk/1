@@ -1,0 +1,718 @@
+
+
+================================================================
+== Synthesis Summary Report of 'imgds_linear_dense_q8'
+================================================================
++ General Information: 
+    * Date:           Thu Jul  2 17:15:02 2026
+    * Version:        2022.2 (Build 3670227 on Oct 13 2022)
+    * Project:        q8_s30_attn_sparse
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------------------------------------------------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+-----------+-------------+-------------+-----+
+    |                                        Modules                                       |  Issue |       | Latency |  Latency  | Iteration|         | Trip |          |         |           |             |             |     |
+    |                                        & Loops                                       |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM   |    DSP    |      FF     |     LUT     | URAM|
+    +--------------------------------------------------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+-----------+-------------+-------------+-----+
+    |+ imgds_linear_dense_q8                                                               |  Timing|  -0.60|    75984|  7.598e+05|         -|    75985|     -|        no|  13 (4%)|  124 (56%)|  11203 (10%)|  25545 (48%)|    -|
+    | + linear_attention_q8_sparse                                                         |  Timing|  -0.60|    27560|  2.756e+05|         -|    27560|     -|        no|   8 (2%)|   22 (10%)|    3338 (3%)|   8379 (15%)|    -|
+    |  + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_107_6_VITIS_LOOP_109_7_VITIS_LOOP  |  Timing|  -0.60|     2823|  2.823e+04|         -|     2823|     -|        no|        -|    1 (~0%)|    290 (~0%)|    393 (~0%)|    -|
+    |   o VITIS_LOOP_107_6_VITIS_LOOP_109_7_VITIS_LOOP_111_8                               |       -|   7.30|     2821|  2.821e+04|         7|        1|  2816|       yes|        -|          -|            -|            -|    -|
+    |  o VITIS_LOOP_80_1                                                                   |       -|   7.30|    14112|  1.411e+05|       882|        -|    16|        no|        -|          -|            -|            -|    -|
+    |   o VITIS_LOOP_82_2                                                                  |       -|   7.30|      384|  3.840e+03|        24|        -|    16|        no|        -|          -|            -|            -|    -|
+    |    + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_84_3                             |       -|   2.13|       21|    210.000|         -|       21|     -|        no|  1 (~0%)|    1 (~0%)|    103 (~0%)|    141 (~0%)|    -|
+    |     o VITIS_LOOP_84_3                                                                |       -|   7.30|       19|    190.000|         5|        1|    16|       yes|        -|          -|            -|            -|    -|
+    |   o VITIS_LOOP_91_4                                                                  |       -|   7.30|      495|  4.950e+03|        45|        -|    11|        no|        -|          -|            -|            -|    -|
+    |    + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_94_5                             |       -|   2.13|       21|    210.000|         -|       21|     -|        no|  2 (~0%)|    2 (~0%)|    127 (~0%)|    159 (~0%)|    -|
+    |     o VITIS_LOOP_94_5                                                                |       -|   7.30|       19|    190.000|         5|        1|    16|       yes|        -|          -|            -|            -|    -|
+    |  o VITIS_LOOP_121_9                                                                  |       -|   7.30|      253|  2.530e+03|        23|        -|    11|        no|        -|          -|            -|            -|    -|
+    |   + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_124_10                            |       -|   0.14|       19|    190.000|         -|       19|     -|        no|        -|          -|     34 (~0%)|    101 (~0%)|    -|
+    |    o VITIS_LOOP_124_10                                                               |       -|   7.30|       17|    170.000|         2|        1|    16|       yes|        -|          -|            -|            -|    -|
+    |  o VITIS_LOOP_132_11                                                                 |       -|   7.30|    10368|  1.037e+05|       648|        -|    16|        no|        -|          -|            -|            -|    -|
+    |   + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_135_12                            |       -|   1.72|       17|    170.000|         -|       17|     -|        no|        -|    1 (~0%)|    104 (~0%)|    110 (~0%)|    -|
+    |    o VITIS_LOOP_135_12                                                               |       -|   7.30|       15|    150.000|         6|        1|    11|       yes|        -|          -|            -|            -|    -|
+    |   + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_145_13_VITIS_LOOP_147_14          |       -|   1.65|      186|  1.860e+03|         -|      186|     -|        no|        -|    2 (~0%)|    293 (~0%)|    297 (~0%)|    -|
+    |    o VITIS_LOOP_145_13_VITIS_LOOP_147_14                                             |       -|   7.30|      184|  1.840e+03|        10|        1|   176|       yes|        -|          -|            -|            -|    -|
+    |   o VITIS_LOOP_156_15                                                                |       -|   7.30|      416|  4.160e+03|        26|        -|    16|        no|        -|          -|            -|            -|    -|
+    |    + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_158_16                           |       -|   2.13|       21|    210.000|         -|       21|     -|        no|  1 (~0%)|    1 (~0%)|    103 (~0%)|    126 (~0%)|    -|
+    |     o VITIS_LOOP_158_16                                                              |       -|   7.30|       19|    190.000|         5|        1|    16|       yes|        -|          -|            -|            -|    -|
+    | + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_248_4                                    |       -|   0.04|     1426|  1.426e+04|         -|     1426|     -|        no|        -|   47 (21%)|    1639 (1%)|    4205 (7%)|    -|
+    |  o VITIS_LOOP_248_4                                                                  |      II|   7.30|     1424|  1.424e+04|        90|       89|    16|       yes|        -|          -|            -|            -|    -|
+    |   + layer_norm_q8_1                                                                  |      II|   0.04|       88|    880.000|         -|       89|     -|       yes|        -|   47 (21%)|    1536 (1%)|    3673 (6%)|    -|
+    | + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_261_5                                    |       -|   0.04|     1426|  1.426e+04|         -|     1426|     -|        no|        -|   47 (21%)|    1639 (1%)|    4205 (7%)|    -|
+    |  o VITIS_LOOP_261_5                                                                  |      II|   7.30|     1424|  1.424e+04|        90|       89|    16|       yes|        -|          -|            -|            -|    -|
+    |   + layer_norm_q8_1                                                                  |      II|   0.04|       88|    880.000|         -|       89|     -|       yes|        -|   47 (21%)|    1536 (1%)|    3673 (6%)|    -|
+    | + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_266_6_VITIS_LOOP_268_7                   |       -|   0.14|      261|  2.610e+03|         -|      261|     -|        no|        -|          -|    232 (~0%)|    382 (~0%)|    -|
+    |  o VITIS_LOOP_266_6_VITIS_LOOP_268_7                                                 |       -|   7.30|      259|  2.590e+03|         5|        1|   256|       yes|        -|          -|            -|            -|    -|
+    | + layer_norm_q8                                                                      |       -|   0.04|      114|  1.140e+03|         -|      114|     -|        no|        -|     5 (2%)|    1187 (1%)|    2671 (5%)|    -|
+    |  + layer_norm_q8_Pipeline_VITIS_LOOP_39_1                                            |       -|   1.08|       18|    180.000|         -|       18|     -|        no|        -|          -|     32 (~0%)|    101 (~0%)|    -|
+    |   o VITIS_LOOP_39_1                                                                  |       -|   7.30|       16|    160.000|         2|        1|    16|       yes|        -|          -|            -|            -|    -|
+    |  + layer_norm_q8_Pipeline_VITIS_LOOP_44_2                                            |       -|   1.85|       21|    210.000|         -|       21|     -|        no|        -|    1 (~0%)|    103 (~0%)|    134 (~0%)|    -|
+    |   o VITIS_LOOP_44_2                                                                  |       -|   7.30|       19|    190.000|         5|        1|    16|       yes|        -|          -|            -|            -|    -|
+    |  + layer_norm_q8_Pipeline_VITIS_LOOP_54_3                                            |       -|   1.68|       24|    240.000|         -|       24|     -|        no|        -|    2 (~0%)|    273 (~0%)|    160 (~0%)|    -|
+    |   o VITIS_LOOP_54_3                                                                  |       -|   7.30|       22|    220.000|         8|        1|    16|       yes|        -|          -|            -|            -|    -|
+    | o VITIS_LOOP_225_1_VITIS_LOOP_226_2                                                  |       -|   7.30|    20736|  2.074e+05|        81|        -|   256|        no|        -|          -|            -|            -|    -|
+    |  + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_228_3                                   |       -|   0.00|       70|    700.000|         -|       70|     -|        no|  1 (~0%)|    1 (~0%)|    126 (~0%)|    139 (~0%)|    -|
+    |   o VITIS_LOOP_228_3                                                                 |       -|   7.30|       68|    680.000|         6|        1|    64|       yes|        -|          -|            -|            -|    -|
+    | o VITIS_LOOP_179_1                                                                   |       -|   7.30|    24432|  2.443e+05|      1527|        -|    16|        no|        -|          -|            -|            -|    -|
+    |  + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_204_6                                   |       -|   1.97|       19|    190.000|         -|       19|     -|        no|        -|          -|     42 (~0%)|     99 (~0%)|    -|
+    |   o VITIS_LOOP_204_6                                                                 |       -|   7.30|       17|    170.000|         3|        1|    16|       yes|        -|          -|            -|            -|    -|
+    |  o VITIS_LOOP_182_2                                                                  |       -|   7.30|      832|  8.320e+03|        26|        -|    32|        no|        -|          -|            -|            -|    -|
+    |   + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_184_3                                  |       -|   2.13|       21|    210.000|         -|       21|     -|        no|  1 (~0%)|    1 (~0%)|    103 (~0%)|    140 (~0%)|    -|
+    |    o VITIS_LOOP_184_3                                                                |       -|   7.30|       19|    190.000|         5|        1|    16|       yes|        -|          -|            -|            -|    -|
+    |  o VITIS_LOOP_194_4                                                                  |       -|   7.30|      672|  6.720e+03|        42|        -|    16|        no|        -|          -|            -|            -|    -|
+    |   + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_196_5                                  |       -|   2.22|       37|    370.000|         -|       37|     -|        no|  1 (~0%)|    1 (~0%)|    104 (~0%)|    126 (~0%)|    -|
+    |    o VITIS_LOOP_196_5                                                                |       -|   7.30|       35|    350.000|         5|        1|    32|       yes|        -|          -|            -|            -|    -|
+    +--------------------------------------------------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+-----------+-------------+-------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| Interface   | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   |
+|             | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| m_axi_gmem0 | 16 -> 16   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
+| m_axi_gmem1 | 16 -> 16   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register  | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL      | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER      | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER    | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR    | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control | input_r_1 | 0x10   | 32    | W      | Data signal of input_r           |                                                                      |
+| s_axi_control | input_r_2 | 0x14   | 32    | W      | Data signal of input_r           |                                                                      |
+| s_axi_control | logits_1  | 0x1c   | 32    | W      | Data signal of logits            |                                                                      |
+| s_axi_control | logits_2  | 0x20   | 32    | W      | Data signal of logits            |                                                                      |
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+--------------------------------------+
+| Argument | Direction | Datatype                             |
++----------+-----------+--------------------------------------+
+| input    | in        | ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>* |
+| logits   | out       | ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>* |
++----------+-----------+--------------------------------------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+----------+------------------------------------+
+| Argument | HW Interface  | HW Type   | HW Usage | HW Info                            |
++----------+---------------+-----------+----------+------------------------------------+
+| input    | m_axi_gmem0   | interface |          |                                    |
+| input    | s_axi_control | interface | offset   |                                    |
+| logits   | m_axi_gmem1   | interface |          |                                    |
+| logits   | s_axi_control | register  | offset   | name=logits_1 offset=0x1c range=32 |
+| logits   | s_axi_control | register  | offset   | name=logits_2 offset=0x20 range=32 |
++----------+---------------+-----------+----------+------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+------------------+-----------+--------+-------+--------------------------------------+
+| HW Interface | Loop             | Direction | Length | Width | Location                             |
++--------------+------------------+-----------+--------+-------+--------------------------------------+
+| m_axi_gmem0  | VITIS_LOOP_228_3 | read      | 64     | 16    | src/imgds_linear_dense_q8.cpp:228:31 |
+| m_axi_gmem1  |                  | write     | 2      | 16    | src/imgds_linear_dense_q8.cpp:277:32 |
++--------------+------------------+-----------+--------+-------+--------------------------------------+
+
+* Inferred Bursts and Widening Missed
++--------------+----------+------------------+-------------------------------------------------------------------------------------------------------+------------+--------------------------------------+
+| HW Interface | Variable | Loop             | Problem                                                                                               | Resolution | Location                             |
++--------------+----------+------------------+-------------------------------------------------------------------------------------------------------+------------+--------------------------------------+
+| m_axi_gmem0  | input    | VITIS_LOOP_226_2 | Stride is incompatible                                                                                | 214-230    | src/imgds_linear_dense_q8.cpp:226:27 |
+| m_axi_gmem1  | logits   |                  | Could not widen since type i16 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | src/imgds_linear_dense_q8.cpp:277:32 |
+| m_axi_gmem0  | input    | VITIS_LOOP_228_3 | Could not widen since type i16 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | src/imgds_linear_dense_q8.cpp:228:31 |
++--------------+----------+------------------+-------------------------------------------------------------------------------------------------------+------------+--------------------------------------+
+
+    * Resolution URL: www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++--------------------------------------------------------------------------------------+-----+--------+---------------+-------+---------+---------+
+| Name                                                                                 | DSP | Pragma | Variable      | Op    | Impl    | Latency |
++--------------------------------------------------------------------------------------+-----+--------+---------------+-------+---------+---------+
+| + imgds_linear_dense_q8                                                              | 124 |        |               |       |         |         |
+|   add_ln225_2_fu_689_p2                                                              | -   |        | add_ln225_2   | add   | fabric  | 0       |
+|   add_ln225_fu_701_p2                                                                | -   |        | add_ln225     | add   | fabric  | 0       |
+|   add_ln225_1_fu_737_p2                                                              | -   |        | add_ln225_1   | add   | fabric  | 0       |
+|   add_ln232_fu_799_p2                                                                | -   |        | add_ln232     | add   | fabric  | 0       |
+|   add_ln813_fu_864_p2                                                                | -   |        | add_ln813     | add   | fabric  | 0       |
+|   add_ln226_fu_809_p2                                                                | -   |        | add_ln226     | add   | fabric  | 0       |
+|   add_ln179_fu_884_p2                                                                | -   |        | add_ln179     | add   | fabric  | 0       |
+|   add_ln182_fu_923_p2                                                                | -   |        | add_ln182     | add   | fabric  | 0       |
+|   add_ln194_fu_990_p2                                                                | -   |        | add_ln194     | add   | fabric  | 0       |
+|   r_V_11_fu_1132_p2                                                                  | -   |        | r_V_11        | sub   | fabric  | 0       |
+|   r_V_17_fu_1393_p2                                                                  | -   |        | r_V_17        | sub   | fabric  | 0       |
+|   tmp_fu_1056_p2                                                                     | -   |        | tmp           | sub   | fabric  | 0       |
+|   tmp4_fu_1163_p2                                                                    | -   |        | tmp4          | add   | fabric  | 0       |
+|   tmp111_fu_1173_p2                                                                  | -   |        | tmp111        | add   | fabric  | 0       |
+|   empty_76_fu_1185_p2                                                                | -   |        | empty_76      | add   | fabric  | 0       |
+|   tmp11511_fu_1195_p2                                                                | -   |        | tmp11511      | sub   | fabric  | 0       |
+|   tmp119_fu_1062_p2                                                                  | -   |        | tmp119        | sub   | fabric  | 0       |
+|   tmp120_fu_1072_p2                                                                  | -   |        | tmp120        | sub   | fabric  | 0       |
+|   tmp121_fu_1487_p2                                                                  | -   |        | tmp121        | sub   | fabric  | 0       |
+|   s_V_17_fu_1211_p2                                                                  | -   |        | s_V_17        | add   | fabric  | 0       |
+|   r_V_19_fu_1228_p2                                                                  | -   |        | r_V_19        | sub   | fabric  | 0       |
+|   empty_77_fu_1078_p2                                                                | -   |        | empty_77      | add   | fabric  | 0       |
+|   tmp1244_fu_1244_p2                                                                 | -   |        | tmp1244       | sub   | fabric  | 0       |
+|   tmp1271_fu_1088_p2                                                                 | -   |        | tmp1271       | sub   | fabric  | 0       |
+|   tmp130_fu_1258_p2                                                                  | -   |        | tmp130        | sub   | fabric  | 0       |
+|   add_ln813_37_fu_1303_p2                                                            | -   |        | add_ln813_37  | add   | fabric  | 0       |
+|   add_ln813_38_fu_1313_p2                                                            | -   |        | add_ln813_38  | add   | fabric  | 0       |
+|  + linear_attention_q8_sparse                                                        | 22  |        |               |       |         |         |
+|    add_ln80_fu_500_p2                                                                | -   |        | add_ln80      | add   | fabric  | 0       |
+|    add_ln82_fu_525_p2                                                                | -   |        | add_ln82      | add   | fabric  | 0       |
+|    add_ln88_fu_548_p2                                                                | -   |        | add_ln88      | add   | fabric  | 0       |
+|    add_ln91_fu_578_p2                                                                | -   |        | add_ln91      | add   | fabric  | 0       |
+|    add_ln813_fu_1469_p2                                                              | -   |        | add_ln813     | add   | fabric  | 0       |
+|    tmp_V_4_fu_626_p2                                                                 | -   |        | tmp_V_4       | sub   | fabric  | 0       |
+|    sub_ln1099_fu_662_p2                                                              | -   |        | sub_ln1099    | sub   | fabric  | 0       |
+|    lsb_index_fu_752_p2                                                               | -   |        | lsb_index     | add   | fabric  | 0       |
+|    sub_ln1102_1_fu_773_p2                                                            | -   |        | sub_ln1102_1  | sub   | fabric  | 0       |
+|    add_ln1104_1_fu_819_p2                                                            | -   |        | add_ln1104_1  | add   | fabric  | 0       |
+|    add_ln1113_fu_965_p2                                                              | -   |        | add_ln1113    | add   | fabric  | 0       |
+|    sub_ln1114_fu_980_p2                                                              | -   |        | sub_ln1114    | sub   | fabric  | 0       |
+|    m_12_fu_1005_p2                                                                   | -   |        | m_12          | add   | fabric  | 0       |
+|    fexp_32ns_32ns_32_10_full_dsp_1_U60                                               | 7   |        | d_assign      | fexp  | fulldsp | 9       |
+|    man_V_8_fu_1280_p2                                                                | -   |        | man_V_8       | sub   | fabric  | 0       |
+|    F2_fu_1293_p2                                                                     | -   |        | F2            | sub   | fabric  | 0       |
+|    add_ln570_fu_1305_p2                                                              | -   |        | add_ln570     | add   | fabric  | 0       |
+|    sub_ln570_fu_1311_p2                                                              | -   |        | sub_ln570     | sub   | fabric  | 0       |
+|    add_ln813_2_fu_1548_p2                                                            | -   |        | add_ln813_2   | add   | fabric  | 0       |
+|    tmp_V_5_fu_698_p2                                                                 | -   |        | tmp_V_5       | sub   | fabric  | 0       |
+|    sub_ln1099_2_fu_734_p2                                                            | -   |        | sub_ln1099_2  | sub   | fabric  | 0       |
+|    lsb_index_3_fu_857_p2                                                             | -   |        | lsb_index_3   | add   | fabric  | 0       |
+|    sub_ln1102_2_fu_878_p2                                                            | -   |        | sub_ln1102_2  | sub   | fabric  | 0       |
+|    add_ln1104_2_fu_924_p2                                                            | -   |        | add_ln1104_2  | add   | fabric  | 0       |
+|    add_ln1113_2_fu_1032_p2                                                           | -   |        | add_ln1113_2  | add   | fabric  | 0       |
+|    sub_ln1114_2_fu_1047_p2                                                           | -   |        | sub_ln1114_2  | sub   | fabric  | 0       |
+|    m_15_fu_1072_p2                                                                   | -   |        | m_15          | add   | fabric  | 0       |
+|    fexp_32ns_32ns_32_10_full_dsp_1_U61                                               | 7   |        | d_assign_2    | fexp  | fulldsp | 9       |
+|    man_V_11_fu_1370_p2                                                               | -   |        | man_V_11      | sub   | fabric  | 0       |
+|    F2_3_fu_1383_p2                                                                   | -   |        | F2_3          | sub   | fabric  | 0       |
+|    add_ln570_2_fu_1395_p2                                                            | -   |        | add_ln570_2   | add   | fabric  | 0       |
+|    sub_ln570_2_fu_1401_p2                                                            | -   |        | sub_ln570_2   | sub   | fabric  | 0       |
+|    add_ln121_fu_1740_p2                                                              | -   |        | add_ln121     | add   | fabric  | 0       |
+|    add_ln132_fu_1794_p2                                                              | -   |        | add_ln132     | add   | fabric  | 0       |
+|    tmp_V_fu_1817_p2                                                                  | -   |        | tmp_V         | sub   | fabric  | 0       |
+|    sub_ln1099_1_fu_1861_p2                                                           | -   |        | sub_ln1099_1  | sub   | fabric  | 0       |
+|    lsb_index_2_fu_1879_p2                                                            | -   |        | lsb_index_2   | add   | fabric  | 0       |
+|    sub_ln1102_fu_1900_p2                                                             | -   |        | sub_ln1102    | sub   | fabric  | 0       |
+|    add_ln1104_fu_1946_p2                                                             | -   |        | add_ln1104    | add   | fabric  | 0       |
+|    add_ln1113_1_fu_1987_p2                                                           | -   |        | add_ln1113_1  | add   | fabric  | 0       |
+|    sub_ln1114_1_fu_2002_p2                                                           | -   |        | sub_ln1114_1  | sub   | fabric  | 0       |
+|    m_6_fu_2027_p2                                                                    | -   |        | m_6           | add   | fabric  | 0       |
+|    man_V_3_fu_2156_p2                                                                | -   |        | man_V_3       | sub   | fabric  | 0       |
+|    F2_2_fu_2169_p2                                                                   | -   |        | F2_2          | sub   | fabric  | 0       |
+|    add_ln570_1_fu_2181_p2                                                            | -   |        | add_ln570_1   | add   | fabric  | 0       |
+|    sub_ln570_1_fu_2187_p2                                                            | -   |        | sub_ln570_1   | sub   | fabric  | 0       |
+|    add_ln156_fu_2350_p2                                                              | -   |        | add_ln156     | add   | fabric  | 0       |
+|    add_ln813_4_fu_2365_p2                                                            | -   |        | add_ln813_4   | add   | fabric  | 0       |
+|    x_d0                                                                              | -   |        | add_ln813_3   | add   | fabric  | 0       |
+|   + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_107_6_VITIS_LOOP_109_7_VITIS_LOOP | 1   |        |               |       |         |         |
+|     add_ln107_1_fu_192_p2                                                            | -   |        | add_ln107_1   | add   | fabric  | 0       |
+|     add_ln107_fu_237_p2                                                              | -   |        | add_ln107     | add   | fabric  | 0       |
+|     add_ln109_fu_279_p2                                                              | -   |        | add_ln109     | add   | fabric  | 0       |
+|     add_ln115_fu_342_p2                                                              | -   |        | add_ln115     | add   | fabric  | 0       |
+|     add_ln1273_fu_367_p2                                                             | -   |        | add_ln1273    | add   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U27                                               | 1   |        | mul_ln1347    | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U27                                               | 1   |        | ret_V         | add   | dsp48   | 3       |
+|     add_ln111_fu_310_p2                                                              | -   |        | add_ln111     | add   | fabric  | 0       |
+|     add_ln109_1_fu_204_p2                                                            | -   |        | add_ln109_1   | add   | fabric  | 0       |
+|   + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_84_3                              | 1   |        |               |       |         |         |
+|     add_ln84_fu_112_p2                                                               | -   |        | add_ln84      | add   | fabric  | 0       |
+|     add_ln1271_fu_122_p2                                                             | -   |        | add_ln1271    | add   | fabric  | 0       |
+|     add_ln86_fu_133_p2                                                               | -   |        | add_ln86      | add   | fabric  | 0       |
+|     mac_muladd_16s_4s_24s_24_4_1_U9                                                  | 1   |        | r_V_2         | mul   | dsp48   | 3       |
+|     mac_muladd_16s_4s_24s_24_4_1_U9                                                  | 1   |        | sv_V_3        | add   | dsp48   | 3       |
+|   + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_94_5                              | 2   |        |               |       |         |         |
+|     add_ln94_fu_145_p2                                                               | -   |        | add_ln94      | add   | fabric  | 0       |
+|     add_ln96_fu_155_p2                                                               | -   |        | add_ln96      | add   | fabric  | 0       |
+|     add_ln97_fu_166_p2                                                               | -   |        | add_ln97      | add   | fabric  | 0       |
+|     mac_muladd_16s_6s_24s_24_4_1_U16                                                 | 1   |        | r_V           | mul   | dsp48   | 3       |
+|     mac_muladd_16s_6s_24s_24_4_1_U16                                                 | 1   |        | sq_V_3        | add   | dsp48   | 3       |
+|     mac_muladd_16s_5s_24s_24_4_1_U17                                                 | 1   |        | r_V_1         | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5s_24s_24_4_1_U17                                                 | 1   |        | sk_V_3        | add   | dsp48   | 3       |
+|   + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_124_10                            | 0   |        |               |       |         |         |
+|     add_ln124_fu_99_p2                                                               | -   |        | add_ln124     | add   | fabric  | 0       |
+|     s_V_4_fu_143_p2                                                                  | -   |        | s_V_4         | add   | fabric  | 0       |
+|   + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_135_12                            | 1   |        |               |       |         |         |
+|     add_ln135_fu_131_p2                                                              | -   |        | add_ln135     | add   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U36                                               | 1   |        | mul_ln1347    | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U36                                               | 1   |        | ret_V         | add   | dsp48   | 3       |
+|   + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_145_13_VITIS_LOOP_147_14          | 2   |        |               |       |         |         |
+|     add_ln145_1_fu_183_p2                                                            | -   |        | add_ln145_1   | add   | fabric  | 0       |
+|     add_ln145_fu_236_p2                                                              | -   |        | add_ln145     | add   | fabric  | 0       |
+|     add_ln1273_fu_275_p2                                                             | -   |        | add_ln1273    | add   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U42                                               | 1   |        | mul_ln1347    | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U42                                               | 1   |        | ret_V         | add   | dsp48   | 3       |
+|     add_ln147_fu_211_p2                                                              | -   |        | add_ln147     | add   | fabric  | 0       |
+|     mul_mul_24s_16s_30_4_1_U43                                                       | 1   |        | mul_ln1270    | mul   | dsp48   | 3       |
+|   + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_158_16                            | 1   |        |               |       |         |         |
+|     add_ln158_fu_116_p2                                                              | -   |        | add_ln158     | add   | fabric  | 0       |
+|     add_ln160_fu_131_p2                                                              | -   |        | add_ln160     | add   | fabric  | 0       |
+|     mac_muladd_16s_5s_24s_24_4_1_U51                                                 | 1   |        | r_V_3         | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5s_24s_24_4_1_U51                                                 | 1   |        | s_V_2         | add   | dsp48   | 3       |
+|  + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_228_3                                   | 1   |        |               |       |         |         |
+|    add_ln228_fu_140_p2                                                               | -   |        | add_ln228     | add   | fabric  | 0       |
+|    add_ln230_fu_150_p2                                                               | -   |        | add_ln230     | add   | fabric  | 0       |
+|    mac_muladd_16s_3s_24s_24_4_1_U1                                                   | 1   |        | r_V_6         | mul   | dsp48   | 3       |
+|    mac_muladd_16s_3s_24s_24_4_1_U1                                                   | 1   |        | sum_V_3       | add   | dsp48   | 3       |
+|  + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_248_4                                   | 47  |        |               |       |         |         |
+|    add_ln248_fu_105_p2                                                               | -   |        | add_ln248     | add   | fabric  | 0       |
+|   + layer_norm_q8_1 (grp_layer_norm_q8_1_fu_42)                                      | 47  |        |               |       |         |         |
+|     add_ln813_fu_863_p2                                                              | -   |        | add_ln813     | add   | fabric  | 0       |
+|     add_ln813_5_fu_873_p2                                                            | -   |        | add_ln813_5   | add   | fabric  | 0       |
+|     add_ln813_6_fu_883_p2                                                            | -   |        | add_ln813_6   | add   | fabric  | 0       |
+|     add_ln813_7_fu_893_p2                                                            | -   |        | add_ln813_7   | add   | fabric  | 0       |
+|     add_ln813_8_fu_903_p2                                                            | -   |        | add_ln813_8   | add   | fabric  | 0       |
+|     add_ln813_9_fu_913_p2                                                            | -   |        | add_ln813_9   | add   | fabric  | 0       |
+|     add_ln813_10_fu_923_p2                                                           | -   |        | add_ln813_10  | add   | fabric  | 0       |
+|     add_ln813_11_fu_929_p2                                                           | -   |        | add_ln813_11  | add   | fabric  | 0       |
+|     add_ln813_12_fu_939_p2                                                           | -   |        | add_ln813_12  | add   | fabric  | 0       |
+|     add_ln813_13_fu_949_p2                                                           | -   |        | add_ln813_13  | add   | fabric  | 0       |
+|     add_ln813_14_fu_959_p2                                                           | -   |        | add_ln813_14  | add   | fabric  | 0       |
+|     add_ln813_15_fu_969_p2                                                           | -   |        | add_ln813_15  | add   | fabric  | 0       |
+|     add_ln813_16_fu_979_p2                                                           | -   |        | add_ln813_16  | add   | fabric  | 0       |
+|     add_ln813_17_fu_989_p2                                                           | -   |        | add_ln813_17  | add   | fabric  | 0       |
+|     add_ln813_18_fu_1001_p2                                                          | -   |        | add_ln813_18  | add   | fabric  | 0       |
+|     sub_ln1303_fu_1023_p2                                                            | -   |        | sub_ln1303    | sub   | fabric  | 0       |
+|     sub_ln1303_1_fu_1039_p2                                                          | -   |        | sub_ln1303_1  | sub   | fabric  | 0       |
+|     sub_ln813_fu_1070_p2                                                             | -   |        | sub_ln813     | sub   | fabric  | 0       |
+|     mul_mul_16s_16s_30_4_1_U73                                                       | 1   |        | mul_ln818     | mul   | dsp48   | 3       |
+|     sub_ln813_1_fu_1079_p2                                                           | -   |        | sub_ln813_1   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U74                                               | 1   |        | mul_ln1347    | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U74                                               | 1   |        | add_ln1347    | add   | dsp48   | 3       |
+|     sub_ln813_2_fu_1087_p2                                                           | -   |        | sub_ln813_2   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U75                                               | 1   |        | mul_ln1347_1  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U75                                               | 1   |        | add_ln1347_1  | add   | dsp48   | 3       |
+|     sub_ln813_3_fu_1112_p2                                                           | -   |        | sub_ln813_3   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U76                                               | 1   |        | mul_ln1347_2  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U76                                               | 1   |        | add_ln1347_2  | add   | dsp48   | 3       |
+|     sub_ln813_4_fu_1137_p2                                                           | -   |        | sub_ln813_4   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U77                                               | 1   |        | mul_ln1347_3  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U77                                               | 1   |        | add_ln1347_3  | add   | dsp48   | 3       |
+|     sub_ln813_5_fu_1162_p2                                                           | -   |        | sub_ln813_5   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U78                                               | 1   |        | mul_ln1347_4  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U78                                               | 1   |        | add_ln1347_4  | add   | dsp48   | 3       |
+|     sub_ln813_6_fu_1187_p2                                                           | -   |        | sub_ln813_6   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U79                                               | 1   |        | mul_ln1347_5  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U79                                               | 1   |        | add_ln1347_5  | add   | dsp48   | 3       |
+|     sub_ln813_7_fu_1212_p2                                                           | -   |        | sub_ln813_7   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U80                                               | 1   |        | mul_ln1347_6  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U80                                               | 1   |        | add_ln1347_6  | add   | dsp48   | 3       |
+|     sub_ln813_8_fu_1237_p2                                                           | -   |        | sub_ln813_8   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U81                                               | 1   |        | mul_ln1347_7  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U81                                               | 1   |        | add_ln1347_7  | add   | dsp48   | 3       |
+|     sub_ln813_9_fu_1262_p2                                                           | -   |        | sub_ln813_9   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U82                                               | 1   |        | mul_ln1347_8  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U82                                               | 1   |        | add_ln1347_8  | add   | dsp48   | 3       |
+|     sub_ln813_10_fu_1287_p2                                                          | -   |        | sub_ln813_10  | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U83                                               | 1   |        | mul_ln1347_9  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U83                                               | 1   |        | add_ln1347_9  | add   | dsp48   | 3       |
+|     sub_ln813_11_fu_1312_p2                                                          | -   |        | sub_ln813_11  | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U84                                               | 1   |        | mul_ln1347_10 | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U84                                               | 1   |        | add_ln1347_10 | add   | dsp48   | 3       |
+|     sub_ln813_12_fu_1337_p2                                                          | -   |        | sub_ln813_12  | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U85                                               | 1   |        | mul_ln1347_11 | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U85                                               | 1   |        | add_ln1347_11 | add   | dsp48   | 3       |
+|     sub_ln813_13_fu_1362_p2                                                          | -   |        | sub_ln813_13  | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U86                                               | 1   |        | mul_ln1347_12 | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U86                                               | 1   |        | add_ln1347_12 | add   | dsp48   | 3       |
+|     sub_ln813_14_fu_1387_p2                                                          | -   |        | sub_ln813_14  | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U87                                               | 1   |        | mul_ln1347_13 | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U87                                               | 1   |        | add_ln1347_13 | add   | dsp48   | 3       |
+|     sub_ln813_15_fu_1412_p2                                                          | -   |        | sub_ln813_15  | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U88                                               | 1   |        | mul_ln1347_14 | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U88                                               | 1   |        | add_ln1347_14 | add   | dsp48   | 3       |
+|     sub_ln1303_2_fu_1478_p2                                                          | -   |        | sub_ln1303_2  | sub   | fabric  | 0       |
+|     sub_ln1303_3_fu_1503_p2                                                          | -   |        | sub_ln1303_3  | sub   | fabric  | 0       |
+|     tmp_V_fu_1538_p2                                                                 | -   |        | tmp_V         | sub   | fabric  | 0       |
+|     sub_ln1099_fu_1581_p2                                                            | -   |        | sub_ln1099    | sub   | fabric  | 0       |
+|     lsb_index_fu_1626_p2                                                             | -   |        | lsb_index     | add   | fabric  | 0       |
+|     sub_ln1102_fu_1595_p2                                                            | -   |        | sub_ln1102    | sub   | fabric  | 0       |
+|     add_ln1104_fu_1666_p2                                                            | -   |        | add_ln1104    | add   | fabric  | 0       |
+|     add_ln1113_fu_1707_p2                                                            | -   |        | add_ln1113    | add   | fabric  | 0       |
+|     sub_ln1114_fu_1722_p2                                                            | -   |        | sub_ln1114    | sub   | fabric  | 0       |
+|     m_25_fu_1747_p2                                                                  | -   |        | m_25          | add   | fabric  | 0       |
+|     fadd_32ns_32ns_32_5_full_dsp_1_U69                                               | 2   |        | phitmp        | fadd  | fulldsp | 4       |
+|     fsqrt_32ns_32ns_32_16_no_dsp_1_U72                                               | -   |        | tmp           | fsqrt | fabric  | 15      |
+|     fdiv_32ns_32ns_32_16_no_dsp_1_U70                                                | -   |        | finv          | fdiv  | fabric  | 15      |
+|     man_V_13_fu_1876_p2                                                              | -   |        | man_V_13      | sub   | fabric  | 0       |
+|     F2_fu_1889_p2                                                                    | -   |        | F2            | sub   | fabric  | 0       |
+|     add_ln570_fu_1901_p2                                                             | -   |        | add_ln570     | add   | fabric  | 0       |
+|     sub_ln570_fu_1907_p2                                                             | -   |        | sub_ln570     | sub   | fabric  | 0       |
+|     am_submul_16s_16s_16s_26_4_1_U99                                                 | 1   |        | sub_ln1348    | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U99                                                 | 1   |        | mul_ln818_1   | mul   | dsp48   | 3       |
+|     add_ln1273_fu_2300_p2                                                            | -   |        | add_ln1273    | add   | fabric  | 0       |
+|     am_submul_16s_16s_16s_26_4_1_U89                                                 | 1   |        | sub_ln1348_1  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U89                                                 | 1   |        | mul_ln818_2   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U104                                              | 1   |        | mul_ln1347_15 | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U104                                              | 1   |        | add_ln1347_15 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U90                                                 | 1   |        | sub_ln1348_2  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U90                                                 | 1   |        | mul_ln818_3   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U105                                              | 1   |        | mul_ln837     | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U105                                              | 1   |        | add_ln1347_16 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U91                                                 | 1   |        | sub_ln1348_3  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U91                                                 | 1   |        | mul_ln818_4   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U106                                              | 1   |        | mul_ln837_1   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U106                                              | 1   |        | add_ln1347_17 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U100                                                | 1   |        | sub_ln1348_4  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U100                                                | 1   |        | mul_ln818_5   | mul   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U92                                                 | 1   |        | sub_ln1348_5  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U92                                                 | 1   |        | mul_ln818_6   | mul   | dsp48   | 3       |
+|     mul_mul_16s_5ns_20_4_1_U107                                                      | 1   |        | mul_ln818_7   | mul   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U108                                                | 1   |        | sub_ln1348_6  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U108                                                | 1   |        | mul_ln818_8   | mul   | dsp48   | 3       |
+|     sub_ln1273_fu_2472_p2                                                            | -   |        | sub_ln1273    | sub   | fabric  | 0       |
+|     am_submul_16s_16s_16s_26_4_1_U93                                                 | 1   |        | sub_ln1348_7  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U93                                                 | 1   |        | mul_ln818_9   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U109                                              | 1   |        | mul_ln837_2   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U109                                              | 1   |        | add_ln1347_18 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U94                                                 | 1   |        | sub_ln1348_8  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U94                                                 | 1   |        | mul_ln818_10  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11s_20_4_1_U110                                               | 1   |        | mul_ln837_3   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11s_20_4_1_U110                                               | 1   |        | add_ln1347_19 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U95                                                 | 1   |        | sub_ln1348_9  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U95                                                 | 1   |        | mul_ln818_11  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U111                                              | 1   |        | mul_ln837_4   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U111                                              | 1   |        | add_ln1347_20 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U96                                                 | 1   |        | sub_ln1348_10 | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U96                                                 | 1   |        | mul_ln818_12  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11s_20_4_1_U112                                               | 1   |        | mul_ln837_5   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11s_20_4_1_U112                                               | 1   |        | add_ln1347_21 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U97                                                 | 1   |        | sub_ln1348_11 | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U97                                                 | 1   |        | mul_ln818_13  | mul   | dsp48   | 3       |
+|     mul_mul_16s_5ns_20_4_1_U113                                                      | 1   |        | mul_ln818_14  | mul   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U98                                                 | 1   |        | sub_ln1348_12 | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U98                                                 | 1   |        | mul_ln818_15  | mul   | dsp48   | 3       |
+|     mul_mul_16s_5ns_20_4_1_U114                                                      | 1   |        | mul_ln818_16  | mul   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U101                                                | 1   |        | sub_ln1348_13 | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U101                                                | 1   |        | mul_ln818_17  | mul   | dsp48   | 3       |
+|     mul_mul_16s_5ns_20_4_1_U115                                                      | 1   |        | mul_ln818_18  | mul   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U102                                                | 1   |        | sub_ln1348_14 | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U102                                                | 1   |        | mul_ln818_19  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11s_20_4_1_U116                                               | 1   |        | mul_ln837_6   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11s_20_4_1_U116                                               | 1   |        | add_ln1347_22 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U103                                                | 1   |        | sub_ln1348_15 | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U103                                                | 1   |        | mul_ln818_20  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_12s_20_4_1_U117                                               | 1   |        | mul_ln837_7   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_12s_20_4_1_U117                                               | 1   |        | add_ln1347_23 | add   | dsp48   | 3       |
+|  + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_261_5                                   | 47  |        |               |       |         |         |
+|    add_ln261_fu_111_p2                                                               | -   |        | add_ln261     | add   | fabric  | 0       |
+|   + layer_norm_q8_1 (grp_layer_norm_q8_1_fu_48)                                      | 47  |        |               |       |         |         |
+|     add_ln813_fu_863_p2                                                              | -   |        | add_ln813     | add   | fabric  | 0       |
+|     add_ln813_5_fu_873_p2                                                            | -   |        | add_ln813_5   | add   | fabric  | 0       |
+|     add_ln813_6_fu_883_p2                                                            | -   |        | add_ln813_6   | add   | fabric  | 0       |
+|     add_ln813_7_fu_893_p2                                                            | -   |        | add_ln813_7   | add   | fabric  | 0       |
+|     add_ln813_8_fu_903_p2                                                            | -   |        | add_ln813_8   | add   | fabric  | 0       |
+|     add_ln813_9_fu_913_p2                                                            | -   |        | add_ln813_9   | add   | fabric  | 0       |
+|     add_ln813_10_fu_923_p2                                                           | -   |        | add_ln813_10  | add   | fabric  | 0       |
+|     add_ln813_11_fu_929_p2                                                           | -   |        | add_ln813_11  | add   | fabric  | 0       |
+|     add_ln813_12_fu_939_p2                                                           | -   |        | add_ln813_12  | add   | fabric  | 0       |
+|     add_ln813_13_fu_949_p2                                                           | -   |        | add_ln813_13  | add   | fabric  | 0       |
+|     add_ln813_14_fu_959_p2                                                           | -   |        | add_ln813_14  | add   | fabric  | 0       |
+|     add_ln813_15_fu_969_p2                                                           | -   |        | add_ln813_15  | add   | fabric  | 0       |
+|     add_ln813_16_fu_979_p2                                                           | -   |        | add_ln813_16  | add   | fabric  | 0       |
+|     add_ln813_17_fu_989_p2                                                           | -   |        | add_ln813_17  | add   | fabric  | 0       |
+|     add_ln813_18_fu_1001_p2                                                          | -   |        | add_ln813_18  | add   | fabric  | 0       |
+|     sub_ln1303_fu_1023_p2                                                            | -   |        | sub_ln1303    | sub   | fabric  | 0       |
+|     sub_ln1303_1_fu_1039_p2                                                          | -   |        | sub_ln1303_1  | sub   | fabric  | 0       |
+|     sub_ln813_fu_1070_p2                                                             | -   |        | sub_ln813     | sub   | fabric  | 0       |
+|     mul_mul_16s_16s_30_4_1_U73                                                       | 1   |        | mul_ln818     | mul   | dsp48   | 3       |
+|     sub_ln813_1_fu_1079_p2                                                           | -   |        | sub_ln813_1   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U74                                               | 1   |        | mul_ln1347    | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U74                                               | 1   |        | add_ln1347    | add   | dsp48   | 3       |
+|     sub_ln813_2_fu_1087_p2                                                           | -   |        | sub_ln813_2   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U75                                               | 1   |        | mul_ln1347_1  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U75                                               | 1   |        | add_ln1347_1  | add   | dsp48   | 3       |
+|     sub_ln813_3_fu_1112_p2                                                           | -   |        | sub_ln813_3   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U76                                               | 1   |        | mul_ln1347_2  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U76                                               | 1   |        | add_ln1347_2  | add   | dsp48   | 3       |
+|     sub_ln813_4_fu_1137_p2                                                           | -   |        | sub_ln813_4   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U77                                               | 1   |        | mul_ln1347_3  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U77                                               | 1   |        | add_ln1347_3  | add   | dsp48   | 3       |
+|     sub_ln813_5_fu_1162_p2                                                           | -   |        | sub_ln813_5   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U78                                               | 1   |        | mul_ln1347_4  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U78                                               | 1   |        | add_ln1347_4  | add   | dsp48   | 3       |
+|     sub_ln813_6_fu_1187_p2                                                           | -   |        | sub_ln813_6   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U79                                               | 1   |        | mul_ln1347_5  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U79                                               | 1   |        | add_ln1347_5  | add   | dsp48   | 3       |
+|     sub_ln813_7_fu_1212_p2                                                           | -   |        | sub_ln813_7   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U80                                               | 1   |        | mul_ln1347_6  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U80                                               | 1   |        | add_ln1347_6  | add   | dsp48   | 3       |
+|     sub_ln813_8_fu_1237_p2                                                           | -   |        | sub_ln813_8   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U81                                               | 1   |        | mul_ln1347_7  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U81                                               | 1   |        | add_ln1347_7  | add   | dsp48   | 3       |
+|     sub_ln813_9_fu_1262_p2                                                           | -   |        | sub_ln813_9   | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U82                                               | 1   |        | mul_ln1347_8  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U82                                               | 1   |        | add_ln1347_8  | add   | dsp48   | 3       |
+|     sub_ln813_10_fu_1287_p2                                                          | -   |        | sub_ln813_10  | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U83                                               | 1   |        | mul_ln1347_9  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U83                                               | 1   |        | add_ln1347_9  | add   | dsp48   | 3       |
+|     sub_ln813_11_fu_1312_p2                                                          | -   |        | sub_ln813_11  | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U84                                               | 1   |        | mul_ln1347_10 | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U84                                               | 1   |        | add_ln1347_10 | add   | dsp48   | 3       |
+|     sub_ln813_12_fu_1337_p2                                                          | -   |        | sub_ln813_12  | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U85                                               | 1   |        | mul_ln1347_11 | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U85                                               | 1   |        | add_ln1347_11 | add   | dsp48   | 3       |
+|     sub_ln813_13_fu_1362_p2                                                          | -   |        | sub_ln813_13  | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U86                                               | 1   |        | mul_ln1347_12 | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U86                                               | 1   |        | add_ln1347_12 | add   | dsp48   | 3       |
+|     sub_ln813_14_fu_1387_p2                                                          | -   |        | sub_ln813_14  | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U87                                               | 1   |        | mul_ln1347_13 | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U87                                               | 1   |        | add_ln1347_13 | add   | dsp48   | 3       |
+|     sub_ln813_15_fu_1412_p2                                                          | -   |        | sub_ln813_15  | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U88                                               | 1   |        | mul_ln1347_14 | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U88                                               | 1   |        | add_ln1347_14 | add   | dsp48   | 3       |
+|     sub_ln1303_2_fu_1478_p2                                                          | -   |        | sub_ln1303_2  | sub   | fabric  | 0       |
+|     sub_ln1303_3_fu_1503_p2                                                          | -   |        | sub_ln1303_3  | sub   | fabric  | 0       |
+|     tmp_V_fu_1538_p2                                                                 | -   |        | tmp_V         | sub   | fabric  | 0       |
+|     sub_ln1099_fu_1581_p2                                                            | -   |        | sub_ln1099    | sub   | fabric  | 0       |
+|     lsb_index_fu_1626_p2                                                             | -   |        | lsb_index     | add   | fabric  | 0       |
+|     sub_ln1102_fu_1595_p2                                                            | -   |        | sub_ln1102    | sub   | fabric  | 0       |
+|     add_ln1104_fu_1666_p2                                                            | -   |        | add_ln1104    | add   | fabric  | 0       |
+|     add_ln1113_fu_1707_p2                                                            | -   |        | add_ln1113    | add   | fabric  | 0       |
+|     sub_ln1114_fu_1722_p2                                                            | -   |        | sub_ln1114    | sub   | fabric  | 0       |
+|     m_25_fu_1747_p2                                                                  | -   |        | m_25          | add   | fabric  | 0       |
+|     fadd_32ns_32ns_32_5_full_dsp_1_U69                                               | 2   |        | phitmp        | fadd  | fulldsp | 4       |
+|     fsqrt_32ns_32ns_32_16_no_dsp_1_U72                                               | -   |        | tmp           | fsqrt | fabric  | 15      |
+|     fdiv_32ns_32ns_32_16_no_dsp_1_U70                                                | -   |        | finv          | fdiv  | fabric  | 15      |
+|     man_V_13_fu_1876_p2                                                              | -   |        | man_V_13      | sub   | fabric  | 0       |
+|     F2_fu_1889_p2                                                                    | -   |        | F2            | sub   | fabric  | 0       |
+|     add_ln570_fu_1901_p2                                                             | -   |        | add_ln570     | add   | fabric  | 0       |
+|     sub_ln570_fu_1907_p2                                                             | -   |        | sub_ln570     | sub   | fabric  | 0       |
+|     am_submul_16s_16s_16s_26_4_1_U99                                                 | 1   |        | sub_ln1348    | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U99                                                 | 1   |        | mul_ln818_1   | mul   | dsp48   | 3       |
+|     add_ln1273_fu_2300_p2                                                            | -   |        | add_ln1273    | add   | fabric  | 0       |
+|     am_submul_16s_16s_16s_26_4_1_U89                                                 | 1   |        | sub_ln1348_1  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U89                                                 | 1   |        | mul_ln818_2   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U104                                              | 1   |        | mul_ln1347_15 | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U104                                              | 1   |        | add_ln1347_15 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U90                                                 | 1   |        | sub_ln1348_2  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U90                                                 | 1   |        | mul_ln818_3   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U105                                              | 1   |        | mul_ln837     | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U105                                              | 1   |        | add_ln1347_16 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U91                                                 | 1   |        | sub_ln1348_3  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U91                                                 | 1   |        | mul_ln818_4   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U106                                              | 1   |        | mul_ln837_1   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U106                                              | 1   |        | add_ln1347_17 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U100                                                | 1   |        | sub_ln1348_4  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U100                                                | 1   |        | mul_ln818_5   | mul   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U92                                                 | 1   |        | sub_ln1348_5  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U92                                                 | 1   |        | mul_ln818_6   | mul   | dsp48   | 3       |
+|     mul_mul_16s_5ns_20_4_1_U107                                                      | 1   |        | mul_ln818_7   | mul   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U108                                                | 1   |        | sub_ln1348_6  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U108                                                | 1   |        | mul_ln818_8   | mul   | dsp48   | 3       |
+|     sub_ln1273_fu_2472_p2                                                            | -   |        | sub_ln1273    | sub   | fabric  | 0       |
+|     am_submul_16s_16s_16s_26_4_1_U93                                                 | 1   |        | sub_ln1348_7  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U93                                                 | 1   |        | mul_ln818_9   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U109                                              | 1   |        | mul_ln837_2   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U109                                              | 1   |        | add_ln1347_18 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U94                                                 | 1   |        | sub_ln1348_8  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U94                                                 | 1   |        | mul_ln818_10  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11s_20_4_1_U110                                               | 1   |        | mul_ln837_3   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11s_20_4_1_U110                                               | 1   |        | add_ln1347_19 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U95                                                 | 1   |        | sub_ln1348_9  | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U95                                                 | 1   |        | mul_ln818_11  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U111                                              | 1   |        | mul_ln837_4   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11ns_20_4_1_U111                                              | 1   |        | add_ln1347_20 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U96                                                 | 1   |        | sub_ln1348_10 | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U96                                                 | 1   |        | mul_ln818_12  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11s_20_4_1_U112                                               | 1   |        | mul_ln837_5   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11s_20_4_1_U112                                               | 1   |        | add_ln1347_21 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U97                                                 | 1   |        | sub_ln1348_11 | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U97                                                 | 1   |        | mul_ln818_13  | mul   | dsp48   | 3       |
+|     mul_mul_16s_5ns_20_4_1_U113                                                      | 1   |        | mul_ln818_14  | mul   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U98                                                 | 1   |        | sub_ln1348_12 | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U98                                                 | 1   |        | mul_ln818_15  | mul   | dsp48   | 3       |
+|     mul_mul_16s_5ns_20_4_1_U114                                                      | 1   |        | mul_ln818_16  | mul   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U101                                                | 1   |        | sub_ln1348_13 | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U101                                                | 1   |        | mul_ln818_17  | mul   | dsp48   | 3       |
+|     mul_mul_16s_5ns_20_4_1_U115                                                      | 1   |        | mul_ln818_18  | mul   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U102                                                | 1   |        | sub_ln1348_14 | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U102                                                | 1   |        | mul_ln818_19  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11s_20_4_1_U116                                               | 1   |        | mul_ln837_6   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_11s_20_4_1_U116                                               | 1   |        | add_ln1347_22 | add   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U103                                                | 1   |        | sub_ln1348_15 | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U103                                                | 1   |        | mul_ln818_20  | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_12s_20_4_1_U117                                               | 1   |        | mul_ln837_7   | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_12s_20_4_1_U117                                               | 1   |        | add_ln1347_23 | add   | dsp48   | 3       |
+|  + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_184_3                                   | 1   |        |               |       |         |         |
+|    add_ln184_fu_126_p2                                                               | -   |        | add_ln184     | add   | fabric  | 0       |
+|    add_ln1271_fu_136_p2                                                              | -   |        | add_ln1271    | add   | fabric  | 0       |
+|    add_ln186_fu_151_p2                                                               | -   |        | add_ln186     | add   | fabric  | 0       |
+|    mac_muladd_16s_5s_24s_24_4_1_U150                                                 | 1   |        | r_V_8         | mul   | dsp48   | 3       |
+|    mac_muladd_16s_5s_24s_24_4_1_U150                                                 | 1   |        | s_V_10        | add   | dsp48   | 3       |
+|  + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_204_6                                   | 0   |        |               |       |         |         |
+|    add_ln204_fu_88_p2                                                                | -   |        | add_ln204     | add   | fabric  | 0       |
+|    add_ln813_fu_103_p2                                                               | -   |        | add_ln813     | add   | fabric  | 0       |
+|    add_ln813_19_fu_119_p2                                                            | -   |        | add_ln813_19  | add   | fabric  | 0       |
+|  + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_196_5                                   | 1   |        |               |       |         |         |
+|    add_ln196_fu_116_p2                                                               | -   |        | add_ln196     | add   | fabric  | 0       |
+|    add_ln198_fu_131_p2                                                               | -   |        | add_ln198     | add   | fabric  | 0       |
+|    mac_muladd_15ns_5s_24s_24_4_1_U157                                                | 1   |        | r_V_7         | mul   | dsp48   | 3       |
+|    mac_muladd_15ns_5s_24s_24_4_1_U157                                                | 1   |        | s_V_8         | add   | dsp48   | 3       |
+|  + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_266_6_VITIS_LOOP_268_7                  | 0   |        |               |       |         |         |
+|    add_ln266_1_fu_143_p2                                                             | -   |        | add_ln266_1   | add   | fabric  | 0       |
+|    add_ln266_fu_155_p2                                                               | -   |        | add_ln266     | add   | fabric  | 0       |
+|    add_ln837_fu_224_p2                                                               | -   |        | add_ln837     | add   | fabric  | 0       |
+|    s_V_6_fu_257_p2                                                                   | -   |        | s_V_6         | add   | fabric  | 0       |
+|    add_ln268_fu_187_p2                                                               | -   |        | add_ln268     | add   | fabric  | 0       |
+|    sub_ln1303_fu_282_p2                                                              | -   |        | sub_ln1303    | sub   | fabric  | 0       |
+|    sub_ln1303_7_fu_298_p2                                                            | -   |        | sub_ln1303_7  | sub   | fabric  | 0       |
+|  + layer_norm_q8                                                                     | 5   |        |               |       |         |         |
+|    sub_ln1303_fu_208_p2                                                              | -   |        | sub_ln1303    | sub   | fabric  | 0       |
+|    sub_ln1303_4_fu_224_p2                                                            | -   |        | sub_ln1303_4  | sub   | fabric  | 0       |
+|    sub_ln1303_5_fu_278_p2                                                            | -   |        | sub_ln1303_5  | sub   | fabric  | 0       |
+|    sub_ln1303_6_fu_294_p2                                                            | -   |        | sub_ln1303_6  | sub   | fabric  | 0       |
+|    tmp_V_fu_341_p2                                                                   | -   |        | tmp_V         | sub   | fabric  | 0       |
+|    sub_ln1099_fu_382_p2                                                              | -   |        | sub_ln1099    | sub   | fabric  | 0       |
+|    lsb_index_fu_400_p2                                                               | -   |        | lsb_index     | add   | fabric  | 0       |
+|    sub_ln1102_fu_421_p2                                                              | -   |        | sub_ln1102    | sub   | fabric  | 0       |
+|    add_ln1104_fu_467_p2                                                              | -   |        | add_ln1104    | add   | fabric  | 0       |
+|    add_ln1113_fu_508_p2                                                              | -   |        | add_ln1113    | add   | fabric  | 0       |
+|    sub_ln1114_fu_523_p2                                                              | -   |        | sub_ln1114    | sub   | fabric  | 0       |
+|    m_29_fu_548_p2                                                                    | -   |        | m_29          | add   | fabric  | 0       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U183                                               | 2   |        | phitmp        | fadd  | fulldsp | 4       |
+|    fsqrt_32ns_32ns_32_16_no_dsp_1_U186                                               | -   |        | tmp           | fsqrt | fabric  | 15      |
+|    man_V_15_fu_677_p2                                                                | -   |        | man_V_15      | sub   | fabric  | 0       |
+|    F2_fu_690_p2                                                                      | -   |        | F2            | sub   | fabric  | 0       |
+|    add_ln570_fu_702_p2                                                               | -   |        | add_ln570     | add   | fabric  | 0       |
+|    sub_ln570_fu_708_p2                                                               | -   |        | sub_ln570     | sub   | fabric  | 0       |
+|   + layer_norm_q8_Pipeline_VITIS_LOOP_39_1                                           | 0   |        |               |       |         |         |
+|     add_ln39_fu_85_p2                                                                | -   |        | add_ln39      | add   | fabric  | 0       |
+|     sum_V_1_fu_116_p2                                                                | -   |        | sum_V_1       | add   | fabric  | 0       |
+|   + layer_norm_q8_Pipeline_VITIS_LOOP_44_2                                           | 1   |        |               |       |         |         |
+|     add_ln44_fu_101_p2                                                               | -   |        | add_ln44      | add   | fabric  | 0       |
+|     diff_fu_117_p2                                                                   | -   |        | diff          | sub   | fabric  | 0       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U172                                              | 1   |        | mul_ln1347    | mul   | dsp48   | 3       |
+|     mac_muladd_16s_16s_30ns_30_4_1_U172                                              | 1   |        | ret_V         | add   | dsp48   | 3       |
+|   + layer_norm_q8_Pipeline_VITIS_LOOP_54_3                                           | 2   |        |               |       |         |         |
+|     add_ln54_fu_135_p2                                                               | -   |        | add_ln54      | add   | fabric  | 0       |
+|     am_submul_16s_16s_16s_26_4_1_U176                                                | 1   |        | ret_V_1       | sub   | dsp48   | 3       |
+|     am_submul_16s_16s_16s_26_4_1_U176                                                | 1   |        | mul_ln1270    | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_12s_20_4_1_U177                                               | 1   |        | mul_ln837     | mul   | dsp48   | 3       |
+|     mac_muladd_16s_5ns_12s_20_4_1_U177                                               | 1   |        | ret_V         | add   | dsp48   | 3       |
++--------------------------------------------------------------------------------------+-----+--------+---------------+-------+---------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++-----------------------------------------------------------+------+------+--------+------------------------------------+---------+------+---------+
+| Name                                                      | BRAM | URAM | Pragma | Variable                           | Storage | Impl | Latency |
++-----------------------------------------------------------+------+------+--------+------------------------------------+---------+------+---------+
+| + imgds_linear_dense_q8                                   | 13   | 0    |        |                                    |         |      |         |
+|   hidden_V_U                                              | -    | -    |        | hidden_V                           | ram_1p  | auto | 1       |
+|   ff_out_V_U                                              | -    | -    |        | ff_out_V                           | ram_1p  | auto | 1       |
+|   x_V_U                                                   | 1    | -    |        | x_V                                | ram_t2p | auto | 1       |
+|   pooled_V_U                                              | -    | -    |        | pooled_V                           | ram_s2p | auto | 1       |
+|   input_projection_bias_V_U                               | -    | -    |        | input_projection_bias_V            | rom_1p  | auto | 1       |
+|   position_embedding_V_U                                  | 1    | -    |        | position_embedding_V               | rom_1p  | auto | 1       |
+|   layers_0_feedforward_0_bias_V_U                         | -    | -    |        | layers_0_feedforward_0_bias_V      | rom_1p  | auto | 1       |
+|   layers_0_feedforward_3_bias_V_U                         | -    | -    |        | layers_0_feedforward_3_bias_V      | rom_1p  | auto | 1       |
+|  + linear_attention_q8_sparse                             | 8    | 0    |        |                                    |         |      |         |
+|    Q_V_U                                                  | 1    | -    |        | Q_V                                | ram_1p  | auto | 1       |
+|    K_V_U                                                  | 1    | -    |        | K_V                                | ram_1p  | auto | 1       |
+|    V_V_U                                                  | 1    | -    |        | V_V                                | ram_1p  | auto | 1       |
+|    KV_V_U                                                 | 1    | -    |        | KV_V                               | ram_1p  | auto | 1       |
+|    K_sum_V_U                                              | -    | -    |        | K_sum_V                            | ram_1p  | auto | 1       |
+|    attended_V_U                                           | -    | -    |        | attended_V                         | ram_1p  | auto | 1       |
+|    ACTIVE_CHANNELS_U                                      | -    | -    |        | ACTIVE_CHANNELS                    | rom_1p  | auto | 1       |
+|    layers_0_attention_output_bias_V_U                     | -    | -    |        | layers_0_attention_output_bias_V   | rom_1p  | auto | 1       |
+|   + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_84_3   | 1    | 0    |        |                                    |         |      |         |
+|     layers_0_attention_value_weight_V_U                   | 1    | -    |        | layers_0_attention_value_weight_V  | rom_1p  | auto | 1       |
+|   + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_94_5   | 2    | 0    |        |                                    |         |      |         |
+|     layers_0_attention_query_weight_V_U                   | 1    | -    |        | layers_0_attention_query_weight_V  | rom_1p  | auto | 1       |
+|     layers_0_attention_key_weight_V_U                     | 1    | -    |        | layers_0_attention_key_weight_V    | rom_1p  | auto | 1       |
+|   + linear_attention_q8_sparse_Pipeline_VITIS_LOOP_158_16 | 1    | 0    |        |                                    |         |      |         |
+|     layers_0_attention_output_weight_V_U                  | 1    | -    |        | layers_0_attention_output_weight_V | rom_1p  | auto | 1       |
+|  + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_228_3        | 1    | 0    |        |                                    |         |      |         |
+|    input_projection_weight_V_U                            | 1    | -    |        | input_projection_weight_V          | rom_1p  | auto | 1       |
+|  + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_184_3        | 1    | 0    |        |                                    |         |      |         |
+|    layers_0_feedforward_0_weight_V_U                      | 1    | -    |        | layers_0_feedforward_0_weight_V    | rom_1p  | auto | 1       |
+|  + imgds_linear_dense_q8_Pipeline_VITIS_LOOP_196_5        | 1    | 0    |        |                                    |         |      |         |
+|    layers_0_feedforward_3_weight_V_U                      | 1    | -    |        | layers_0_feedforward_3_weight_V    | rom_1p  | auto | 1       |
+|  + layer_norm_q8                                          | 0    | 0    |        |                                    |         |      |         |
+|   + layer_norm_q8_Pipeline_VITIS_LOOP_54_3                | 0    | 0    |        |                                    |         |      |         |
+|     output_norm_weight_V_U                                | -    | -    |        | output_norm_weight_V               | rom_1p  | auto | 1       |
+|     output_norm_bias_V_U                                  | -    | -    |        | output_norm_bias_V                 | rom_1p  | auto | 1       |
++-----------------------------------------------------------+------+------+--------+------------------------------------+---------+------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Ignored Pragmas
++------------+---------------+----------------------------------------------------------------+--------------------------------------------------------------+
+| Type       | Options       | Location                                                       | Messages                                                     |
++------------+---------------+----------------------------------------------------------------+--------------------------------------------------------------+
+| allocation | instances=mul | src/imgds_linear_dense_q8.cpp:73 in linear_attention_q8_sparse | unexpected pragma argument 'mul', expects function/operation |
+| allocation | instances=mul | src/imgds_linear_dense_q8.cpp:177 in feedforward_q8            | unexpected pragma argument 'mul', expects function/operation |
+| allocation | instances=mul | src/imgds_linear_dense_q8.cpp:221 in imgds_linear_dense_q8     | unexpected pragma argument 'mul', expects function/operation |
++------------+---------------+----------------------------------------------------------------+--------------------------------------------------------------+
+
+* Valid Pragma Syntax
++-----------+-------------------------------------------------------+--------------------------------------------------------------------+
+| Type      | Options                                               | Location                                                           |
++-----------+-------------------------------------------------------+--------------------------------------------------------------------+
+| inline    |                                                       | src/imgds_linear_dense_q8.cpp:24 in feature_map                    |
+| pipeline  | II=1                                                  | src/imgds_linear_dense_q8.cpp:85 in linear_attention_q8_sparse     |
+| pipeline  | II=1                                                  | src/imgds_linear_dense_q8.cpp:95 in linear_attention_q8_sparse     |
+| pipeline  | II=1                                                  | src/imgds_linear_dense_q8.cpp:112 in linear_attention_q8_sparse    |
+| pipeline  | II=1                                                  | src/imgds_linear_dense_q8.cpp:125 in linear_attention_q8_sparse    |
+| pipeline  | II=1                                                  | src/imgds_linear_dense_q8.cpp:137 in linear_attention_q8_sparse    |
+| pipeline  | II=1                                                  | src/imgds_linear_dense_q8.cpp:149 in linear_attention_q8_sparse    |
+| pipeline  | II=1                                                  | src/imgds_linear_dense_q8.cpp:159 in linear_attention_q8_sparse    |
+| pipeline  | II=1                                                  | src/imgds_linear_dense_q8.cpp:185 in feedforward_q8                |
+| pipeline  | II=1                                                  | src/imgds_linear_dense_q8.cpp:197 in feedforward_q8                |
+| interface | m_axi port=input offset=slave bundle=gmem0 depth=1024 | src/imgds_linear_dense_q8.cpp:216 in imgds_linear_dense_q8, input  |
+| interface | m_axi port=logits offset=slave bundle=gmem1 depth=2   | src/imgds_linear_dense_q8.cpp:217 in imgds_linear_dense_q8, logits |
+| interface | s_axilite port=input bundle=control                   | src/imgds_linear_dense_q8.cpp:218 in imgds_linear_dense_q8, input  |
+| interface | s_axilite port=logits bundle=control                  | src/imgds_linear_dense_q8.cpp:219 in imgds_linear_dense_q8, logits |
+| interface | s_axilite port=return bundle=control                  | src/imgds_linear_dense_q8.cpp:220 in imgds_linear_dense_q8, return |
+| pipeline  | II=1                                                  | src/imgds_linear_dense_q8.cpp:229 in imgds_linear_dense_q8         |
+| pipeline  | II=1                                                  | src/imgds_linear_dense_q8.cpp:269 in imgds_linear_dense_q8         |
+| unroll    |                                                       | src/imgds_linear_dense_q8.cpp:278 in imgds_linear_dense_q8         |
+| unroll    |                                                       | src/imgds_linear_dense_q8.cpp:281 in imgds_linear_dense_q8         |
++-----------+-------------------------------------------------------+--------------------------------------------------------------------+
+
+

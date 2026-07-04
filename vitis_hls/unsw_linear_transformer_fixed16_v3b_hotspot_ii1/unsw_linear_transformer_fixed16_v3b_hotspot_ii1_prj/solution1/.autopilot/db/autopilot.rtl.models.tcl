@@ -1,0 +1,114 @@
+set SynModuleInfo {
+  {SRCNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_93_1_VITIS_LOOP_94_2 MODELNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_93_1_VITIS_LOOP_94_2 RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_93_1_VITIS_LOOP_94_2
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_flow_control_loop_pipe_sequential_init RTLNAME unsw_linear_transformer_flow_control_loop_pipe_sequential_init BINDTYPE interface TYPE internal_upc_flow_control INSTNAME unsw_linear_transformer_flow_control_loop_pipe_sequential_init_U}
+    }
+  }
+  {SRCNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_105_5 MODELNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_105_5 RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_105_5
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_mul_mul_15s_20s_35_4_1 RTLNAME unsw_linear_transformer_mul_mul_15s_20s_35_4_1 BINDTYPE op TYPE all IMPL dsp48 LATENCY 3 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_105_5_INPUT_PROJECTION_WEIGHT_V_Rbkb RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_105_5_INPUT_PROJECTION_WEIGHT_V_Rbkb BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_120_8 MODELNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_120_8 RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_120_8
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_mul_mul_13s_20s_33_4_1 RTLNAME unsw_linear_transformer_mul_mul_13s_20s_33_4_1 BINDTYPE op TYPE all IMPL dsp48 LATENCY 3 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_120_8_LAYERS_0_ATTENTION_QUERY_WEcud RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_120_8_LAYERS_0_ATTENTION_QUERY_WEcud BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_140_11 MODELNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_140_11 RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_140_11
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_140_11_LAYERS_0_ATTENTION_KEY_WEIdEe RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_140_11_LAYERS_0_ATTENTION_KEY_WEIdEe BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_160_14 MODELNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_160_14 RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_160_14
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_160_14_LAYERS_0_ATTENTION_VALUE_WeOg RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_160_14_LAYERS_0_ATTENTION_VALUE_WeOg BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_172_15_VITIS_LOOP_173_16_VITIS_LOOP_ MODELNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_172_15_VITIS_LOOP_173_16_VITIS_LOOP_s RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_172_15_VITIS_LOOP_173_16_VITIS_LOOP_s
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_mul_22s_22s_44_1_1 RTLNAME unsw_linear_transformer_mul_22s_22s_44_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_188_19 MODELNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_188_19 RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_188_19}
+  {SRCNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_199_21 MODELNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_199_21 RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_199_21}
+  {SRCNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_207_22_VITIS_LOOP_209_23 MODELNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_207_22_VITIS_LOOP_209_23 RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_207_22_VITIS_LOOP_209_23
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_mul_22s_28s_50_3_1 RTLNAME unsw_linear_transformer_mul_22s_28s_50_3_1 BINDTYPE op TYPE mul IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_sdiv_44ns_28ns_44_48_1 RTLNAME unsw_linear_transformer_sdiv_44ns_28ns_44_48_1 BINDTYPE op TYPE sdiv IMPL auto LATENCY 47 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_224_26 MODELNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_224_26 RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_224_26
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_mul_mul_14s_20s_34_4_1 RTLNAME unsw_linear_transformer_mul_mul_14s_20s_34_4_1 BINDTYPE op TYPE all IMPL dsp48 LATENCY 3 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_224_26_LAYERS_0_ATTENTION_OUTPUT_fYi RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_224_26_LAYERS_0_ATTENTION_OUTPUT_fYi BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME layer_norm_2d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>>_Pipeline_VITIS_LO.2 MODELNAME layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2 RTLNAME unsw_linear_transformer_layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2}
+  {SRCNAME layer_norm_2d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>>_Pipeline_VITIS_LO.1 MODELNAME layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1 RTLNAME unsw_linear_transformer_layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_mul_20s_20s_40_1_1 RTLNAME unsw_linear_transformer_mul_20s_20s_40_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME layer_norm_2d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>>_Pipeline_VITIS_LO MODELNAME layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO RTLNAME unsw_linear_transformer_layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_mul_mul_16s_16s_32_4_1 RTLNAME unsw_linear_transformer_mul_mul_16s_16s_32_4_1 BINDTYPE op TYPE all IMPL dsp48 LATENCY 3 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_mul_mul_20s_16s_36_4_1 RTLNAME unsw_linear_transformer_mul_mul_20s_16s_36_4_1 BINDTYPE op TYPE all IMPL dsp48 LATENCY 3 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME layer_norm_2d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>> MODELNAME layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_s RTLNAME unsw_linear_transformer_layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_s
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_fadd_32ns_32ns_32_5_full_dsp_1 RTLNAME unsw_linear_transformer_fadd_32ns_32ns_32_5_full_dsp_1 BINDTYPE op TYPE fadd IMPL fulldsp LATENCY 4 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_fdiv_32ns_32ns_32_16_no_dsp_1 RTLNAME unsw_linear_transformer_fdiv_32ns_32ns_32_16_no_dsp_1 BINDTYPE op TYPE fdiv IMPL fabric LATENCY 15 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_fsqrt_32ns_32ns_32_16_no_dsp_1 RTLNAME unsw_linear_transformer_fsqrt_32ns_32ns_32_16_no_dsp_1 BINDTYPE op TYPE fsqrt IMPL fabric LATENCY 15 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_247_29 MODELNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_247_29 RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_247_29
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_247_29_LAYERS_0_FEEDFORWARD_0_WEIg8j RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_247_29_LAYERS_0_FEEDFORWARD_0_WEIg8j BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_261_32 MODELNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_261_32 RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_261_32
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_mul_mul_14s_19ns_33_4_1 RTLNAME unsw_linear_transformer_mul_mul_14s_19ns_33_4_1 BINDTYPE op TYPE all IMPL dsp48 LATENCY 3 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_261_32_LAYERS_0_FEEDFORWARD_3_WEIhbi RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_261_32_LAYERS_0_FEEDFORWARD_3_WEIhbi BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_279_33_VITIS_LOOP_281_34 MODELNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_279_33_VITIS_LOOP_281_34 RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_279_33_VITIS_LOOP_281_34}
+  {SRCNAME layer_norm_1d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>>_Pipeline_VITIS_LO.2 MODELNAME layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2 RTLNAME unsw_linear_transformer_layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2}
+  {SRCNAME layer_norm_1d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>>_Pipeline_VITIS_LO.1 MODELNAME layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1 RTLNAME unsw_linear_transformer_layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1}
+  {SRCNAME layer_norm_1d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>>_Pipeline_VITIS_LO MODELNAME layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO RTLNAME unsw_linear_transformer_layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_mul_mul_20s_15ns_35_4_1 RTLNAME unsw_linear_transformer_mul_mul_20s_15ns_35_4_1 BINDTYPE op TYPE all IMPL dsp48 LATENCY 3 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_Libs RTLNAME unsw_linear_transformer_layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_Libs BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LjbC RTLNAME unsw_linear_transformer_layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LjbC BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME layer_norm_1d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>> MODELNAME layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_s RTLNAME unsw_linear_transformer_layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_s}
+  {SRCNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_298_36 MODELNAME unsw_linear_transformer_Pipeline_VITIS_LOOP_298_36 RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_298_36
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_298_36_CLASSIFIER_WEIGHT_V_ROM_AUkbM RTLNAME unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_298_36_CLASSIFIER_WEIGHT_V_ROM_AUkbM BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME unsw_linear_transformer MODELNAME unsw_linear_transformer RTLNAME unsw_linear_transformer IS_TOP 1
+    SUBMODULES {
+      {MODELNAME unsw_linear_transformer_fpext_32ns_64_2_no_dsp_1 RTLNAME unsw_linear_transformer_fpext_32ns_64_2_no_dsp_1 BINDTYPE op TYPE fpext IMPL auto LATENCY 1 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_fexp_32ns_32ns_32_10_full_dsp_1 RTLNAME unsw_linear_transformer_fexp_32ns_32ns_32_10_full_dsp_1 BINDTYPE op TYPE fexp IMPL fulldsp LATENCY 9 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_INPUT_PROJECTION_BIAS_V_ROM_AUTO_1R RTLNAME unsw_linear_transformer_INPUT_PROJECTION_BIAS_V_ROM_AUTO_1R BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_POSITION_EMBEDDING_V_0_ROM_AUTO_1R RTLNAME unsw_linear_transformer_POSITION_EMBEDDING_V_0_ROM_AUTO_1R BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_LAYERS_0_ATTENTION_OUTPUT_BIAS_V_ROM_AUTO_1R RTLNAME unsw_linear_transformer_LAYERS_0_ATTENTION_OUTPUT_BIAS_V_ROM_AUTO_1R BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_LAYERS_0_NORM1_WEIGHT_V_ROM_AUTO_1R RTLNAME unsw_linear_transformer_LAYERS_0_NORM1_WEIGHT_V_ROM_AUTO_1R BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_LAYERS_0_NORM1_BIAS_V_ROM_AUTO_1R RTLNAME unsw_linear_transformer_LAYERS_0_NORM1_BIAS_V_ROM_AUTO_1R BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_LAYERS_0_FEEDFORWARD_0_BIAS_V_ROM_AUTO_1R RTLNAME unsw_linear_transformer_LAYERS_0_FEEDFORWARD_0_BIAS_V_ROM_AUTO_1R BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_LAYERS_0_FEEDFORWARD_3_BIAS_V_ROM_AUTO_1R RTLNAME unsw_linear_transformer_LAYERS_0_FEEDFORWARD_3_BIAS_V_ROM_AUTO_1R BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_LAYERS_0_NORM2_WEIGHT_V_ROM_AUTO_1R RTLNAME unsw_linear_transformer_LAYERS_0_NORM2_WEIGHT_V_ROM_AUTO_1R BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_LAYERS_0_NORM2_BIAS_V_ROM_AUTO_1R RTLNAME unsw_linear_transformer_LAYERS_0_NORM2_BIAS_V_ROM_AUTO_1R BINDTYPE storage TYPE rom IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_input_fp_V_RAM_AUTO_1R1W RTLNAME unsw_linear_transformer_input_fp_V_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_embedded_V_RAM_AUTO_1R1W RTLNAME unsw_linear_transformer_embedded_V_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_key_value_V_RAM_AUTO_1R1W RTLNAME unsw_linear_transformer_key_value_V_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_key_sum_arr_V_RAM_AUTO_1R1W RTLNAME unsw_linear_transformer_key_sum_arr_V_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME unsw_linear_transformer_feedforward_hidden_V_RAM_AUTO_1R1W RTLNAME unsw_linear_transformer_feedforward_hidden_V_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+    }
+  }
+}

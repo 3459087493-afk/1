@@ -1,0 +1,155 @@
+
+
+================================================================
+== Vitis HLS Report for 'linear_attention_q8_sparse_Pipeline_VITIS_LOOP_124_10'
+================================================================
+* Date:           Thu Jul  2 17:14:48 2026
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        q8_s30_attn_sparse
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.157 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       19|       19|  0.190 us|  0.190 us|   19|   19|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                     |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_124_10  |       17|       17|         2|          1|          1|    16|       yes|
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.36>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%s_V = alloca i32 1"   --->   Operation 5 'alloca' 's_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%pos = alloca i32 1"   --->   Operation 6 'alloca' 'pos' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%d_1_read = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %d_1"   --->   Operation 7 'read' 'd_1_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (1.58ns)   --->   "%store_ln0 = store i5 0, i5 %pos"   --->   Operation 8 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 9 [1/1] (1.58ns)   --->   "%store_ln0 = store i24 0, i24 %s_V"   --->   Operation 9 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.body176"   --->   Operation 10 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%pos_1 = load i5 %pos" [src/imgds_linear_dense_q8.cpp:124]   --->   Operation 11 'load' 'pos_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%trunc_ln124 = trunc i5 %pos_1" [src/imgds_linear_dense_q8.cpp:124]   --->   Operation 12 'trunc' 'trunc_ln124' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (1.36ns)   --->   "%icmp_ln124 = icmp_eq  i5 %pos_1, i5 16" [src/imgds_linear_dense_q8.cpp:124]   --->   Operation 13 'icmp' 'icmp_ln124' <Predicate = true> <Delay = 1.36> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 14 [1/1] (1.78ns)   --->   "%add_ln124 = add i5 %pos_1, i5 1" [src/imgds_linear_dense_q8.cpp:124]   --->   Operation 14 'add' 'add_ln124' <Predicate = true> <Delay = 1.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%br_ln124 = br i1 %icmp_ln124, void %for.body176.split, void %for.end184.exitStub" [src/imgds_linear_dense_q8.cpp:124]   --->   Operation 15 'br' 'br_ln124' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%tmp_s = bitconcatenate i8 @_ssdm_op_BitConcatenate.i8.i4.i4, i4 %trunc_ln124, i4 %d_1_read"   --->   Operation 16 'bitconcatenate' 'tmp_s' <Predicate = (!icmp_ln124)> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%zext_ln837 = zext i8 %tmp_s"   --->   Operation 17 'zext' 'zext_ln837' <Predicate = (!icmp_ln124)> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%K_V_addr = getelementptr i16 %K_V, i64 0, i64 %zext_ln837"   --->   Operation 18 'getelementptr' 'K_V_addr' <Predicate = (!icmp_ln124)> <Delay = 0.00>
+ST_1 : Operation 19 [2/2] (3.25ns)   --->   "%K_V_load = load i8 %K_V_addr"   --->   Operation 19 'load' 'K_V_load' <Predicate = (!icmp_ln124)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 256> <RAM>
+ST_1 : Operation 20 [1/1] (1.58ns)   --->   "%store_ln124 = store i5 %add_ln124, i5 %pos" [src/imgds_linear_dense_q8.cpp:124]   --->   Operation 20 'store' 'store_ln124' <Predicate = (!icmp_ln124)> <Delay = 1.58>
+
+State 2 <SV = 1> <Delay = 7.15>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%s_V_3 = load i24 %s_V" [src/imgds_linear_dense_q8.cpp:124]   --->   Operation 21 'load' 's_V_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%trunc_ln124_1 = trunc i24 %s_V_3" [src/imgds_linear_dense_q8.cpp:124]   --->   Operation 22 'trunc' 'trunc_ln124_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 16, i64 16, i64 16"   --->   Operation 23 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%specpipeline_ln125 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_3" [src/imgds_linear_dense_q8.cpp:125]   --->   Operation 24 'specpipeline' 'specpipeline_ln125' <Predicate = (!icmp_ln124)> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%specloopname_ln123 = specloopname void @_ssdm_op_SpecLoopName, void @empty_22" [src/imgds_linear_dense_q8.cpp:123]   --->   Operation 25 'specloopname' 'specloopname_ln123' <Predicate = (!icmp_ln124)> <Delay = 0.00>
+ST_2 : Operation 26 [1/2] (3.25ns)   --->   "%K_V_load = load i8 %K_V_addr"   --->   Operation 26 'load' 'K_V_load' <Predicate = (!icmp_ln124)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 256> <RAM>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%shl_ln = bitconcatenate i20 @_ssdm_op_BitConcatenate.i20.i16.i4, i16 %K_V_load, i4 0"   --->   Operation 27 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln124)> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%sext_ln813 = sext i20 %shl_ln"   --->   Operation 28 'sext' 'sext_ln813' <Predicate = (!icmp_ln124)> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (2.31ns)   --->   "%s_V_4 = add i24 %sext_ln813, i24 %s_V_3"   --->   Operation 29 'add' 's_V_4' <Predicate = (!icmp_ln124)> <Delay = 2.31> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.31> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 30 [1/1] (1.58ns)   --->   "%store_ln124 = store i24 %s_V_4, i24 %s_V" [src/imgds_linear_dense_q8.cpp:124]   --->   Operation 30 'store' 'store_ln124' <Predicate = (!icmp_ln124)> <Delay = 1.58>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%br_ln124 = br void %for.body176" [src/imgds_linear_dense_q8.cpp:124]   --->   Operation 31 'br' 'br_ln124' <Predicate = (!icmp_ln124)> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%write_ln124 = write void @_ssdm_op_Write.ap_auto.i20P0A, i20 %s_V_out, i20 %trunc_ln124_1" [src/imgds_linear_dense_q8.cpp:124]   --->   Operation 32 'write' 'write_ln124' <Predicate = (icmp_ln124)> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 33 'ret' 'ret_ln0' <Predicate = (icmp_ln124)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 3.37ns
+The critical path consists of the following:
+	'alloca' operation ('pos') [5]  (0 ns)
+	'load' operation ('pos', src/imgds_linear_dense_q8.cpp:124) on local variable 'pos' [12]  (0 ns)
+	'add' operation ('add_ln124', src/imgds_linear_dense_q8.cpp:124) [17]  (1.78 ns)
+	'store' operation ('store_ln124', src/imgds_linear_dense_q8.cpp:124) of variable 'add_ln124', src/imgds_linear_dense_q8.cpp:124 on local variable 'pos' [29]  (1.59 ns)
+
+ <State 2>: 7.16ns
+The critical path consists of the following:
+	'load' operation ('K_V_load') on array 'K_V' [25]  (3.25 ns)
+	'add' operation ('s.V') [28]  (2.31 ns)
+	'store' operation ('store_ln124', src/imgds_linear_dense_q8.cpp:124) of variable 's.V' on local variable 's.V' [30]  (1.59 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

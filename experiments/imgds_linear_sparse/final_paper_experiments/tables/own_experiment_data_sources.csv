@@ -1,0 +1,115 @@
+category,experiment_version,metric,value,unit,source_file,generated_by,our_experiment,ready_for_paper,notes
+Software,Q32 Dense (Stage 1),accuracy,0.9419279907084784,fraction,reports/test_metrics.csv,PyTorch test script,TRUE,TRUE,"3,444 samples full test"
+Software,Q32 Dense (Stage 1),precision,0.9770753733935394,fraction,reports/test_metrics.csv,PyTorch test script,TRUE,TRUE,
+Software,Q32 Dense (Stage 1),recall,0.9545300305395318,fraction,reports/test_metrics.csv,PyTorch test script,TRUE,TRUE,
+Software,Q32 Dense (Stage 1),f1,0.9656711294198421,fraction,reports/test_metrics.csv,PyTorch test script,TRUE,TRUE,
+Software,Q32 Dense (Stage 1),auc,0.9791292717280949,fraction,reports/test_metrics.csv,PyTorch test script,TRUE,TRUE,
+Software,Q32 Dense (Stage 1),test_samples,3444,count,reports/test_metrics.csv,Computed TN+FP+FN+TP,TRUE,TRUE,
+Software,Q32 Dense (Stage 1),model_params,3538,count,reports/linear_imgds_dense_baseline_report.md,PyTorch summary,TRUE,TRUE,
+Software,Q32 Dense (Stage 1),model_size_mb,0.013,MB,reports/linear_imgds_dense_baseline_report.md,PyTorch checkpoint,TRUE,TRUE,
+Software,ONNX vs PyTorch,max_abs_error,7.152557373046875e-07,,reports/onnx_pytorch_diff.csv,ONNX export script,TRUE,TRUE,
+Software,ONNX vs PyTorch,mean_abs_error,1.5507451678331563e-07,,reports/onnx_pytorch_diff.csv,ONNX export script,TRUE,TRUE,
+Software,ONNX vs PyTorch,rmse,2.1434773600503831e-07,,reports/onnx_pytorch_diff.csv,ONNX export script,TRUE,TRUE,
+Software,ONNX vs PyTorch,allclose,True,bool,reports/onnx_pytorch_diff.csv,ONNX export script,TRUE,TRUE,atol=1e-5 rtol=1e-4
+Software,Q16 FakeQuant (Stage 2),accuracy,95.5,%,stage2_dense_hls_baselines/q16_s0/reports/q16_fake_quant_metrics.csv,PyTorch fake quant script,TRUE,TRUE,eval200 subset only
+Software,Q16 FakeQuant (Stage 2),precision,97.59036144578313,%,stage2_dense_hls_baselines/q16_s0/reports/q16_fake_quant_metrics.csv,PyTorch fake quant script,TRUE,TRUE,
+Software,Q16 FakeQuant (Stage 2),recall,97.0059880239521,%,stage2_dense_hls_baselines/q16_s0/reports/q16_fake_quant_metrics.csv,PyTorch fake quant script,TRUE,TRUE,
+Software,Q16 FakeQuant (Stage 2),f1,97.2972972972973,%,stage2_dense_hls_baselines/q16_s0/reports/q16_fake_quant_metrics.csv,PyTorch fake quant script,TRUE,TRUE,
+Software,Q16 FakeQuant (Stage 2),auc,95.8265287606605,%,stage2_dense_hls_baselines/q16_s0/reports/q16_fake_quant_metrics.csv,PyTorch fake quant script,TRUE,TRUE,
+Software,Q16 FakeQuant (Stage 2),prediction_match_rate_vs_q32,0.995,fraction,stage2_dense_hls_baselines/q16_s0/reports/q16_fake_quant_metrics.csv,PyTorch fake quant script,TRUE,TRUE,
+Software,Q16 FakeQuant (Stage 2),max_logit_error,0.059359908,,stage2_dense_hls_baselines/q16_s0/reports/q16_fake_quant_metrics.csv,PyTorch fake quant script,TRUE,TRUE,
+Software,Q16 FakeQuant (Stage 2),mean_logit_error,0.014067945,,stage2_dense_hls_baselines/q16_s0/reports/q16_fake_quant_metrics.csv,PyTorch fake quant script,TRUE,TRUE,
+Software,Q16 FakeQuant (Stage 2),n_eval_samples,200,count,stage2_dense_hls_baselines/q16_s0/reports/q16_fake_quant_metrics.csv,PyTorch fake quant script,TRUE,TRUE,
+Software,CPU PyTorch inference,latency_mean_us,284.4373,us,final_paper_experiments/tables/table4_cpu_gpu_fpga_latency.csv,Docker Jupyter notebook,TRUE,TRUE,10000 runs single-sample
+Software,CPU PyTorch inference,latency_std_us,185.8501,us,final_paper_experiments/tables/table4_cpu_gpu_fpga_latency.csv,Docker Jupyter notebook,TRUE,TRUE,
+Software,CPU ONNX inference,latency_mean_us,43.1636,us,final_paper_experiments/tables/table4_cpu_gpu_fpga_latency.csv,Docker Jupyter notebook,TRUE,TRUE,10000 runs single-sample
+Software,CPU ONNX inference,latency_std_us,11.9492,us,final_paper_experiments/tables/table4_cpu_gpu_fpga_latency.csv,Docker Jupyter notebook,TRUE,TRUE,
+HLS CSIM,Q32-S0-HLS-reference,prediction_match_rate,1.0000,fraction,stage2_dense_hls_baselines/q32_s0/logs/q32_csim_manual.log,Vitis HLS CSIM,TRUE,TRUE,200/200
+HLS CSIM,Q32-S0-HLS-reference,max_abs_error,0.00052404,,stage2_dense_hls_baselines/q32_s0/logs/q32_csim_manual.log,Vitis HLS CSIM,TRUE,TRUE,
+HLS CSIM,Q32-S0-HLS-reference,mean_abs_error,0.00010890,,stage2_dense_hls_baselines/q32_s0/logs/q32_csim_manual.log,Vitis HLS CSIM,TRUE,TRUE,
+HLS CSIM,Q32-S0-HLS-reference,csim_status,PASS,status,stage2_dense_hls_baselines/q32_s0/logs/q32_csim_manual.log,Vitis HLS CSIM,TRUE,TRUE,
+HLS CSIM,Q16-S0-naive,prediction_match_rate_vs_q32,0.9850,fraction,stage2_dense_hls_baselines/q16_s0/logs/q16_csim_manual_v2.log,Vitis HLS CSIM,TRUE,TRUE,197/200
+HLS CSIM,Q16-S0-naive,hw_label_accuracy,0.9450,fraction,stage2_dense_hls_baselines/q16_s0/logs/q16_csim_manual_v2.log,Vitis HLS CSIM,TRUE,TRUE,189/200
+HLS CSIM,Q16-S0-naive,ref_label_accuracy,0.9500,fraction,stage2_dense_hls_baselines/q16_s0/logs/q16_csim_manual_v2.log,Vitis HLS CSIM,TRUE,TRUE,190/200
+HLS CSIM,Q16-S0-naive,max_abs_error,0.42115319,,stage2_dense_hls_baselines/q16_s0/logs/q16_csim_manual_v2.log,Vitis HLS CSIM,TRUE,TRUE,
+HLS CSIM,Q16-S0-naive,mean_abs_error,0.06591579,,stage2_dense_hls_baselines/q16_s0/logs/q16_csim_manual_v2.log,Vitis HLS CSIM,TRUE,TRUE,
+HLS CSIM,Q16-S0-naive,csim_status,PASS_RELAXED,status,stage2_dense_hls_baselines/q16_s0/logs/q16_csim_manual_v2.log,Vitis HLS CSIM,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-naive,BRAM,8,blocks,stage2_dense_hls_baselines/q16_s0/hls/.../csynth.rpt,Vitis HLS CSYNTH,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-naive,DSP,2410,slices,stage2_dense_hls_baselines/q16_s0/hls/.../csynth.rpt,Vitis HLS CSYNTH,TRUE,TRUE,1095% of limit
+HLS CSYNTH,Q16-S0-naive,FF,117524,registers,stage2_dense_hls_baselines/q16_s0/hls/.../csynth.rpt,Vitis HLS CSYNTH,TRUE,TRUE,110% of limit
+HLS CSYNTH,Q16-S0-naive,LUT,180835,count,stage2_dense_hls_baselines/q16_s0/hls/.../csynth.rpt,Vitis HLS CSYNTH,TRUE,TRUE,339% of limit
+HLS CSYNTH,Q16-S0-naive,latency_cycles,2566,cycles,stage2_dense_hls_baselines/q16_s0/hls/.../csynth.rpt,Vitis HLS CSYNTH,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-naive,latency_us_at_100MHz,25.66,us,Computed from cycles,2566/(100e6)*1e6,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-naive,pynq_z2_fit,FALSE,bool,Resource check,Manual comparison,TRUE,TRUE,DSP 2410 > 220 limit
+HLS CSYNTH,Q16-S0-PARETO1,BRAM,17,blocks,stage2_dense_hls_baselines/q16_s0_pareto1/reports/pareto1_csynth_summary.csv,Vitis HLS CSYNTH,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO1,DSP,2639,slices,stage2_dense_hls_baselines/q16_s0_pareto1/reports/pareto1_csynth_summary.csv,Vitis HLS CSYNTH,TRUE,TRUE,1199% of limit
+HLS CSYNTH,Q16-S0-PARETO1,FF,89690,registers,stage2_dense_hls_baselines/q16_s0_pareto1/reports/pareto1_csynth_summary.csv,Vitis HLS CSYNTH,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO1,LUT,146862,count,stage2_dense_hls_baselines/q16_s0_pareto1/reports/pareto1_csynth_summary.csv,Vitis HLS CSYNTH,TRUE,TRUE,276% of limit
+HLS CSYNTH,Q16-S0-PARETO1,latency_cycles,6208,cycles,stage2_dense_hls_baselines/q16_s0_pareto1/hls/.../csynth.rpt,Vitis HLS CSYNTH,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO1,latency_us_at_100MHz,62.08,us,Computed from cycles,6208/(100e6)*1e6,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO1,pynq_z2_fit,FALSE,bool,Resource check,Manual comparison,TRUE,TRUE,DSP 2639 > 220 limit
+HLS CSIM,Q16-S0-PARETO1,csim_status,PASS_RELAXED,status,stage2_dense_hls_baselines/q16_s0_pareto1/reports/pareto1_csim_summary.txt,Vitis HLS CSIM,TRUE,TRUE,
+HLS CSIM,Q16-S0-PARETO2,prediction_match_rate_vs_q32,0.9850,fraction,stage2_dense_hls_baselines/q16_s0_pareto2/reports/pareto2_csim_summary.txt,Vitis HLS CSIM,TRUE,TRUE,197/200
+HLS CSIM,Q16-S0-PARETO2,hw_label_accuracy,0.9450,fraction,stage2_dense_hls_baselines/q16_s0_pareto2/reports/pareto2_csim_summary.txt,Vitis HLS CSIM,TRUE,TRUE,189/200
+HLS CSIM,Q16-S0-PARETO2,ref_label_accuracy,0.9500,fraction,stage2_dense_hls_baselines/q16_s0_pareto2/reports/pareto2_csim_summary.txt,Vitis HLS CSIM,TRUE,TRUE,190/200
+HLS CSIM,Q16-S0-PARETO2,max_abs_error,0.42115319,,stage2_dense_hls_baselines/q16_s0_pareto2/reports/pareto2_csim_summary.txt,Vitis HLS CSIM,TRUE,TRUE,
+HLS CSIM,Q16-S0-PARETO2,mean_abs_error,0.06591579,,stage2_dense_hls_baselines/q16_s0_pareto2/reports/pareto2_csim_summary.txt,Vitis HLS CSIM,TRUE,TRUE,
+HLS CSIM,Q16-S0-PARETO2,csim_status,PASS_RELAXED,status,stage2_dense_hls_baselines/q16_s0_pareto2/reports/pareto2_csim_summary.txt,Vitis HLS CSIM,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO2,BRAM,13,blocks,stage2_dense_hls_baselines/q16_s0_pareto2/reports/pareto2_csynth_summary.csv,Vitis HLS CSYNTH,TRUE,TRUE,4.6% of 280
+HLS CSYNTH,Q16-S0-PARETO2,DSP,156,slices,stage2_dense_hls_baselines/q16_s0_pareto2/reports/pareto2_csynth_summary.csv,Vitis HLS CSYNTH,TRUE,TRUE,70.9% of 220 FITS
+HLS CSYNTH,Q16-S0-PARETO2,FF,9484,registers,stage2_dense_hls_baselines/q16_s0_pareto2/reports/pareto2_csynth_summary.csv,Vitis HLS CSYNTH,TRUE,TRUE,8.9% of 106400 FITS
+HLS CSYNTH,Q16-S0-PARETO2,LUT,22056,count,stage2_dense_hls_baselines/q16_s0_pareto2/reports/pareto2_csynth_summary.csv,Vitis HLS CSYNTH,TRUE,TRUE,41.5% of 53200 FITS
+HLS CSYNTH,Q16-S0-PARETO2,latency_cycles,74084,cycles,stage2_dense_hls_baselines/q16_s0_pareto2/reports/pareto2_csynth_summary.csv,Vitis HLS CSYNTH,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO2,latency_us_at_100MHz,740.84,us,Computed from cycles,74084/(100e6)*1e6,TRUE,TRUE,HLS estimate only
+HLS CSYNTH,Q16-S0-PARETO2,latency_ms_at_100MHz,0.74084,ms,Computed from cycles,740.84/1000,TRUE,TRUE,HLS estimate only
+HLS CSYNTH,Q16-S0-PARETO2,estimated_clock_ns,7.903,ns,stage2_dense_hls_baselines/q16_s0_pareto2/reports/pareto2_csynth_summary.csv,Vitis HLS CSYNTH,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO2,csynth_status,PASS,status,stage2_dense_hls_baselines/q16_s0_pareto2/reports/pareto2_csynth_summary.csv,Vitis HLS CSYNTH,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO2,pynq_z2_fit,TRUE,bool,Resource check,Manual comparison,TRUE,TRUE,ALL resources within limits
+HLS CSIM,Q16-S0-PARETO2-AXI,prediction_match_rate_vs_q32,0.9850,fraction,stage2_dense_hls_baselines/q16_s0_pareto2_axi/logs/pareto2_axi_export.log,Vitis HLS CSIM,TRUE,TRUE,
+HLS CSIM,Q16-S0-PARETO2-AXI,hw_label_accuracy,0.9450,fraction,stage2_dense_hls_baselines/q16_s0_pareto2_axi/logs/pareto2_axi_export.log,Vitis HLS CSIM,TRUE,TRUE,
+HLS CSIM,Q16-S0-PARETO2-AXI,csim_status,PASS_RELAXED,status,stage2_dense_hls_baselines/q16_s0_pareto2_axi/logs/pareto2_axi_export.log,Vitis HLS CSIM,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO2-AXI,BRAM,13,blocks,stage2_dense_hls_baselines/q16_s0_pareto2_axi/reports/pareto2_axi_comparison.csv,Vitis HLS CSYNTH,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO2-AXI,DSP,156,slices,stage2_dense_hls_baselines/q16_s0_pareto2_axi/reports/pareto2_axi_comparison.csv,Vitis HLS CSYNTH,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO2-AXI,FF,11458,registers,stage2_dense_hls_baselines/q16_s0_pareto2_axi/reports/pareto2_axi_comparison.csv,Vitis HLS CSYNTH,TRUE,TRUE,+1974 vs original AXI bus overhead
+HLS CSYNTH,Q16-S0-PARETO2-AXI,LUT,25402,count,stage2_dense_hls_baselines/q16_s0_pareto2_axi/reports/pareto2_axi_comparison.csv,Vitis HLS CSYNTH,TRUE,TRUE,+3346 vs original AXI bus overhead
+HLS CSYNTH,Q16-S0-PARETO2-AXI,latency_cycles,75627,cycles,stage2_dense_hls_baselines/q16_s0_pareto2_axi/reports/pareto2_axi_comparison.csv,Vitis HLS CSYNTH,TRUE,TRUE,+1543 vs original
+HLS CSYNTH,Q16-S0-PARETO2-AXI,latency_us_at_100MHz,756.27,us,Computed from cycles,75627/(100e6)*1e6,TRUE,TRUE,HLS estimate only NOT measured
+HLS CSYNTH,Q16-S0-PARETO2-AXI,estimated_fmax_mhz,126.53,MHz,stage2_dense_hls_baselines/q16_s0_pareto2_axi/reports/pareto2_axi_comparison.csv,Vitis HLS CSYNTH,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO2-AXI,csynth_status,PASS,status,stage2_dense_hls_baselines/q16_s0_pareto2_axi/logs/pareto2_axi_export.log,Vitis HLS CSYNTH,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO2-AXI,ip_export_status,PASS,status,stage2_dense_hls_baselines/q16_s0_pareto2_axi/logs/pareto2_axi_export.log,Vitis HLS export_design,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO2-AXI,pynq_z2_fit,TRUE,bool,Resource check,Manual comparison,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO2-AXI,interface_input,m_axi bundle=gmem0,,stage2_dense_hls_baselines/q16_s0_pareto2_axi/hls/src/imgds_linear_dense_q16.cpp,Manual pragma,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO2-AXI,interface_logits,m_axi bundle=gmem1,,stage2_dense_hls_baselines/q16_s0_pareto2_axi/hls/src/imgds_linear_dense_q16.cpp,Manual pragma,TRUE,TRUE,
+HLS CSYNTH,Q16-S0-PARETO2-AXI,interface_control,s_axilite bundle=control,,stage2_dense_hls_baselines/q16_s0_pareto2_axi/hls/src/imgds_linear_dense_q16.cpp,Manual pragma,TRUE,TRUE,
+Vivado,PARETO2-AXI PYNQ-Z2,impl_status,write_bitstream Complete!,status,vivado/pareto2_axi_pynq_z2/vivado_pareto2_axi_build.log,Vivado 2022.2,TRUE,TRUE,
+Vivado,PARETO2-AXI PYNQ-Z2,LUT_placed,14004,count,vivado/pareto2_axi_pynq_z2/vivado_pareto2_axi_summary.md,Vivado utilization report,TRUE,TRUE,26.3% of 53200
+Vivado,PARETO2-AXI PYNQ-Z2,FF_placed,12903,registers,vivado/pareto2_axi_pynq_z2/vivado_pareto2_axi_summary.md,Vivado utilization report,TRUE,TRUE,12.1% of 106400
+Vivado,PARETO2-AXI PYNQ-Z2,DSP_placed,156,slices,vivado/pareto2_axi_pynq_z2/vivado_pareto2_axi_summary.md,Vivado utilization report,TRUE,TRUE,70.9% of 220
+Vivado,PARETO2-AXI PYNQ-Z2,BRAM_placed,15,blocks,vivado/pareto2_axi_pynq_z2/vivado_pareto2_axi_summary.md,Vivado utilization report,TRUE,TRUE,5.4% of 280
+Vivado,PARETO2-AXI PYNQ-Z2,WNS,+0.330,ns,vivado/pareto2_axi_pynq_z2/vivado_pareto2_axi_summary.md,Vivado timing report,TRUE,TRUE,PASS
+Vivado,PARETO2-AXI PYNQ-Z2,WHS,+0.022,ns,vivado/pareto2_axi_pynq_z2/vivado_pareto2_axi_summary.md,Vivado timing report,TRUE,TRUE,PASS
+Vivado,PARETO2-AXI PYNQ-Z2,WPWS,+3.750,ns,vivado/pareto2_axi_pynq_z2/vivado_pareto2_axi_summary.md,Vivado timing report,TRUE,TRUE,
+Vivado,PARETO2-AXI PYNQ-Z2,timing_status,PASS,status,vivado/pareto2_axi_pynq_z2/vivado_pareto2_axi_summary.md,Vivado timing report,TRUE,TRUE,
+Vivado,PARETO2-AXI PYNQ-Z2,bit_file,pynq_package/.../pareto2.bit,path,vivado/pareto2_axi_pynq_z2/vivado_pareto2_axi_summary.md,Vivado write_bitstream,TRUE,TRUE,3.9 MB
+Vivado,PARETO2-AXI PYNQ-Z2,hwh_file,pynq_package/.../pareto2.hwh,path,vivado/pareto2_axi_pynq_z2/vivado_pareto2_axi_summary.md,Vivado hw_handoff,TRUE,TRUE,263 KB
+Vivado,PARETO2-AXI PYNQ-Z2,ip_instance,imgds_linear_dense_q16_0,name,vivado/pareto2_axi_pynq_z2/vivado_pareto2_axi_summary.md,Vivado block design,TRUE,TRUE,
+Vivado,PARETO2-AXI PYNQ-Z2,s_axi_control_base_addr,0x4000_0000,hex,vivado/pareto2_axi_pynq_z2/vivado_pareto2_axi_summary.md,Vivado address assignment,TRUE,TRUE,64K range
+Vivado,PARETO2-AXI PYNQ-Z2,control_reg_offset,0x00,hex,ximgds_linear_dense_q16_hw.h,HLS driver auto-gen,TRUE,TRUE,bit0=start bit1=done
+Vivado,PARETO2-AXI PYNQ-Z2,input_r_reg_offset,0x10,hex,ximgds_linear_dense_q16_hw.h,HLS driver auto-gen,TRUE,TRUE,64-bit base addr gmem0
+Vivado,PARETO2-AXI PYNQ-Z2,logits_reg_offset,0x1C,hex,ximgds_linear_dense_q16_hw.h,HLS driver auto-gen,TRUE,TRUE,64-bit base addr gmem1
+PYNQ-Z2 Measured,PARETO2-AXI,kernel_runtime_mean_us_100runs,2382.631830,us,Board terminal output,PENDING_COPY_BACK CSV,TRUE,TRUE,PENDING CSV copy from PYNQ-Z2
+PYNQ-Z2 Measured,PARETO2-AXI,kernel_runtime_std_us_100runs,33.527395,us,Board terminal output,PENDING_COPY_BACK CSV,TRUE,TRUE,PENDING CSV copy from PYNQ-Z2
+PYNQ-Z2 Measured,PARETO2-AXI,total_runtime_mean_us_200samples,2408.759255,us,Board terminal output,PENDING_COPY_BACK CSV,TRUE,TRUE,THIS IS THE REAL FPGA LATENCY
+PYNQ-Z2 Measured,PARETO2-AXI,total_runtime_std_us_200samples,36.471145,us,Board terminal output,PENDING_COPY_BACK CSV,TRUE,TRUE,
+PYNQ-Z2 Measured,PARETO2-AXI,throughput_samples_per_sec,415.151493,samples/s,Board terminal output,PENDING_COPY_BACK CSV,TRUE,TRUE,
+PYNQ-Z2 Measured,PARETO2-AXI,prediction_match_rate_vs_q32,0.99,fraction,Board terminal output,PENDING_COPY_BACK CSV,TRUE,TRUE,198/200
+PYNQ-Z2 Measured,PARETO2-AXI,hw_label_accuracy,0.99,fraction,Board terminal output,PENDING_COPY_BACK CSV,TRUE,TRUE,198/200
+PYNQ-Z2 Measured,PARETO2-AXI,ref_label_accuracy,1.00,fraction,Board terminal output,PENDING_COPY_BACK CSV,TRUE,TRUE,200/200
+PYNQ-Z2 Measured,PARETO2-AXI,max_abs_error_vs_q32,0.422129750,,"Board terminal output,PENDING_COPY_BACK CSV",Board terminal output,TRUE,TRUE,
+PYNQ-Z2 Measured,PARETO2-AXI,mean_abs_error_vs_q32,0.074337892,,"Board terminal output,PENDING_COPY_BACK CSV",Board terminal output,TRUE,TRUE,
+PYNQ-Z2 Measured,PARETO2-AXI,speedup_vs_vit4mal_fastest_0p81s,336.272709,ratio,Computed 810000/2408.76,Manual calculation,TRUE,TRUE,REAL SPEEDUP
+PYNQ-Z2 Measured,PARETO2-AXI,speedup_vs_vit4mal_recommended_1p48s,614.424209,ratio,Computed 1480000/2408.76,Manual calculation,TRUE,TRUE,
+PYNQ-Z2 Measured,PARETO2-AXI,n_benchmark_runs,100,count,Board terminal output,PENDING_COPY_BACK CSV,TRUE,TRUE,
+PYNQ-Z2 Measured,PARETO2-AXI,n_eval_samples,200,count,Board terminal output,PENDING_COPY_BACK CSV,TRUE,TRUE,
+PYNQ-Z2 Measured,PARETO2-AXI,latency_source,PYNQ_Z2_MEASURED,label,Board terminal output,PENDING_COPY_BACK CSV,TRUE,TRUE,NOT HLS estimated
+PYNQ-Z2 Measured,PARETO2-AXI,pynq_measured,True,bool,Board terminal output,PENDING_COPY_BACK CSV,TRUE,TRUE,Real hardware

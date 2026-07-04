@@ -1,0 +1,19 @@
+config,loop_name,expected_bound,actual_tripcount,pass,notes
+Q16-QKSv2-D14,Q_projection_outer,ATTN_DIM=14,14,TRUE,Physically pruned Q outer loop — 14 channels NOT 16
+Q16-QKSv2-D14,K_projection_outer,ATTN_DIM=14,14,TRUE,Physically pruned K outer loop — 14 channels
+Q16-QKSv2-D14,V_projection_inner,D_MODEL=16,256(=16×16),TRUE,V projection remains FULL — correct
+Q16-QKSv2-D14,KV_accumulation_K_dim,ATTN_DIM=14,14,TRUE,KV outer dim uses ATTN_DIM — correct
+Q16-QKSv2-D14,KV_accumulation_inner,D_MODEL=16,224(=14×16),TRUE,KV inner product matches ATTN_DIM×D_MODEL
+Q16-QKSv2-D14,K_sum_loop,ATTN_DIM=14,14,TRUE,K_sum outer uses ATTN_DIM
+Q16-QKSv2-D14,normalizer_loop,ATTN_DIM=14,14,TRUE,Q·K_sum normalizer uses ATTN_DIM
+Q16-QKSv2-D14,attention_output,ATTN_DIM=14,14,TRUE,Attended numerator uses ATTN_DIM
+Q16-QKSv2-D14,token_loop,SEQ_LEN=16,16,TRUE,Token loop still FULL 16 — correct (token sparse is separate)
+Q16-QKSv2-D14,LN_loop,D_MODEL=16,16,TRUE,LayerNorm still per-token — correct
+Q16-QKSv2-D14,FFN_hidden,FF_DIM=32×D_MODEL=16,512(=32×16),TRUE,FFN unchanged — correct
+Q16-QKSv2-D13,Q_projection_outer,ATTN_DIM=13,13,TRUE,13 channels
+Q16-QKSv2-D13,KV_accumulation_K_dim,ATTN_DIM=13,13,TRUE,KV outer uses 13
+Q16-QKSv2-D11,Q_projection_outer,ATTN_DIM=11,11,TRUE,11 channels
+Q16-QKSv2-D11,K_projection_outer,ATTN_DIM=11,11,TRUE,11 channels
+Q16-QKSv2-D11,KV_accumulation_K_dim,ATTN_DIM=11,11,TRUE,KV outer uses 11
+Q16-QKSv2-D11,K_sum_loop,ATTN_DIM=11,11,TRUE,11 channels
+Q16-QKSv2-D11,normalizer_loop,ATTN_DIM=11,11,TRUE,11 channels

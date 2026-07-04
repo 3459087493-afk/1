@@ -1,0 +1,5 @@
+version,optimization,data_type,quant_bits,sparsity,BRAM,DSP,FF,LUT,latency_cycles,latency_us_at_100MHz,latency_ms_at_100MHz,estimated_clock_ns,csim_status,csynth_status,pynq_z2_fit,notes
+Q32-S0-HLS-reference,float32 reference CSIM only,float32,32,0,NA,NA,NA,NA,NA,NA,NA,NA,PASS,NOT_RUN,NA,Float32 HLS reference. Used for correctness only. Not the deployment target.
+Q16-S0-naive,aggressive unroll and pipeline,"ap_fixed<16,6>",16,0,8,2410,117524,180835,2566,25.66,0.02566,7.264,PASS_RELAXED,PASS,False,Very low latency but resource explosion. Does not fit PYNQ-Z2.
+Q16-S0-PARETO1,cyclic partition factor 4 and reduced unroll,"ap_fixed<16,6>",16,0,17,2639,89690,146862,6208,62.08,0.06208,NA,PASS_RELAXED,PASS,False,"LUT and FF reduced compared with naive, but DSP is still far above the PYNQ-Z2 limit."
+Q16-S0-PARETO2,"DSP sharing, allocation pragmas, serialized loops","ap_fixed<16,6>",16,0,13,156,9484,22056,74084,740.84,0.74084,7.903,PASS_RELAXED,PASS,True,"Fits PYNQ-Z2 by HLS resource estimation. HLS latency only, not board-measured."

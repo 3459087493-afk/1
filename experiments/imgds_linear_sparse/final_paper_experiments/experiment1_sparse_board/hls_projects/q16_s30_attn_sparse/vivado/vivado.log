@@ -1,0 +1,1060 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Thu Jul  2 17:22:22 2026
+# Process ID: 413983
+# Current directory: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado
+# Command line: vivado -mode batch -source create_q16_s30_attn_sparse_vivado.tcl
+# Log file: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/vivado.log
+# Journal file: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/vivado.jou
+# Running On: cym-HP-OmniBook-7-Laptop-16-az0xxx, OS: Linux, CPU Frequency: 2861.750 MHz, CPU Physical cores: 10, Host memory: 33266 MB
+#-----------------------------------------------------------
+source create_q16_s30_attn_sparse_vivado.tcl
+# set origin_dir [file normalize [file dirname [info script]]]
+# set project_dir [file join $origin_dir q16_s30_attn_sparse_vivado_prj]
+# set board_repo  /home/cym/prj2/finn/deps/board_files
+# set design_name imgds_linear_dense_q16_q16_s30_attn_sparse_design
+# puts "============================================"
+============================================
+# puts "q16_s30_attn_sparse Vivado Build"
+q16_s30_attn_sparse Vivado Build
+# puts "============================================"
+============================================
+# puts "IP repo : /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/q16_s30_attn_sparse/solution1/impl/ip"
+IP repo : /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/q16_s30_attn_sparse/solution1/impl/ip
+# puts "Board   : /home/cym/prj2/finn/deps/board_files"
+Board   : /home/cym/prj2/finn/deps/board_files
+# set_param board.repoPaths [list $board_repo]
+# create_project q16_s30_attn_sparse_vivado_prj $project_dir -part xc7z020clg400-1 -force
+# set_property board_part tul.com.tw:pynq-z2:part0:1.0 [current_project]
+WARNING: [Board 49-151] The current board 'tul.com.tw::pynq-z2:1.0' is from a local repo. The vivado install has a corresponding board with version greater than or equal to the local repo board. Please use boards from vivado install to avoid any upgrade/migrate issues
+# set_property ip_repo_paths [list /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/q16_s30_attn_sparse/solution1/impl/ip] [current_project]
+# update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/q16_s30_attn_sparse/solution1/impl/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.2/data/ip'.
+# create_bd_design $design_name
+WARNING: [BD 41-1753] The name 'imgds_linear_dense_q16_q16_s30_attn_sparse_design' you have specified is long. The Windows OS has path length limitations. It is recommended you use shorter names(less than 25 characters) to reduce the likelihood of issues when/if running on windows OS.
+Wrote  : </home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.srcs/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/imgds_linear_dense_q16_q16_s30_attn_sparse_design.bd> 
+# create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0
+# apply_bd_automation -rule xilinx.com:bd_rule:processing_system7 \
+#     -config {make_external "FIXED_IO, DDR" apply_board_preset "1" Master "Disable" Slave "Disable"} \
+#     [get_bd_cells processing_system7_0]
+# set_property -dict [list \
+#     CONFIG.PCW_USE_M_AXI_GP0 {1} \
+#     CONFIG.PCW_USE_S_AXI_HP0 {1} \
+# ] [get_bd_cells processing_system7_0]
+CRITICAL WARNING: [PSU-1]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_0 has negative value -0.051 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-2]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_1 has negative value -0.006 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-3]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_2 has negative value -0.009 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-4]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3 has negative value -0.033 . PS DDR interfaces might fail when entering negative DQS skew values. 
+# create_bd_cell -type ip -vlnv xilinx.com:hls:imgds_linear_dense_q16:1.0 imgds_linear_dense_q16_0
+# apply_bd_automation -rule xilinx.com:bd_rule:axi4 \
+#     -config { \
+#         Master "/processing_system7_0/M_AXI_GP0" \
+#         Slave  "/imgds_linear_dense_q16_0/s_axi_control" \
+#         Clk_master "/processing_system7_0/FCLK_CLK0 (100 MHz)" \
+#         Clk_slave  "/processing_system7_0/FCLK_CLK0 (100 MHz)" \
+#         Clk_xbar   "/processing_system7_0/FCLK_CLK0 (100 MHz)" \
+#         intc_ip "New AXI Interconnect" \
+#         master_apm "0" \
+#     } \
+#     [get_bd_intf_pins imgds_linear_dense_q16_0/s_axi_control]
+INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
+Slave segment '/imgds_linear_dense_q16_0/s_axi_control/Reg' is being assigned into address space '/processing_system7_0/Data' at <0x4000_0000 [ 64K ]>.
+# create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_mem_interconnect
+# set_property -dict [list CONFIG.NUM_MI {1} CONFIG.NUM_SI {2}] [get_bd_cells axi_mem_interconnect]
+# connect_bd_intf_net [get_bd_intf_pins imgds_linear_dense_q16_0/m_axi_gmem0] [get_bd_intf_pins axi_mem_interconnect/S00_AXI]
+# connect_bd_intf_net [get_bd_intf_pins imgds_linear_dense_q16_0/m_axi_gmem1] [get_bd_intf_pins axi_mem_interconnect/S01_AXI]
+# connect_bd_intf_net [get_bd_intf_pins axi_mem_interconnect/M00_AXI] [get_bd_intf_pins processing_system7_0/S_AXI_HP0]
+# connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0]     [get_bd_pins axi_mem_interconnect/ACLK]     [get_bd_pins axi_mem_interconnect/S00_ACLK]     [get_bd_pins axi_mem_interconnect/S01_ACLK]     [get_bd_pins axi_mem_interconnect/M00_ACLK]     [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK]
+# connect_bd_net [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]     [get_bd_pins axi_mem_interconnect/ARESETN]     [get_bd_pins axi_mem_interconnect/S00_ARESETN]     [get_bd_pins axi_mem_interconnect/S01_ARESETN]     [get_bd_pins axi_mem_interconnect/M00_ARESETN]
+# assign_bd_address
+Slave segment '/processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM' is being assigned into address space '/imgds_linear_dense_q16_0/Data_m_axi_gmem0' at <0x0000_0000 [ 512M ]>.
+Slave segment '/processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM' is being assigned into address space '/imgds_linear_dense_q16_0/Data_m_axi_gmem1' at <0x0000_0000 [ 512M ]>.
+# validate_bd_design
+WARNING: [BD 41-702] Propagation TCL tries to overwrite USER strength parameter PCW_M_AXI_GP0_FREQMHZ(10) on '/processing_system7_0' with propagated value(100). Command ignored
+WARNING: [BD 41-702] Propagation TCL tries to overwrite USER strength parameter PCW_S_AXI_HP0_FREQMHZ(10) on '/processing_system7_0' with propagated value(100). Command ignored
+# save_bd_design
+Wrote  : </home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.srcs/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/imgds_linear_dense_q16_q16_s30_attn_sparse_design.bd> 
+# puts "Block diagram created and validated."
+Block diagram created and validated.
+# set bd_file [get_files ${design_name}.bd]
+# make_wrapper -files $bd_file -top
+INFO: [BD 41-1662] The design 'imgds_linear_dense_q16_q16_s30_attn_sparse_design.bd' is already validated. Therefore parameter propagation will not be re-run.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/s00_couplers/auto_us/s_axi_arlock'(1) to pin: '/axi_mem_interconnect/s00_couplers/S_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/s01_couplers/auto_us/s_axi_awlock'(1) to pin: '/axi_mem_interconnect/s01_couplers/S_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/m00_couplers/auto_pc/m_axi_rid'(1) to pin: '/axi_mem_interconnect/m00_couplers/M_AXI_rid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/m00_couplers/auto_pc/m_axi_bid'(1) to pin: '/axi_mem_interconnect/m00_couplers/M_AXI_bid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to pin: '/axi_mem_interconnect/M00_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to pin: '/axi_mem_interconnect/M00_AXI_wid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to pin: '/axi_mem_interconnect/M00_AXI_arid'(1) - Only lower order bits will be connected.
+Verilog Output written to : /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/synth/imgds_linear_dense_q16_q16_s30_attn_sparse_design.v
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/s00_couplers/auto_us/s_axi_arlock'(1) to pin: '/axi_mem_interconnect/s00_couplers/S_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/s01_couplers/auto_us/s_axi_awlock'(1) to pin: '/axi_mem_interconnect/s01_couplers/S_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/m00_couplers/auto_pc/m_axi_rid'(1) to pin: '/axi_mem_interconnect/m00_couplers/M_AXI_rid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/m00_couplers/auto_pc/m_axi_bid'(1) to pin: '/axi_mem_interconnect/m00_couplers/M_AXI_bid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to pin: '/axi_mem_interconnect/M00_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to pin: '/axi_mem_interconnect/M00_AXI_wid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to pin: '/axi_mem_interconnect/M00_AXI_arid'(1) - Only lower order bits will be connected.
+Verilog Output written to : /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/sim/imgds_linear_dense_q16_q16_s30_attn_sparse_design.v
+Verilog Output written to : /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/hdl/imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper.v
+# add_files -norecurse [file join $project_dir q16_s30_attn_sparse_vivado_prj.gen sources_1 bd $design_name hdl ${design_name}_wrapper.v]
+# update_compile_order -fileset sources_1
+# puts "HDL wrapper generated. Starting synthesis..."
+HDL wrapper generated. Starting synthesis...
+# launch_runs impl_1 -to_step write_bitstream -jobs 4
+INFO: [BD 41-1662] The design 'imgds_linear_dense_q16_q16_s30_attn_sparse_design.bd' is already validated. Therefore parameter propagation will not be re-run.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/s00_couplers/auto_us/s_axi_arlock'(1) to pin: '/axi_mem_interconnect/s00_couplers/S_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/s01_couplers/auto_us/s_axi_awlock'(1) to pin: '/axi_mem_interconnect/s01_couplers/S_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/m00_couplers/auto_pc/m_axi_rid'(1) to pin: '/axi_mem_interconnect/m00_couplers/M_AXI_rid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/m00_couplers/auto_pc/m_axi_bid'(1) to pin: '/axi_mem_interconnect/m00_couplers/M_AXI_bid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to pin: '/axi_mem_interconnect/M00_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to pin: '/axi_mem_interconnect/M00_AXI_wid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to pin: '/axi_mem_interconnect/M00_AXI_arid'(1) - Only lower order bits will be connected.
+Verilog Output written to : /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/synth/imgds_linear_dense_q16_q16_s30_attn_sparse_design.v
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/s00_couplers/auto_us/s_axi_arlock'(1) to pin: '/axi_mem_interconnect/s00_couplers/S_AXI_arlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/s01_couplers/auto_us/s_axi_awlock'(1) to pin: '/axi_mem_interconnect/s01_couplers/S_AXI_awlock'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/m00_couplers/auto_pc/m_axi_rid'(1) to pin: '/axi_mem_interconnect/m00_couplers/M_AXI_rid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_interconnect/m00_couplers/auto_pc/m_axi_bid'(1) to pin: '/axi_mem_interconnect/m00_couplers/M_AXI_bid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to pin: '/axi_mem_interconnect/M00_AXI_awid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to pin: '/axi_mem_interconnect/M00_AXI_wid'(1) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to pin: '/axi_mem_interconnect/M00_AXI_arid'(1) - Only lower order bits will be connected.
+Verilog Output written to : /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/sim/imgds_linear_dense_q16_q16_s30_attn_sparse_design.v
+Verilog Output written to : /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/hdl/imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper.v
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI_GP0'. A default connection has been created.
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI_HP0'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block imgds_linear_dense_q16_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_100M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_interconnect/xbar .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_0_ooc.xdc'
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI'. A default connection has been created.
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_interconnect/s00_couplers/auto_us .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_1/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_1_ooc.xdc'
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI'. A default connection has been created.
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_interconnect/s01_couplers/auto_us .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_1/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_1_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_interconnect/m00_couplers/auto_pc .
+Exporting to file /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/hw_handoff/imgds_linear_dense_q16_q16_s30_attn_sparse_design.hwh
+Generated Hardware Definition File /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/synth/imgds_linear_dense_q16_q16_s30_attn_sparse_design.hwdef
+INFO: [IP_Flow 19-6930] IPCACHE: runCacheChecks() number of threads = 8
+INFO: [IP_Flow 19-6921] IPCACHE: Adding cache check func to thread queue for IP imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_0
+INFO: [IP_Flow 19-6921] IPCACHE: Adding cache check func to thread queue for IP imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_1
+INFO: [IP_Flow 19-6921] IPCACHE: Adding cache check func to thread queue for IP imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_0
+INFO: [IP_Flow 19-6921] IPCACHE: Adding cache check func to thread queue for IP imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_1
+INFO: [IP_Flow 19-6921] IPCACHE: Adding cache check func to thread queue for IP imgds_linear_dense_q16_q16_s30_attn_sparse_design_imgds_linear_dense_q16_0_0
+INFO: [IP_Flow 19-6921] IPCACHE: Adding cache check func to thread queue for IP imgds_linear_dense_q16_q16_s30_attn_sparse_design_rst_ps7_0_100M_0
+INFO: [IP_Flow 19-6921] IPCACHE: Adding cache check func to thread queue for IP imgds_linear_dense_q16_q16_s30_attn_sparse_design_xbar_0
+INFO: [IP_Flow 19-8020] IPCACHE: runCacheChecks() calling threadPool finishWork()
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_0
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_1
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_0
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_1
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: imgds_linear_dense_q16_q16_s30_attn_sparse_design_imgds_linear_dense_q16_0_0
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: imgds_linear_dense_q16_q16_s30_attn_sparse_design_rst_ps7_0_100M_0
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: imgds_linear_dense_q16_q16_s30_attn_sparse_design_xbar_0
+[Thu Jul  2 17:22:54 2026] Launched imgds_linear_dense_q16_q16_s30_attn_sparse_design_rst_ps7_0_100M_0_synth_1, imgds_linear_dense_q16_q16_s30_attn_sparse_design_processing_system7_0_0_synth_1, imgds_linear_dense_q16_q16_s30_attn_sparse_design_imgds_linear_dense_q16_0_0_synth_1, imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_1_synth_1, imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_0_synth_1, imgds_linear_dense_q16_q16_s30_attn_sparse_design_xbar_0_synth_1, imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_0_synth_1, imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_1_synth_1, synth_1...
+Run output will be captured here:
+imgds_linear_dense_q16_q16_s30_attn_sparse_design_rst_ps7_0_100M_0_synth_1: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/imgds_linear_dense_q16_q16_s30_attn_sparse_design_rst_ps7_0_100M_0_synth_1/runme.log
+imgds_linear_dense_q16_q16_s30_attn_sparse_design_processing_system7_0_0_synth_1: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/imgds_linear_dense_q16_q16_s30_attn_sparse_design_processing_system7_0_0_synth_1/runme.log
+imgds_linear_dense_q16_q16_s30_attn_sparse_design_imgds_linear_dense_q16_0_0_synth_1: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/imgds_linear_dense_q16_q16_s30_attn_sparse_design_imgds_linear_dense_q16_0_0_synth_1/runme.log
+imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_1_synth_1: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_1_synth_1/runme.log
+imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_0_synth_1: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_0_synth_1/runme.log
+imgds_linear_dense_q16_q16_s30_attn_sparse_design_xbar_0_synth_1: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/imgds_linear_dense_q16_q16_s30_attn_sparse_design_xbar_0_synth_1/runme.log
+imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_0_synth_1: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_0_synth_1/runme.log
+imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_1_synth_1: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_1_synth_1/runme.log
+synth_1: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/synth_1/runme.log
+[Thu Jul  2 17:22:54 2026] Launched impl_1...
+Run output will be captured here: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 2019.734 ; gain = 124.047 ; free physical = 4240 ; free virtual = 22521
+# wait_on_run impl_1
+[Thu Jul  2 17:22:54 2026] Waiting for impl_1 to finish...
+
+*** Running vivado
+    with args -log imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper.tcl -notrace
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/q16_s30_attn_sparse/solution1/impl/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.2/data/ip'.
+Command: link_design -top imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper -part xc7z020clg400-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Project 1-454] Reading design checkpoint '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_imgds_linear_dense_q16_0_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_imgds_linear_dense_q16_0_0.dcp' for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_processing_system7_0_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_processing_system7_0_0.dcp' for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/processing_system7_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_rst_ps7_0_100M_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_rst_ps7_0_100M_0.dcp' for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/rst_ps7_0_100M'
+INFO: [Project 1-454] Reading design checkpoint '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_xbar_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_xbar_0.dcp' for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/xbar'
+INFO: [Project 1-454] Reading design checkpoint '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_1/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_1.dcp' for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_0.dcp' for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/s00_couplers/auto_us'
+INFO: [Project 1-454] Reading design checkpoint '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_1/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_1.dcp' for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/s01_couplers/auto_us'
+INFO: [Project 1-454] Reading design checkpoint '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_pc_0.dcp' for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/ps7_0_axi_periph/s00_couplers/auto_pc'
+Netlist sorting complete. Time (s): cpu = 00:00:00.26 ; elapsed = 00:00:00.27 . Memory (MB): peak = 1833.945 ; gain = 0.000 ; free physical = 5309 ; free virtual = 21896
+INFO: [Netlist 29-17] Analyzing 2709 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_processing_system7_0_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_processing_system7_0_0.xdc] for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/processing_system7_0/inst'
+Finished Parsing XDC File [/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_processing_system7_0_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_processing_system7_0_0.xdc] for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/processing_system7_0/inst'
+Parsing XDC File [/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_rst_ps7_0_100M_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_rst_ps7_0_100M_0_board.xdc] for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/rst_ps7_0_100M/U0'
+Finished Parsing XDC File [/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_rst_ps7_0_100M_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_rst_ps7_0_100M_0_board.xdc] for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/rst_ps7_0_100M/U0'
+Parsing XDC File [/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_rst_ps7_0_100M_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_rst_ps7_0_100M_0.xdc] for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/rst_ps7_0_100M/U0'
+Finished Parsing XDC File [/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_rst_ps7_0_100M_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_rst_ps7_0_100M_0.xdc] for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/rst_ps7_0_100M/U0'
+Parsing XDC File [/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_0_clocks.xdc] for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/s00_couplers/auto_us/inst'
+Finished Parsing XDC File [/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_0/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_0_clocks.xdc] for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/s00_couplers/auto_us/inst'
+Parsing XDC File [/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_1/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_1_clocks.xdc] for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/s01_couplers/auto_us/inst'
+Finished Parsing XDC File [/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.gen/sources_1/bd/imgds_linear_dense_q16_q16_s30_attn_sparse_design/ip/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_1/imgds_linear_dense_q16_q16_s30_attn_sparse_design_auto_us_1_clocks.xdc] for cell 'imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/s01_couplers/auto_us/inst'
+INFO: [Project 1-1714] 3 XPM XDC files have been applied to the design.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2173.637 ; gain = 0.000 ; free physical = 5095 ; free virtual = 21699
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 82 instances were transformed.
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 16 instances
+  RAM16X1S => RAM32X1S (RAMS32): 48 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 2 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 1 instance 
+  RAM32X1S => RAM32X1S (RAMS32): 15 instances
+
+19 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2173.637 ; gain = 750.801 ; free physical = 5095 ; free virtual = 21699
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:00.94 ; elapsed = 00:00:00.62 . Memory (MB): peak = 2173.637 ; gain = 0.000 ; free physical = 5084 ; free virtual = 21688
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: aa95439a
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 2597.082 ; gain = 423.445 ; free physical = 4634 ; free virtual = 21265
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-1287] Pulled Inverter imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst_i_2__0 into driver instance imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst_i_4__0, which resulted in an inversion of 6 pins
+INFO: [Opt 31-1287] Pulled Inverter imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/split_ongoing_i_1__0 into driver instance imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/S_AXI_AREADY_I_i_3__0, which resulted in an inversion of 3 pins
+INFO: [Opt 31-1287] Pulled Inverter imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/split_ongoing_i_1 into driver instance imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/S_AXI_AREADY_I_i_4, which resulted in an inversion of 3 pins
+INFO: [Opt 31-1287] Pulled Inverter imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst_i_1 into driver instance imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst_i_3__0, which resulted in an inversion of 8 pins
+INFO: [Opt 31-1287] Pulled Inverter imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/s00_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/si_register_slice_inst/ar.ar_pipe/USE_RTL_FIFO.data_srl_reg[31][11]_srl32_i_1 into driver instance imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/s00_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/si_register_slice_inst/ar.ar_pipe/m_axi_araddr[0]_INST_0_i_1, which resulted in an inversion of 5 pins
+INFO: [Opt 31-1287] Pulled Inverter imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/s00_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/si_register_slice_inst/ar.ar_pipe/USE_RTL_FIFO.data_srl_reg[31][13]_srl32_i_1 into driver instance imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/s00_couplers/auto_us/inst/gen_upsizer.gen_full_upsizer.axi_upsizer_inst/si_register_slice_inst/ar.ar_pipe/m_axi_araddr[2]_INST_0_i_2, which resulted in an inversion of 8 pins
+INFO: [Opt 31-1287] Pulled Inverter imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/xbar/inst/gen_samd.crossbar_samd/gen_slave_slots[1].gen_si_write.wdata_router_w/wrouter_aw_fifo/gen_srls[0].gen_rep[0].srl_nx1/gen_primitive_shifter.gen_srls[0].srl_inst_i_2 into driver instance imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/xbar/inst/gen_samd.crossbar_samd/addr_arbiter_aw/gen_primitive_shifter.gen_srls[0].srl_inst_i_4, which resulted in an inversion of 7 pins
+INFO: [Opt 31-1287] Pulled Inverter imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/gmem0_m_axi_U/bus_read/fifo_rctl/sect_addr_buf[63]_i_1 into driver instance imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/gmem0_m_axi_U/bus_read/fifo_rctl/start_addr[63]_i_2, which resulted in an inversion of 19 pins
+INFO: [Opt 31-1287] Pulled Inverter imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/grp_linear_attention_q16_sparse_Pipeline_VITIS_LOOP_151_12_fu_375/trunc_ln1098_2_reg_2715[2]_i_1 into driver instance imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/grp_linear_attention_q16_sparse_Pipeline_VITIS_LOOP_151_12_fu_375/trunc_ln1098_2_reg_2715[2]_i_2, which resulted in an inversion of 4 pins
+INFO: [Opt 31-138] Pushed 6 inverter(s) to 37 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: f24fcddb
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.72 . Memory (MB): peak = 2887.941 ; gain = 0.000 ; free physical = 4429 ; free virtual = 21048
+INFO: [Opt 31-389] Phase Retarget created 122 cells and removed 308 cells
+INFO: [Opt 31-1021] In phase Retarget, 27 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 4 inverter(s) to 9 load pin(s).
+Phase 2 Constant propagation | Checksum: 1729294f2
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2887.941 ; gain = 0.000 ; free physical = 4428 ; free virtual = 21047
+INFO: [Opt 31-389] Phase Constant propagation created 711 cells and removed 2208 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 27 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 1ac38e9a4
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2887.941 ; gain = 0.000 ; free physical = 4420 ; free virtual = 21039
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 706 cells
+INFO: [Opt 31-1021] In phase Sweep, 96 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 BUFG optimization
+Phase 4 BUFG optimization | Checksum: 1ac38e9a4
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2919.957 ; gain = 32.016 ; free physical = 4418 ; free virtual = 21037
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 5 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 5 Shift Register Optimization | Checksum: 1ac38e9a4
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2919.957 ; gain = 32.016 ; free physical = 4418 ; free virtual = 21037
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 6 Post Processing Netlist
+Phase 6 Post Processing Netlist | Checksum: 137b0ab88
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2919.957 ; gain = 32.016 ; free physical = 4424 ; free virtual = 21033
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 33 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |             122  |             308  |                                             27  |
+|  Constant propagation         |             711  |            2208  |                                             27  |
+|  Sweep                        |               0  |             706  |                                             96  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                             33  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2919.957 ; gain = 0.000 ; free physical = 4434 ; free virtual = 21043
+Ending Logic Optimization Task | Checksum: ff4edc82
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2919.957 ; gain = 32.016 ; free physical = 4434 ; free virtual = 21043
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 15 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 2 newly gated: 1 Total Ports: 30
+Number of Flops added for Enable Generation: 6
+
+Ending PowerOpt Patch Enables Task | Checksum: 10ce72eee
+
+Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.22 . Memory (MB): peak = 3238.004 ; gain = 0.000 ; free physical = 4233 ; free virtual = 20847
+Ending Power Optimization Task | Checksum: 10ce72eee
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:03 . Memory (MB): peak = 3238.004 ; gain = 318.047 ; free physical = 4260 ; free virtual = 20874
+
+Starting Final Cleanup Task
+
+Starting Logic Optimization Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Logic Optimization Task | Checksum: 16457d86c
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 3238.004 ; gain = 0.000 ; free physical = 4363 ; free virtual = 20976
+Ending Final Cleanup Task | Checksum: 16457d86c
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 3238.004 ; gain = 0.000 ; free physical = 4363 ; free virtual = 20976
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3238.004 ; gain = 0.000 ; free physical = 4363 ; free virtual = 20976
+Ending Netlist Obfuscation Task | Checksum: 16457d86c
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3238.004 ; gain = 0.000 ; free physical = 4363 ; free virtual = 20976
+INFO: [Common 17-83] Releasing license: Implementation
+55 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:15 . Memory (MB): peak = 3238.004 ; gain = 1064.367 ; free physical = 4363 ; free virtual = 20976
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3238.004 ; gain = 0.000 ; free physical = 4355 ; free virtual = 20970
+INFO: [Common 17-1381] The checkpoint '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/impl_1/imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_opt.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_drc -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_drc_opted.rpt -pb imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_drc_opted.pb -rpx imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_drc_opted.rpx
+Command: report_drc -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_drc_opted.rpt -pb imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_drc_opted.pb -rpx imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_drc_opted.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/impl_1/imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_drc_opted.rpt.
+report_drc completed successfully
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 3 Advisories
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4240 ; free virtual = 20919
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: b40f728a
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4240 ; free virtual = 20919
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4240 ; free virtual = 20919
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 2d8c8d37
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4221 ; free virtual = 20911
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: f0ee862b
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:04 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4221 ; free virtual = 20853
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: f0ee862b
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:04 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4225 ; free virtual = 20857
+Phase 1 Placer Initialization | Checksum: f0ee862b
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:04 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4224 ; free virtual = 20857
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 176b27058
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:04 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4360 ; free virtual = 20994
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 1cac9b202
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:05 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4353 ; free virtual = 20986
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 1cac9b202
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:05 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4352 ; free virtual = 20986
+
+Phase 2.4 Global Placement Core
+
+Phase 2.4.1 UpdateTiming Before Physical Synthesis
+Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 224c413c8
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:13 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4267 ; free virtual = 20903
+
+Phase 2.4.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 0 LUTNM shape to break, 1133 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 0, total 0, new lutff created 0
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 529 nets or LUTs. Breaked 0 LUT, combined 529 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-670] No setup violation found.  DSP Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register to Pipeline Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  BRAM Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  URAM Register Optimization was not performed.
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4258 ; free virtual = 20895
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |            0  |            529  |                   529  |           0  |           1  |  00:00:00  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |            0  |            529  |                   529  |           0  |           4  |  00:00:00  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.4.2 Physical Synthesis In Placer | Checksum: 1bef636db
+
+Time (s): cpu = 00:00:50 ; elapsed = 00:00:14 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4257 ; free virtual = 20894
+Phase 2.4 Global Placement Core | Checksum: 14492d6be
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:15 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4237 ; free virtual = 20876
+Phase 2 Global Placement | Checksum: 14492d6be
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:15 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4240 ; free virtual = 20878
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 1360ffb6e
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:15 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4242 ; free virtual = 20880
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1b59e977c
+
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:17 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4249 ; free virtual = 20887
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 1b162fec4
+
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:17 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4253 ; free virtual = 20891
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 1ed68cab0
+
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:17 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4253 ; free virtual = 20891
+
+Phase 3.5 Small Shape Detail Placement
+Phase 3.5 Small Shape Detail Placement | Checksum: cd2a5ab2
+
+Time (s): cpu = 00:01:00 ; elapsed = 00:00:19 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4257 ; free virtual = 20896
+
+Phase 3.6 Re-assign LUT pins
+Phase 3.6 Re-assign LUT pins | Checksum: 1475c8d29
+
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:20 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4258 ; free virtual = 20897
+
+Phase 3.7 Pipeline Register Optimization
+Phase 3.7 Pipeline Register Optimization | Checksum: 16c2ac2b7
+
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:20 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4257 ; free virtual = 20896
+Phase 3 Detail Placement | Checksum: 16c2ac2b7
+
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:20 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4257 ; free virtual = 20895
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 125c5ac31
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.562 | TNS=-2.250 |
+Phase 1 Physical Synthesis Initialization | Checksum: 1966f138a
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.34 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4252 ; free virtual = 20893
+INFO: [Place 46-33] Processed net imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/gmem1_m_axi_U/bus_write/wreq_throttle/req_fifo/U_fifo_srl/SR[0], BUFG insertion was skipped due to placement/routing conflicts.
+INFO: [Place 46-56] BUFG insertion identified 1 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 1, Skipped due to Timing Degradation: 0, Skipped due to Illegal Netlist: 0.
+Ending Physical Synthesis Task | Checksum: 18702214d
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.55 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4250 ; free virtual = 20891
+Phase 4.1.1.1 BUFG Insertion | Checksum: 125c5ac31
+
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:23 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4249 ; free virtual = 20891
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.533. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 22e8aaffd
+
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:23 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4249 ; free virtual = 20890
+
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:23 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4249 ; free virtual = 20890
+Phase 4.1 Post Commit Optimization | Checksum: 22e8aaffd
+
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:23 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4250 ; free virtual = 20892
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 22e8aaffd
+
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:24 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4250 ; free virtual = 20892
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ____________________________________________________
+|           | Global Congestion | Short Congestion  |
+| Direction | Region Size       | Region Size       |
+|___________|___________________|___________________|
+|      North|                1x1|                2x2|
+|___________|___________________|___________________|
+|      South|                1x1|                2x2|
+|___________|___________________|___________________|
+|       East|                1x1|                1x1|
+|___________|___________________|___________________|
+|       West|                1x1|                1x1|
+|___________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 22e8aaffd
+
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:24 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4247 ; free virtual = 20889
+Phase 4.3 Placer Reporting | Checksum: 22e8aaffd
+
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:24 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4251 ; free virtual = 20893
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4251 ; free virtual = 20893
+
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:24 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4251 ; free virtual = 20893
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1df4ea59b
+
+Time (s): cpu = 00:01:12 ; elapsed = 00:00:24 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4250 ; free virtual = 20892
+Ending Placer Task | Checksum: f0d2756d
+
+Time (s): cpu = 00:01:12 ; elapsed = 00:00:24 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4250 ; free virtual = 20892
+INFO: [Common 17-83] Releasing license: Implementation
+91 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:01:13 ; elapsed = 00:00:25 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4288 ; free virtual = 20930
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4220 ; free virtual = 20905
+INFO: [Common 17-1381] The checkpoint '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/impl_1/imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_placed.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_io -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_io_placed.rpt
+report_io: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.13 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4242 ; free virtual = 20896
+INFO: [runtcl-4] Executing : report_utilization -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_utilization_placed.rpt -pb imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_utilization_placed.pb
+INFO: [runtcl-4] Executing : report_control_sets -verbose -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.13 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4245 ; free virtual = 20899
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+
+Starting Initial Update Timing Task
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4218 ; free virtual = 20873
+INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.000 ns. Skipping all physical synthesis optimizations.
+INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+100 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4158 ; free virtual = 20857
+INFO: [Common 17-1381] The checkpoint '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/impl_1/imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_physopt.dcp' has been generated.
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: a8f3c2ed ConstDB: 0 ShapeSum: 47deb280 RouteDB: 0
+Post Restoration Checksum: NetGraph: 8b93f4d4 NumContArr: 318970ec Constraints: 0 Timing: 0
+Phase 1 Build RT Design | Checksum: bd1d65c0
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4082 ; free virtual = 20751
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: bd1d65c0
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4050 ; free virtual = 20720
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: bd1d65c0
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 3253.062 ; gain = 0.000 ; free physical = 4031 ; free virtual = 20720
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: 120ef0cf8
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:16 . Memory (MB): peak = 3266.367 ; gain = 13.305 ; free physical = 4019 ; free virtual = 20700
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.720  | TNS=0.000  | WHS=-0.239 | THS=-192.469|
+
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0 %
+  Global Horizontal Routing Utilization  = 0 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 27890
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 27890
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: de443fa6
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:17 . Memory (MB): peak = 3266.367 ; gain = 13.305 ; free physical = 4012 ; free virtual = 20692
+
+Phase 3 Initial Routing
+
+Phase 3.1 Global Routing
+Phase 3.1 Global Routing | Checksum: de443fa6
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:17 . Memory (MB): peak = 3266.367 ; gain = 13.305 ; free physical = 4012 ; free virtual = 20692
+Phase 3 Initial Routing | Checksum: ec334e62
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:18 . Memory (MB): peak = 3269.367 ; gain = 16.305 ; free physical = 4006 ; free virtual = 20686
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 1754
+ Number of Nodes with overlaps = 165
+ Number of Nodes with overlaps = 28
+ Number of Nodes with overlaps = 6
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.372  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.1 Global Iteration 0 | Checksum: 17bc4ec83
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:24 . Memory (MB): peak = 3269.367 ; gain = 16.305 ; free physical = 3994 ; free virtual = 20672
+
+Phase 4.2 Global Iteration 1
+ Number of Nodes with overlaps = 6
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.372  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.2 Global Iteration 1 | Checksum: 1ba1d4bfd
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:25 . Memory (MB): peak = 3269.367 ; gain = 16.305 ; free physical = 3994 ; free virtual = 20671
+Phase 4 Rip-up And Reroute | Checksum: 1ba1d4bfd
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:25 . Memory (MB): peak = 3269.367 ; gain = 16.305 ; free physical = 3994 ; free virtual = 20671
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+
+Phase 5.1.1 Update Timing
+Phase 5.1.1 Update Timing | Checksum: 1c4f8e4b2
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:25 . Memory (MB): peak = 3269.367 ; gain = 16.305 ; free physical = 3993 ; free virtual = 20671
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.385  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 5.1 Delay CleanUp | Checksum: 1c4f8e4b2
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:25 . Memory (MB): peak = 3269.367 ; gain = 16.305 ; free physical = 3993 ; free virtual = 20671
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 1c4f8e4b2
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:25 . Memory (MB): peak = 3269.367 ; gain = 16.305 ; free physical = 3993 ; free virtual = 20671
+Phase 5 Delay and Skew Optimization | Checksum: 1c4f8e4b2
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:25 . Memory (MB): peak = 3269.367 ; gain = 16.305 ; free physical = 3994 ; free virtual = 20672
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 1579a3cf9
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:26 . Memory (MB): peak = 3269.367 ; gain = 16.305 ; free physical = 3997 ; free virtual = 20673
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.385  | TNS=0.000  | WHS=0.022  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: 1dd29f62b
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:26 . Memory (MB): peak = 3269.367 ; gain = 16.305 ; free physical = 3997 ; free virtual = 20673
+Phase 6 Post Hold Fix | Checksum: 1dd29f62b
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:26 . Memory (MB): peak = 3269.367 ; gain = 16.305 ; free physical = 3997 ; free virtual = 20673
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 6.09506 %
+  Global Horizontal Routing Utilization  = 7.31964 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: 1a5156569
+
+Time (s): cpu = 00:00:54 ; elapsed = 00:00:26 . Memory (MB): peak = 3269.367 ; gain = 16.305 ; free physical = 3998 ; free virtual = 20675
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 1a5156569
+
+Time (s): cpu = 00:00:54 ; elapsed = 00:00:26 . Memory (MB): peak = 3269.367 ; gain = 16.305 ; free physical = 3998 ; free virtual = 20674
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: 156de6255
+
+Time (s): cpu = 00:00:55 ; elapsed = 00:00:27 . Memory (MB): peak = 3285.375 ; gain = 32.312 ; free physical = 3997 ; free virtual = 20674
+
+Phase 10 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.385  | TNS=0.000  | WHS=0.022  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 10 Post Router Timing | Checksum: 156de6255
+
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:28 . Memory (MB): peak = 3285.375 ; gain = 32.312 ; free physical = 3996 ; free virtual = 20672
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:28 . Memory (MB): peak = 3285.375 ; gain = 32.312 ; free physical = 4045 ; free virtual = 20721
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+116 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:00:59 ; elapsed = 00:00:29 . Memory (MB): peak = 3285.375 ; gain = 32.312 ; free physical = 4045 ; free virtual = 20721
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 3285.375 ; gain = 0.000 ; free physical = 3993 ; free virtual = 20710
+INFO: [Common 17-1381] The checkpoint '/home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/impl_1/imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_routed.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_drc -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_drc_routed.rpt -pb imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_drc_routed.pb -rpx imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_drc_routed.rpx
+Command: report_drc -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_drc_routed.rpt -pb imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_drc_routed.pb -rpx imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/impl_1/imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_drc_routed.rpt.
+report_drc completed successfully
+INFO: [runtcl-4] Executing : report_methodology -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_methodology_drc_routed.rpt -pb imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_methodology_drc_routed.pb -rpx imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_methodology_drc_routed.rpx
+Command: report_methodology -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_methodology_drc_routed.rpt -pb imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_methodology_drc_routed.pb -rpx imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 8 threads
+INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse_vivado_prj/q16_s30_attn_sparse_vivado_prj.runs/impl_1/imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_methodology_drc_routed.rpt.
+report_methodology completed successfully
+INFO: [runtcl-4] Executing : report_power -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_power_routed.rpt -pb imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_power_summary_routed.pb -rpx imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_power_routed.rpx
+Command: report_power -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_power_routed.rpt -pb imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_power_summary_routed.pb -rpx imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_power_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+128 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+INFO: [runtcl-4] Executing : report_route_status -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_route_status.rpt -pb imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_route_status.pb
+INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -report_unconstrained -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_timing_summary_routed.rpt -pb imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_timing_summary_routed.pb -rpx imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+INFO: [runtcl-4] Executing : report_incremental_reuse -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
+INFO: [runtcl-4] Executing : report_clock_utilization -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_clock_utilization_routed.rpt
+INFO: [runtcl-4] Executing : report_bus_skew -warn_on_violation -file imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_bus_skew_routed.rpt -pb imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_bus_skew_routed.pb -rpx imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper_bus_skew_routed.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+Command: write_bitstream -force imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U76/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U76/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U77/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U77/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U78/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U78/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U79/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U79/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U80/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U80/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U81/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U81/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U82/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U82/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U83/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U83/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U84/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U84/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U85/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U85/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U86/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U86/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U87/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U87/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U88/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U88/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U89/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U89/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U90/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U90/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U76/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U76/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U77/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U77/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U78/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U78/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U79/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U79/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U80/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U80/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U81/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U81/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U82/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U82/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U83/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U83/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U84/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U84/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U85/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U85/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U86/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U86/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U87/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U87/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U88/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U88/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U89/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U89/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U90/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/mac_muladd_16s_16s_30ns_30_4_1_U90/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/fadd_32ns_32ns_32_5_full_dsp_1_U205/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/fadd_32ns_32ns_32_5_full_dsp_1_U205/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/fadd_32ns_32ns_32_5_full_dsp_1_U205/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/fadd_32ns_32ns_32_5_full_dsp_1_U205/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/fadd_32ns_32ns_32_5_full_dsp_1_U205/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/fadd_32ns_32ns_32_5_full_dsp_1_U205/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/fadd_32ns_32ns_32_5_full_dsp_1_U205/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/fadd_32ns_32ns_32_5_full_dsp_1_U205/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/grp_layer_norm_q16_Pipeline_VITIS_LOOP_53_2_fu_151/mac_muladd_16s_16s_30ns_30_4_1_U194/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/grp_layer_norm_q16_Pipeline_VITIS_LOOP_53_2_fu_151/mac_muladd_16s_16s_30ns_30_4_1_U194/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/g_Fr_sp_dsp.i_calculate_Fr/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/g_Fr_sp_dsp.i_calculate_Fr/i_no_versal_es1_workaround.DSP/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/g_Fr_sp_dsp.i_calculate_Fr/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/g_Fr_sp_dsp.i_calculate_Fr/i_no_versal_es1_workaround.DSP/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/grp_linear_attention_q16_sparse_Pipeline_VITIS_LOOP_123_6_VITIS_LOOP_125_7_VITIS_LOO_fu_344/mac_muladd_16s_16s_30ns_30_4_1_U28/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/grp_linear_attention_q16_sparse_Pipeline_VITIS_LOOP_123_6_VITIS_LOOP_125_7_VITIS_LOO_fu_344/mac_muladd_16s_16s_30ns_30_4_1_U28/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/grp_linear_attention_q16_sparse_Pipeline_VITIS_LOOP_151_12_fu_375/mac_muladd_16s_16s_30ns_30_4_1_U37/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/grp_linear_attention_q16_sparse_Pipeline_VITIS_LOOP_151_12_fu_375/mac_muladd_16s_16s_30ns_30_4_1_U37/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/grp_linear_attention_q16_sparse_Pipeline_VITIS_LOOP_161_13_VITIS_LOOP_163_14_fu_385/mac_muladd_16s_16s_30ns_30_4_1_U43/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/grp_linear_attention_q16_sparse_Pipeline_VITIS_LOOP_161_13_VITIS_LOOP_163_14_fu_385/mac_muladd_16s_16s_30ns_30_4_1_U43/imgds_linear_dense_q16_mac_muladd_16s_16s_30ns_30_4_1_DSP48_4_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_10ns_26ns_26_4_1_U226/imgds_linear_dense_q16_mac_muladd_16s_10ns_26ns_26_4_1_DSP48_28_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_10ns_26ns_26_4_1_U226/imgds_linear_dense_q16_mac_muladd_16s_10ns_26ns_26_4_1_DSP48_28_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_10s_25s_26_4_1_U214/imgds_linear_dense_q16_mac_muladd_16s_10s_25s_26_4_1_DSP48_22_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_10s_25s_26_4_1_U214/imgds_linear_dense_q16_mac_muladd_16s_10s_25s_26_4_1_DSP48_22_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_10s_26ns_26_4_1_U223/imgds_linear_dense_q16_mac_muladd_16s_10s_26ns_26_4_1_DSP48_26_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_10s_26ns_26_4_1_U223/imgds_linear_dense_q16_mac_muladd_16s_10s_26ns_26_4_1_DSP48_26_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_10s_26ns_26_4_1_U227/imgds_linear_dense_q16_mac_muladd_16s_10s_26ns_26_4_1_DSP48_26_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_10s_26ns_26_4_1_U227/imgds_linear_dense_q16_mac_muladd_16s_10s_26ns_26_4_1_DSP48_26_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_10s_26ns_26_4_1_U228/imgds_linear_dense_q16_mac_muladd_16s_10s_26ns_26_4_1_DSP48_26_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_10s_26ns_26_4_1_U228/imgds_linear_dense_q16_mac_muladd_16s_10s_26ns_26_4_1_DSP48_26_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_10s_26ns_26_4_1_U234/imgds_linear_dense_q16_mac_muladd_16s_10s_26ns_26_4_1_DSP48_26_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_10s_26ns_26_4_1_U234/imgds_linear_dense_q16_mac_muladd_16s_10s_26ns_26_4_1_DSP48_26_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_7ns_24s_25_4_1_U212/imgds_linear_dense_q16_mac_muladd_16s_7ns_24s_25_4_1_DSP48_20_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_7ns_24s_25_4_1_U212/imgds_linear_dense_q16_mac_muladd_16s_7ns_24s_25_4_1_DSP48_20_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_7ns_26s_26_4_1_U224/imgds_linear_dense_q16_mac_muladd_16s_7ns_26s_26_4_1_DSP48_27_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_7ns_26s_26_4_1_U224/imgds_linear_dense_q16_mac_muladd_16s_7ns_26s_26_4_1_DSP48_27_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_7ns_26s_26_4_1_U232/imgds_linear_dense_q16_mac_muladd_16s_7ns_26s_26_4_1_DSP48_27_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_7ns_26s_26_4_1_U232/imgds_linear_dense_q16_mac_muladd_16s_7ns_26s_26_4_1_DSP48_27_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_8ns_25s_26_4_1_U213/imgds_linear_dense_q16_mac_muladd_16s_8ns_25s_26_4_1_DSP48_21_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_8ns_25s_26_4_1_U213/imgds_linear_dense_q16_mac_muladd_16s_8ns_25s_26_4_1_DSP48_21_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_8ns_26s_26_4_1_U215/imgds_linear_dense_q16_mac_muladd_16s_8ns_26s_26_4_1_DSP48_23_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_8ns_26s_26_4_1_U215/imgds_linear_dense_q16_mac_muladd_16s_8ns_26s_26_4_1_DSP48_23_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_8ns_26s_26_4_1_U217/imgds_linear_dense_q16_mac_muladd_16s_8ns_26s_26_4_1_DSP48_23_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_8ns_26s_26_4_1_U217/imgds_linear_dense_q16_mac_muladd_16s_8ns_26s_26_4_1_DSP48_23_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_8s_26s_26_4_1_U229/imgds_linear_dense_q16_mac_muladd_16s_8s_26s_26_4_1_DSP48_29_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_8s_26s_26_4_1_U229/imgds_linear_dense_q16_mac_muladd_16s_8s_26s_26_4_1_DSP48_29_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_9ns_26ns_26_4_1_U219/imgds_linear_dense_q16_mac_muladd_16s_9ns_26ns_26_4_1_DSP48_24_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_9ns_26ns_26_4_1_U219/imgds_linear_dense_q16_mac_muladd_16s_9ns_26ns_26_4_1_DSP48_24_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_9ns_26ns_26_4_1_U220/imgds_linear_dense_q16_mac_muladd_16s_9ns_26ns_26_4_1_DSP48_24_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_9ns_26ns_26_4_1_U220/imgds_linear_dense_q16_mac_muladd_16s_9ns_26ns_26_4_1_DSP48_24_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_9ns_26ns_26_4_1_U233/imgds_linear_dense_q16_mac_muladd_16s_9ns_26ns_26_4_1_DSP48_24_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_9ns_26ns_26_4_1_U233/imgds_linear_dense_q16_mac_muladd_16s_9ns_26ns_26_4_1_DSP48_24_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_9ns_26ns_26_4_1_U235/imgds_linear_dense_q16_mac_muladd_16s_9ns_26ns_26_4_1_DSP48_24_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_9ns_26ns_26_4_1_U235/imgds_linear_dense_q16_mac_muladd_16s_9ns_26ns_26_4_1_DSP48_24_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_9s_26s_26_4_1_U218/imgds_linear_dense_q16_mac_muladd_16s_9s_26s_26_4_1_DSP48_25_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_9s_26s_26_4_1_U218/imgds_linear_dense_q16_mac_muladd_16s_9s_26s_26_4_1_DSP48_25_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_9s_26s_26_4_1_U222/imgds_linear_dense_q16_mac_muladd_16s_9s_26s_26_4_1_DSP48_25_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_9s_26s_26_4_1_U222/imgds_linear_dense_q16_mac_muladd_16s_9s_26s_26_4_1_DSP48_25_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_9s_26s_26_4_1_U231/imgds_linear_dense_q16_mac_muladd_16s_9s_26s_26_4_1_DSP48_25_U/p_reg_reg input imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/mac_muladd_16s_9s_26s_26_4_1_U231/imgds_linear_dense_q16_mac_muladd_16s_9s_26s_26_4_1_DSP48_25_U/p_reg_reg/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP output imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP output imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/fadd_32ns_32ns_32_5_full_dsp_1_U205/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP output imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/fadd_32ns_32ns_32_5_full_dsp_1_U205/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/g_Fr_sp_dsp.i_calculate_Fr/i_no_versal_es1_workaround.DSP output imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/g_Fr_sp_dsp.i_calculate_Fr/i_no_versal_es1_workaround.DSP/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP output imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP output imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/g_Fr_sp_dsp.i_calculate_Fr/i_no_versal_es1_workaround.DSP output imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/g_Fr_sp_dsp.i_calculate_Fr/i_no_versal_es1_workaround.DSP/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP output imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP output imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP multiplier stage imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP multiplier stage imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/fadd_32ns_32ns_32_5_full_dsp_1_U205/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP multiplier stage imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/fadd_32ns_32ns_32_5_full_dsp_1_U205/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/g_Fr_sp_dsp.i_calculate_Fr/i_no_versal_es1_workaround.DSP multiplier stage imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/g_Fr_sp_dsp.i_calculate_Fr/i_no_versal_es1_workaround.DSP/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/g_Fr_sp_dsp.i_calculate_Fr/i_no_versal_es1_workaround.DSP multiplier stage imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/g_Fr_sp_dsp.i_calculate_Fr/i_no_versal_es1_workaround.DSP/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A1' of cell imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A5)+((~A5)*(~A3)*A4)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A1' of cell imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A3)+((~A3)*(~A6)*A5)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC PDCN-1569] LUT equation term check: Used physical LUT pin 'A5' of cell imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A2)+((~A2)*(~A6)*A3)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+WARNING: [DRC RTSTAT-10] No routable loads: 33 net(s) have no routable loads. The problem bus(es) and/or net(s) are imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg[2:0], imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg[2:0], imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg[2:0], imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg[2:0], imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg[2:0], imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg[2:0], imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_i, imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_interconnect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_i, imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/axi_mem_inter
+connect/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_i... and (the first 15 of 21 listed).
+INFO: [DRC AVAL-4] enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-4] enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-4] enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/fadd_32ns_32ns_32_5_full_dsp_1_U205/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-4] enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-4] enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-4] enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-4] enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-4] enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-4] enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-4] enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-4] enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-4] enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-4] enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-4] enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-4] enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-5] enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-5] enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-5] enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-5] enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-5] enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-5] enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U62/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-5] enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_calculate_Xf/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-5] enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-5] enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-5] enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[0].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-5] enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_ccm_recip_ln2/g_tables[1].i_addsub/dsp.one.dsp48e1_add/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC AVAL-5] enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_linear_attention_q16_sparse_fu_602/fexp_32ns_32ns_32_10_full_dsp_1_U63/imgds_linear_dense_q16_fexp_32ns_32ns_32_10_full_dsp_1_ip_u/inst/i_synth/EXP_OP.i_sp_or_dp.OP/i_renorm_and_round/DSP48_E1.DSP48E1_ADD.DSP48E1_ADD/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+INFO: [DRC REQP-1725] DSP_Abus_sign_bit_alert: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_268_4_fu_634/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP: When using the PreAdder and USE_DPORT is TRUE, the A operand should be restricted to 24 bit two's complement (and sign extended) to avoid over/underflow in the pre-add stage.
+INFO: [DRC REQP-1725] DSP_Abus_sign_bit_alert: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_imgds_linear_dense_q16_Pipeline_VITIS_LOOP_281_5_fu_639/grp_layer_norm_q16_1_fu_92/fadd_32ns_32ns_32_5_full_dsp_1_U71/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP: When using the PreAdder and USE_DPORT is TRUE, the A operand should be restricted to 24 bit two's complement (and sign extended) to avoid over/underflow in the pre-add stage.
+INFO: [DRC REQP-1725] DSP_Abus_sign_bit_alert: imgds_linear_dense_q16_q16_s30_attn_sparse_design_i/imgds_linear_dense_q16_0/inst/grp_layer_norm_q16_fu_679/fadd_32ns_32ns_32_5_full_dsp_1_U205/imgds_linear_dense_q16_fadd_32ns_32ns_32_5_full_dsp_1_ip_u/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP: When using the PreAdder and USE_DPORT is TRUE, the A operand should be restricted to 24 bit two's complement (and sign extended) to avoid over/underflow in the pre-add stage.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 114 Warnings, 30 Advisories
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./imgds_linear_dense_q16_q16_s30_attn_sparse_design_wrapper.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-83] Releasing license: Implementation
+42 Infos, 114 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:21 ; elapsed = 00:00:19 . Memory (MB): peak = 3707.727 ; gain = 298.770 ; free physical = 3843 ; free virtual = 20555
+INFO: [Common 17-206] Exiting Vivado at Thu Jul  2 17:28:17 2026...
+[Thu Jul  2 17:28:18 2026] impl_1 finished
+wait_on_runs: Time (s): cpu = 00:10:55 ; elapsed = 00:05:24 . Memory (MB): peak = 2019.734 ; gain = 0.000 ; free physical = 5987 ; free virtual = 22698
+# set impl_status [get_property STATUS [get_runs impl_1]]
+# puts "IMPL_STATUS=$impl_status"
+IMPL_STATUS=write_bitstream Complete!
+# if {![string match "*Complete*" $impl_status]} {
+#     error "Implementation did not complete successfully: $impl_status"
+# }
+# puts "Implementation complete. Exporting bitstream and HWH..."
+Implementation complete. Exporting bitstream and HWH...
+# set bit_file [file join $project_dir q16_s30_attn_sparse_vivado_prj.runs impl_1 ${design_name}_wrapper.bit]
+# set hwh_file [file join $project_dir q16_s30_attn_sparse_vivado_prj.gen sources_1 bd $design_name hw_handoff ${design_name}.hwh]
+# if {![file exists $bit_file]} { error "Bitstream NOT found: $bit_file" }
+# if {![file exists $hwh_file]} { error "HWH NOT found: $hwh_file" }
+# file copy -force $bit_file [file join $origin_dir q16_s30_attn_sparse.bit]
+# file copy -force $hwh_file [file join $origin_dir q16_s30_attn_sparse.hwh]
+# puts "BIT: [file join $origin_dir q16_s30_attn_sparse.bit]"
+BIT: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse.bit
+# puts "HWH: [file join $origin_dir q16_s30_attn_sparse.hwh]"
+HWH: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse.hwh
+# puts "============================================"
+============================================
+# puts "q16_s30_attn_sparse Vivado build COMPLETE"
+q16_s30_attn_sparse Vivado build COMPLETE
+# puts "Bit: [file join $origin_dir q16_s30_attn_sparse.bit]"
+Bit: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse.bit
+# puts "HWH: [file join $origin_dir q16_s30_attn_sparse.hwh]"
+HWH: /home/cym/prj2/finn/notebooks/icl_thesis-master/experiments/imgds_linear_sparse/final_paper_experiments/experiment1_sparse_board/hls_projects/q16_s30_attn_sparse/vivado/q16_s30_attn_sparse.hwh
+# puts "============================================"
+============================================
+# close_project
+# exit
+INFO: [Common 17-206] Exiting Vivado at Thu Jul  2 17:28:18 2026...

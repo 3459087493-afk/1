@@ -1,0 +1,64 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+  **** SW Build 3670227 on Oct 13 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vitis_HLS/2022.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'cym' on host 'cym-HP-OmniBook-7-Laptop-16-az0xxx' (Linux_x86_64 version 6.8.0-124-generic) on Fri Jul 03 13:24:12 CST 2026
+INFO: [HLS 200-10] On os Ubuntu 22.04.5 LTS
+INFO: [HLS 200-10] In directory '/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13'
+Sourcing Tcl script 'run_csim.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset q16_esla_k13_csim 
+INFO: [HLS 200-10] Opening and resetting project '/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/q16_esla_k13_csim'.
+INFO: [HLS 200-1510] Running: set_top q16_esla_k13 
+INFO: [HLS 200-1510] Running: add_files /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp -cflags -I/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src 
+INFO: [HLS 200-10] Adding design file '/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.h 
+INFO: [HLS 200-10] Adding design file '/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/q16_esla_k13.h' to the project
+INFO: [HLS 200-1510] Running: add_files /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/hls_params_q16.h 
+INFO: [HLS 200-10] Adding design file '/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src/hls_params_q16.h' to the project
+INFO: [HLS 200-1510] Running: add_files /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/tb/testbench.cpp -tb -cflags -I/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/src 
+INFO: [HLS 200-10] Adding test bench file '/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/tb/testbench.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution -reset solution1 -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution '/home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/hls/q16_esla_k13/q16_esla_k13_csim/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vivado' configuration: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xc7z020-clg400-1 
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design -argv /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/tests/esla_k13_csim_data.bin /home/cym/prj2/finn/notebooks/icl_thesis-master/real_event_sparse/results/hls_csim_esla_k13_metrics.csv 1 
+Running Dispatch Server on port: 41949
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../tb/testbench.cpp in debug mode
+   Compiling ../../../../src/q16_esla_k13.cpp in debug mode
+   Generating csim.exe
+Q16-ESLA-K13 faithful phi(K) CSIM, samples=1
+dense_token_count=16
+active_token_count=13
+skipped_token_count=3
+dense_kv_mac_count=4096
+esla_kv_mac_count=3328
+dense_total_mac_estimate=57632
+esla_total_mac_estimate=50672
+mac_reduction_ratio=0.120766241
+dense_bram_read_proxy=50688
+esla_bram_read_proxy=42624
+bram_read_reduction_ratio=0.159090909
+accuracy=0.000000000 precision=0.000000000 recall=0.000000000 f1=0.000000000
+prediction_match_rate_vs_python_reference=1.000000000
+prediction_match_rate_vs_dense=0.000000000
+active_index_element_match_rate=1.000000000
+max_abs_error=0.335528553 mean_abs_error=0.322340220
+nan_samples=0 inf_samples=0
+CSIM_PASS
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 2.88 seconds. CPU system time: 0.3 seconds. Elapsed time: 3.19 seconds; current allocated memory: 0.000 MB.
+INFO: [HLS 200-112] Total CPU user time: 3.85 seconds. Total CPU system time: 0.47 seconds. Total elapsed time: 14.25 seconds; peak allocated memory: 308.570 MB.
+INFO: [Common 17-206] Exiting vitis_hls at Fri Jul  3 13:24:26 2026...

@@ -1,0 +1,12 @@
+aspect,ViT4Mal,Ours,risk_level,allowed_statement,not_allowed_statement
+Dataset,IMG_DS malware,IMG_DS malware,PASS,Same dataset,
+Test set size,3444 (Table 13),3444 (full test),PASS,Same test set size,
+Input format,128x128 RGB,32x32 grayscale,WARN,Different input resolution — must disclose,Cannot claim apples-to-apples input comparison
+Board,PYNQ-Z1 (xc7z020-clg400),PYNQ-Z2 (xc7z020-clg400),PASS,"Same FPGA chip, compatible comparison",
+Model architecture,"Dense ViT, multi-head attention","Linear Transformer, kernelized attention",WARN,Different attention mechanism — significant speedup partly from O(n) vs O(n^2),Cannot claim our model variant of ViT || improved ViT
+Quantization,float32 weights,"ap_fixed<16,6> (Q16)",WARN,Different precision — must disclose,
+FPGA deployment,Full FPGA + CPU preprocessing,HLS IP + PYNQ PS/PL AXI split,UNKNOWN,Latency scope may differ — ViT4Mal may include preprocessing,Cannot claim strict apples-to-apples latency
+Latency source,PYNQ-Z1 measured,PYNQ-Z2 measured,PASS,Both board-measured,
+Resource source,Vivado post-implementation,Vivado post-implementation,PASS,Both Vivado placed,
+Same board?,PYNQ-Z1,PYNQ-Z2,WARN,"Different boards, same FPGA chip",Must disclose board difference
+Fairness level,—,—,WARN,Reported-results comparison only,NOT strict apples-to-apples

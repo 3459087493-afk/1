@@ -1,0 +1,21 @@
+metric,value
+model_id,Ours-Q16-S10-AttnSparse
+code_name,q16_s10_attn_sparse
+quant_bits,16
+effective_sparsity,12.5%
+n_warmup,20
+n_runs,1000
+application_latency_mean_us,2088.052272
+application_latency_std_us,53.772839
+application_latency_min_us,2048.591000
+application_latency_p50_us,2069.676500
+application_latency_p95_us,2171.707050
+application_latency_max_us,2448.733000
+application_throughput_samples_per_sec,478.915214
+kernel_latency_us_1000runs,954.773148
+speedup_vs_ViT4Mal_fastest_0p81s_application,387.921323
+speedup_vs_ViT4Mal_selected_1p48s_application,708.794516
+pynq_measured,True
+latency_scope,application_level_single_sample_excluding_overlay_and_file_io
+notes,"Includes in-memory sample extraction, host Q6.10 conversion, PYNQ buffer copy/flush, kernel start/wait, output invalidate/read, dequantization, and argmax; excludes Overlay/NPZ loading, allocation, and warm-up."
+prediction_checksum,832

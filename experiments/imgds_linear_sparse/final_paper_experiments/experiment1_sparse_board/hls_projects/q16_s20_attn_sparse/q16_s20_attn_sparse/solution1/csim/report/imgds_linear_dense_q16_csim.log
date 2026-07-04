@@ -1,0 +1,32 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../src/testbench.cpp in debug mode
+   Compiling ../../../../src/imgds_linear_dense_q16.cpp in debug mode
+   Generating csim.exe
+Q16-S0-PARETO2 CSIM Testbench
+==================================================
+
+==================================================
+Q16-S0-PARETO2  CSIM Results (N=200)
+==================================================
+  Prediction match rate vs Q32:  0.9900  (198/200)
+  HW  label accuracy:            0.9500  (190/200)
+  Ref label accuracy:            0.9500  (190/200)
+  Mismatch count  (hw!=ref):     2
+  Max  abs error vs Q32 ref:     0.48462975
+  Mean abs error vs Q32 ref:     0.07902496
+
+  First 2 mismatches:
+  sample hw_logits      ref_logits     hw_pr  ref_pr label 
+  ------ -------------- -------------- -----  -----  ----- 
+  0      [ 0.4160, 0.5352] [ 0.6272, 0.3213] 1     0     0    
+  73     [ 0.6855, 0.7793] [ 0.8308, 0.6993] 1     0     1    
+
+==================================================
+  strict_threshold_0p99  : PASS
+  relaxed_threshold_0p98 : PASS
+==================================================
+
+CSIM PASSED (relaxed). HW accuracy=0.9500.
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

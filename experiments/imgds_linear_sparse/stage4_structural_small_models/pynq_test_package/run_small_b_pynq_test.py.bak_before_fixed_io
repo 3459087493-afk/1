@@ -1,0 +1,460 @@
+#!/usr/bin/env python3
+"""
+small_B PYNQ-Z2 On-Board Test Script (Staged Validation, FIXED)
+=================================================================
+Deploy small_B (d=8, ff=16) Linear Transformer IP to PYNQ-Z2.
+
+Fixes applied (2026-07-01):
+  - PYNQ 3.1 API: use allocate instead of Xlnk
+  - Prediction: use np.argmax instead of inverted logit[0] > logit[1]
+  - AXI 64-bit addresses: write low/high 32-bit halves separately
+  - Buffer safety: zero-init output, .copy() after read, NaN/Inf tracking
+  - CSV: ref_label_accuracy now correctly uses argmax vs y labels
+  - Reference sanity check: pre-flight without PYNQ hardware
+
+Stages:
+  0. Reference sanity check (no hardware needed)
+  1. Sanity check (n=1)
+  2. Quick correctness (n=200)
+  3. Full correctness (n=3444)
+  4. Latency 100 runs
+  5. Latency 1000 runs
+
+Run on PYNQ-Z2:
+    sudo python3 run_small_b_pynq_test.py
+"""
+
+import os, sys, time, csv, numpy as np
+
+# ---- Reference sanity check (no PYNQ required) ----
+def reference_sanity_check():
+    """Verify reference data is correct before talking to hardware."""
+    print("=" * 60)
+    print("STAGE 0: Reference Sanity Check (no hardware)")
+    print("=" * 60)
+
+    for name, path in [("full 3444", "small_B_test_3444.npz"),
+                       ("eval 200", "small_B_eval200.npz"),
+                       ("sanity 1", "small_B_sanity.npz")]:
+        if not os.path.exists(path):
+            print(f"  ERROR: {path} not found")
+            sys.exit(1)
+        d = np.load(path)
+        ref = d['ref_logits']
+        y = d['y']
+        ref_pred = np.argmax(ref, axis=1)
+        ref_acc = (ref_pred == y).mean()
+        print(f"  {name}: ref_logits shape={ref.shape}, y labels={np.bincount(y.astype(int))}")
+        print(f"    argmax ref accuracy: {ref_acc:.6f}")
+
+    print("  Reference sanity check PASSED.")
+    print("  Expected full-test argmax ref accuracy ≈ 0.9518")
+    print()
+
+
+# ===================================================================
+# PYNQ imports (only imported when actually on the board)
+# ===================================================================
+try:
+    from pynq import Overlay, allocate
+    HAS_PYNQ = True
+except ImportError:
+    HAS_PYNQ = False
+
+# ---- Config ----
+BIT_FILE  = "small_b.bit"
+HWH_FILE  = "small_b.hwh"
+EVAL_200  = "small_B_eval200.npz"
+FULL_TEST = "small_B_test_3444.npz"
+SANITY    = "small_B_sanity.npz"
+OUTPUT_CSV = "small_B_pynq_result.csv"
+
+N_WARMUP = 10
+
+# AXI-Lite register offsets (from ximgds_linear_small_b_hw.h)
+S_AXI_BASE   = 0x40000000
+CONTROL_ADDR = 0x00   # bit0=ap_start, bit1=ap_done
+GIER_ADDR    = 0x04
+INPUT_R_ADDR = 0x10   # 64-bit base address for gmem0
+LOGITS_ADDR  = 0x1C   # 64-bit base address for gmem1
+SEQ_LEN      = 16
+INPUT_DIM    = 64
+N_CLASSES    = 2
+INPUT_BYTES  = SEQ_LEN * INPUT_DIM * 4   # float32
+LOGITS_BYTES = N_CLASSES * 4
+
+
+# ===================================================================
+# Hardware helper: run single inference
+# ===================================================================
+def run_kernel(ip, sample):
+    """Run single inference on hardware. Returns HW logits [1, 2] as float32 numpy."""
+    sample_flat = sample.astype(np.float32).ravel()
+
+    # Allocate (PYNQ 3.1 allocate API)
+    in_buf = allocate(shape=(INPUT_BYTES // 4,), dtype=np.float32)
+    out_buf = allocate(shape=(LOGITS_BYTES // 4,), dtype=np.float32)
+
+    # Zero-init output buffer
+    out_buf[:] = 0.0
+    out_buf.flush()
+
+    # Copy input
+    in_buf[:] = sample_flat[:]
+    in_buf.flush()
+
+    # Write 64-bit physical addresses (split into low/high 32-bit)
+    pa_in = in_buf.physical_address
+    pa_out = out_buf.physical_address
+    ip.write(INPUT_R_ADDR,     int(pa_in)  & 0xFFFFFFFF)
+    ip.write(INPUT_R_ADDR + 4, (int(pa_in)  >> 32) & 0xFFFFFFFF)
+    ip.write(LOGITS_ADDR,      int(pa_out) & 0xFFFFFFFF)
+    ip.write(LOGITS_ADDR + 4,  (int(pa_out) >> 32) & 0xFFFFFFFF)
+
+    # Start HLS IP and poll for done
+    ip.write(CONTROL_ADDR, 0x1)
+    while (ip.read(CONTROL_ADDR) & 0x2) == 0:
+        pass
+
+    # Read back
+    out_buf.invalidate()
+    hw = np.asarray(out_buf, dtype=np.float32).reshape(1, 2).copy()
+
+    del in_buf, out_buf
+    return hw
+
+
+# ===================================================================
+# Safe prediction helper (always uses argmax)
+# ===================================================================
+def prediction(logits_2d, row=0):
+    """Return class prediction (0 or 1) using argmax for a 2D logits array at given row."""
+    return int(np.argmax(logits_2d[row])) if logits_2d.ndim == 2 else int(np.argmax(logits_2d))
+
+
+# ===================================================================
+# Stage 1: Sanity check (n=1)
+# ===================================================================
+def stage1_sanity(ol, ip):
+    print("=" * 60)
+    print("STAGE 1: Sanity Check (n=1)")
+    print("=" * 60)
+    d = np.load(SANITY)
+    X, y, ref = d['X'], d['y'], d['ref_logits']
+
+    hw = run_kernel(ip, X[0])
+
+    sw_p = prediction(ref, 0)
+    hw_p = prediction(hw, 0)
+    ok = sw_p == hw_p
+    hw_finite = np.isfinite(hw).all()
+
+    print(f"  SW logits: [{ref[0][0]:.6f}, {ref[0][1]:.6f}] pred={sw_p}")
+    print(f"  HW logits: [{hw[0][0]:.6f}, {hw[0][1]:.6f}] pred={hw_p}")
+    print(f"  HW isfinite: {hw_finite}")
+    print(f"  True label: {y[0]}   Match SW==HW: {'OK' if ok else 'FAIL'}")
+
+    if not hw_finite:
+        print("  *** WARNING: Hardware output contains NaN or Inf! ***")
+    return ok
+
+
+# ===================================================================
+# Stage 2: Quick correctness (n=200)
+# ===================================================================
+def stage2_quick(ol, ip):
+    print("\n" + "=" * 60)
+    print("STAGE 2: Quick Correctness (n=200)")
+    print("=" * 60)
+    d = np.load(EVAL_200)
+    X, y, ref = d['X'], d['y'], d['ref_logits']
+    n = len(X)
+
+    match_count   = 0   # hw_pred == sw_pred
+    hw_correct    = 0   # hw_pred == y[i]
+    ref_correct   = 0   # sw_pred == y[i]
+    nan_count     = 0
+    inf_count     = 0
+    max_err       = 0.0
+    sum_err       = 0.0
+    finite_err_count = 0
+
+    for i in range(n):
+        hw = run_kernel(ip, X[i])
+
+        sw_p = prediction(ref, i)
+        hw_p = prediction(hw, 0)
+
+        if hw_p == sw_p:
+            match_count += 1
+        if hw_p == y[i]:
+            hw_correct += 1
+        if sw_p == y[i]:
+            ref_correct += 1
+
+        hw_f = hw.ravel()
+        if not np.isfinite(hw_f).all():
+            if np.isnan(hw_f).any():
+                nan_count += 1
+            if np.isinf(hw_f).any():
+                inf_count += 1
+
+        # Debug: print first 10 samples
+        if i < 10:
+            print(f"  [{i}] y={y[i]} ref={ref[i]} hw={hw[0]} "
+                  f"sw_p={sw_p} hw_p={hw_p} finite={np.isfinite(hw_f).all()}")
+
+        e0 = abs(hw[0][0] - ref[i][0])
+        e1 = abs(hw[0][1] - ref[i][1])
+        if np.isfinite(e0) and np.isfinite(e1):
+            max_err = max(max_err, e0, e1)
+            sum_err += e0 + e1
+            finite_err_count += 1
+
+    match_rate  = match_count / n
+    hw_acc      = hw_correct / n
+    ref_acc     = ref_correct / n
+    mean_err    = sum_err / (finite_err_count * 2) if finite_err_count > 0 else float('nan')
+
+    print(f"\n  Samples: {n}")
+    print(f"  Pred match vs ref:    {match_rate:.4f} ({match_count}/{n})")
+    print(f"  HW accuracy (argmax):  {hw_acc:.4f} ({hw_correct}/{n})")
+    print(f"  Ref accuracy (argmax): {ref_acc:.4f} ({ref_correct}/{n})")
+    print(f"  NaN samples: {nan_count}  Inf samples: {inf_count}")
+    print(f"  Max abs error: {max_err:.8f}")
+    print(f"  Mean abs error: {mean_err:.8f}")
+
+    return match_rate, hw_acc, ref_acc, max_err, mean_err
+
+
+# ===================================================================
+# Stage 3: Full correctness (n=3444)
+# ===================================================================
+def stage3_full(ol, ip):
+    print("\n" + "=" * 60)
+    print("STAGE 3: Full Correctness (n=3444)")
+    print("=" * 60)
+    d = np.load(FULL_TEST)
+    X, y, ref = d['X'], d['y'], d['ref_logits']
+    n = len(X)
+
+    match_count   = 0
+    hw_correct    = 0
+    ref_correct   = 0
+    nan_count     = 0
+    inf_count     = 0
+    max_err       = 0.0
+    sum_err       = 0.0
+    finite_err_count = 0
+
+    t0 = time.perf_counter()
+    for i in range(n):
+        hw = run_kernel(ip, X[i])
+
+        sw_p = prediction(ref, i)
+        hw_p = prediction(hw, 0)
+
+        if hw_p == sw_p:
+            match_count += 1
+        if hw_p == y[i]:
+            hw_correct += 1
+        if sw_p == y[i]:
+            ref_correct += 1
+
+        hw_f = hw.ravel()
+        if not np.isfinite(hw_f).all():
+            if np.isnan(hw_f).any():
+                nan_count += 1
+            if np.isinf(hw_f).any():
+                inf_count += 1
+
+        e0 = abs(hw[0][0] - ref[i][0])
+        e1 = abs(hw[0][1] - ref[i][1])
+        if np.isfinite(e0) and np.isfinite(e1):
+            max_err = max(max_err, e0, e1)
+            sum_err += e0 + e1
+            finite_err_count += 1
+
+        if (i + 1) % 500 == 0:
+            print(f"  [{i+1}/{n}] done...")
+
+    t1 = time.perf_counter()
+    total_us  = (t1 - t0) * 1e6
+    match_rate = match_count / n
+    hw_acc     = hw_correct / n
+    ref_acc    = ref_correct / n
+    mean_err   = sum_err / (finite_err_count * 2) if finite_err_count > 0 else float('nan')
+    throughput = n / (t1 - t0)
+
+    print(f"\n  Samples: {n}")
+    print(f"  Total wall time: {total_us:.2f} us ({total_us/1e6:.2f} s)")
+    print(f"  Pred match vs ref:    {match_rate:.4f} ({match_count}/{n})")
+    print(f"  HW accuracy (argmax):  {hw_acc:.4f} ({hw_correct}/{n})")
+    print(f"  Ref accuracy (argmax): {ref_acc:.4f} ({ref_correct}/{n})")
+    print(f"  NaN samples: {nan_count}  Inf samples: {inf_count}")
+    print(f"  Max abs error: {max_err:.8f}")
+    print(f"  Mean abs error: {mean_err:.8f}")
+    print(f"  Throughput: {throughput:.2f} samples/s")
+
+    return match_rate, hw_acc, ref_acc, total_us, throughput, max_err, mean_err, nan_count, inf_count
+
+
+# ===================================================================
+# Stage 4: Latency benchmark
+# ===================================================================
+def stage4_latency(ol, ip, n_runs, label=""):
+    print(f"\n" + "=" * 60)
+    print(f"STAGE 4{label}: Kernel Latency ({n_runs} runs)")
+    print("=" * 60)
+    d = np.load(FULL_TEST)
+    s0 = d['X'][0]
+
+    # Pre-allocate buffers for the entire benchmark
+    in_buf = allocate(shape=(INPUT_BYTES // 4,), dtype=np.float32)
+    out_buf = allocate(shape=(LOGITS_BYTES // 4,), dtype=np.float32)
+    in_buf[:] = s0.astype(np.float32).ravel()[:]
+    in_buf.flush()
+    out_buf[:] = 0.0
+    out_buf.flush()
+
+    pa_in  = int(in_buf.physical_address)
+    pa_out = int(out_buf.physical_address)
+
+    pa_in_lo  = pa_in  & 0xFFFFFFFF
+    pa_in_hi  = (pa_in  >> 32) & 0xFFFFFFFF
+    pa_out_lo = pa_out & 0xFFFFFFFF
+    pa_out_hi = (pa_out >> 32) & 0xFFFFFFFF
+
+    # Warmup
+    for _ in range(N_WARMUP):
+        ip.write(INPUT_R_ADDR, pa_in_lo)
+        ip.write(INPUT_R_ADDR + 4, pa_in_hi)
+        ip.write(LOGITS_ADDR, pa_out_lo)
+        ip.write(LOGITS_ADDR + 4, pa_out_hi)
+        ip.write(CONTROL_ADDR, 0x1)
+        while (ip.read(CONTROL_ADDR) & 0x2) == 0:
+            pass
+
+    # Measure
+    times = np.zeros(n_runs)
+    for i in range(n_runs):
+        t0 = time.perf_counter()
+        ip.write(INPUT_R_ADDR, pa_in_lo)
+        ip.write(INPUT_R_ADDR + 4, pa_in_hi)
+        ip.write(LOGITS_ADDR, pa_out_lo)
+        ip.write(LOGITS_ADDR + 4, pa_out_hi)
+        ip.write(CONTROL_ADDR, 0x1)
+        while (ip.read(CONTROL_ADDR) & 0x2) == 0:
+            pass
+        t1 = time.perf_counter()
+        times[i] = (t1 - t0) * 1e6
+
+    del in_buf, out_buf
+
+    print(f"  Runs:  {n_runs}")
+    print(f"  Mean:  {times.mean():.4f} us")
+    print(f"  Std:   {times.std():.4f} us")
+    print(f"  Min:   {times.min():.4f} us")
+    print(f"  Max:   {times.max():.4f} us")
+    print(f"  P50:   {np.median(times):.4f} us")
+
+    return times.mean(), times.std()
+
+
+# ===================================================================
+# Main
+# ===================================================================
+def main():
+    # ---- Stage 0: reference sanity (always runs, no PYNQ required) ----
+    reference_sanity_check()
+
+    if not HAS_PYNQ:
+        print("PYNQ not available on this host. Reference check only.")
+        print("Run this script on PYNQ-Z2 for hardware stages.")
+        return
+
+    print("=" * 60)
+    print("small_B PYNQ-Z2 ON-BOARD TEST")
+    print("d_model=8  ff_dim=16  quant=ap_fixed<16,6>")
+    print("Vivado LUT=13,095  DSP=98  Acc(SW)=95.18%")
+    print("=" * 60)
+
+    # ---- Load overlay ----
+    if not os.path.exists(BIT_FILE):
+        print(f"ERROR: {BIT_FILE} not found"); sys.exit(1)
+    print(f"Loading {BIT_FILE} ...")
+    ol = Overlay(BIT_FILE)
+    ip_name = list(ol.ip_dict.keys())[0]
+    ip = getattr(ol, ip_name)
+    print(f"IP: {ip_name}")
+
+    # ---- Stage 1: Sanity ----
+    if not stage1_sanity(ol, ip):
+        print("SANITY CHECK FAILED. Stopping before further tests.")
+        sys.exit(1)
+
+    # ---- Stage 2: Quick 200 ----
+    mr2, ha2, ra2, mx2, mn2 = stage2_quick(ol, ip)
+
+    # ---- Stage 3: Full 3444 ----
+    mr3, ha3, ra3, total_us, tp, mx3, mn3, nan3, inf3 = stage3_full(ol, ip)
+
+    # ---- Stage 4a: Latency 100 runs ----
+    km100, ks100 = stage4_latency(ol, ip, 100, "a")
+
+    # ---- Stage 4b: Latency 1000 runs ----
+    km1k, ks1k = stage4_latency(ol, ip, 1000, "b")
+
+    # ---- Save CSV ----
+    print("\n" + "=" * 60)
+    print("SAVING RESULTS")
+    print("=" * 60)
+
+    rows = [
+        ("model_id", "small_B"),
+        ("d_model", 8),
+        ("ff_dim", 16),
+        ("quant_bits", 16),
+        ("vivado_lut", 13095),
+        ("vivado_dsp", 98),
+        ("vivado_ff", 12154),
+        ("vivado_bram", 11),
+        ("software_accuracy", 0.9518),
+        ("n_sanity_samples", 1),
+        ("n_correctness_samples", 3444),
+        ("prediction_match_rate_vs_small_B_ref", round(mr3, 6)),
+        ("hw_label_accuracy", round(ha3, 6)),
+        ("ref_label_accuracy", round(ra3, 6)),
+        ("max_abs_error_vs_small_B_ref", round(mx3, 8) if np.isfinite(mx3) else "nan"),
+        ("mean_abs_error_vs_small_B_ref", round(mn3, 8) if np.isfinite(mn3) else "nan"),
+        ("kernel_runtime_mean_us_100runs", round(km100, 6)),
+        ("kernel_runtime_std_us_100runs", round(ks100, 6)),
+        ("kernel_runtime_mean_us_1000runs", round(km1k, 6)),
+        ("kernel_runtime_std_us_1000runs", round(ks1k, 6)),
+        ("total_runtime_mean_us_correctness", round(total_us, 6)),
+        ("throughput_samples_per_sec", round(tp, 6)),
+        ("latency_source", "PYNQ_Z2_MEASURED"),
+        ("pynq_measured", "True"),
+        ("nan_count_full_test", nan3),
+        ("inf_count_full_test", inf3),
+        ("notes", f"small_B (d=8/ff=16) PYNQ-Z2 measured. 3444 samples. ref_acc={ra3:.6f}. "
+                  f"FIXED: argmax prediction, 64-bit AXI addr split, NaN/Inf tracking."),
+    ]
+
+    with open(OUTPUT_CSV, 'w', newline='') as f:
+        w = csv.writer(f)
+        w.writerow(["metric", "value"])
+        for k, v in rows:
+            w.writerow([k, v])
+
+    print(f"Results saved: {OUTPUT_CSV}")
+
+    # ---- Speedup ----
+    vit_fast, vit_rec = 810000.0, 1480000.0
+    print(f"\nSpeedup vs ViT4Mal fastest ({vit_fast:.0f} us): {vit_fast / total_us:.2f}x")
+    print(f"Speedup vs ViT4Mal rec ({vit_rec:.0f} us):     {vit_rec / total_us:.2f}x")
+    print("\nsmall_B PYNQ test complete.")
+
+
+if __name__ == "__main__":
+    main()

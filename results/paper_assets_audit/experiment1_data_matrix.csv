@@ -1,0 +1,7 @@
+config,quant_bits,sparsity_label,attn_dim,actual_sparsity,accuracy,precision,recall,f1,lut,dsp,ff,bram,kernel_latency_us,full_application_latency_ms,speedup_vs_vit4mal_0p81s,source_file,status,notes
+Q16-QKSv2-S0,16,S0,16,0.00%,0.936411,0.980959,0.944011,0.962130,13322,147,12733,15,1007.8,18.5300,43.7129,results/pynq_sparse_pareto_v2/qks_v2_fpga_model_inference_summary.csv; qks_v2_latency_breakdown_summary.csv,COMPLETE_Q16,"Use S0 name in paper; full-application speedup is conservative"
+Q16-QKSv2-S10,16,S10,14,12.50%,0.937863,0.980316,0.946386,0.963052,13344,147,12735,15,975.5,18.8153,43.0501,results/pynq_sparse_pareto_v2/qks_v2_fpga_model_inference_summary.csv; qks_v2_latency_breakdown_summary.csv,COMPLETE_Q16,"Physical Q/K dimension 14; not global 10% sparsity"
+Q16-QKSv2-S20,16,S20,13,18.75%,0.941057,0.979385,0.951137,0.965054,13349,148,12779,15,951.6,18.5536,43.6573,results/pynq_sparse_pareto_v2/qks_v2_fpga_model_inference_summary.csv; qks_v2_latency_breakdown_summary.csv,COMPLETE_Q16,"Physical Q/K dimension 13"
+Q16-QKSv2-S30,16,S30,11,31.25%,0.938444,0.979993,0.947404,0.963423,13347,148,12779,15,911.5,18.6930,43.3317,results/pynq_sparse_pareto_v2/qks_v2_fpga_model_inference_summary.csv; qks_v2_latency_breakdown_summary.csv,COMPLETE_Q16,"Physical Q/K dimension 11; full application is PS-dominated"
+Q8-QKSv2-S0,8,S0,,,,,,,,,,,,,,,MISSING,"No Q8-QKS-v2 implementation/result; legacy Q8 or QKS-v1 cannot substitute"
+Q8-QKSv2-sparse,8,TBD,,,,,,,,,,,,,,,MISSING,"No Q8-QKS-v2 sparse points"

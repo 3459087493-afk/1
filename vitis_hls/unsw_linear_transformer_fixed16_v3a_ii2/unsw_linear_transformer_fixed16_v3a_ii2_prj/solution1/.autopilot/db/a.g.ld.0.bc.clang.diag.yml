@@ -1,0 +1,32 @@
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 13, Column: 0 }
+Function:        _ZL13layer_norm_2dI8ap_fixedILi16ELi6EL9ap_q_mode0EL9ap_o_mode0ELi0EES3_S3_S3_EvPA16_KT_PA16_T2_PKT0_PKT1_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'std::sqrt(float)'
+    DebugLoc:        { File: '/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath', 
+                       Line: 464, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void layer_norm_2d<ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> >(ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> const (*) [16], ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [16], ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> const*)'
+    DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 13, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 54, Column: 0 }
+Function:        _ZL13layer_norm_1dI8ap_fixedILi16ELi6EL9ap_q_mode0EL9ap_o_mode0ELi0EES3_S3_S3_EvPKT_PT2_PKT0_PKT1_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'std::sqrt(float)'
+    DebugLoc:        { File: '/tools/Xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/cmath', 
+                       Line: 464, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void layer_norm_1d<ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> >(ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> const*)'
+    DebugLoc:        { File: src/unsw_linear_transformer.cpp, Line: 54, 
+                       Column: 0 }
+  - String:          ''''
+...

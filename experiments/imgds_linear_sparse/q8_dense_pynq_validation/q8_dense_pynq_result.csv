@@ -1,0 +1,34 @@
+metric,value
+model_id,Ours-Dense-Q8
+paper_name,Ours-Dense-Q8
+internal_code,q8_dense_s0
+d_model,16
+ff_dim,32
+quant_bits,8
+weight_type,ap_fixed_8_4 (internal)
+data_path_type,ap_fixed_16_6 (Q6.10)
+io_dtype,int16_Q6_10
+vivado_lut,14019
+vivado_dsp,124
+vivado_ff,13373
+vivado_bram,15
+q16_baseline_vivado_lut,14004
+dsp_delta_vs_q16_pct,-20.5
+software_accuracy,0.91
+n_correctness_samples,3444
+prediction_match_rate_vs_Q8_ref,0.982869
+hw_label_accuracy,0.909698
+ref_label_accuracy,0.909988
+max_abs_error,0.68299818
+mean_abs_error,0.16504185
+nan_samples,0
+inf_samples,0
+kernel_runtime_mean_us_100runs,932.55235
+kernel_runtime_std_us_100runs,7.708428
+kernel_runtime_mean_us_1000runs,929.708188
+kernel_runtime_std_us_1000runs,7.036322
+total_runtime_us_correctness,23145100.027
+throughput_samples_per_sec,148.800394
+latency_source,PYNQ_Z2_MEASURED
+pynq_measured,True
+notes,"Ours-Dense-Q8 (d=16/ff=32, Q8-weight Q16-data). 3444 samples. Quantization ablation point."

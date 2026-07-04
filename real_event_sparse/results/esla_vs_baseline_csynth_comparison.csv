@@ -1,0 +1,5 @@
+model_id,sparsity_type,active_tokens,active_dim,accuracy,f1,latency_max_cycles,latency_reduction_vs_q16_s0_percent,latency_reduction_vs_q16_s30_percent,bram,dsp,ff,lut,interface,notes
+Q16-S0,dense,16,16,0.941347,0.965256,74084,0.00,TBD,13,156,9484,22056,AP_MEMORY,Dense baseline. Pareto2 design without AXI. ACTIVE_DIM=16 all channels. Slack=-0.60 FAIL. Source: stage2_dense_hls_baselines/q16_s0_pareto2.
+Q16-S30,channel sparse,16,11,0.941347,0.965304,73832,0.34,0.00,13,156,11680,25700,M_AXI,Channel sparse ACTIVE_DIM=11. Slack=-0.60 FAIL. FF+LUT higher due to AXI wrapper. Source: experiment1_sparse_board/hls_projects/q16_s30_attn_sparse.
+Q16-ESLA-K13,token event sparse,13,16,0.947445,0.969400,VARIABLE_EST_77400,-4.48,-4.83,15,153,13809,29620,M_AXI,Token event sparse ACTIVE_TOKEN=13. Latency indeterminate. Estimated ~77400 cycles minimum. More BRAM/FF/LUT than both baselines. Additional sort+compaction overhead.
+Q16-S10,near-dense channel sparse,16,14,0.941057,0.965102,77645,-4.81,-5.17,13,156,11680,25700,M_AXI,ACTIVE_DIM=14 channel sparse. Closest AXI architecture to Q16-S0 dense. Source: experiment1_sparse_board/hls_projects/q16_s10_attn_sparse.

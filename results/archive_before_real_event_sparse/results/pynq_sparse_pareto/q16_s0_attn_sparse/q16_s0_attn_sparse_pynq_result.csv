@@ -1,0 +1,39 @@
+metric,value
+model_id,Ours-Q16-S0-AttnSparse
+code_name,q16_s0_attn_sparse
+d_model,16
+ff_dim,32
+quant_bits,16
+active_dim,16
+effective_sparsity,0%
+vivado_lut,14004
+vivado_dsp,156
+vivado_ff,12903
+vivado_bram,15
+hw_label_accuracy,0.941347
+ref_label_accuracy,0.941928
+precision,0.978723
+recall,0.952155
+f1,0.965256
+prediction_match_rate,0.992451
+max_abs_error,0.5607618
+mean_abs_error,0.07329194
+nan_samples,0
+inf_samples,0
+latency_us_100runs,851.4716
+latency_us_1000runs,843.1539
+latency_std_1000runs,4.1379
+total_runtime_us,7381606.54
+throughput_samples_per_sec,466.57
+speedup_vs_ViT4Mal_fastest_810ms,960.678709
+speedup_vs_ViT4Mal_recommended_1480ms,1755.314184
+latency_source,PYNQ_Z2_MEASURED
+pynq_measured,True
+per_sample_verified,True
+notes,Q16 S0. LUT=14004 DSP=156 hw_acc=0.9413 F1=0.9653 latency=843.15us.
+speedup_vs_ViT4Mal_fastest_0p81s,960.678709
+speedup_vs_ViT4Mal_recommended_1p48s,1755.314184
+vit4mal_fastest_latency_us,810000.0
+vit4mal_recommended_latency_us,1480000.0
+speedup_formula,ViT4Mal_single_sample_latency_us / ours_latency_us_1000runs
+speedup_note,"Corrected speedup uses per-sample PYNQ measured 1000-run mean kernel latency, not total correctness runtime."

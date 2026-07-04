@@ -1,0 +1,594 @@
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+Tool Version Limit: 2019.12
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vivado' configuration: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xc7z020clg400-1 
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: set_directive_allocation -limit 180 -type operation unsw_linear_transformer mul 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 10.02 seconds; current allocated memory: 308.719 MB.
+INFO: [HLS 200-10] Analyzing design file 'src/unsw_linear_transformer.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 12.32 seconds. CPU system time: 0.51 seconds. Elapsed time: 12.86 seconds; current allocated memory: 310.852 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-178] Inlining function 'std::sqrt(float)' into 'void layer_norm_2d<ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> >(ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> const (*) [16], ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> (*) [16], ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> const*)' (src/unsw_linear_transformer.cpp:13:0)
+INFO: [HLS 214-178] Inlining function 'std::sqrt(float)' into 'void layer_norm_1d<ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> >(ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> const*)' (src/unsw_linear_transformer.cpp:54:0)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 4.93 seconds. CPU system time: 0.39 seconds. Elapsed time: 5.32 seconds; current allocated memory: 311.094 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 311.094 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.28 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.31 seconds; current allocated memory: 356.996 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+WARNING: [SYNCHK 200-23] /tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_fixed_base.h:580: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.45 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.48 seconds; current allocated memory: 404.195 MB.
+INFO: [XFORM 203-102] Partitioning array 'POSITION_EMBEDDING.V' in dimension 1 automatically.
+INFO: [XFORM 203-102] Automatically partitioning small array 'CLASSIFIER_BIAS.V' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'logits_fp.V' (src/unsw_linear_transformer.cpp:295) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'CLASSIFIER_BIAS.V' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'logits_fp.V' (src/unsw_linear_transformer.cpp:295) in dimension 1 completely.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:95:9) to (src/unsw_linear_transformer.cpp:94:26) in function 'unsw_linear_transformer'... converting 28 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:106:9) to (src/unsw_linear_transformer.cpp:105:31) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:103:27) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:121:9) to (src/unsw_linear_transformer.cpp:120:31) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:118:27) in function 'unsw_linear_transformer'... converting 39 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:141:9) to (src/unsw_linear_transformer.cpp:140:32) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:138:28) in function 'unsw_linear_transformer'... converting 39 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:161:9) to (src/unsw_linear_transformer.cpp:160:32) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:158:28) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:176:9) to (src/unsw_linear_transformer.cpp:175:32) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:186:24) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:200:9) to (src/unsw_linear_transformer.cpp:199:28) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:210:9) to (src/unsw_linear_transformer.cpp:209:32) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:207:28) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:225:9) to (src/unsw_linear_transformer.cpp:224:32) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:222:28) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:248:9) to (src/unsw_linear_transformer.cpp:247:32) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:245:28) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:262:9) to (src/unsw_linear_transformer.cpp:261:32) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:259:28) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:279:24) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:299:9) to (src/unsw_linear_transformer.cpp:298:28) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:296:24) in function 'unsw_linear_transformer'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:309:1) in function 'unsw_linear_transformer'... converting 19 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:24:9) to (src/unsw_linear_transformer.cpp:23:26) in function 'layer_norm_2d<ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> >'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:36:9) to (src/unsw_linear_transformer.cpp:35:26) in function 'layer_norm_2d<ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> >'... converting 7 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:23:26) in function 'layer_norm_2d<ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> >'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:35:26) in function 'layer_norm_2d<ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> >'... converting 39 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:64:9) to (src/unsw_linear_transformer.cpp:63:22) in function 'layer_norm_1d<ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> >'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/unsw_linear_transformer.cpp:76:9) to (src/unsw_linear_transformer.cpp:75:22) in function 'layer_norm_1d<ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> >'... converting 7 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:63:22) in function 'layer_norm_1d<ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> >'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (src/unsw_linear_transformer.cpp:75:22) in function 'layer_norm_1d<ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> >'... converting 39 basic blocks.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 1.37 seconds. CPU system time: 0.03 seconds. Elapsed time: 1.41 seconds; current allocated memory: 489.902 MB.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_93_1' (src/unsw_linear_transformer.cpp:93:31) in function 'unsw_linear_transformer'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_103_4' (src/unsw_linear_transformer.cpp:103:36) in function 'unsw_linear_transformer' the outer loop is not a perfect loop.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_102_3' (src/unsw_linear_transformer.cpp:102:32) in function 'unsw_linear_transformer'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_118_7' (src/unsw_linear_transformer.cpp:118:36) in function 'unsw_linear_transformer' the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_117_6' (src/unsw_linear_transformer.cpp:117:32) in function 'unsw_linear_transformer'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_138_10' (src/unsw_linear_transformer.cpp:138:37) in function 'unsw_linear_transformer' the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_137_9' (src/unsw_linear_transformer.cpp:137:32) in function 'unsw_linear_transformer'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_158_13' (src/unsw_linear_transformer.cpp:158:37) in function 'unsw_linear_transformer' the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_157_12' (src/unsw_linear_transformer.cpp:157:33) in function 'unsw_linear_transformer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_173_16' (src/unsw_linear_transformer.cpp:173:37) in function 'unsw_linear_transformer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_172_15' (src/unsw_linear_transformer.cpp:172:33) in function 'unsw_linear_transformer'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_186_18' (src/unsw_linear_transformer.cpp:186:33) in function 'unsw_linear_transformer' the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_207_22' (src/unsw_linear_transformer.cpp:207:37) in function 'unsw_linear_transformer'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_197_20' (src/unsw_linear_transformer.cpp:197:33) in function 'unsw_linear_transformer' more than one sub loop.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_222_25' (src/unsw_linear_transformer.cpp:222:37) in function 'unsw_linear_transformer' the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_221_24' (src/unsw_linear_transformer.cpp:221:33) in function 'unsw_linear_transformer'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_245_28' (src/unsw_linear_transformer.cpp:245:37) in function 'unsw_linear_transformer' the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_244_27' (src/unsw_linear_transformer.cpp:244:33) in function 'unsw_linear_transformer'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_259_31' (src/unsw_linear_transformer.cpp:259:37) in function 'unsw_linear_transformer' the outer loop is not a perfect loop.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_258_30' (src/unsw_linear_transformer.cpp:258:33) in function 'unsw_linear_transformer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_279_33' (src/unsw_linear_transformer.cpp:279:33) in function 'unsw_linear_transformer'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_296_35' (src/unsw_linear_transformer.cpp:296:33) in function 'unsw_linear_transformer' the outer loop is not a perfect loop.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_14_1' (src/unsw_linear_transformer.cpp:14:31) in function 'layer_norm_2d<ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0> >' more than one sub loop.
+INFO: [HLS 200-472] Inferring partial write operation for 'input_fp.V' (src/unsw_linear_transformer.cpp:96:17)
+INFO: [HLS 200-472] Inferring partial write operation for 'embedded.V' (src/unsw_linear_transformer.cpp:111:48)
+INFO: [HLS 200-472] Inferring partial write operation for 'query.V' (src/unsw_linear_transformer.cpp:128:49)
+INFO: [HLS 200-472] Inferring partial write operation for 'key.V' (src/unsw_linear_transformer.cpp:148:47)
+INFO: [HLS 200-472] Inferring partial write operation for 'value.V' (src/unsw_linear_transformer.cpp:166:45)
+INFO: [HLS 200-472] Inferring partial write operation for 'key_value.V' (src/unsw_linear_transformer.cpp:180:51)
+INFO: [HLS 200-472] Inferring partial write operation for 'key_sum_arr.V' (src/unsw_linear_transformer.cpp:192:30)
+INFO: [HLS 200-472] Inferring partial write operation for 'attention.V' (src/unsw_linear_transformer.cpp:214:48)
+INFO: [HLS 200-472] Inferring partial write operation for 'residual1.V' (src/unsw_linear_transformer.cpp:230:49)
+INFO: [HLS 200-472] Inferring partial write operation for 'feedforward_hidden.V' (src/unsw_linear_transformer.cpp:252:58)
+INFO: [HLS 200-472] Inferring partial write operation for 'residual2.V' (src/unsw_linear_transformer.cpp:266:49)
+INFO: [HLS 200-472] Inferring partial write operation for 'pooled.V' (src/unsw_linear_transformer.cpp:285:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'output' (src/unsw_linear_transformer.cpp:42:39)
+INFO: [HLS 200-472] Inferring partial write operation for 'output' (src/unsw_linear_transformer.cpp:82:25)
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 2.89 seconds. CPU system time: 0.06 seconds. Elapsed time: 2.96 seconds; current allocated memory: 718.488 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'unsw_linear_transformer' ...
+WARNING: [SYN 201-103] Legalizing function name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_172_15_VITIS_LOOP_173_16_VITIS_LOOP_' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_172_15_VITIS_LOOP_173_16_VITIS_LOOP_s'.
+WARNING: [SYN 201-103] Legalizing function name 'layer_norm_2d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>>_Pipeline_VITIS_LO.2' to 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2'.
+WARNING: [SYN 201-103] Legalizing function name 'layer_norm_2d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>>_Pipeline_VITIS_LO.1' to 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1'.
+WARNING: [SYN 201-103] Legalizing function name 'layer_norm_2d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>>_Pipeline_VITIS_LO' to 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO'.
+WARNING: [SYN 201-103] Legalizing function name 'layer_norm_2d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>>' to 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_s'.
+WARNING: [SYN 201-103] Legalizing function name 'layer_norm_1d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>>_Pipeline_VITIS_LO.2' to 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2'.
+WARNING: [SYN 201-103] Legalizing function name 'layer_norm_1d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>>_Pipeline_VITIS_LO.1' to 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1'.
+WARNING: [SYN 201-103] Legalizing function name 'layer_norm_1d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>>_Pipeline_VITIS_LO' to 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO'.
+WARNING: [SYN 201-103] Legalizing function name 'layer_norm_1d<ap_fixed,ap_fixed,ap_fixed,ap_fixed<16,6,0,0,0>>' to 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_s'.
+WARNING: [SYN 201-223] Checking resource limit in 'unsw_linear_transformer': cannot find any operation of 'mul'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_93_1_VITIS_LOOP_94_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_93_1_VITIS_LOOP_94_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 10, loop 'VITIS_LOOP_93_1_VITIS_LOOP_94_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.16 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.25 seconds; current allocated memory: 722.055 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.12 seconds; current allocated memory: 722.055 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_105_5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_105_5'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 9, loop 'VITIS_LOOP_105_5'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.22 seconds. CPU system time: 0 seconds. Elapsed time: 0.22 seconds; current allocated memory: 723.047 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 723.047 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_120_8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_120_8'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 7, loop 'VITIS_LOOP_120_8'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.15 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 723.227 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 723.227 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_140_11' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_140_11'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 7, loop 'VITIS_LOOP_140_11'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.29 seconds; current allocated memory: 723.871 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 723.871 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_160_14' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_14) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_160_14'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 7, loop 'VITIS_LOOP_160_14'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 724.527 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.17 seconds; current allocated memory: 724.527 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_172_15_VITIS_LOOP_173_16_VITIS_LOOP_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_172_15_VITIS_LOOP_173_16_VITIS_LOOP_175_17'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 7, loop 'VITIS_LOOP_172_15_VITIS_LOOP_173_16_VITIS_LOOP_175_17'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.29 seconds; current allocated memory: 725.973 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 725.973 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_188_19' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_188_19'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 3, loop 'VITIS_LOOP_188_19'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 726.020 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 726.020 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_199_21' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_199_21'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 5, loop 'VITIS_LOOP_199_21'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 726.391 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.19 seconds; current allocated memory: 726.391 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_207_22_VITIS_LOOP_209_23' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_207_22_VITIS_LOOP_209_23'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 58, loop 'VITIS_LOOP_207_22_VITIS_LOOP_209_23'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.18 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.34 seconds; current allocated memory: 727.781 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.2 seconds. CPU system time: 0 seconds. Elapsed time: 0.21 seconds; current allocated memory: 727.781 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_224_26' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_8) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_224_26'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 7, loop 'VITIS_LOOP_224_26'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.18 seconds. CPU system time: 0 seconds. Elapsed time: 0.22 seconds; current allocated memory: 728.422 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 728.422 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_16_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 3, loop 'VITIS_LOOP_16_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 729.094 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 729.094 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_23_3'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 5, loop 'VITIS_LOOP_23_3'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.31 seconds; current allocated memory: 729.445 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 729.445 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_22) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_21) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_35_4'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 14, loop 'VITIS_LOOP_35_4'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.15 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.31 seconds; current allocated memory: 730.656 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 730.656 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.29 seconds. CPU system time: 0 seconds. Elapsed time: 0.31 seconds; current allocated memory: 733.484 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.34 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.34 seconds; current allocated memory: 733.484 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_247_29' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_6) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_247_29'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 7, loop 'VITIS_LOOP_247_29'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.56 seconds. CPU system time: 0 seconds. Elapsed time: 0.56 seconds; current allocated memory: 733.910 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 733.910 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_261_32' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_4) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_261_32'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 8, loop 'VITIS_LOOP_261_32'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 735.246 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.19 seconds; current allocated memory: 735.246 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_279_33_VITIS_LOOP_281_34' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_279_33_VITIS_LOOP_281_34'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 6, loop 'VITIS_LOOP_279_33_VITIS_LOOP_281_34'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.17 seconds. CPU system time: 0 seconds. Elapsed time: 0.27 seconds; current allocated memory: 735.762 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 735.762 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_56_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 2, loop 'VITIS_LOOP_56_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 736.637 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 736.637 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_63_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 5, loop 'VITIS_LOOP_63_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 736.961 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 736.961 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_29) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_28) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_75_3'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 14, loop 'VITIS_LOOP_75_3'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.14 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.31 seconds; current allocated memory: 737.879 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.21 seconds; current allocated memory: 737.879 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.29 seconds. CPU system time: 0 seconds. Elapsed time: 0.3 seconds; current allocated memory: 740.215 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.32 seconds. CPU system time: 0 seconds. Elapsed time: 0.33 seconds; current allocated memory: 740.215 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_298_36' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=r_V_2) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_298_36'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 7, loop 'VITIS_LOOP_298_36'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.52 seconds. CPU system time: 0 seconds. Elapsed time: 0.52 seconds; current allocated memory: 741.270 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.19 seconds; current allocated memory: 741.270 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'unsw_linear_transformer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.49 seconds. CPU system time: 0 seconds. Elapsed time: 0.49 seconds; current allocated memory: 751.105 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1.2 seconds. CPU system time: 0 seconds. Elapsed time: 1.2 seconds; current allocated memory: 751.105 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_93_1_VITIS_LOOP_94_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_93_1_VITIS_LOOP_94_2' pipeline 'VITIS_LOOP_93_1_VITIS_LOOP_94_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fpext_32ns_64_2_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_93_1_VITIS_LOOP_94_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 2.51 seconds. CPU system time: 0.01 seconds. Elapsed time: 2.58 seconds; current allocated memory: 751.105 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_105_5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_105_5_INPUT_PROJECTION_WEIGHT_V_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_105_5_INPUT_PROJECTION_WEIGHT_V_Rbkb' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_105_5' pipeline 'VITIS_LOOP_105_5' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_15s_20s_35_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_105_5'.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_105_5_INPUT_PROJECTION_WEIGHT_V_Rbkb' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.45 seconds. CPU system time: 0 seconds. Elapsed time: 0.45 seconds; current allocated memory: 753.676 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_120_8' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_120_8_LAYERS_0_ATTENTION_QUERY_WEIGHT_V_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_120_8_LAYERS_0_ATTENTION_QUERY_WEcud' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_120_8' pipeline 'VITIS_LOOP_120_8' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_13s_20s_33_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_120_8'.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_120_8_LAYERS_0_ATTENTION_QUERY_WEcud' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.3 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.3 seconds; current allocated memory: 756.547 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_140_11' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_140_11_LAYERS_0_ATTENTION_KEY_WEIGHT_V_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_140_11_LAYERS_0_ATTENTION_KEY_WEIdEe' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_140_11' pipeline 'VITIS_LOOP_140_11' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_15s_20s_35_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_140_11'.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_140_11_LAYERS_0_ATTENTION_KEY_WEIdEe' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.17 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 758.598 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_160_14' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_160_14_LAYERS_0_ATTENTION_VALUE_WEIGHT_V_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_160_14_LAYERS_0_ATTENTION_VALUE_WeOg' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_160_14' pipeline 'VITIS_LOOP_160_14' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_15s_20s_35_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_160_14'.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_160_14_LAYERS_0_ATTENTION_VALUE_WeOg' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 760.559 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_172_15_VITIS_LOOP_173_16_VITIS_LOOP_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_172_15_VITIS_LOOP_173_16_VITIS_LOOP_s' pipeline 'VITIS_LOOP_172_15_VITIS_LOOP_173_16_VITIS_LOOP_175_17' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_22s_22s_44_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_172_15_VITIS_LOOP_173_16_VITIS_LOOP_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.17 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.24 seconds; current allocated memory: 762.715 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_188_19' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_188_19' pipeline 'VITIS_LOOP_188_19' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_188_19'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.24 seconds. CPU system time: 0 seconds. Elapsed time: 0.23 seconds; current allocated memory: 765.027 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_199_21' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_199_21' pipeline 'VITIS_LOOP_199_21' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_22s_22s_44_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_199_21'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 766.344 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_207_22_VITIS_LOOP_209_23' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_207_22_VITIS_LOOP_209_23' pipeline 'VITIS_LOOP_207_22_VITIS_LOOP_209_23' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_22s_28s_50_3_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sdiv_44ns_28ns_44_48_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_207_22_VITIS_LOOP_209_23'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.18 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.18 seconds; current allocated memory: 769.172 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_224_26' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_224_26_LAYERS_0_ATTENTION_OUTPUT_WEIGHT_V_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_224_26_LAYERS_0_ATTENTION_OUTPUT_fYi' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_224_26' pipeline 'VITIS_LOOP_224_26' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_14s_20s_34_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_224_26'.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_224_26_LAYERS_0_ATTENTION_OUTPUT_fYi' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.35 seconds. CPU system time: 0 seconds. Elapsed time: 0.36 seconds; current allocated memory: 772.496 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2' pipeline 'VITIS_LOOP_16_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 774.113 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1' pipeline 'VITIS_LOOP_23_3' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_20s_20s_40_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 775.520 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO' pipeline 'VITIS_LOOP_35_4' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_16s_16s_32_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_20s_16s_36_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.2 seconds. CPU system time: 0 seconds. Elapsed time: 0.19 seconds; current allocated memory: 778.121 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_16_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fpext_32ns_64_2_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsqrt_32ns_32ns_32_16_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'layer_norm_2d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.41 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.44 seconds; current allocated memory: 783.523 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_247_29' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_247_29_LAYERS_0_FEEDFORWARD_0_WEIGHT_V_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_247_29_LAYERS_0_FEEDFORWARD_0_WEIg8j' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_247_29' pipeline 'VITIS_LOOP_247_29' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_15s_20s_35_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_247_29'.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_247_29_LAYERS_0_FEEDFORWARD_0_WEIg8j' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.94 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.96 seconds; current allocated memory: 789.184 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_261_32' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'unsw_linear_transformer_Pipeline_VITIS_LOOP_261_32_LAYERS_0_FEEDFORWARD_3_WEIGHT_V_ROM_AUTO_1R' to 'unsw_linear_transformer_Pipeline_VITIS_LOOP_261_32_LAYERS_0_FEEDFORWARD_3_WEIhbi' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_261_32' pipeline 'VITIS_LOOP_261_32' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_14s_19ns_33_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_261_32'.
+INFO: [RTMG 210-279] Implementing memory 'unsw_linear_transformer_unsw_linear_transformer_Pipeline_VITIS_LOOP_261_32_LAYERS_0_FEEDFORWARD_3_WEIhbi' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.19 seconds. CPU system time: 0 seconds. Elapsed time: 0.21 seconds; current allocated memory: 792.461 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_279_33_VITIS_LOOP_281_34' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'unsw_linear_transformer_Pipeline_VITIS_LOOP_279_33_VITIS_LOOP_281_34' pipeline 'VITIS_LOOP_279_33_VITIS_LOOP_281_34' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'unsw_linear_transformer_Pipeline_VITIS_LOOP_279_33_VITIS_LOOP_281_34'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.28 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.3 seconds; current allocated memory: 795.023 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.22 seconds. CPU system time: 0 seconds. Elapsed time: 0.23 seconds; current allocated memory: 798.250 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1' pipeline 'VITIS_LOOP_63_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_20s_20s_40_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 800.547 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_OUTPUT_NORM_WEIGHT_V_ROM_AUTO_1R' to 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_Libs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LO_OUTPUT_NORM_BIAS_V_ROM_AUTO_1R' to 'layer_norm_1d_ap_fixed_ap_fixed_ap_fixed_ap_fixed_16_6_0_0_0_Pipeline_VITIS_LjbC' due to the length limit 80
